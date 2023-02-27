@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* All the !important in here can be removed after chakra ui removal */
+
+html {
+  overflow-y: scroll;
+}
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Open Sans", sans-serif !important;
+  height: 100%;
+}
+
+.desc p:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+
+h2 {
+  font-weight: 600 !important;
+  font-size: 20px !important;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    color: white;
+    background: black;
+  }
+}
+
+/* variables */
+:root {
+  /* sizes */
+  --maxWidth: 1200px;
+  --xs: 4px;
+  --sm: 8px;
+  --md: 16px;
+  --lg: 24px;
+  --xl: 32px;
+  --br: 8px;
+
+  /* font */
+
+  /* colors */
+  --black: #272727;
+  --blue: #5865f2;
+  --yellow: #fed766;
+  --red: #e84855;
+  --white: #fff;
+}
