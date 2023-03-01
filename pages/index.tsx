@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
-import { Container, Heading, Image, Text } from "@chakra-ui/react";
+import { Container, Heading, Image, Icon, Text } from "@chakra-ui/react";
 import { NextPage } from "next";
+import { FaInstagram, FaYoutube } from "react-icons/fa";
 import Wrapper from "../components/Wrapper";
 
 export const Index: NextPage = () => {
@@ -13,13 +14,13 @@ export const Index: NextPage = () => {
             <h1 className="font-serif md:w-8/12 font-weight:900 text-5xl text-center mx-auto my-7">
               biography
             </h1>
-            <div className="flex flex-wrap lg:max-w-6xl md:max-w-full justify-center mx-auto">
+            <div className="flex flex-wrap lg:max-w-7xl md:max-w-full justify-center mx-auto">
               <Image
                 src="img/eddie.jpeg"
                 alt="image is broken"
-                className="h-max lg:w-1/2  md:w-full lg:max-w-md md:max-w-full mb-5 object-scale-down rounded-lg"
+                className="h-max lg:w-1/2 md:w-full lg:max-w-xl md:max-w-full mb-5 object-scale-down rounded-lg"
               ></Image>
-              <div className="lg:w-1/2 md:w-full pl-6 max-w-md inline-block">
+              <div className="lg:w-1/2 md:w-full pl-6 lg:max-w-xl md:max-w-full text-lg inline-block">
                 <p className="mb-3">
                   Eddie is a fingerstyle guitarist from the Netherlands. His
                   continuous dedication to his passion has led to him creating
@@ -47,7 +48,42 @@ export const Index: NextPage = () => {
               </div>
             </div>
             <p>pog</p>
-
+            <h1 className="font-serif md:w-8/12 font-weight:900 text-4xl text-center mx-auto my-7">
+              team
+            </h1>
+            <div className="flex flex-wrap lg:max-w-6xl md:max-w-full justify-center mb-14 mx-auto">
+              <div className="flex flex-col items-center lg:w-1/4 ">
+                <Image
+                  src="/img/jc300px.jpg"
+                  alt="image broke"
+                  className="rounded-xl"
+                ></Image>
+                <span className="text-2xl">juliano</span>
+                <p className="text-lg italic text-amber-200">cameraman</p>
+                <div className="text-3xl mt-4">
+                  <a>
+                    <Icon as={FaYoutube} className="m-0.5"></Icon>
+                  </a>
+                  <a>
+                    <Icon as={FaInstagram} className="m-0.5"></Icon>
+                  </a>
+                </div>
+              </div>
+              <div className="flex flex-col lg:w-1/4 mx-5 items-center">
+                <Image
+                  src="/img/unnamed300px.jpg"
+                  alt="robert"
+                  className="rounded-xl"
+                ></Image>
+                <span className="text-2xl">robert</span>
+                <p className="text-lg italic text-amber-200">transcriber</p>
+                <div className="text-3xl mt-4">
+                  <a>
+                    <Icon as={FaYoutube} className="m-0.5"></Icon>
+                  </a>
+                </div>
+              </div>
+            </div>
             <div></div>
           </div>
         </div>
