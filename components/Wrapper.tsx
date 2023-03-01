@@ -33,13 +33,14 @@ const Wrapper = ({
           </HStack>
         </header>
       </div>
-      <main className="text-gray-50 font-serif">{children}</main>
+      <main className="text-gray-50 font-serif ">{children}</main>
       {hasFooter && (
         <div className="w-full justify-center flex text-gray-50">
-          <footer className="container flex items-center justify-center mx-auto h-32 text-center">
-            <VStack spacing={0} className=" text-gray-50 w-2/6 ">
+          <footer className="container flex items-center justify-center mx-auto mb-6 h-fit text-center ">
+            <VStack spacing={0} className=" text-gray-50 w-2/6">
               <div className="h-px w-full bg-gray-50"></div>
-              <div className="py-16 bg font-serif ">
+              <div className="h-14"></div>
+              <div className=" bg font-serif mt-14">
                 <HStack className="justify-center mb-5">
                   {icons.map((icon: SocialIcon, index: number) => (
                     <a key={index} href={icon.link}>
