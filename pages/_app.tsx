@@ -8,7 +8,6 @@ import "@fontsource/raleway/700.css";
 export function App({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider theme={theme}>
-      <p>test</p>
       <Component {...pageProps} />
     </ChakraProvider>
   );
