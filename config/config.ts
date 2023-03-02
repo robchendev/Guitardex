@@ -1,3 +1,13 @@
+import { IconType } from "react-icons";
+// eslint-disable-next-line prettier/prettier
+import {
+  FaApple,
+  FaInstagram,
+  FaSpotify,
+  FaTwitter,
+  FaYoutube,
+} from "react-icons/fa";
+
 export type GuitarInfo = {
   name: string;
   desc: string;
@@ -32,3 +42,65 @@ export const config: Config = {
     },
   ],
 };
+
+export type NavItem = {
+  name: string;
+  link: string;
+};
+
+export const navItems: NavItem[] = [
+  {
+    name: "about",
+    link: "/",
+  },
+  {
+    name: "music",
+    link: "/music",
+  },
+  {
+    name: "tabs",
+    link: "/tabs",
+  },
+  {
+    name: "guitars",
+    link: "/guitars",
+  },
+  {
+    name: "gear",
+    link: "/gear",
+  },
+];
+
+export type SocialIcon = {
+  name: string;
+  link: string;
+  icon: IconType;
+};
+
+export const icons: SocialIcon[] = [
+  {
+    name: "youtube",
+    link: "/",
+    icon: FaYoutube,
+  },
+  {
+    name: "instagram",
+    link: "/music",
+    icon: FaInstagram,
+  },
+  {
+    name: "tabs",
+    link: "/tabs",
+    icon: FaTwitter,
+  },
+  {
+    name: "guitars",
+    link: "/guitars",
+    icon: FaSpotify,
+  },
+  {
+    name: "gear",
+    link: "/gear",
+    icon: FaApple,
+  },
+];
