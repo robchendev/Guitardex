@@ -42,6 +42,7 @@ export const config: Config = {
     },
   ],
 };
+// INDEX PAGE
 
 export type NavItem = {
   name: string;
@@ -104,3 +105,4 @@ export const icons: SocialIcon[] = [
     icon: FaApple,
   },
 ];
+// MUSIC PAGE

@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { Container, Heading, Image, Icon, Text } from "@chakra-ui/react";
+import { Image, Icon } from "@chakra-ui/react";
 import { NextPage } from "next";
 import { FaInstagram, FaYoutube } from "react-icons/fa";
 import Wrapper from "../components/Wrapper";

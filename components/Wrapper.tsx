@@ -1,7 +1,6 @@
-import { HStack, Image, Icon, Container, VStack } from "@chakra-ui/react";
+import { HStack, Image, Icon, VStack } from "@chakra-ui/react";
 import Link from "next/link";
 import React from "react";
-import { FaYoutube } from "react-icons/fa";
 import { navItems, NavItem, SocialIcon, icons } from "../config/config";
 
 const Wrapper = ({
