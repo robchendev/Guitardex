@@ -37,7 +37,7 @@ const Wrapper = ({
         <div className="w-full justify-center flex text-gray-50">
           <footer className="container flex items-center justify-center mx-auto mb-6 h-fit text-center ">
             <VStack spacing={0} className=" text-gray-50 w-2/6">
-              <div className="h-px w-full bg-gray-50"></div>
+              <div className="h-px w-full bg-gray-500"></div>
               <div className="h-14"></div>
               <div className=" bg font-serif mt-14">
                 <HStack className="justify-center mb-5">
