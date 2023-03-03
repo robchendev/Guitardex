@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { Container, Heading, Image, Icon, Text } from "@chakra-ui/react";
+import { Image, Icon } from "@chakra-ui/react";
 import { NextPage } from "next";
 import { FaInstagram, FaYoutube } from "react-icons/fa";
 import Wrapper from "../components/Wrapper";
@@ -47,19 +47,19 @@ export const Index: NextPage = () => {
                 </p>
               </div>
             </div>
-            <p>pog</p>
-            <h1 className="font-serif md:w-8/12 font-weight:900 text-4xl text-center mx-auto my-7">
+            <p>pogs</p>
+            <h1 className="font-serif md:w-8/12 font-weight:900 text-5xl text-center mx-auto my-7">
               team
             </h1>
             <div className="flex flex-wrap lg:max-w-6xl md:max-w-full justify-center mb-14 mx-auto">
-              <div className="flex flex-col items-center lg:w-1/4 ">
+              <div className="flex flex-col items-center mx-5 lg:w-1/4 ">
                 <Image
                   src="/img/jc300px.jpg"
                   alt="image broke"
-                  className="rounded-xl"
+                  className="rounded-3xl w-full h-full mb-5"
                 ></Image>
                 <span className="text-2xl">juliano</span>
-                <p className="text-lg italic text-amber-200">cameraman</p>
+                <p className="text-lg italic text-amber-200 ">cameraman</p>
                 <div className="text-3xl mt-4">
                   <a>
                     <Icon as={FaYoutube} className="m-0.5"></Icon>
@@ -73,10 +73,10 @@ export const Index: NextPage = () => {
                 <Image
                   src="/img/unnamed300px.jpg"
                   alt="robert"
-                  className="rounded-xl"
+                  className="rounded-3xl w-full h-full mb-5"
                 ></Image>
                 <span className="text-2xl">robert</span>
-                <p className="text-lg italic text-amber-200">transcriber</p>
+                <p className="text-lg italic text-amber-200 ">transcriber</p>
                 <div className="text-3xl mt-4">
                   <a>
                     <Icon as={FaYoutube} className="m-0.5"></Icon>
