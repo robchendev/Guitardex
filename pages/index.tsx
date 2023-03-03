@@ -14,7 +14,7 @@ export const Index: NextPage = () => {
             <h1 className="font-serif md:w-8/12 font-weight:900 text-5xl text-center mx-auto my-7">
               biography
             </h1>
-            <div className="flex flex-wrap lg:max-w-7xl md:max-w-full justify-center mx-auto">
+            <div className="flex flex-wrap lg:max-w-7xl  md:max-w-full justify-center mx-auto">
               <Image
                 src="img/eddie.jpeg"
                 alt="image is broken"
@@ -48,9 +48,9 @@ export const Index: NextPage = () => {
               </div>
             </div>
             <p>pogs</p>
-            <h1 className="font-serif md:w-8/12 font-weight:900 text-5xl text-center mx-auto my-7">
+            <h2 className="font-serif md:w-8/12 font-weight:900 text-5xl text-center mx-auto my-7">
               team
-            </h1>
+            </h2>
             <div className="flex flex-wrap lg:max-w-6xl md:max-w-full justify-center mb-14 mx-auto">
               <div className="flex flex-col items-center mx-5 lg:w-1/4 ">
                 <Image
