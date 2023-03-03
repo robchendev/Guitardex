@@ -6,8 +6,14 @@ import { config, GuitarInfo } from "../config/config";
 export const Index: NextPage = () => {
   return (
     <Wrapper>
-      <div className="flex justify-center    p-4">
-        <div className="w-full">
+      <button className="py-2 px-8 bg-slate-500 text-white font-serif font-bold rounded-md drop-shadow-lg">
+        Hello World
+      </button>
+      <Button py="2" px="8">
+        Hello World
+      </Button>
+      <div className="flex justify-center p-4 p-">
+        <div className="w-80">
           <Text>This is line 1</Text>
           <Text>Lorem ipsum dolor</Text>
           <Text>Hello World</Text>

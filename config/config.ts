@@ -42,6 +42,7 @@ export const config: Config = {
     },
   ],
 };
+// INDEX PAGE
 
 export type NavItem = {
   name: string;
@@ -102,5 +103,55 @@ export const icons: SocialIcon[] = [
     name: "gear",
     link: "/gear",
     icon: FaApple,
+  },
+];
+// MUSIC PAGE
+
+export type MusicIcon = {
+  name: string;
+  link: string;
+  picture: string;
+};
+
+export const images: MusicIcon[] = [
+  {
+    name: "get out the way",
+    link: "https://open.spotify.com/track/5FXCk4Hu9jCcjOIhTozB6Y?si=64121cad3175468f",
+    picture: "/img/music1.jpg",
+  },
+  {
+    name: "i don't care",
+    link: "https://open.spotify.com/track/5FXCk4Hu9jCcjOIhTozB6Y?si=64121cad3175468f",
+    picture: "/img/music2.jpg",
+  },
+  {
+    name: "silence",
+    link: "https://open.spotify.com/album/67myKGkmkSt6l6OvTwMg4I",
+    picture: "/img/music3.jpg",
+  },
+  {
+    name: "creepin",
+    link: "https://eddie-van-der-meer.lnk.to/Creepin",
+    picture: "/img/music4.jpg",
+  },
+  {
+    name: "helpless",
+    link: "https://eddie-van-der-meer.lnk.to/HelplessTP",
+    picture: "/img/music5.jpg",
+  },
+  {
+    name: "all i wanted",
+    link: "https://eddie-van-der-meer.lnk.to/AllIWanted",
+    picture: "/img/music6.jpg",
+  },
+  {
+    name: "go fast",
+    link: "https://eddie-van-der-meer.lnk.to/GoFast",
+    picture: "/img/music7.jpg",
+  },
+  {
+    name: "paralyzed",
+    link: "https://eddie-van-der-meer.lnk.to/Paralyzed",
+    picture: "/img/music8.jpg",
   },
 ];
