@@ -55,18 +55,13 @@ export const Music: NextPage = () => {
   return (
     <>
       <Wrapper>
-        pog
         <Grid templateColumns="repeat(4,1fr)" gap={6}>
           {images.map((image: MusicIcon, index: number) => (
-            <GridItem key={index} className="b">
+            <GridItem key={index} className="relative">
               <a href={image.link} className="absolute text-gray-50">
-                <div className="absolute">
-                  <Icon as={FaPlay} className="text-transparent"></Icon>
-                  <span className="text-transparent">Listen</span>
-                </div>
-                <div className="absolute bg-black opacity-50 text-transparent hover:bg-rose-600 hover:opacity-50 w-full h-full">
-                  <Icon as={FaPlay} className=""></Icon>
-                  <span className="">Listen</span>
+                <div className="bg-black opacity-50 text-transparent hover:bg-rose-600 hover:opacity-50 w-full h-full">
+                  <Icon as={FaPlay} color="white" />
+                  <span className="text-white">Listen</span>
                 </div>
               </a>
               <Image src={image.picture} alt={image.name} className=""></Image>
