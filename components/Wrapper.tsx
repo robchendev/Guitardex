@@ -7,7 +7,7 @@ import PageTitle from "./PageTitle";
 
 const Header = () => {
   return (
-    <header className=" text-gray-50 p-4 mx-auto md:w-8/12 max-w-7xl fixed md:relative md:flex md:justify-between md:items-center md:text-center">
+    <header className="text-gray-50 p-4 mx-auto md:w-8/12 max-w-7xl fixed md:relative md:flex md:justify-between md:items-center md:text-center">
       <Image
         src="public/img/evdm.png"
         fallbackSrc="https://eddievdmeer.com/wp-content/uploads/elementor/thumbs/cropped-evdmlogo-oqa4dzno6q4ah9xd5u0hy03itfxfgiimm19em295vk.png"
@@ -63,9 +63,9 @@ const Wrapper = ({
   title?: string;
 }) => {
   return (
-    <div className="bg-zinc-900 ">
+    <div className="bg-zinc-900">
       <Header />
-      <main className="text-gray-50 font-serif ">
+      <main className="text-gray-50 font-serif lg:max-w-4xl lg:mx-auto mb-12">
         {title && <PageTitle title={title} />}
         {children}
       </main>
