@@ -14,9 +14,9 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: "PT Serif", serif;
   height: 100%;
   background: #171717 !important;
+  font-family: "PT Serif", serif !important;
 }
 
 body {
