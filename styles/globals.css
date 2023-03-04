@@ -14,7 +14,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: "Open Sans", sans-serif !important;
+  font-family: "PT Serif", serif;
   height: 100%;
   background: #171717 !important;
 }
@@ -38,11 +38,6 @@ body {
 
 .desc p:not(:last-child) {
   margin-bottom: 0.5rem;
-}
-
-h2 {
-  font-weight: 600 !important;
-  font-size: 20px !important;
 }
 
 a {

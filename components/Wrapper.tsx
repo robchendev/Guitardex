@@ -1,4 +1,5 @@
 import { HStack, Image, VStack } from "@chakra-ui/react";
+import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
@@ -14,7 +15,7 @@ const Header = () => {
         src="public/img/evdm.png"
         fallbackSrc="https://eddievdmeer.com/wp-content/uploads/elementor/thumbs/cropped-evdmlogo-oqa4dzno6q4ah9xd5u0hy03itfxfgiimm19em295vk.png"
         alt="evdm-logo"
-      ></Image>
+      />
       <HStack>
         {navItems.map((navItem: NavItem, index: number) => (
           <Link
