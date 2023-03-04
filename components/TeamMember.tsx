@@ -32,7 +32,7 @@ const TeamMember = ({
     <div className="flex flex-col items-center mx-5 lg:w-1/4 ">
       <Image src={imageUrl} alt={`${name} as ${role}`} className="rounded-3xl w-full h-full mb-5" />
       <span className="text-2xl">{name}</span>
-      <p className="text-lg italic text-amber-200 ">{role}</p>
+      <p className="text-lg italic text-gold ">{role}</p>
       <div className="text-3xl mt-4">
         {socials.map((item: TeamSocial, index: number) => (
           <TeamSocialIcon key={index} item={item} />

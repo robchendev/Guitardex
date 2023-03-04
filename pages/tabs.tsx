@@ -72,7 +72,7 @@ const Tabs: NextPage = () => {
         <Input w={80} placeholder="search song, tuning, genre" />
       </Center>
       <Center>
-        <VStack w="80%" divider={<div className="h-px w-full bg-zinc-600" />}>
+        <VStack w="80%" divider={<div className="h-px w-full bg-grey-hard" />}>
           {tabs.map((tab: TabInfo, index: number) => (
             <TabItem key={index} tab={tab} />
           ))}
