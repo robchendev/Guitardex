@@ -63,6 +63,19 @@ a:hover {
   }
 }
 
+/* Change Selection Text Color When Highlighting */
+::-moz-selection {
+  background-color: #b51c42;
+  color: #f7f7f7;
+}
+::selection {
+  background-color: #b51c42;
+  color: #f7f7f7;
+}
+.separate-containers .inside-article {
+  padding: 0px;
+}
+
 /* variables */
 :root {
   /* sizes */
