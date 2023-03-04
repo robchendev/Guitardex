@@ -1,11 +1,13 @@
 import { HStack, Image, VStack } from "@chakra-ui/react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React from "react";
 import { navItems, NavItem, SocialIcon, icons } from "../config/config";
 import LinkIcon from "./LinkIcon";
 import PageTitle from "./PageTitle";
 
 const Header = () => {
+  const router = useRouter();
   return (
     <header className="text-white-soft p-4 mx-auto md:w-8/12 max-w-7xl fixed md:relative md:flex md:justify-between md:items-center md:text-center">
       <Image
@@ -14,13 +16,15 @@ const Header = () => {
         alt="evdm-logo"
       ></Image>
       <HStack>
-        {navItems.map((navItems: NavItem, index: number) => (
+        {navItems.map((navItem: NavItem, index: number) => (
           <Link
             key={index}
-            href={navItems.link}
-            className="font-serif text-2xl px-5 py-3.5 hover:text-gold"
+            href={navItem.link}
+            className={`font-serif text-2xl px-5 py-3.5 hover:text-gold${
+              router.pathname === navItem.link ? " text-gold" : ""
+            }`}
           >
-            {navItems.name}
+            {navItem.name}
           </Link>
         ))}
       </HStack>
