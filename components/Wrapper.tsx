@@ -30,7 +30,7 @@ const Header = () => {
 
 const Footer = () => {
   return (
-    <div className="w-full justify-center flex text-white-soft mb-8">
+    <div className="w-full justify-center flex text-white-soft mt-4 pb-8">
       <footer className="container flex items-center justify-center mx-auto mb-6 h-fit text-center">
         <VStack spacing={0} className=" text-white-soft w-2/6">
           <div className="h-px w-full bg-grey-hard mb-14" />
@@ -67,9 +67,9 @@ const Wrapper = ({
   title?: string;
 }) => {
   return (
-    <div className="bg-black-soft text-white-soft">
+    <div className="bg-black-soft text-white-soft flex flex-col h-screen justify-between">
       <Header />
-      <main className="font-serif lg:max-w-4xl lg:mx-auto mb-12">
+      <main className="font-serif lg:max-w-4xl lg:mx-auto mb-auto w-full">
         {title && <PageTitle title={title} />}
         {children}
       </main>
