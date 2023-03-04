@@ -5,29 +5,42 @@
 
 /* All the !important in here can be removed after chakra ui removal */
 
+// Apply custom default colors
+
 html {
-  overflow-y: scroll;
+  overflow-y: none !important;
 }
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: "Open Sans", sans-serif !important;
   height: 100%;
-  background: #18181b !important;
+  background: #171717 !important;
+  font-family: "PT Serif", serif !important;
+}
+
+body {
+  overflow-y: overlay !important;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 .desc p:not(:last-child) {
   margin-bottom: 0.5rem;
 }
 
-h2 {
-  font-weight: 600 !important;
-  font-size: 20px !important;
-}
-
 a {
-  color: #fcdc97 !important;
   text-decoration: none;
   transition: 0.3s ease;
   cursor: pointer;
@@ -48,6 +61,19 @@ a:hover {
     color: white;
     background: black;
   }
+}
+
+/* Change Selection Text Color When Highlighting */
+::-moz-selection {
+  background-color: #b51c42;
+  color: #f7f7f7;
+}
+::selection {
+  background-color: #b51c42;
+  color: #f7f7f7;
+}
+.separate-containers .inside-article {
+  padding: 0px;
 }
 
 /* variables */

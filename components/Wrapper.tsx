@@ -1,27 +1,31 @@
-/* eslint-disable prettier/prettier */
-import { HStack, Image, Icon, VStack } from "@chakra-ui/react";
+import { HStack, Image, VStack } from "@chakra-ui/react";
+import Head from "next/head";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React from "react";
 import { navItems, NavItem, SocialIcon, icons } from "../config/config";
 import LinkIcon from "./LinkIcon";
 import PageTitle from "./PageTitle";
 
 const Header = () => {
+  const router = useRouter();
   return (
-    <header className=" text-gray-50 p-4 mx-auto md:w-8/12 max-w-7xl fixed md:relative md:flex md:justify-between md:items-center md:text-center">
+    <header className="text-white-soft p-4 mx-auto md:w-8/12 max-w-7xl fixed md:relative md:flex md:justify-between md:items-center md:text-center">
       <Image
         src="public/img/evdm.png"
         fallbackSrc="https://eddievdmeer.com/wp-content/uploads/elementor/thumbs/cropped-evdmlogo-oqa4dzno6q4ah9xd5u0hy03itfxfgiimm19em295vk.png"
         alt="evdm-logo"
-      ></Image>
+      />
       <HStack>
-        {navItems.map((navItems: NavItem, index: number) => (
+        {navItems.map((navItem: NavItem, index: number) => (
           <Link
             key={index}
-            href={navItems.link}
-            className="font-serif text-2xl px-5 py-3.5 hover:text-amber-200"
+            href={navItem.link}
+            className={`font-serif text-2xl px-5 py-3.5 hover:text-gold${
+              router.pathname === navItem.link ? " text-gold" : ""
+            }`}
           >
-            {navItems.name}
+            {navItem.name}
           </Link>
         ))}
       </HStack>
@@ -31,10 +35,10 @@ const Header = () => {
 
 const Footer = () => {
   return (
-    <div className="w-full justify-center flex text-gray-50 mb-8">
+    <div className="w-full justify-center flex text-white-soft mt-4 pb-8">
       <footer className="container flex items-center justify-center mx-auto mb-6 h-fit text-center">
-        <VStack spacing={0} className=" text-gray-50 w-2/6">
-          <div className="h-px w-full bg-gray-500 mb-14" />
+        <VStack spacing={0} className=" text-white-soft w-2/6">
+          <div className="h-px w-full bg-grey-med mb-14" />
           <div className="font-serif mt-14">
             <HStack className="justify-center mb-5">
               {icons.map((icon: SocialIcon, index: number) => (
@@ -43,9 +47,13 @@ const Footer = () => {
             </HStack>
             <div>© 2018-2023 Eddie van der Meer</div>
             <div>
-              <a href="#">Privacy Policy</a>
+              <Link className="text-gold" href="#">
+                Privacy Policy
+              </Link>
                • 
-              <a href="#">Cookie Policy</a>
+              <Link className="text-gold" href="#">
+                Cookie Policy
+              </Link>
             </div>
           </div>
         </VStack>
@@ -64,9 +72,9 @@ const Wrapper = ({
   title?: string;
 }) => {
   return (
-    <div className="bg-zinc-900 ">
+    <div className="bg-black-soft text-white-soft flex flex-col h-screen justify-between">
       <Header />
-      <main className="text-gray-50 font-serif ">
+      <main className="font-serif lg:max-w-4xl lg:mx-auto mb-auto w-full">
         {title && <PageTitle title={title} />}
         {children}
       </main>

@@ -9,7 +9,7 @@ export const Index: NextPage = () => {
   return (
     <Wrapper title="biography">
       <div className="w-full mx-0">
-        <div className="flex flex-wrap lg:max-w-7xl  md:max-w-full justify-center mx-auto">
+        <div className="flex flex-wrap justify-center mx-auto">
           <Image
             src="img/eddie.jpeg"
             alt="image is broken"

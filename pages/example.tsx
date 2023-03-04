@@ -6,7 +6,7 @@ import { config, GuitarInfo } from "../config/config";
 export const Index: NextPage = () => {
   return (
     <Wrapper>
-      <button className="py-2 px-8 bg-slate-500 text-white font-serif font-bold rounded-md drop-shadow-lg">
+      <button className="py-2 px-8 bg-grey-med text-white font-serif font-bold rounded-md drop-shadow-lg">
         Hello World
       </button>
       <Button py="2" px="8">
