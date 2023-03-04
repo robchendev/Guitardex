@@ -9,17 +9,26 @@ type ItemComponent = {
   price?: string;
 };
 
-const Component = ({ item }: { item: ItemComponent }) => {
+const BuyButton = ({ item }: { item: ItemComponent }) => {
   switch (item.available) {
     case "buy":
       return (
-        <a href={item.buyLink} className="bg-rose-600 w-max text-2xl ">
-          Buy this for ${item.price}
-        </a>
+        <span className="inline-block align-middle">
+          <span className="w-max text-4xl p-6">${item.price}</span>
+          <a
+            href={item.buyLink}
+            className="bg-carmine-soft w-max text-xl p-2 rounded-md"
+          >
+            Buy this guitar
+          </a>
+        </span>
       );
     case "discontinued":
       return (
-        <a href={item.buyLink} className="bg-gray-500 w-max text-2xl ">
+        <a
+          href={item.buyLink}
+          className="bg-grey-soft w-max text-2xl p-2 rounded-md"
+        >
           Discontinued
         </a>
       );
@@ -36,7 +45,7 @@ const GuitarCard = ({
   return (
     <div
       key={index}
-      className="max-w-4xl flex flex-row end text-right justify-items-end "
+      className="max-w-5xl flex flex-row end text-right justify-items-end mb-16"
     >
       <iframe
         width="450"
@@ -49,12 +58,12 @@ const GuitarCard = ({
       ></iframe>
       <div className="flex flex-col w-1/2 items-end justify-between">
         <div>
-          <Heading as="h2">{guitar.name}</Heading>
-          <span className=" text-amber-200">{guitar.brand}</span>
+          <h2 className="text-4xl">{guitar.name}</h2>
+          <span className=" text-gold">{guitar.brand}</span>
         </div>
-        <Text>{guitar.desc}</Text>
+        <Text className="text-xl pl-10">{guitar.desc}</Text>
 
-        <Component key={index} item={guitar}></Component>
+        <BuyButton key={index} item={guitar}></BuyButton>
       </div>
     </div>
   );
