@@ -13,10 +13,7 @@ const Button: ComponentStyleConfig = {
 // use this file to define/inject custom theme
 const theme = {
   colors: {
-    brand: {
-      100: "green",
-      // ...
-    },
+    gold: "#FCDC97",
   },
   components: {
     Button,

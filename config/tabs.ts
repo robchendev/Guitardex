@@ -9,10 +9,10 @@ export type Free = {
   link: string;
 };
 
-export type Tuning = "A" | "A#" | "B" | "C" | "C#" | "D" | "D#" | "E" | "F" | "F#" | "G" | "G#";
+export type Note = "A" | "A#" | "B" | "C" | "C#" | "D" | "D#" | "E" | "F" | "F#" | "G" | "G#";
 export type TuningInfo = {
   name: string;
-  strings: [Tuning, Tuning, Tuning, Tuning, Tuning, Tuning];
+  strings: [Note, Note, Note, Note, Note, Note];
 };
 
 export type Genre =
@@ -43,6 +43,23 @@ export const tabs: TabInfo[] = [
     source: "Suzume no Tojimari OST",
     artist: "RADWIMPS",
     videoLink: "https://youtu.be/wQANVR4vqXI",
+    genre: ["Anime"],
+    tuning: {
+      name: "Open D#maj7",
+      strings: ["D#", "G", "D", "G", "A#", "D"],
+    },
+    button: {
+      type: "buy",
+      price: 7.99,
+      link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0268543",
+    },
+  },
+  {
+    title: "Suzume",
+    source: "Suzume no Tojimari OST",
+    artist: "RADWIMPS",
+    videoLink: "https://youtu.be/wQANVR4vqXI",
+    spotifyLink: "https://youtu.be/wQANVR4vqXI",
     genre: ["Anime"],
     tuning: {
       name: "Open D#maj7",
