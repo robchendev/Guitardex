@@ -8,7 +8,7 @@
 // Apply custom default colors
 
 html {
-  overflow-y: scroll;
+  overflow-y: none !important;
 }
 html,
 body {
@@ -17,6 +17,23 @@ body {
   font-family: "Open Sans", sans-serif !important;
   height: 100%;
   background: #171717 !important;
+}
+
+body {
+  overflow-y: overlay !important;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 .desc p:not(:last-child) {
