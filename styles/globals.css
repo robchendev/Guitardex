@@ -5,6 +5,8 @@
 
 /* All the !important in here can be removed after chakra ui removal */
 
+// Apply custom default colors
+
 html {
   overflow-y: scroll;
 }
@@ -14,7 +16,7 @@ body {
   margin: 0;
   font-family: "Open Sans", sans-serif !important;
   height: 100%;
-  background: #18181b !important;
+  background: #171717 !important;
 }
 
 .desc p:not(:last-child) {
@@ -27,7 +29,6 @@ h2 {
 }
 
 a {
-  color: #fcdc97 !important;
   text-decoration: none;
   transition: 0.3s ease;
   cursor: pointer;
