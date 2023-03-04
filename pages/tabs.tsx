@@ -69,10 +69,13 @@ const Tabs: NextPage = () => {
   return (
     <Wrapper title="tabs">
       <Center mb={4}>
-        <Input w={80} placeholder="search song, tuning, genre" />
+        <input
+          placeholder="search song, tuning, genre"
+          className="border-gold border-px rounded-md py-3 px-4 bg-grey-hard w-72"
+        />
       </Center>
       <Center>
-        <VStack w="80%" divider={<div className="h-px w-full bg-grey-hard" />}>
+        <VStack w="80%" divider={<div className="h-px w-full bg-grey-med" />}>
           {tabs.map((tab: TabInfo, index: number) => (
             <TabItem key={index} tab={tab} />
           ))}
