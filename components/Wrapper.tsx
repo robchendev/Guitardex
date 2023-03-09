@@ -1,23 +1,20 @@
 /* eslint-disable prettier/prettier */
-import { HamburgerIcon } from "@chakra-ui/icons";
-import {
-  HStack,
-  IconButton,
-  Image,
-  Icon,
-  VStack,
-  Flex,
-} from "@chakra-ui/react";
+import { HStack, VStack } from "@chakra-ui/react";
 import Link from "next/link";
 import React from "react";
-import { FaHamburger } from "react-icons/fa";
-import { navItems, NavItem, SocialIcon, icons } from "../config/config";
+import { SocialIcon, icons } from "../config/config";
 import HeaderDesktop from "./HeaderDesktop";
+import HeaderMobile from "./HeaderMobile";
 import LinkIcon from "./LinkIcon";
 import PageTitle from "./PageTitle";
 
 const Header = () => {
-  return <HeaderDesktop />;
+  return (
+    <>
+      <HeaderDesktop />
+      <HeaderMobile />
+    </>
+  );
 };
 
 const Footer = () => {
