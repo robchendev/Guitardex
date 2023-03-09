@@ -30,7 +30,7 @@ export type TabInfo = {
   title: string;
   source?: string;
   artist?: string;
-  genre: Genre[]; // if genre array includes anime, source becomes "Anime"
+  genre: Genre; // if genre array includes anime, source becomes "Anime"
   tuning: TuningInfo;
   videoLink?: string;
   spotifyLink?: string;
@@ -43,7 +43,7 @@ export const tabs: TabInfo[] = [
     source: "Suzume no Tojimari OST",
     artist: "RADWIMPS",
     videoLink: "https://youtu.be/wQANVR4vqXI",
-    genre: ["Anime"],
+    genre: "Anime",
     tuning: {
       name: "Open D#maj7",
       strings: ["D#", "G", "D", "G", "A#", "D"],
@@ -60,7 +60,7 @@ export const tabs: TabInfo[] = [
     artist: "RADWIMPS",
     videoLink: "https://youtu.be/wQANVR4vqXI",
     spotifyLink: "https://youtu.be/wQANVR4vqXI",
-    genre: ["Anime"],
+    genre: "Anime",
     tuning: {
       name: "Open D#maj7",
       strings: ["D#", "G", "D", "G", "A#", "D"],
