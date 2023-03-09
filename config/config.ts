@@ -1,12 +1,6 @@
 import { IconType } from "react-icons";
 // eslint-disable-next-line prettier/prettier
-import {
-  FaApple,
-  FaInstagram,
-  FaSpotify,
-  FaTwitter,
-  FaYoutube,
-} from "react-icons/fa";
+import { FaApple, FaInstagram, FaSpotify, FaTwitter, FaYoutube } from "react-icons/fa";
 
 export type GuitarInfo = {
   name: string;
@@ -69,6 +63,10 @@ export const navItems: NavItem[] = [
   {
     name: "gear",
     link: "/gear",
+  },
+  {
+    name: "contact",
+    link: "/contact",
   },
 ];
 

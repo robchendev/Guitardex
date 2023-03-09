@@ -1,16 +1,7 @@
-import { Heading } from "@chakra-ui/react";
 import React from "react";
 
 const SubHeading = ({ label }: { label: string }) => {
-  return (
-    <Heading
-      as="h2"
-      fontFamily="serif"
-      className="md:w-8/12 font-weight:500 text-5xl text-center mx-auto my-7"
-    >
-      {label}
-    </Heading>
-  );
+  return <h2 className="md:w-8/12 text-4xl text-center mx-auto my-7">{label}</h2>;
 };
 
 export default SubHeading;

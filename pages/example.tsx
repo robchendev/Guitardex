@@ -1,4 +1,4 @@
-import { Button, Card, Heading, HStack, Text, VStack } from "@chakra-ui/react";
+import { Button, Card, Heading, HStack, Text } from "@chakra-ui/react";
 import { NextPage } from "next";
 import Wrapper from "../components/Wrapper";
 import { config, GuitarInfo } from "../config/config";
@@ -6,7 +6,7 @@ import { config, GuitarInfo } from "../config/config";
 export const Index: NextPage = () => {
   return (
     <Wrapper>
-      <button className="py-2 px-8 bg-grey-hard text-white font-serif font-bold rounded-md drop-shadow-lg">
+      <button className="py-2 px-8 bg-grey-med text-white font-serif font-bold rounded-md drop-shadow-lg">
         Hello World
       </button>
       <Button py="2" px="8">
