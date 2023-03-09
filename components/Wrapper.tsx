@@ -1,36 +1,23 @@
-import { HStack, Image, VStack } from "@chakra-ui/react";
-import Head from "next/head";
+/* eslint-disable prettier/prettier */
+import { HamburgerIcon } from "@chakra-ui/icons";
+import {
+  HStack,
+  IconButton,
+  Image,
+  Icon,
+  VStack,
+  Flex,
+} from "@chakra-ui/react";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import React from "react";
+import { FaHamburger } from "react-icons/fa";
 import { navItems, NavItem, SocialIcon, icons } from "../config/config";
+import HeaderDesktop from "./HeaderDesktop";
 import LinkIcon from "./LinkIcon";
 import PageTitle from "./PageTitle";
 
 const Header = () => {
-  const router = useRouter();
-  return (
-    <header className="text-white-soft p-4 mx-auto md:w-8/12 max-w-7xl fixed md:relative md:flex md:justify-between md:items-center md:text-center">
-      <Image
-        src="public/img/evdm.png"
-        fallbackSrc="https://eddievdmeer.com/wp-content/uploads/elementor/thumbs/cropped-evdmlogo-oqa4dzno6q4ah9xd5u0hy03itfxfgiimm19em295vk.png"
-        alt="evdm-logo"
-      />
-      <HStack>
-        {navItems.map((navItem: NavItem, index: number) => (
-          <Link
-            key={index}
-            href={navItem.link}
-            className={`font-serif text-2xl px-5 py-3.5 hover:text-gold${
-              router.pathname === navItem.link ? " text-gold" : ""
-            }`}
-          >
-            {navItem.name}
-          </Link>
-        ))}
-      </HStack>
-    </header>
-  );
+  return <HeaderDesktop />;
 };
 
 const Footer = () => {
