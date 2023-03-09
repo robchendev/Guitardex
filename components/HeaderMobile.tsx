@@ -5,10 +5,8 @@ import {
   Button,
   Drawer,
   DrawerBody,
-  DrawerHeader,
   DrawerOverlay,
   DrawerContent,
-  DrawerCloseButton,
   Icon,
 } from "@chakra-ui/react";
 import { useDisclosure } from "@chakra-ui/react";
@@ -56,8 +54,6 @@ const HeaderMobile = () => {
                   </Link>
                 ))}
                 <button
-                  variant="outline"
-                  mr={3}
                   onClick={onClose}
                   className="font-serif text-2xl pl-10 px-5 py-3.5 hover:text-gold"
                 >

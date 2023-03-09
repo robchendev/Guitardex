@@ -1,18 +1,9 @@
-import {
-  Box,
-  Center,
-  Container,
-  HStack,
-  Input,
-  StackDivider,
-  Text,
-  VStack,
-} from "@chakra-ui/react";
+import { Box, Center, HStack, Text, VStack } from "@chakra-ui/react";
 import { NextPage } from "next";
 import React from "react";
 import { FaSpotify, FaYoutube } from "react-icons/fa";
 import Wrapper from "../components/Wrapper";
-import { Buy, Free, Note, TabInfo, tabs } from "../config/tabs";
+import { Buy, Free, TabInfo, tabs } from "../config/tabs";
 
 const TabButton = ({ button }: { button: Buy | Free }) => {
   switch (button.type) {
@@ -38,7 +29,6 @@ const TabItem = ({ tab }: { tab: TabInfo }) => {
         <Box>
           <Text noOfLines={1}>{tab.title}</Text>
           <Text noOfLines={1}>{tab.source}</Text>
-          {/* <Text noOfLines={1}>{tab.artist}</Text> */}
         </Box>
         <HStack justifyContent="space-between" spacing={8}>
           <div>
