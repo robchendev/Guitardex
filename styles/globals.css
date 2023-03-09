@@ -16,7 +16,13 @@ body {
   margin: 0;
   height: 100%;
   background: #171717 !important;
-  font-family: "PT Serif", serif !important;
+  font-family: "Outfit", sans-serif !important;
+}
+
+p,
+a,
+td {
+  font-size: 1.125rem;
 }
 
 body {
