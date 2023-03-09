@@ -1,5 +1,4 @@
 import { HStack, Image, VStack } from "@chakra-ui/react";
-import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
