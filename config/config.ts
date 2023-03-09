@@ -1,9 +1,14 @@
 /* eslint-disable prettier/prettier */
 import { IconType } from "react-icons";
 // eslint-disable-next-line prettier/prettier
-// todo swi
 
-import { FaApple, FaInstagram, FaSpotify, FaTwitter, FaYoutube } from "react-icons/fa";
+import {
+  FaApple,
+  FaInstagram,
+  FaSpotify,
+  FaTwitter,
+  FaYoutube,
+} from "react-icons/fa";
 
 export type GuitarInfo = {
   name: string;
@@ -13,7 +18,10 @@ export type GuitarInfo = {
   title: string;
   buyLink?: string;
   price?: string;
-} & ({ available: "buy"; buyLink: string; price: string } | { available: "discontinued" });
+} & (
+  | { available: "buy"; buyLink: string; price: string }
+  | { available: "discontinued" }
+);
 type Config = {
   guitars: GuitarInfo[];
 };
@@ -24,17 +32,20 @@ export const config: Config = {
       available: "buy",
       name: "Avian Songbird 5A",
       brand: "avian",
-      buyLink: "https://avianguitar.com/discount/EVDM?redirect=%2Fcollections%2Fguitars",
+      buyLink:
+        "https://avianguitar.com/discount/EVDM?redirect=%2Fcollections%2Fguitars",
       desc: "The best sounding guitar I own. The tone is clean and it has a comfortable neck and body shape. Use my discount code “EVDM” to get 5% off any Avian Guitar.",
       price: "3199",
       videoId: "wQANVR4vqXI",
-      title: "RADWIMPS - Suzume (すずめ) feat.十明 - すずめの戸締まり OST Fingerstyle Guitar Cover",
+      title:
+        "RADWIMPS - Suzume (すずめ) feat.十明 - すずめの戸締まり OST Fingerstyle Guitar Cover",
     },
     {
       available: "buy",
       name: "X4",
       brand: "enya",
-      buyLink: "https://www.enya-music.com/collections/guitar/products/x4-cutaway",
+      buyLink:
+        "https://www.enya-music.com/collections/guitar/products/x4-cutaway",
       desc: "A carbon fibre guitar with a deep and rich sound. The interesting soundhole placement projects the sound to player better while not sacrificing the audience’s listening experience.",
       price: "899",
       videoId: "DGtyrC2Xn3g",
@@ -57,7 +68,8 @@ export const config: Config = {
       available: "buy",
       name: "Black Ice WS1000N2",
       brand: "rainsong",
-      buyLink: "https://www.thomann.de/gb/rainsong_bi_ws1000n2_black_ice.htm?partner_id=69983",
+      buyLink:
+        "https://www.thomann.de/gb/rainsong_bi_ws1000n2_black_ice.htm?partner_id=69983",
       desc: "One of my more visually appealing guitars. Being made out of carbon fiber, it’s light, loud and is indestructable compared to wood guitars.",
       price: "2700",
       videoId: "hXQxSi34GWY",
