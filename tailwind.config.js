@@ -13,11 +13,13 @@ module.exports = {
       white: {
         soft: "#F7F7F7",
         hard: "#FFF",
+        ghost: "#999",
       },
       grey: {
         soft: "#777",
         med: "#555",
         hard: "#303030",
+        ghost: "#272727",
       },
       black: {
         soft: "#171717",
