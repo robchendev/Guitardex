@@ -9,7 +9,7 @@ import PageTitle from "./PageTitle";
 const Header = () => {
   const router = useRouter();
   return (
-    <header className="text-white-soft p-4 mx-auto md:w-8/12 max-w-7xl fixed md:relative md:flex md:justify-between md:items-center md:text-center">
+    <header className="text-white-soft p-5 mx-auto md:w-11/12 max-w-7xl fixed md:relative md:flex md:justify-between md:items-center md:text-center">
       <Image
         src="public/img/evdm.png"
         fallbackSrc="https://eddievdmeer.com/wp-content/uploads/elementor/thumbs/cropped-evdmlogo-oqa4dzno6q4ah9xd5u0hy03itfxfgiimm19em295vk.png"
@@ -20,7 +20,7 @@ const Header = () => {
           <Link
             key={index}
             href={navItem.link}
-            className={`font-serif text-2xl px-5 py-3.5 hover:text-gold${
+            className={`font-medium font-serif text-2xl px-5 py-3.5 hover:text-gold${
               router.pathname === navItem.link ? " text-gold" : ""
             }`}
           >
