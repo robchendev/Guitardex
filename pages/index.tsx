@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { Image } from "@chakra-ui/react";
 import { NextPage } from "next";
 import SubHeading from "../components/SubHeading";

@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { VStack } from "@chakra-ui/react";
 import { NextPage } from "next";
 import GuitarCard from "../components/GuitarCard";
@@ -10,10 +9,7 @@ export const Index: NextPage = () => {
     <Wrapper title="guitars">
       <div className="flex justify-center p-4">
         <div className="max-w-4xl">
-          <VStack
-            divider={<div className="h-px w-full bg-grey-med" />}
-            spacing={4}
-          >
+          <VStack divider={<div className="h-px w-full bg-grey-med" />} spacing={4}>
             {config.guitars.map((guitar: GuitarInfo, index: number) => (
               <GuitarCard key={index} index={index} guitar={guitar} />
             ))}
