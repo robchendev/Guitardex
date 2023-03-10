@@ -17,7 +17,7 @@ type ContactForm = {
   email?: string;
   topic?: "" | "Inquiry" | "Tab / Sheet Music" | "Sponsorship" | "Other";
   message?: string;
-  // TODO: privacy
+  privacy?: boolean;
 };
 
 type ErrorConfig = {
@@ -151,7 +151,7 @@ const Contact = () => {
             errorDef={[{ type: "selectedNone", msg: "Please select a topic." }]}
           />
 
-          {/* TODO: Message textarea */}
+          {/* Done: Message textarea */}
           <FormItem
             errors={errors.message}
             control={control}
