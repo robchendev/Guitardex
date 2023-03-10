@@ -1,4 +1,4 @@
-import { Button, Card, Heading, HStack, Text, VStack } from "@chakra-ui/react";
+import { Button, Card, Heading, HStack, Text } from "@chakra-ui/react";
 import { NextPage } from "next";
 import Wrapper from "../components/Wrapper";
 import { config, GuitarInfo } from "../config/config";

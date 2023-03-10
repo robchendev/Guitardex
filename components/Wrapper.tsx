@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { HStack, VStack } from "@chakra-ui/react";
 import Link from "next/link";
 import React from "react";
