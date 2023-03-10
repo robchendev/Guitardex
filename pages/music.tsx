@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { Grid } from "@chakra-ui/react";
 import { NextPage } from "next";
 import MusicRelease from "../components/MusicRelease";
