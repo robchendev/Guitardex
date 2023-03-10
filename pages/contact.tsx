@@ -1,4 +1,12 @@
-import { FormControl, FormErrorMessage, HStack, Input, Select, VStack } from "@chakra-ui/react";
+import {
+  FormControl,
+  FormErrorMessage,
+  HStack,
+  Input,
+  Select,
+  VStack,
+  Textarea,
+} from "@chakra-ui/react";
 import React from "react";
 import { Controller, RegisterOptions, useForm } from "react-hook-form";
 import Wrapper from "../components/Wrapper";
@@ -8,7 +16,7 @@ type ContactForm = {
   name?: string;
   email?: string;
   topic?: "" | "Inquiry" | "Tab / Sheet Music" | "Sponsorship" | "Other";
-  // TODO: message
+  message?: string;
   // TODO: privacy
 };
 
@@ -49,11 +57,12 @@ const FormElement = ({ controlName, placeholder, onChange, value }: FormElementC
           <option value="Other">Other</option>
         </Select>
       );
-    // TODO: message
-    // TODO: privacy
+    case "message":
+      return <Textarea placeholder={placeholder} onChange={onChange} value={value} />;
     default:
       return <Input value="Element not implemented" disabled />;
   }
+  // TODO: privacy
 };
 
 const FormItem = ({ errors, control, controlName, rules, errorDef }: FormItemConfig) => (
@@ -89,6 +98,7 @@ const Contact = () => {
       name: "",
       email: "",
       topic: "",
+      message: "",
     },
   });
 
@@ -142,7 +152,13 @@ const Contact = () => {
           />
 
           {/* TODO: Message textarea */}
-          {/* --- Your code here --- */}
+          <FormItem
+            errors={errors.message}
+            control={control}
+            controlName="message"
+            rules={{ required: true }}
+            errorDef={[{ type: "required", msg: "This is required" }]}
+          />
 
           {/* TODO: Privacy checkbox */}
           {/* --- Your code here --- */}
