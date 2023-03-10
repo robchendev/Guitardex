@@ -6,6 +6,7 @@ import {
   Select,
   VStack,
   Textarea,
+  Checkbox,
 } from "@chakra-ui/react";
 import React from "react";
 import { Controller, RegisterOptions, useForm } from "react-hook-form";
@@ -40,7 +41,7 @@ type FormElementConfig = {
   controlName: keyof ContactForm;
   placeholder: string;
   onChange: () => void;
-  value: string;
+  value: string | boolean;
 };
 
 const FormElement = ({ controlName, placeholder, onChange, value }: FormElementConfig) => {
@@ -59,6 +60,12 @@ const FormElement = ({ controlName, placeholder, onChange, value }: FormElementC
       );
     case "message":
       return <Textarea placeholder={placeholder} onChange={onChange} value={value} />;
+    case "privacy":
+      return (
+        <Checkbox onChange={onChange} value={value}>
+          I agree to the Privacy Policy
+        </Checkbox>
+      );
     default:
       return <Input value="Element not implemented" disabled />;
   }
@@ -161,7 +168,13 @@ const Contact = () => {
           />
 
           {/* TODO: Privacy checkbox */}
-          {/* --- Your code here --- */}
+          <FormItem
+            errors={errors.privacy}
+            control={control}
+            controlName="privacy"
+            rules={{ required: true }}
+            errorDef={[{ type: "required", msg: "This is required" }]}
+          />
 
           <button
             className="px-4 py-2.5 rounded-md bg-carmine-soft hover:bg-carmine-hard transition ease-in duration-300"
