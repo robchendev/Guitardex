@@ -34,6 +34,7 @@
     "react-helmet": "^6.1.0",
     "react-hook-form": "^7.42.1",
     "react-icons": "^4.4.0",
+    "react-lite-yt-embed": "^1.2.7",
     "ts-node": "^10.9.1"
   },
   "devDependencies": {
