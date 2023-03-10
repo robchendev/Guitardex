@@ -1,4 +1,4 @@
-import { FormControl, FormErrorMessage, HStack, Input, VStack } from "@chakra-ui/react";
+import { FormControl, FormErrorMessage, HStack, Input, Select, VStack } from "@chakra-ui/react";
 import React from "react";
 import { Controller, RegisterOptions, useForm } from "react-hook-form";
 import Wrapper from "../components/Wrapper";
@@ -7,10 +7,11 @@ import { FieldError, Control } from "react-hook-form";
 type ContactForm = {
   name?: string;
   email?: string;
+  topic?: "" | "Inquiry" | "Tab / Sheet Music" | "Sponsorship" | "Other";
 };
 
 type ErrorConfig = {
-  type: "required" | "pattern";
+  type: "required" | "pattern" | "selectedNone";
   msg: string;
 };
 
@@ -36,8 +37,16 @@ const FormElement = ({ controlName, placeholder, onChange, value }: FormElementC
   switch (controlName) {
     case "name":
     case "email":
-      return <Input placeholder={placeholder} onChange={onChange} value={value} />;
-    // TODO: topic
+      return <Input placeholder={placeholder} onChange={onChange} />;
+    case "topic":
+      return (
+        <Select placeholder="-- Select Topic --" onChange={onChange}>
+          <option value="Inquiry">Inquiry</option>
+          <option value="Tab / Sheet Music">Tab / Sheet Music</option>
+          <option value="Sponsorship">Sponsorship</option>
+          <option value="Other">Other</option>
+        </Select>
+      );
     // TODO: message
     // TODO: privacy
     default:
@@ -54,7 +63,7 @@ const FormItem = ({ errors, control, controlName, rules, errorDef }: FormItemCon
       render={({ field: { onChange, value } }) => (
         <FormElement
           controlName={controlName}
-          placeholder="Name"
+          placeholder={controlName.slice(0, 1).toUpperCase() + controlName.slice(1)}
           onChange={onChange}
           value={value}
         />
@@ -71,16 +80,17 @@ const Contact = () => {
   const {
     handleSubmit,
     control,
-    formState: { errors },
+    formState: { errors, defaultValues },
+    getValues,
   } = useForm<ContactForm>({
     defaultValues: {
       name: "",
       email: "",
+      topic: "",
     },
   });
 
   const onSubmit = (data: ContactForm) => {
-    // not doing anything with the data yet, just log it to console.
     console.log("Submitted Data: ", data);
 
     // TODO: Leave this to me, I'll implement a hook
@@ -93,7 +103,9 @@ const Contact = () => {
     //   .catch((error) => alert(error));
   };
 
-  console.log(errors);
+  if (Object.keys(errors).length !== 0) {
+    console.log("Errors: ", errors);
+  }
 
   return (
     <Wrapper title="Contact Us">
@@ -127,7 +139,15 @@ const Contact = () => {
             </HStack>
 
             {/* TODO: Dropdown select */}
-            {/* --- Your code here --- */}
+            <FormItem
+              errors={errors.topic}
+              control={control}
+              controlName="topic"
+              rules={{
+                validate: { selectedNone: () => getValues("topic") !== defaultValues.topic },
+              }}
+              errorDef={[{ type: "selectedNone", msg: "Please select a topic." }]}
+            />
 
             {/* TODO: Message textarea */}
             {/* --- Your code here --- */}
