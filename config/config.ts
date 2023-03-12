@@ -132,7 +132,7 @@ export const navItems: NavItem[] = [
   },
   {
     name: "gear",
-    link: "/gear",
+    link: "/gear/audio",
   },
   {
     name: "contact",
