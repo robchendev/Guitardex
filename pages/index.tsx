@@ -12,7 +12,7 @@ export const Index: NextPage = () => {
           <Image
             src="img/eddie.jpeg"
             alt="image is broken"
-            className="h-max lg:w-1/2 md:w-full lg:max-w-xl md:max-w-full mb-5 object-scale-down rounded-lg"
+            className="h-max mb-5 object-scale-down sm:px-6 lg:px-0 rounded-lg md:w-full lg:w-1/2 "
           />
           <div className="lg:w-1/2 md:w-full pl-6 lg:max-w-xl md:max-w-full text-lg inline-block">
             <p className="mb-3">
