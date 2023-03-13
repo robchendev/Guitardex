@@ -29,7 +29,7 @@ const TeamMember = ({
   socials: TeamSocial[];
 }) => {
   return (
-    <div className="flex flex-col items-center mx-5 sm:mb-10 lg:mb-0 lg:w-1/4 ">
+    <div className="flex flex-col items-center mx-5 sm:pb-10 sm:last-of-type:pb-0 lg:mb-0 lg:w-1/4 ">
       <Image src={imageUrl} alt={`${name} as ${role}`} className="rounded-3xl mb-5" />
       <span className="text-2xl">{name}</span>
       <p className="text-lg italic text-gold ">{role}</p>

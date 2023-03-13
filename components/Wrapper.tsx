@@ -18,11 +18,11 @@ const Header = () => {
 
 const Footer = () => {
   return (
-    <div className="w-full justify-center flex text-white-soft mt-4 pb-8">
+    <div className="w-full justify-center flex text-white-soft sm:mt-0 lg:mt-4 pb-8">
       <footer className="container flex items-center justify-center mx-auto mb-6 h-fit text-center">
         <VStack spacing={0} className=" text-white-soft w-2/6">
           <div className="h-px w-full bg-grey-med mb-14" />
-          <div className="font-serif mt-14">
+          <div className="font-serif">
             <HStack className="justify-center mb-5">
               {icons.map((icon: SocialIcon, index: number) => (
                 <LinkIcon key={index} icon={icon.icon} link={icon.link} />
