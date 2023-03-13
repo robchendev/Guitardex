@@ -132,7 +132,7 @@ export const navItems: NavItem[] = [
   },
   {
     name: "gear",
-    link: "/gear",
+    link: "/gear/audio",
   },
   {
     name: "contact",
@@ -169,7 +169,7 @@ export const icons: SocialIcon[] = [
   },
   {
     name: "gear",
-    link: "/gear",
+    link: "/gear/audio",
     icon: FaApple,
   },
 ];
