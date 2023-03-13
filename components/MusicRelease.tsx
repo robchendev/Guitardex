@@ -9,7 +9,9 @@ const MusicRelease = ({ image }: { image: MusicIcon }) => {
       <a href={image.link} className="absolute top-2 left-2  text-white-soft">
         <div className="bg-black-hard bg-opacity-50 rounded text-transparent align-middle hover:bg-carmine-soft hover:bg-opacity-100 py-0.5 px-2.5 w-full h-full">
           <Icon as={FaPlay} color="white" className="sm:text-2xl lg:text-lg" />
-          <span className="text-white-hard align-middle pl-1 sm:text-3xl lg:text-lg">Listen</span>
+          <span className="text-white-hard align-middle pl-1 sm:text-3xl md:text-2xl lg:text-lg">
+            Listen
+          </span>
         </div>
       </a>
       <Image src={image.picture} alt={image.name} className=""></Image>
