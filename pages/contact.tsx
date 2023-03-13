@@ -1,4 +1,13 @@
-import { FormControl, FormErrorMessage, HStack, Input, Select, VStack } from "@chakra-ui/react";
+import {
+  FormControl,
+  FormErrorMessage,
+  HStack,
+  Input,
+  Select,
+  VStack,
+  Textarea,
+  Checkbox,
+} from "@chakra-ui/react";
 import React from "react";
 import { Controller, RegisterOptions, useForm } from "react-hook-form";
 import Wrapper from "../components/Wrapper";
@@ -8,8 +17,8 @@ type ContactForm = {
   name?: string;
   email?: string;
   topic?: "" | "Inquiry" | "Tab / Sheet Music" | "Sponsorship" | "Other";
-  // TODO: message
-  // TODO: privacy
+  message?: string;
+  privacy?: boolean;
 };
 
 type ErrorConfig = {
@@ -32,7 +41,7 @@ type FormElementConfig = {
   controlName: keyof ContactForm;
   placeholder: string;
   onChange: () => void;
-  value: string;
+  value: string | boolean;
 };
 
 const FormElement = ({ controlName, placeholder, onChange, value }: FormElementConfig) => {
@@ -49,11 +58,18 @@ const FormElement = ({ controlName, placeholder, onChange, value }: FormElementC
           <option value="Other">Other</option>
         </Select>
       );
-    // TODO: message
-    // TODO: privacy
+    case "message":
+      return <Textarea placeholder={placeholder} onChange={onChange} value={value} />;
+    case "privacy":
+      return (
+        <Checkbox onChange={onChange} value={value}>
+          I agree to the Privacy Policy
+        </Checkbox>
+      );
     default:
       return <Input value="Element not implemented" disabled />;
   }
+  // TODO: privacy
 };
 
 const FormItem = ({ errors, control, controlName, rules, errorDef }: FormItemConfig) => (
@@ -89,6 +105,7 @@ const Contact = () => {
       name: "",
       email: "",
       topic: "",
+      message: "",
     },
   });
 
@@ -141,11 +158,23 @@ const Contact = () => {
             errorDef={[{ type: "selectedNone", msg: "Please select a topic." }]}
           />
 
-          {/* TODO: Message textarea */}
-          {/* --- Your code here --- */}
+          {/* Done: Message textarea */}
+          <FormItem
+            errors={errors.message}
+            control={control}
+            controlName="message"
+            rules={{ required: true }}
+            errorDef={[{ type: "required", msg: "This is required" }]}
+          />
 
           {/* TODO: Privacy checkbox */}
-          {/* --- Your code here --- */}
+          <FormItem
+            errors={errors.privacy}
+            control={control}
+            controlName="privacy"
+            rules={{ required: true }}
+            errorDef={[{ type: "required", msg: "This is required" }]}
+          />
 
           <button
             className="px-4 py-2.5 rounded-md bg-carmine-soft hover:bg-carmine-hard transition ease-in duration-300"
