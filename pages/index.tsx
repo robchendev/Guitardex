@@ -37,7 +37,7 @@ export const Index: NextPage = () => {
           </div>
         </div>
         <SubHeading label="team" />
-        <div className="flex flex-wrap lg:max-w-6xl md:max-w-full justify-center mb-14 mx-auto">
+        <div className="flex flex-wrap sm:flex-col lg:flex-row lg:max-w-6xl md:max-w-full justify-center mb-14 mx-auto">
           <TeamMember
             name="juliano"
             role="cameraman"
