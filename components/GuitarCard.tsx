@@ -35,12 +35,12 @@ const BuyButton = ({ item }: { item: ItemComponent }) => {
   switch (item.available) {
     case "buy":
       return (
-        <span className="inline-block align-bottom">
+        <div className="flex align-middle mt-4">
           <span className="w-max text-4xl px-6">${item.price}</span>
-          <a href={item.buyLink} className="bg-carmine-soft w-max text-lg px-5 py-2.5 rounded-sm">
+          <a href={item.buyLink} className="bg-carmine-soft w-max text-lg px-5 py-2 rounded-sm">
             Buy this guitar
           </a>
-        </span>
+        </div>
       );
     case "discontinued":
       return (
