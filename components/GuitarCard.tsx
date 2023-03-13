@@ -35,8 +35,8 @@ const BuyButton = ({ item }: { item: ItemComponent }) => {
   switch (item.available) {
     case "buy":
       return (
-        <span className="inline-block align-middle">
-          <span className="w-max text-4xl p-6">${item.price}</span>
+        <span className="inline-block align-bottom">
+          <span className="w-max text-4xl px-6">${item.price}</span>
           <a href={item.buyLink} className="bg-carmine-soft w-max text-lg px-5 py-2.5 rounded-sm">
             Buy this guitar
           </a>
@@ -53,8 +53,11 @@ const BuyButton = ({ item }: { item: ItemComponent }) => {
 
 const GuitarCard = ({ index, guitar }: { index: number; guitar: GuitarInfo }) => {
   return (
-    <div key={index} className="max-w-5xl flex flex-row end text-right justify-items-end my-16">
-      <div className="w-1/2 [&>div]:rounded-md">
+    <div
+      key={index}
+      className="max-w-5xl flex text-right justify-items-end my-16 sm:flex-col md:flex-row sm:px-10"
+    >
+      <div className="[&>div]:rounded-md sm:w-full sm:mb-6 md:w-1/2 md:mb-0">
         <LiteYoutubeEmbed
           id={guitar.videoId}
           isMobile={true}
@@ -64,7 +67,7 @@ const GuitarCard = ({ index, guitar }: { index: number; guitar: GuitarInfo }) =>
           params={{ rel: "0" }}
         />
       </div>
-      <div className="flex flex-col w-1/2 items-end justify-between">
+      <div className="flex flex-col items-end justify-between md:w-1/2">
         <div>
           <h2 className="text-4xl">{guitar.name}</h2>
           <span className=" text-gold">{guitar.brand}</span>
