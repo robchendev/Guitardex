@@ -44,7 +44,7 @@ const BuyButton = ({ item }: { item: ItemComponent }) => {
       );
     case "discontinued":
       return (
-        <a href={item.buyLink} className="bg-grey-soft w-max text-2xl p-2 rounded-md">
+        <a href={item.buyLink} className="bg-grey-soft w-max text-2xl p-2 rounded-md mt-4">
           Discontinued
         </a>
       );
