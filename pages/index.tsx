@@ -12,9 +12,9 @@ export const Index: NextPage = () => {
           <Image
             src="img/eddie.jpeg"
             alt="image is broken"
-            className="h-max mb-5 object-scale-down sm:px-6 lg:px-0 rounded-lg md:w-full lg:w-1/2 "
+            className="h-max mb-5 object-scale-down sm:px-10 lg:px-0 rounded-lg md:w-full lg:w-1/2 "
           />
-          <div className="lg:w-1/2 md:w-full pl-6 lg:max-w-xl md:max-w-full text-lg inline-block">
+          <div className="lg:w-1/2 md:w-full px-10 lg:max-w-xl md:max-w-full text-lg inline-block">
             <p className="mb-3">
               Eddie is a fingerstyle guitarist from the Netherlands. His continuous dedication to
               his passion has led to him creating high-quality covers of popular music, which has
