@@ -16,20 +16,22 @@ const Links = ({ links }: { links: GearLink[] }) => (
 );
 
 const Gear = ({ gear }: { gear: Gear[] }) => (
-  <div className="ml-4">
+  <ul className="ml-2">
     {gear?.map(({ name, links }: Gear, index: number) => (
-      <Text key={index}>
-        {name} <Links links={links} />
-      </Text>
+      <li className="text-lg" key={index}>
+        • {name} <Links links={links} />
+      </li>
     ))}
-  </div>
+  </ul>
 );
 
 const GearCard = ({ sections }: { sections: Section[] }) => (
   <div>
     {sections?.map(({ name, gear }: Section, index: number) => (
-      <div key={index}>
-        <Text>{name}</Text>
+      <div key={index} className="mb-4 last:mb-0">
+        <Text mb="1" fontWeight={500} fontSize="xl" letterSpacing={0.3}>
+          {name}
+        </Text>
         <Gear gear={gear} />
       </div>
     ))}

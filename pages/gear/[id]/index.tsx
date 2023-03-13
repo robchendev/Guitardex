@@ -23,14 +23,12 @@ const Gear = () => {
 
   // This has a bit of FOUC due to unloaded data
   return (
-    <Wrapper title={gearItem?.name}>
+    <Wrapper title="Gear">
       <div className="flex justify-center">
-        {gearItem && (
-          <HStack alignItems="flex-start" className="w-8/12">
-            <GearNav />
-            <GearCard sections={gearItem?.sections} />
-          </HStack>
-        )}
+        <HStack spacing="8" alignItems="flex-start" className="w-8/12">
+          <GearNav />
+          <GearCard sections={gearItem?.sections ?? gearNavItems[0].sections} />
+        </HStack>
       </div>
     </Wrapper>
   );

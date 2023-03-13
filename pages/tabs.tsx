@@ -1,7 +1,6 @@
 import {
   Accordion,
   AccordionButton,
-  AccordionIcon,
   AccordionItem,
   AccordionPanel,
   Box,
@@ -28,6 +27,7 @@ const TabButton = ({ button }: { button: Buy | Free }) => {
         <HStack>
           <Text>${button.price}</Text>
           <a
+            onClick={(e) => e.stopPropagation()}
             href={button.link}
             className="block ml-2 px-3 pb-2 pt-1.5 rounded-md bg-carmine-soft hover:bg-carmine-hard transition ease-in duration-300"
           >
@@ -40,6 +40,7 @@ const TabButton = ({ button }: { button: Buy | Free }) => {
         <HStack>
           <Text>free</Text>
           <a
+            onClick={(e) => e.stopPropagation()}
             href={button.link}
             className="block 1ml-2 px-3 pb-2 pt-1.5 rounded-md bg-carmine-soft hover:bg-carmine-hard transition ease-in duration-300"
           >
