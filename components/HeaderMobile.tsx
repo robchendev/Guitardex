@@ -30,12 +30,7 @@ const HeaderMobile = () => {
         <Button ref={btnRef} colorScheme="" onClick={onOpen}>
           <Icon as={FaAlignJustify} w={10} h={10} />
         </Button>
-        <Drawer
-          isOpen={isOpen}
-          placement="top"
-          onClose={onClose}
-          finalFocusRef={btnRef}
-        >
+        <Drawer isOpen={isOpen} placement="top" onClose={onClose} finalFocusRef={btnRef}>
           <DrawerOverlay />
           <DrawerContent>
             <DrawerBody>
@@ -45,9 +40,7 @@ const HeaderMobile = () => {
                     key={index}
                     href={navItem.link}
                     className={`font-serif text-2xl px-5 py-3.5 hover:text-gold${
-                      router.pathname === navItem.link
-                        ? " text-purple-soft"
-                        : ""
+                      router.pathname === navItem.link ? " text-purple-soft" : ""
                     }`}
                   >
                     {navItem.name}
