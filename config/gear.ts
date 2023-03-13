@@ -1,22 +1,28 @@
-import { NavItem } from "./config";
+export type GearLink = {
+  seller: string;
+  link: string;
+};
 
-export type GearNavItem = {
-  sections?: {
-    name: string;
-    gear?: {
-      name: string;
-      links?: {
-        seller: string;
-        link: string;
-      }[];
-    }[];
-  }[];
-} & NavItem;
+export type Gear = {
+  name: string;
+  links?: GearLink[];
+};
 
-export const gearNavItems: GearNavItem[] = [
+export type Section = {
+  name: string;
+  gear?: Gear[];
+};
+
+export type GearItem = {
+  name: string;
+  id: string;
+  sections?: Section[];
+};
+
+export const gearNavItems: GearItem[] = [
   {
     name: "Audio",
-    link: "/gear/audio",
+    id: "audio",
     sections: [
       {
         name: "Microphones",
@@ -172,7 +178,7 @@ export const gearNavItems: GearNavItem[] = [
   },
   {
     name: "Video",
-    link: "/gear/video",
+    id: "video",
     sections: [
       {
         name: "Camera",
@@ -292,7 +298,7 @@ export const gearNavItems: GearNavItem[] = [
   },
   {
     name: "Misc",
-    link: "/gear/misc",
+    id: "misc",
     sections: [
       {
         name: "Strings",

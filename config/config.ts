@@ -169,7 +169,7 @@ export const icons: SocialIcon[] = [
   },
   {
     name: "gear",
-    link: "/gear",
+    link: "/gear/audio",
     icon: FaApple,
   },
 ];
