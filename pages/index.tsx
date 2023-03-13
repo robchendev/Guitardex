@@ -12,16 +12,16 @@ export const Index: NextPage = () => {
           <Image
             src="img/eddie.jpeg"
             alt="image is broken"
-            className="h-max mb-5 object-scale-down sm:px lg:px-0 rounded-lg md:w-full lg:w-1/2 "
+            className="h-max mb-5 object-scale-down sm:px-6 lg:px-0 rounded-lg md:w-full lg:w-1/2 "
           />
-          <div className="lg:w-1/2 md:w-full mx lg:max-w-xl md:max-w-full text-lg inline-block">
+          <div className="lg:w-1/2 md:w-full pl-6 lg:max-w-xl md:max-w-full text-lg inline-block">
             <p className="mb-3">
               Eddie is a fingerstyle guitarist from the Netherlands. His continuous dedication to
               his passion has led to him creating high-quality covers of popular music, which has
               garnered him over 375 million views and over 2.5 million subscribers on YouTube.
             </p>
             <p className="mb-3">
-              He first picked up the guitar when he was, and took lessons for basics from his
+              He first picked up the guitar when he was 10, and took lessons for basics from his
               neighbor. At age of 13, Eddie was inspired by Tommy Emmanuel to start learning
               fingerstyle. When he was 14, he was given the honor of being able to perform with
               Tommy Tommy on stage, which was uploaded as his first video on YouTube. A year later,
