@@ -7,7 +7,11 @@ import { images, MusicIcon } from "../config/config";
 export const Music: NextPage = () => {
   return (
     <Wrapper title="releases produced">
-      <Grid templateColumns="repeat(4,1fr)" gap={6} className="mb-16">
+      <Grid
+        templateColumns={{ sm: "repeat(2,1fr)", md: "repeat(3,1fr)", lg: "repeat(4,1fr)" }}
+        gap={{ sm: "4", lg: "6" }}
+        className="mb-16 sm:mx-10 lg:mx-auto flex align-items-center"
+      >
         {images.map((image: MusicIcon, index: number) => (
           <MusicRelease key={index} image={image} />
         ))}
