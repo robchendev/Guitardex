@@ -1,4 +1,4 @@
-import { FormControl, FormErrorMessage, HStack, Input, Select, VStack } from "@chakra-ui/react";
+import { FormControl, FormErrorMessage, Input, Select, Stack, VStack } from "@chakra-ui/react";
 import React from "react";
 import { Controller, RegisterOptions, useForm } from "react-hook-form";
 import Wrapper from "../components/Wrapper";
@@ -35,7 +35,7 @@ type FormElementConfig = {
   value: string;
 };
 
-const FormElement = ({ controlName, placeholder, onChange, value }: FormElementConfig) => {
+const FormElement = ({ controlName, placeholder, onChange }: FormElementConfig) => {
   switch (controlName) {
     case "name":
     case "email":
@@ -104,7 +104,7 @@ const Contact = () => {
     <Wrapper title="Contact Us">
       <form className="flex justify-center w-full" name="contact" method="POST" data-netlify="true">
         <VStack className="w-8/12" spacing={4}>
-          <HStack w="full" alignItems="flex-start">
+          <Stack direction={{ sm: "column", md: "row" }} w="full" alignItems="flex-start">
             {/* DONE: Name */}
             <FormItem
               errors={errors.name}
@@ -128,7 +128,7 @@ const Contact = () => {
                 { type: "pattern", msg: "Email must be valid" },
               ]}
             />
-          </HStack>
+          </Stack>
 
           {/* Done: Topic */}
           <FormItem
