@@ -17,26 +17,23 @@ export const Index: NextPage = () => {
           />
           <div className="lg:w-1/2 md:w-full pl-6 lg:max-w-xl md:max-w-full text-lg inline-block">
             <p className="mb-3">
-              Eddie is a fingerstyle guitarist from the Netherlands. His
-              continuous dedication to his passion has led to him creating
-              high-quality covers of popular music, which has garnered him over
-              375 million views and over 2.5 million subscribers on YouTube.
+              Eddie is a fingerstyle guitarist from the Netherlands. His continuous dedication to
+              his passion has led to him creating high-quality covers of popular music, which has
+              garnered him over 375 million views and over 2.5 million subscribers on YouTube.
             </p>
             <p className="mb-3">
-              He first picked up the guitar when he was 10, and took lessons for
-              basics from his neighbor. At age of 13, Eddie was inspired by
-              Tommy Emmanuel to start learning fingerstyle. When he was 14, he
-              was given the honor of being able to perform with Tommy Tommy on
-              stage, which was uploaded as his first video on YouTube. A year
-              later, he decided to create his own voice on the guigtar, shifting
-              his focus to arranging and covering songs. In 2013, he began
-              taking YouTube more seriously and started building an audience.
+              He first picked up the guitar when he was 10, and took lessons for basics from his
+              neighbor. At age of 13, Eddie was inspired by Tommy Emmanuel to start learning
+              fingerstyle. When he was 14, he was given the honor of being able to perform with
+              Tommy Tommy on stage, which was uploaded as his first video on YouTube. A year later,
+              he decided to create his own voice on the guigtar, shifting his focus to arranging and
+              covering songs. In 2013, he began taking YouTube more seriously and started building
+              an audience.
             </p>
             <p className="mb-3">
-              He is now 25 years old and has successfully made his passion into
-              a career. He is delighted to be able to share his guitar music
-              with the world. As of October 2020, Eddie has been working
-              full-time as a music producer.
+              He is now 25 years old and has successfully made his passion into a career. He is
+              delighted to be able to share his guitar music with the world. As of October 2020,
+              Eddie has been working full-time as a music producer.
             </p>
           </div>
         </div>
@@ -59,11 +56,9 @@ export const Index: NextPage = () => {
           />
           <TeamMember
             name="constantine"
-            role="developer"
+            role="web developer"
             imageUrl="/img/constantine.jpg"
-            socials={[
-              { type: "github", link: "https://github.com/dead-weight" },
-            ]}
+            socials={[{ type: "github", link: "https://github.com/dead-weight" }]}
           />
         </div>
         <div></div>
