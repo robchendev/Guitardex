@@ -58,7 +58,7 @@ export const Index: NextPage = () => {
             name="constantine"
             role="web developer"
             imageUrl="/img/constantine.jpg"
-            socials={[{ type: "github", link: "https://github.com/dead-weight" }]}
+            socials={[{ type: "github", link: "https://github.com/kulakdev" }]}
           />
         </div>
         <div></div>
