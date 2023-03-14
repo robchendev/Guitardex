@@ -39,7 +39,7 @@ const HeaderMobile = () => {
                   <Link
                     key={index}
                     href={navItem.link}
-                    className={`font-serif text-2xl px-5 py-3.5 hover:text-gold${
+                    className={`font-serif  text-2xl px-5 py-3.5 hover:text-gold${
                       router.pathname === navItem.link ? " text-purple-soft" : ""
                     }`}
                   >
