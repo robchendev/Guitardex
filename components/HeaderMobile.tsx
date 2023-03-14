@@ -31,9 +31,8 @@ const HeaderMobile = () => {
           <Icon as={FaAlignJustify} w={10} h={10} />
         </Button>
         <Drawer isOpen={isOpen} placement="top" onClose={onClose} finalFocusRef={btnRef}>
-          <DrawerOverlay />
-          <DrawerContent>
-            <DrawerBody>
+          <DrawerContent className="bg-transparent top-30">
+            <DrawerBody className="bg-carmine-soft text-white-soft">
               <VStack>
                 {navItems.map((navItem: NavItem, index: number) => (
                   <Link
