@@ -32,6 +32,9 @@ const accordionTheme = defineMultiStyleConfig({ baseStyle });
 const theme = {
   colors: {
     // gold: "#FCDC97",
+    gray: {
+      900: "#171717",
+    },
   },
   components: {
     Button,
