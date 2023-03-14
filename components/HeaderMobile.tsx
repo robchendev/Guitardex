@@ -5,7 +5,6 @@ import {
   Button,
   Drawer,
   DrawerBody,
-  DrawerOverlay,
   DrawerContent,
   Icon,
 } from "@chakra-ui/react";
@@ -32,7 +31,7 @@ const HeaderMobile = () => {
         </Button>
         <Drawer isOpen={isOpen} placement="top" onClose={onClose} finalFocusRef={btnRef}>
           <DrawerContent className="bg-transparent top-30">
-            <DrawerBody className="bg-carmine-soft text-white-soft">
+            <DrawerBody className="bg-black-soft text-white-soft">
               <VStack>
                 {navItems.map((navItem: NavItem, index: number) => (
                   <Link
