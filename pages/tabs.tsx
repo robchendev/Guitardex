@@ -101,59 +101,67 @@ const Difficulty = ({ rating }: { rating: number }) => {
 
 const TabItem = ({ tab }: { tab: TabInfo }) => {
   return (
-    <AccordionItem className="py-4 w-full px-0 border-none box shadow-md shadow-black-hard/20">
-      <AccordionButton px={0} className="w-full" justifyContent="space-between" textAlign="left">
-        <Box w="45%">
+    <AccordionItem className="w-full border-none box shadow-md shadow-black-hard/20" p="0">
+      <AccordionButton
+        px={4}
+        py={3}
+        className="w-full"
+        justifyContent="space-between"
+        textAlign="left"
+      >
+        <Box className="w-full md:w-5/12">
           <Text fontWeight={500} noOfLines={1} className="text-gold">
             {tab.title}
           </Text>
           <Text noOfLines={1}>{tab.source}</Text>
         </Box>
-        <HStack justifyContent="space-between" spacing={7}>
-          <div>
-            <Text>{tab.tuning.strings.join(" ")}</Text>
-          </div>
-          <Center w={20}>
-            <Text>{tab.genre}</Text>
-          </Center>
-          <Center>{tab.button && <TabButton button={tab.button} />}</Center>
-          <HStack>
-            <Link href={tab.spotifyLink} isExternal>
-              <IconButton
-                onClick={(e) => e.stopPropagation()}
-                as={FaSpotify}
-                aria-label="Spotify"
-                bgColor="transparent"
-                _hover={{ bgColor: "transparent" }}
-                className={
-                  tab.spotifyLink
-                    ? "text-white-soft hover:text-gold transition ease-in duration-300"
-                    : "text-grey-med"
-                }
-                size="sm"
-                disabled={!tab.spotifyLink}
-              />
-            </Link>
-            <Link href={tab.videoLink} isExternal>
-              <IconButton
-                onClick={(e) => e.stopPropagation()}
-                as={FaYoutube}
-                aria-label="Youtube"
-                bgColor="transparent"
-                _hover={{ bgColor: "transparent" }}
-                className={
-                  tab.videoLink
-                    ? "text-white-soft hover:text-gold transition ease-in duration-300"
-                    : "text-grey-med"
-                }
-                size="sm"
-                disabled={!tab.videoLink}
-              />
-            </Link>
+        <div className="hidden md:block">
+          <HStack justifyContent="space-between" spacing={7}>
+            <div>
+              <Text>{tab.tuning.strings.join(" ")}</Text>
+            </div>
+            <Center w={20}>
+              <Text>{tab.genre}</Text>
+            </Center>
+            <Center>{tab.button && <TabButton button={tab.button} />}</Center>
+            <HStack>
+              <Link href={tab.spotifyLink} isExternal>
+                <IconButton
+                  onClick={(e) => e.stopPropagation()}
+                  as={FaSpotify}
+                  aria-label="Spotify"
+                  bgColor="transparent"
+                  _hover={{ bgColor: "transparent" }}
+                  className={
+                    tab.spotifyLink
+                      ? "text-white-soft hover:text-gold transition ease-in duration-300"
+                      : "text-grey-med"
+                  }
+                  size="sm"
+                  disabled={!tab.spotifyLink}
+                />
+              </Link>
+              <Link href={tab.videoLink} isExternal>
+                <IconButton
+                  onClick={(e) => e.stopPropagation()}
+                  as={FaYoutube}
+                  aria-label="Youtube"
+                  bgColor="transparent"
+                  _hover={{ bgColor: "transparent" }}
+                  className={
+                    tab.videoLink
+                      ? "text-white-soft hover:text-gold transition ease-in duration-300"
+                      : "text-grey-med"
+                  }
+                  size="sm"
+                  disabled={!tab.videoLink}
+                />
+              </Link>
+            </HStack>
           </HStack>
-        </HStack>
+        </div>
       </AccordionButton>
-      <AccordionPanel p={0} pt={2} pb={3}>
+      <AccordionPanel pt={0} pb={4} px={4}>
         <table className="[&>tbody>tr>td:first-child]:w-0 [&>tbody>tr]:border-grey-med [&>tbody>tr]:border-t [&>tbody>tr]:border-b  [&>tbody>tr>td]:py-1 [&>tbody>tr>td:first-child]:text-white-ghost [&>tbody>tr>td:first-child]:pr-4 w-full">
           <tbody>
             <tr>
@@ -244,7 +252,7 @@ const Tabs: NextPage = () => {
           className="border-gold border-px rounded-md py-3 px-4 bg-grey-hard w-72"
         />
       </Center>
-      <Accordion allowToggle w="full">
+      <Accordion allowToggle w="full" className="px-4 md:px-0">
         <Center>
           <VStack w="100%" spacing={4}>
             {tabs.map((tab: TabInfo, index: number) => (
