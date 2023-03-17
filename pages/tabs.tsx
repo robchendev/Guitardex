@@ -12,7 +12,7 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { NextPage } from "next";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaSpotify, FaYoutube } from "react-icons/fa";
 import Wrapper from "../components/Wrapper";
 import { Buy, Free, TabInfo, tabs } from "../config/tabs";
@@ -85,7 +85,6 @@ const Difficulty = ({ rating }: { rating: number }) => {
   const full = Math.floor(rating / 2);
   const half = rating % 2;
   const empty = Math.floor((10 - rating) / 2);
-  console.log([...Array(full)]);
   return (
     <HStack spacing={1}>
       {[...Array(full)].map((val: number, index: number) => (
@@ -244,18 +243,49 @@ const TabItem = ({ tab }: { tab: TabInfo }) => {
 };
 
 const Tabs: NextPage = () => {
+  const [search, setSearch] = useState("hello");
+  const [result, setResult] = useState<TabInfo[]>([]);
+
+  const onChange = (searchString: string) => {
+    setSearch(searchString);
+  };
+  useEffect(() => {
+    const filter = (keywords: string): TabInfo[] => {
+      const matchingTabs: TabInfo[] = [];
+      for (const tab of tabs) {
+        if (tab.title.toLowerCase().includes(keywords)) {
+          matchingTabs.push(tab);
+        } else if (tab.source.toLowerCase().includes(keywords)) {
+          matchingTabs.push(tab);
+        } else if (tab.artist.toLowerCase().includes(keywords)) {
+          matchingTabs.push(tab);
+        } else if (tab.genre.toLowerCase().includes(keywords)) {
+          matchingTabs.push(tab);
+        } else if (tab.tuning.name.toLowerCase().includes(keywords)) {
+          matchingTabs.push(tab);
+        } else if (tab.tuning.strings.join(" ").toLowerCase().includes(keywords)) {
+          matchingTabs.push(tab);
+        }
+      }
+      return matchingTabs;
+    };
+    const newResult: TabInfo[] = filter(search.toLowerCase());
+    setResult(newResult);
+  }, [search]);
   return (
     <Wrapper title="Tabs">
       <Center mb={4}>
         <input
           placeholder="Search song, tuning, genre"
           className="border-gold border-px rounded-md py-3 px-4 bg-grey-hard w-72"
+          value={search}
+          onChange={(e) => onChange(e.target.value)}
         />
       </Center>
       <Accordion allowToggle w="full" className="px-4 md:px-0">
         <Center>
           <VStack w="100%" spacing={4}>
-            {tabs.map((tab: TabInfo, index: number) => (
+            {(!!search || result.length ? result : tabs).map((tab: TabInfo, index: number) => (
               <TabItem key={index} tab={tab} />
             ))}
           </VStack>
