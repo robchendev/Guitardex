@@ -34,8 +34,8 @@ const Header = () => {
 
 const Footer = () => {
   return (
-    <div className="w-full justify-center flex text-white-soft mt-4 pb-8">
-      <footer className="container flex items-center justify-center mx-auto mb-6 h-fit text-center">
+    <footer className="w-full justify-center flex text-white-soft mt-4 pb-8 relative">
+      <div className="container flex items-center justify-center mx-auto mb-6 text-center">
         <VStack spacing={0} className=" text-white-soft w-2/6">
           <div className="h-px w-full bg-grey-med mb-14" />
           <div className="font-serif mt-14">
@@ -56,8 +56,8 @@ const Footer = () => {
             </div>
           </div>
         </VStack>
-      </footer>
-    </div>
+      </div>
+    </footer>
   );
 };
 
@@ -72,11 +72,13 @@ const Wrapper = ({
 }) => {
   return (
     <div className="bg-black-soft text-white-soft flex flex-col h-screen justify-between">
-      <Header />
-      <main className="font-serif lg:max-w-4xl lg:mx-auto mb-12 w-full h-full">
-        {title && <PageTitle title={title} />}
-        {children}
-      </main>
+      <div>
+        <Header />
+        <main className="font-serif lg:max-w-4xl lg:mx-auto mb-12 w-full h-full">
+          {title && <PageTitle title={title} />}
+          {children}
+        </main>
+      </div>
       {hasFooter && <Footer />}
     </div>
   );

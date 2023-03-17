@@ -42,7 +42,7 @@ export type TabInfo = {
 export const tabs: TabInfo[] = [
   {
     title: "Suzume",
-    source: "Suzume no Tojimari OST",
+    source: "Suzume no Tojimari",
     artist: "RADWIMPS",
     videoLink: "https://youtu.be/wQANVR4vqXI",
     genre: "Anime",

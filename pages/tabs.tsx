@@ -64,19 +64,15 @@ const TabDetailLink = ({ button }: { button: Buy | Free }) => {
   switch (button.type) {
     case "buy":
       return (
-        <Text noOfLines={1}>
-          <a className="text-gold" href={button.link}>
-            {purgeLink(button.link)}
-          </a>
-        </Text>
+        <a className="text-gold" href={button.link}>
+          <p className="truncate">{purgeLink(button.link)}</p>
+        </a>
       );
     case "free":
       return (
-        <Text noOfLines={1}>
-          <a className="text-gold" href={button.link}>
-            placeholder link for free
-          </a>
-        </Text>
+        <a className="text-gold" href={button.link}>
+          <p className="truncate">placeholder link for free</p>
+        </a>
       );
   }
 };
@@ -109,10 +105,8 @@ const TabItem = ({ tab }: { tab: TabInfo }) => {
         textAlign="left"
       >
         <Box className="w-full md:w-5/12">
-          <Text fontWeight={500} noOfLines={1} className="text-gold">
-            {tab.title}
-          </Text>
-          <Text noOfLines={1}>{tab.source}</Text>
+          <p className="truncate font-medium text-gold">{tab.title}</p>
+          <p className="truncate">{tab.source ?? tab.artist}</p>
         </Box>
         <div className="hidden md:block">
           <HStack justifyContent="space-between" spacing={7}>
@@ -161,7 +155,7 @@ const TabItem = ({ tab }: { tab: TabInfo }) => {
         </div>
       </AccordionButton>
       <AccordionPanel pt={0} pb={4} px={4}>
-        <table className="[&>tbody>tr>td:first-child]:w-0 [&>tbody>tr]:border-grey-med [&>tbody>tr]:border-t [&>tbody>tr]:border-b  [&>tbody>tr>td]:py-1 [&>tbody>tr>td:first-child]:text-white-ghost [&>tbody>tr>td:first-child]:pr-4 w-full">
+        <table className="table-fixed [&>tbody>tr>td:first-child]:w-24 [&>tbody>tr]:border-grey-med [&>tbody>tr]:border-t [&>tbody>tr]:border-b  [&>tbody>tr>td]:py-1 [&>tbody>tr>td:first-child]:text-white-ghost w-full">
           <tbody>
             <tr>
               <td>Link</td>
@@ -180,7 +174,7 @@ const TabItem = ({ tab }: { tab: TabInfo }) => {
                 <td>Guitardex</td>
                 <td>
                   <a className="text-gold" href={tab.guitardex}>
-                    <Text noOfLines={1}>{purgeLink(tab.guitardex)}</Text>
+                    <p className="truncate">{purgeLink(tab.guitardex)}</p>
                   </a>
                 </td>
               </tr>
@@ -209,18 +203,18 @@ const TabItem = ({ tab }: { tab: TabInfo }) => {
             </tr>
             <tr>
               <td>Tuning</td>
-              <td>{tab.tuning.name}</td>
-            </tr>
-            <tr>
-              <td>Strings</td>
-              <td>{tab.tuning.strings.join(" ")}</td>
+              <td>
+                {tab.tuning.name}
+                <br />
+                {tab.tuning.strings.join(" ")}
+              </td>
             </tr>
             {tab.videoLink && (
               <tr>
                 <td>Youtube</td>
                 <td>
                   <a className="text-gold" href={tab.videoLink}>
-                    <Text noOfLines={1}>{purgeLink(tab.videoLink)}</Text>
+                    <p className="truncate">{purgeLink(tab.videoLink)}</p>
                   </a>
                 </td>
               </tr>
@@ -230,7 +224,7 @@ const TabItem = ({ tab }: { tab: TabInfo }) => {
                 <td>Spotify</td>
                 <td>
                   <a className="text-gold" href={tab.spotifyLink}>
-                    <Text noOfLines={1}>{purgeLink(tab.spotifyLink)}</Text>
+                    <p className="truncate">{purgeLink(tab.spotifyLink)}</p>
                   </a>
                 </td>
               </tr>
@@ -243,7 +237,7 @@ const TabItem = ({ tab }: { tab: TabInfo }) => {
 };
 
 const Tabs: NextPage = () => {
-  const [search, setSearch] = useState("hello");
+  const [search, setSearch] = useState<string>("");
   const [result, setResult] = useState<TabInfo[]>([]);
 
   const onChange = (searchString: string) => {
