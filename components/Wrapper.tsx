@@ -73,7 +73,7 @@ const Wrapper = ({
   return (
     <div className="bg-black-soft text-white-soft flex flex-col h-screen justify-between">
       <Header />
-      <main className="font-serif lg:max-w-4xl lg:mx-auto mb-12 w-full">
+      <main className="font-serif lg:max-w-4xl lg:mx-auto mb-12 w-full h-full">
         {title && <PageTitle title={title} />}
         {children}
       </main>
