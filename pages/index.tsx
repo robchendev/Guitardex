@@ -26,7 +26,7 @@ export const Index: NextPage = () => {
               neighbor. At age of 13, Eddie was inspired by Tommy Emmanuel to start learning
               fingerstyle. When he was 14, he was given the honor of being able to perform with
               Tommy Tommy on stage, which was uploaded as his first video on YouTube. A year later,
-              he decided to create his own voice on the guigtar, shifting his focus to arranging and
+              he decided to create his own voice on the guitar, shifting his focus to arranging and
               covering songs. In 2013, he began taking YouTube more seriously and started building
               an audience.
             </p>
