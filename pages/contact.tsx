@@ -59,10 +59,10 @@ const FormElement = ({ controlName, placeholder, onChange, value }: FormElementC
         </Select>
       );
     case "message":
-      return <Textarea placeholder={placeholder} onChange={onChange} value={value} />;
+      return <Textarea placeholder={placeholder} onChange={onChange} value={value as string} />;
     case "privacy":
       return (
-        <Checkbox onChange={onChange} value={value}>
+        <Checkbox onChange={onChange} isChecked={value as boolean}>
           I agree to the Privacy Policy
         </Checkbox>
       );
