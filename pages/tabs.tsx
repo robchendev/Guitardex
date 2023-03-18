@@ -287,7 +287,6 @@ const Tabs: NextPage = () => {
       return matchingTabs;
     };
     const newResult: TabInfo[] = filter(search.toLowerCase());
-    console.log(newResult);
     setResult(newResult);
   }, [search, difficulty]);
 
@@ -322,7 +321,10 @@ const Tabs: NextPage = () => {
               min={0}
               max={10}
               defaultValue={difficulty}
-              onChange={(rating) => setDifficulty(rating)}
+              onChange={(rating) => {
+                setDifficulty(rating);
+                setExpandedIndex(-1);
+              }}
             >
               <RangeSliderTrack bg="#555">
                 <RangeSliderFilledTrack bg="#B51C42" />
