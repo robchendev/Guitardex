@@ -25,7 +25,7 @@ export type Genre =
   | "Pop"
   | "R&B"
   | "Rock"
-  | "TV/Movie";
+  | "Film";
 
 export type TabInfo = {
   title: string;

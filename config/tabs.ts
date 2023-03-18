@@ -78,7 +78,7 @@ export const tabs: TabInfo[] = [
   //   source: "La casa de papel (Money Heist)",
   //   artist: "Manu Pilas",
   //   videoLink: "https://youtu.be/umVfZVUFt_k",
-  //   genre: "TV/Movie",
+  //   genre: "Film",
   //   difficulty: 0,
   // },
   {
@@ -117,10 +117,10 @@ export const tabs: TabInfo[] = [
   },
   {
     title: "Enemy",
-    source: "Arcane",
+    source: "League of Legends - Arcane",
     artist: "Imagine Dragons",
     videoLink: "https://youtu.be/_ZG7Q5SgD9s",
-    genre: "TV/Movie",
+    genre: "Film",
     tuning: {
       name: "Open G/D#",
       strings: "D# G D G B D",
@@ -137,7 +137,7 @@ export const tabs: TabInfo[] = [
     source: "Squid Game Medley",
     artist: "Jung Jae-il",
     videoLink: "https://youtu.be/LYcM1QIxmLA",
-    genre: "TV/Movie",
+    genre: "Film",
     tuning: {
       name: "Open Cm",
       strings: "C G C G C D#",
@@ -279,7 +279,7 @@ export const tabs: TabInfo[] = [
     artist: "Ramin Djawadi",
     videoLink: "https://youtu.be/yDHm_yRcRHo",
     spotifyLink: "https://open.spotify.com/track/3QvYQljqqIgxWHgeqQX28I?si=72c5e2fdcc244330",
-    genre: "TV/Movie",
+    genre: "Film",
     tuning: {
       name: "Open Cm",
       strings: "C G C G C D#",

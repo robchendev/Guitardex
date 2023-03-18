@@ -122,14 +122,16 @@ const TabItem = ({
           bg: "linear-gradient(60deg, transparent 0%, #303030 100%)",
         }}
       >
-        <Box className="w-full md:w-2/5">
+        <Box className="w-full md:w-2/5 pr-8">
           <p className="truncate font-medium text-gold">{tab.title}</p>
           <p className="truncate">{tab.source || tab.artist}</p>
           {isDifficultyFilter && <Difficulty rating={tab.difficulty} hasNum />}
         </Box>
-        <Box className="hidden md:block w-3/5 pl-8">
+        <Box className="hidden md:block w-3/5">
           <HStack spacing={0}>
-            <Box className="w-3/12 text-center">{tab.tuning && tab.tuning.strings}</Box>
+            <Box className="w-3/12 text-center text-lg tracking-tight">
+              {tab.tuning && tab.tuning.strings}
+            </Box>
             <Text className="w-4/12 text-center">{tab.genre}</Text>
             <Box className="w-3/12 pr-4">{tab.button && <TabButton button={tab.button} />}</Box>
             <Box className="w-2/12">
