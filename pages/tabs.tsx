@@ -340,7 +340,9 @@ const Tabs: NextPage = () => {
       >
         <Center>
           <VStack w="100%" spacing={4}>
-            {search && !result.length && <p>No matching tabs found</p>}
+            {(!!search || difficulty[0] !== 0 || difficulty[1] !== 10) && !result.length && (
+              <p>No matching tabs found</p>
+            )}
             {(!!search || difficulty[0] !== 0 || difficulty[1] !== 10 ? result : tabs).map(
               (tab: TabInfo, index: number) => (
                 <TabItem
