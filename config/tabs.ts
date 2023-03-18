@@ -9,7 +9,7 @@ export const tabs: TabInfo[] = [
     genre: "Anime",
     tuning: {
       name: "Open D#maj7",
-      strings: ["D#", "G", "D", "G", "A#", "D"],
+      strings: "D# G D G A# D",
     },
     button: {
       type: "buy",
@@ -27,7 +27,7 @@ export const tabs: TabInfo[] = [
     genre: "Anime/Game",
     tuning: {
       name: "Open A#maj7",
-      strings: ["A#", "F", "D", "F", "A", "F"],
+      strings: "A# F D F A F",
     },
     button: {
       type: "buy",
@@ -89,7 +89,7 @@ export const tabs: TabInfo[] = [
     genre: "Rock",
     tuning: {
       name: "Standard",
-      strings: ["E", "A", "D", "G", "B", "E"],
+      strings: "E A D G B E",
     },
     button: {
       type: "buy",
@@ -106,7 +106,7 @@ export const tabs: TabInfo[] = [
     genre: "Anime",
     tuning: {
       name: "Open G/D#",
-      strings: ["D#", "G", "D", "G", "B", "D"],
+      strings: "D# G D G B D",
     },
     button: {
       type: "buy",
@@ -123,7 +123,7 @@ export const tabs: TabInfo[] = [
     genre: "TV/Movie",
     tuning: {
       name: "Open G/D#",
-      strings: ["D#", "G", "D", "G", "B", "D"],
+      strings: "D# G D G B D",
     },
     button: {
       type: "buy",
@@ -140,7 +140,7 @@ export const tabs: TabInfo[] = [
     genre: "TV/Movie",
     tuning: {
       name: "Open Cm",
-      strings: ["C", "G", "C", "G", "C", "D#"],
+      strings: "C G C G C D#",
     },
     button: {
       type: "buy",
@@ -159,7 +159,7 @@ export const tabs: TabInfo[] = [
     genre: "Medley",
     tuning: {
       name: "Standard",
-      strings: ["E", "A", "D", "G", "B", "E"],
+      strings: "E A D G B E",
     },
     button: {
       type: "buy",
@@ -176,7 +176,7 @@ export const tabs: TabInfo[] = [
     genre: "Anime",
     tuning: {
       name: "Open B",
-      strings: ["B", "F#", "B", "F#", "B", "D#"],
+      strings: "B F# B F# B D#",
     },
     button: {
       type: "buy",
@@ -192,7 +192,7 @@ export const tabs: TabInfo[] = [
     genre: "Game",
     tuning: {
       name: "Standard",
-      strings: ["E", "A", "D", "G", "B", "E"],
+      strings: "E A D G B E",
     },
     button: {
       type: "buy",
@@ -209,7 +209,7 @@ export const tabs: TabInfo[] = [
     genre: "Anime",
     tuning: {
       name: "Raise F",
-      strings: ["F", "A", "D", "G", "B", "E"],
+      strings: "F A D G B E",
     },
     button: {
       type: "buy",
@@ -228,7 +228,7 @@ export const tabs: TabInfo[] = [
     genre: "Medley",
     tuning: {
       name: "Standard",
-      strings: ["E", "A", "D", "G", "B", "E"],
+      strings: "E A D G B E",
     },
     button: {
       type: "buy",
@@ -247,7 +247,7 @@ export const tabs: TabInfo[] = [
     genre: "Medley",
     tuning: {
       name: "Standard",
-      strings: ["E", "A", "D", "G", "B", "E"],
+      strings: "E A D G B E",
     },
     button: {
       type: "buy",
@@ -264,7 +264,7 @@ export const tabs: TabInfo[] = [
     genre: "Anime",
     tuning: {
       name: "Open C",
-      strings: ["C", "G", "C", "G", "C", "E"],
+      strings: "C G C G C E",
     },
     button: {
       type: "buy",
@@ -282,7 +282,7 @@ export const tabs: TabInfo[] = [
     genre: "TV/Movie",
     tuning: {
       name: "Open Cm",
-      strings: ["C", "G", "C", "G", "C", "D#"],
+      strings: "C G C G C D#",
     },
     button: {
       type: "buy",
@@ -299,7 +299,7 @@ export const tabs: TabInfo[] = [
     genre: "EDM",
     tuning: {
       name: "Open Cadd9",
-      strings: ["C", "G", "C", "E", "G", "D"],
+      strings: "C G C E G D",
     },
     button: {
       type: "buy",
@@ -317,7 +317,7 @@ export const tabs: TabInfo[] = [
     genre: "Anime",
     tuning: {
       name: "Standard",
-      strings: ["E", "A", "D", "G", "B", "E"],
+      strings: "E A D G B E",
     },
     button: {
       type: "buy",
@@ -333,7 +333,7 @@ export const tabs: TabInfo[] = [
     genre: "Alternative",
     tuning: {
       name: "Open Bsus4",
-      strings: ["B", "F#", "B", "F#", "B", "E"],
+      strings: "B F# B F# B E",
     },
     button: {
       type: "buy",
@@ -349,7 +349,7 @@ export const tabs: TabInfo[] = [
     genre: "Alternative",
     tuning: {
       name: "Drop D",
-      strings: ["D", "A", "D", "G", "B", "E"],
+      strings: "D A D G B E",
     },
     button: {
       type: "buy",
@@ -366,7 +366,7 @@ export const tabs: TabInfo[] = [
     genre: "Anime",
     tuning: {
       name: "Open Gm",
-      strings: ["D", "G", "D", "G", "A#", "D"],
+      strings: "D G D G A# D",
     },
     button: {
       type: "buy",
@@ -383,7 +383,7 @@ export const tabs: TabInfo[] = [
     genre: "Game",
     tuning: {
       name: "Open Fm",
-      strings: ["C", "F", "C", "F", "G#", "C"],
+      strings: "C F C F G# C",
     },
     button: {
       type: "buy",
@@ -401,8 +401,7 @@ export const tabs: TabInfo[] = [
     genre: "Anime",
     tuning: {
       name: "Standard",
-      // TODO: This won't work for duets. Change it to type string.
-      strings: ["E", "A", "D", "G", "B", "E"],
+      strings: "E A D G B E",
     },
     button: {
       type: "buy",

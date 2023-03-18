@@ -9,10 +9,9 @@ export type Free = {
   link: string;
 };
 
-export type Note = "A" | "A#" | "B" | "C" | "C#" | "D" | "D#" | "E" | "F" | "F#" | "G" | "G#";
 export type TuningInfo = {
   name: string;
-  strings: [Note, Note, Note, Note, Note, Note];
+  strings: string;
 };
 
 export type Genre =

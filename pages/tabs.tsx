@@ -31,7 +31,7 @@ const TabButton = ({ button }: { button: Buy | Free }) => {
   switch (button.type) {
     case "buy":
       return (
-        <HStack>
+        <HStack justifyContent="flex-end">
           <Text>${button.price}</Text>
           <a
             onClick={(e) => e.stopPropagation()}
@@ -44,7 +44,7 @@ const TabButton = ({ button }: { button: Buy | Free }) => {
       );
     case "free":
       return (
-        <HStack>
+        <HStack justifyContent="flex-end">
           <Text>free</Text>
           <a
             onClick={(e) => e.stopPropagation()}
@@ -119,7 +119,7 @@ const TabItem = ({
         justifyContent="space-between"
         textAlign="left"
       >
-        <Box className="w-full md:w-5/12">
+        <Box className="w-full md:w-2/5">
           <p className="truncate font-medium text-gold">{tab.title}</p>
           <p className="truncate">{tab.source || tab.artist}</p>
           {isDifficultyFilter && (
@@ -128,53 +128,49 @@ const TabItem = ({
             </div>
           )}
         </Box>
-        <div className="hidden md:block">
-          <HStack justifyContent="space-between" spacing={7}>
-            {tab.tuning && (
-              <div>
-                <p>{tab.tuning.strings.join(" ")}</p>
-              </div>
-            )}
-            <Center w={20}>
-              <Text>{tab.genre}</Text>
-            </Center>
-            <Center>{tab.button && <TabButton button={tab.button} />}</Center>
-            <HStack>
-              <Link href={tab.spotifyLink} isExternal>
-                <IconButton
-                  onClick={(e) => e.stopPropagation()}
-                  as={FaSpotify}
-                  aria-label="Spotify"
-                  bgColor="transparent"
-                  _hover={{ bgColor: "transparent" }}
-                  className={
-                    tab.spotifyLink
-                      ? "text-white-soft hover:text-gold transition ease-in duration-300"
-                      : "text-grey-med cursor-default"
-                  }
-                  size="sm"
-                  disabled={!tab.spotifyLink}
-                />
-              </Link>
-              <Link href={tab.videoLink} isExternal>
-                <IconButton
-                  onClick={(e) => e.stopPropagation()}
-                  as={FaYoutube}
-                  aria-label="Youtube"
-                  bgColor="transparent"
-                  _hover={{ bgColor: "transparent" }}
-                  className={
-                    tab.videoLink
-                      ? "text-white-soft hover:text-gold transition ease-in duration-300"
-                      : "text-grey-med cursor-default"
-                  }
-                  size="sm"
-                  disabled={!tab.videoLink}
-                />
-              </Link>
-            </HStack>
+        <Box className="hidden md:block w-3/5 pl-8">
+          <HStack spacing={0}>
+            <Box className="w-3/12 text-center">{tab.tuning && tab.tuning.strings}</Box>
+            <Text className="w-4/12 text-center">{tab.genre}</Text>
+            <Box className="w-3/12 pr-4">{tab.button && <TabButton button={tab.button} />}</Box>
+            <Box className="w-2/12">
+              <HStack justifyContent="flex-end">
+                <Link href={tab.spotifyLink} isExternal>
+                  <IconButton
+                    onClick={(e) => e.stopPropagation()}
+                    as={FaSpotify}
+                    aria-label="Spotify"
+                    bgColor="transparent"
+                    _hover={{ bgColor: "transparent" }}
+                    className={
+                      tab.spotifyLink
+                        ? "text-white-soft hover:text-gold transition ease-in duration-300"
+                        : "text-grey-med cursor-default"
+                    }
+                    size="sm"
+                    disabled={!tab.spotifyLink}
+                  />
+                </Link>
+                <Link href={tab.videoLink} isExternal>
+                  <IconButton
+                    onClick={(e) => e.stopPropagation()}
+                    as={FaYoutube}
+                    aria-label="Youtube"
+                    bgColor="transparent"
+                    _hover={{ bgColor: "transparent" }}
+                    className={
+                      tab.videoLink
+                        ? "text-white-soft hover:text-gold transition ease-in duration-300"
+                        : "text-grey-med cursor-default"
+                    }
+                    size="sm"
+                    disabled={!tab.videoLink}
+                  />
+                </Link>
+              </HStack>
+            </Box>
           </HStack>
-        </div>
+        </Box>
       </AccordionButton>
       <AccordionPanel pt={0} pb={4} px={4}>
         <table className="table-fixed [&>tbody>tr>td:first-child]:w-24 [&>tbody>tr]:border-grey-med [&>tbody>tr]:border-t [&>tbody>tr]:border-b  [&>tbody>tr>td]:py-1 [&>tbody>tr>td:first-child]:text-white-ghost w-full">
@@ -227,7 +223,7 @@ const TabItem = ({
                 <td>
                   {tab.tuning.name}
                   <br />
-                  {tab.tuning.strings.join(" ")}
+                  {tab.tuning.strings}
                 </td>
               </tr>
             )}
@@ -281,7 +277,10 @@ const Tabs: NextPage = () => {
             tab.genre.toLowerCase().includes(keywords) ||
             (tab.tuning &&
               (tab.tuning.name.toLowerCase().includes(keywords) ||
-                tab.tuning.strings.join("").toLowerCase().includes(keywords.replace(/\s/g, "")))))
+                tab.tuning.strings
+                  .toLowerCase()
+                  .replace(/\s/g, "")
+                  .includes(keywords.replace(/\s/g, "")))))
         ) {
           matchingTabs.push(tab);
         }
@@ -304,7 +303,7 @@ const Tabs: NextPage = () => {
         />
       </Center>
       <Center>
-        <div className="w-2/5 mb-3">
+        <div className="w-2/5 mb-3 text-lg">
           {difficulty[0] !== difficulty[1] ? (
             <Flex gap={2} alignItems="center" justifyContent="center">
               Difficulty: <Difficulty rating={difficulty[0]} /> to{" "}
