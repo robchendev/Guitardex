@@ -301,8 +301,8 @@ const Tabs: NextPage = () => {
           onChange={(e) => onChange(e.target.value)}
         />
       </Center>
-      <Box>
-        <div>
+      <Box mb={3}>
+        <div className="text-lg">
           {difficulty[0] !== difficulty[1] ? (
             <Flex gap={2} alignItems="center" justifyContent="center">
               Difficulty: <Difficulty rating={difficulty[0]} /> to{" "}
@@ -315,7 +315,7 @@ const Tabs: NextPage = () => {
           )}
         </div>
         <Center>
-          <div className="w-4/5 lg:w-2/5 mb-3 text-lg">
+          <div className="w-4/5 lg:w-2/5">
             <RangeSlider
               // eslint-disable-next-line
               aria-label={["min", "max"]}
