@@ -278,6 +278,7 @@ const Tabs: NextPage = () => {
       return matchingTabs;
     };
     const newResult: TabInfo[] = filter(search.toLowerCase());
+    console.log(newResult);
     setResult(newResult);
   }, [search, difficulty]);
 
@@ -329,7 +330,7 @@ const Tabs: NextPage = () => {
       >
         <Center>
           <VStack w="100%" spacing={4}>
-            {(!!search || result.length ? result : tabs).map((tab: TabInfo, index: number) => (
+            {(!!search ? result : tabs).map((tab: TabInfo, index: number) => (
               <TabItem key={index} tab={tab} />
             ))}
           </VStack>
