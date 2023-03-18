@@ -115,9 +115,12 @@ const TabItem = ({
       <AccordionButton
         px={4}
         py={3}
-        className="w-full"
+        className="w-full rounded-md"
         justifyContent="space-between"
         textAlign="left"
+        _hover={{
+          bg: "linear-gradient(60deg, transparent 0%, #303030 100%)",
+        }}
       >
         <Box className="w-full md:w-2/5">
           <p className="truncate font-medium text-gold">{tab.title}</p>
