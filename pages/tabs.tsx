@@ -121,6 +121,9 @@ const TabItem = ({
         _hover={{
           bg: "linear-gradient(60deg, transparent 0%, #303030 100%)",
         }}
+        _expanded={{
+          borderRadius: "8px 8px 0px 0px",
+        }}
       >
         <Box className="w-full md:w-2/5 pr-8">
           <p className="truncate font-medium text-gold">{tab.title}</p>
