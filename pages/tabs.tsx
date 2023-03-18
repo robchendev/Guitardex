@@ -250,18 +250,14 @@ const Tabs: NextPage = () => {
     const filter = (keywords: string): TabInfo[] => {
       const matchingTabs: TabInfo[] = [];
       for (const tab of tabs) {
-        if (tab.title.toLowerCase().includes(keywords)) {
-          matchingTabs.push(tab);
-        } else if (tab.source.toLowerCase().includes(keywords)) {
-          matchingTabs.push(tab);
-        } else if (tab.artist.toLowerCase().includes(keywords)) {
-          matchingTabs.push(tab);
-        } else if (tab.genre.toLowerCase().includes(keywords)) {
-          matchingTabs.push(tab);
-        } else if (tab.tuning.name.toLowerCase().includes(keywords)) {
-          matchingTabs.push(tab);
-        } else if (
-          tab.tuning.strings.join("").toLowerCase().includes(keywords.replace(/\s/g, ""))
+        if (
+          tab.title.toLowerCase().includes(keywords) ||
+          tab.source?.toLowerCase().includes(keywords) ||
+          tab.artist?.toLowerCase().includes(keywords) ||
+          tab.genre.toLowerCase().includes(keywords) ||
+          (tab.tuning &&
+            (tab.tuning.name.toLowerCase().includes(keywords) ||
+              tab.tuning.strings.join("").toLowerCase().includes(keywords.replace(/\s/g, ""))))
         ) {
           matchingTabs.push(tab);
         }
