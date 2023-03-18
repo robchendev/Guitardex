@@ -17,7 +17,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0268543",
     },
     guitardex: "https://gdex.cc/?Suzume_14.5.17.1.2.4.16.6.7.10.11.12.22",
-    difficulty: 5,
+    difficulty: 4,
   },
   {
     title: "I Really Want to Stay At Your House",
@@ -34,7 +34,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0268403",
     },
-    difficulty: 0,
+    difficulty: 6,
   },
   // {
   //   title: "Krone",
@@ -96,7 +96,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0254688",
     },
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "The Rumbling",
@@ -113,7 +113,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0253775",
     },
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "Enemy",
@@ -130,7 +130,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0253634",
     },
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "Red Light, Green Light, Way Back Then, I Remember My Name, Unfolded",
@@ -147,7 +147,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0243443",
     },
-    difficulty: 0,
+    difficulty: 4,
   },
   {
     title:
@@ -166,7 +166,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0243661",
     },
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "A Tender Feeling",
@@ -183,7 +183,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "",
     },
-    difficulty: 0,
+    difficulty: 3,
   },
   {
     title: "Assassin's Creed III Main Theme",
@@ -199,7 +199,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0239435",
     },
-    difficulty: 0,
+    difficulty: 2,
   },
   {
     title: "Here With You",
@@ -216,7 +216,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0237446",
     },
-    difficulty: 0,
+    difficulty: 3,
   },
   {
     title:
@@ -235,7 +235,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0236925",
     },
-    difficulty: 0,
+    difficulty: 7,
   },
   {
     title:
@@ -254,7 +254,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0235405",
     },
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "Redo",
@@ -271,7 +271,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0235334",
     },
-    difficulty: 0,
+    difficulty: 7,
   },
   {
     title: "The Rains of Castamere",
@@ -289,7 +289,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0235333",
     },
-    difficulty: 0,
+    difficulty: 4,
   },
   {
     title: "In the Name of Love",
@@ -306,7 +306,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0235224",
     },
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "Jiyuu no Tsubasa",
@@ -324,7 +324,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0234801",
     },
-    difficulty: 0,
+    difficulty: 7,
   },
   {
     title: "For the Damaged Coda",
@@ -340,7 +340,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0234800",
     },
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "Clocks",
@@ -356,7 +356,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0234798",
     },
-    difficulty: 0,
+    difficulty: 4,
   },
   {
     title: "Guren no Yumiya",
@@ -373,7 +373,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0234602",
     },
-    difficulty: 0,
+    difficulty: 4,
   },
   {
     title: "Warriors",
@@ -390,7 +390,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191852",
     },
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "Roundabout",
@@ -409,7 +409,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "",
     },
-    difficulty: 0,
+    difficulty: 6,
   },
   // {
   //   title: "",

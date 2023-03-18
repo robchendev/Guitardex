@@ -6,9 +6,14 @@ import {
   Box,
   Center,
   ExpandedIndex,
+  Flex,
   HStack,
   IconButton,
   Link,
+  RangeSlider,
+  RangeSliderFilledTrack,
+  RangeSliderThumb,
+  RangeSliderTrack,
   Text,
   VStack,
 } from "@chakra-ui/react";
@@ -84,15 +89,17 @@ const Difficulty = ({ rating }: { rating: number }) => {
   const half = rating % 2;
   const empty = Math.floor((10 - rating) / 2);
   return (
-    <HStack spacing={1}>
-      {[...Array(full)].map((val: number, index: number) => (
-        <ImStarFull key={index} />
-      ))}
-      {half === 1 && <ImStarHalf />}
-      {[...Array(empty)].map((val: number, index: number) => (
-        <ImStarEmpty key={index} />
-      ))}
-    </HStack>
+    <span>
+      <HStack spacing={1}>
+        {[...Array(full)].map((val: number, index: number) => (
+          <ImStarFull key={index} />
+        ))}
+        {half === 1 && <ImStarHalf />}
+        {[...Array(empty)].map((val: number, index: number) => (
+          <ImStarEmpty key={index} />
+        ))}
+      </HStack>
+    </span>
   );
 };
 
@@ -244,7 +251,7 @@ const Tabs: NextPage = () => {
   const [search, setSearch] = useState<string>("");
   const [result, setResult] = useState<TabInfo[]>([]);
   const [expandedIndex, setExpandedIndex] = useState<number | undefined>(undefined);
-  const tabCount = tabs.length;
+  const [difficulty, setDifficulty] = useState<number[]>([0, 10]);
 
   const onChange = (searchString: string) => {
     setSearch(searchString);
@@ -255,13 +262,15 @@ const Tabs: NextPage = () => {
       const matchingTabs: TabInfo[] = [];
       for (const tab of tabs) {
         if (
-          tab.title.toLowerCase().includes(keywords) ||
-          tab.source?.toLowerCase().includes(keywords) ||
-          tab.artist?.toLowerCase().includes(keywords) ||
-          tab.genre.toLowerCase().includes(keywords) ||
-          (tab.tuning &&
-            (tab.tuning.name.toLowerCase().includes(keywords) ||
-              tab.tuning.strings.join("").toLowerCase().includes(keywords.replace(/\s/g, ""))))
+          tab.difficulty >= difficulty[0] &&
+          tab.difficulty <= difficulty[1] &&
+          (tab.title.toLowerCase().includes(keywords) ||
+            tab.source?.toLowerCase().includes(keywords) ||
+            tab.artist?.toLowerCase().includes(keywords) ||
+            tab.genre.toLowerCase().includes(keywords) ||
+            (tab.tuning &&
+              (tab.tuning.name.toLowerCase().includes(keywords) ||
+                tab.tuning.strings.join("").toLowerCase().includes(keywords.replace(/\s/g, "")))))
         ) {
           matchingTabs.push(tab);
         }
@@ -270,7 +279,8 @@ const Tabs: NextPage = () => {
     };
     const newResult: TabInfo[] = filter(search.toLowerCase());
     setResult(newResult);
-  }, [search]);
+  }, [search, difficulty]);
+
   return (
     <Wrapper title="Tabs">
       <Center mb={4}>
@@ -281,6 +291,35 @@ const Tabs: NextPage = () => {
           onChange={(e) => onChange(e.target.value)}
         />
       </Center>
+      <Center>
+        <div className="w-2/5 mb-3">
+          {difficulty[0] !== difficulty[1] ? (
+            <Flex gap={2} alignItems="center" justifyContent="center">
+              Between <Difficulty rating={difficulty[0]} /> and{" "}
+              <Difficulty rating={difficulty[1]} />
+            </Flex>
+          ) : (
+            <Flex gap={2} alignItems="center" justifyContent="center">
+              Exactly <Difficulty rating={difficulty[0]} />
+            </Flex>
+          )}
+          <RangeSlider
+            // eslint-disable-next-line
+            aria-label={["min", "max"]}
+            min={0}
+            max={10}
+            defaultValue={difficulty}
+            onChange={(rating) => setDifficulty(rating)}
+          >
+            <RangeSliderTrack>
+              <RangeSliderFilledTrack />
+            </RangeSliderTrack>
+            <RangeSliderThumb index={0} />
+            <RangeSliderThumb index={1} />
+          </RangeSlider>
+        </div>
+      </Center>
+
       <Accordion
         allowToggle
         w="full"
