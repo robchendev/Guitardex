@@ -103,7 +103,13 @@ const Difficulty = ({ rating }: { rating: number }) => {
   );
 };
 
-const TabItem = ({ tab, newSearch }: { tab: TabInfo; newSearch?: boolean }) => {
+const TabItem = ({
+  tab,
+  isDifficultyFilter = false,
+}: {
+  tab: TabInfo;
+  isDifficultyFilter?: boolean;
+}) => {
   return (
     <AccordionItem className="w-full border-none box shadow-md shadow-black-hard/20" p="0">
       <AccordionButton
@@ -116,6 +122,11 @@ const TabItem = ({ tab, newSearch }: { tab: TabInfo; newSearch?: boolean }) => {
         <Box className="w-full md:w-5/12">
           <p className="truncate font-medium text-gold">{tab.title}</p>
           <p className="truncate">{tab.source || tab.artist}</p>
+          {isDifficultyFilter && (
+            <div className="mt-1.5 mb-1 text-lg">
+              <Difficulty rating={tab.difficulty} />
+            </div>
+          )}
         </Box>
         <div className="hidden md:block">
           <HStack justifyContent="space-between" spacing={7}>
@@ -286,7 +297,7 @@ const Tabs: NextPage = () => {
     <Wrapper title="Tabs">
       <Center mb={4}>
         <input
-          placeholder="Search song, tuning, genre"
+          placeholder="Search song, artist, tuning, genre"
           className="border-gold border-px rounded-md py-3 px-4 bg-grey-hard w-72"
           value={search}
           onChange={(e) => onChange(e.target.value)}
@@ -296,11 +307,12 @@ const Tabs: NextPage = () => {
         <div className="w-2/5 mb-3">
           {difficulty[0] !== difficulty[1] ? (
             <Flex gap={2} alignItems="center" justifyContent="center">
-              From <Difficulty rating={difficulty[0]} /> to <Difficulty rating={difficulty[1]} />
+              Difficulty: <Difficulty rating={difficulty[0]} /> to{" "}
+              <Difficulty rating={difficulty[1]} />
             </Flex>
           ) : (
             <Flex gap={2} alignItems="center" justifyContent="center">
-              Exactly <Difficulty rating={difficulty[0]} />
+              Difficulty: <Difficulty rating={difficulty[0]} />
             </Flex>
           )}
           <RangeSlider
@@ -311,8 +323,8 @@ const Tabs: NextPage = () => {
             defaultValue={difficulty}
             onChange={(rating) => setDifficulty(rating)}
           >
-            <RangeSliderTrack>
-              <RangeSliderFilledTrack />
+            <RangeSliderTrack bg="#555">
+              <RangeSliderFilledTrack bg="#B51C42" />
             </RangeSliderTrack>
             <RangeSliderThumb index={0} />
             <RangeSliderThumb index={1} />
@@ -332,7 +344,11 @@ const Tabs: NextPage = () => {
             {search && !result.length && <p>No matching tabs found</p>}
             {(!!search || difficulty[0] !== 0 || difficulty[1] !== 10 ? result : tabs).map(
               (tab: TabInfo, index: number) => (
-                <TabItem key={index} tab={tab} />
+                <TabItem
+                  key={index}
+                  tab={tab}
+                  isDifficultyFilter={difficulty[0] !== 0 || difficulty[1] !== 10}
+                />
               )
             )}
           </VStack>
