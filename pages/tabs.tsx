@@ -5,7 +5,6 @@ import {
   AccordionPanel,
   Box,
   Center,
-  ExpandedIndex,
   Flex,
   HStack,
   IconButton,
@@ -302,8 +301,8 @@ const Tabs: NextPage = () => {
           onChange={(e) => onChange(e.target.value)}
         />
       </Center>
-      <Center>
-        <div className="w-2/5 mb-3 text-lg">
+      <Box>
+        <div>
           {difficulty[0] !== difficulty[1] ? (
             <Flex gap={2} alignItems="center" justifyContent="center">
               Difficulty: <Difficulty rating={difficulty[0]} /> to{" "}
@@ -314,22 +313,26 @@ const Tabs: NextPage = () => {
               Difficulty: <Difficulty rating={difficulty[0]} />
             </Flex>
           )}
-          <RangeSlider
-            // eslint-disable-next-line
-            aria-label={["min", "max"]}
-            min={0}
-            max={10}
-            defaultValue={difficulty}
-            onChange={(rating) => setDifficulty(rating)}
-          >
-            <RangeSliderTrack bg="#555">
-              <RangeSliderFilledTrack bg="#B51C42" />
-            </RangeSliderTrack>
-            <RangeSliderThumb index={0} />
-            <RangeSliderThumb index={1} />
-          </RangeSlider>
         </div>
-      </Center>
+        <Center>
+          <div className="w-4/5 lg:w-2/5 mb-3 text-lg">
+            <RangeSlider
+              // eslint-disable-next-line
+              aria-label={["min", "max"]}
+              min={0}
+              max={10}
+              defaultValue={difficulty}
+              onChange={(rating) => setDifficulty(rating)}
+            >
+              <RangeSliderTrack bg="#555">
+                <RangeSliderFilledTrack bg="#B51C42" />
+              </RangeSliderTrack>
+              <RangeSliderThumb index={0} />
+              <RangeSliderThumb index={1} />
+            </RangeSlider>
+          </div>
+        </Center>
+      </Box>
 
       <Accordion
         allowToggle
