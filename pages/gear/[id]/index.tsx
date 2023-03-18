@@ -10,7 +10,7 @@ const Gear = () => {
   const router = useRouter();
   const id = router.query.id as string;
 
-  const getGearInfo = (): GearItem => {
+  const getGearInfo = (): GearItem | null => {
     const navItemIds: string[] = gearNavItems.map((item: GearItem) => item.id);
     const indexOfNavItem = navItemIds.indexOf(id);
     if (indexOfNavItem < 0) {

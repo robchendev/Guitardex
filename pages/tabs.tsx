@@ -252,7 +252,7 @@ const Tabs: NextPage = () => {
       for (const tab of tabs) {
         if (
           tab.title.toLowerCase().includes(keywords) ||
-          tab.source?.toLowerCase().includes(keywords) ||
+          tab.source.toLowerCase().includes(keywords) ||
           tab.artist?.toLowerCase().includes(keywords) ||
           tab.genre.toLowerCase().includes(keywords) ||
           (tab.tuning &&

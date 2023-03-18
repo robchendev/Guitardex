@@ -2,7 +2,7 @@ import { Text } from "@chakra-ui/react";
 import React from "react";
 import { Gear, Section, GearLink } from "../../config/gear";
 
-const Links = ({ links }: { links: GearLink[] }) => (
+const Links = ({ links }: { links?: GearLink[] }) => (
   <>
     {links?.map(({ seller, link }: GearLink, index: number) => (
       <span key={index}>
@@ -15,7 +15,7 @@ const Links = ({ links }: { links: GearLink[] }) => (
   </>
 );
 
-const Gear = ({ gear }: { gear: Gear[] }) => (
+const Gear = ({ gear }: { gear?: Gear[] }) => (
   <ul className="ml-2">
     {gear?.map(({ name, links }: Gear, index: number) => (
       <li className="text-lg" key={index}>
@@ -25,7 +25,7 @@ const Gear = ({ gear }: { gear: Gear[] }) => (
   </ul>
 );
 
-const GearCard = ({ sections }: { sections: Section[] }) => (
+const GearCard = ({ sections }: { sections?: Section[] }) => (
   <div>
     {sections?.map(({ name, gear }: Section, index: number) => (
       <div key={index} className="mb-4 last:mb-0">

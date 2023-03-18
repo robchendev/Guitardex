@@ -27,7 +27,7 @@ type ErrorConfig = {
 };
 
 type FormItemConfig = {
-  errors: FieldError;
+  errors?: FieldError;
   control: Control<ContactForm, any>;
   controlName: keyof ContactForm;
   rules: Omit<
@@ -41,7 +41,7 @@ type FormElementConfig = {
   controlName: keyof ContactForm;
   placeholder: string;
   onChange: () => void;
-  value: string | boolean;
+  value?: string | boolean;
 };
 
 const FormElement = ({ controlName, placeholder, onChange, value }: FormElementConfig) => {
@@ -153,7 +153,7 @@ const Contact = () => {
             control={control}
             controlName="topic"
             rules={{
-              validate: { selectedNone: () => getValues("topic") !== defaultValues.topic },
+              validate: { selectedNone: () => getValues("topic") !== defaultValues?.topic },
             }}
             errorDef={[{ type: "selectedNone", msg: "Please select a topic." }]}
           />
