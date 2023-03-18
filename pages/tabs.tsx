@@ -202,7 +202,7 @@ const TabItem = ({
               </tr>
             )}
             <tr>
-              <td>Artist(s)</td>
+              <td>Artist</td>
               <td>{tab.artist}</td>
             </tr>
             <tr>
