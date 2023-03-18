@@ -296,8 +296,7 @@ const Tabs: NextPage = () => {
         <div className="w-2/5 mb-3">
           {difficulty[0] !== difficulty[1] ? (
             <Flex gap={2} alignItems="center" justifyContent="center">
-              Between <Difficulty rating={difficulty[0]} /> and{" "}
-              <Difficulty rating={difficulty[1]} />
+              From <Difficulty rating={difficulty[0]} /> to <Difficulty rating={difficulty[1]} />
             </Flex>
           ) : (
             <Flex gap={2} alignItems="center" justifyContent="center">
@@ -330,9 +329,12 @@ const Tabs: NextPage = () => {
       >
         <Center>
           <VStack w="100%" spacing={4}>
-            {(!!search ? result : tabs).map((tab: TabInfo, index: number) => (
-              <TabItem key={index} tab={tab} />
-            ))}
+            {search && !result.length && <p>No matching tabs found</p>}
+            {(!!search || difficulty[0] !== 0 || difficulty[1] !== 10 ? result : tabs).map(
+              (tab: TabInfo, index: number) => (
+                <TabItem key={index} tab={tab} />
+              )
+            )}
           </VStack>
         </Center>
       </Accordion>
