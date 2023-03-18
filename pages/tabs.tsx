@@ -5,6 +5,7 @@ import {
   AccordionPanel,
   Box,
   Center,
+  ExpandedIndex,
   HStack,
   IconButton,
   Link,
@@ -95,7 +96,7 @@ const Difficulty = ({ rating }: { rating: number }) => {
   );
 };
 
-const TabItem = ({ tab }: { tab: TabInfo }) => {
+const TabItem = ({ tab, newSearch }: { tab: TabInfo; newSearch?: boolean }) => {
   return (
     <AccordionItem className="w-full border-none box shadow-md shadow-black-hard/20" p="0">
       <AccordionButton
@@ -242,9 +243,12 @@ const TabItem = ({ tab }: { tab: TabInfo }) => {
 const Tabs: NextPage = () => {
   const [search, setSearch] = useState<string>("");
   const [result, setResult] = useState<TabInfo[]>([]);
+  const [expandedIndex, setExpandedIndex] = useState<number | undefined>(undefined);
+  const tabCount = tabs.length;
 
   const onChange = (searchString: string) => {
     setSearch(searchString);
+    setExpandedIndex(-1);
   };
   useEffect(() => {
     const filter = (keywords: string): TabInfo[] => {
@@ -252,7 +256,7 @@ const Tabs: NextPage = () => {
       for (const tab of tabs) {
         if (
           tab.title.toLowerCase().includes(keywords) ||
-          tab.source.toLowerCase().includes(keywords) ||
+          tab.source?.toLowerCase().includes(keywords) ||
           tab.artist?.toLowerCase().includes(keywords) ||
           tab.genre.toLowerCase().includes(keywords) ||
           (tab.tuning &&
@@ -277,7 +281,13 @@ const Tabs: NextPage = () => {
           onChange={(e) => onChange(e.target.value)}
         />
       </Center>
-      <Accordion allowToggle w="full" className="px-4 md:px-0">
+      <Accordion
+        allowToggle
+        w="full"
+        className="px-4 md:px-0"
+        index={expandedIndex}
+        onChange={(i: number) => setExpandedIndex(i)} // number | number[] only if allowMultiple
+      >
         <Center>
           <VStack w="100%" spacing={4}>
             {(!!search || result.length ? result : tabs).map((tab: TabInfo, index: number) => (
