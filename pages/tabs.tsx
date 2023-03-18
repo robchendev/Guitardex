@@ -15,8 +15,9 @@ import { NextPage } from "next";
 import React, { useEffect, useState } from "react";
 import { FaSpotify, FaYoutube } from "react-icons/fa";
 import Wrapper from "../components/Wrapper";
-import { Buy, Free, TabInfo, tabs } from "../config/tabs";
+import { tabs } from "../config/tabs";
 import { ImStarEmpty, ImStarHalf, ImStarFull } from "react-icons/im";
+import { Buy, Free, TabInfo } from "../types/tabs";
 
 const purgeLink = (link: string) => link.replace(/http(s)?(:)?(\/\/)?|(\/\/)?(www\.)?/g, "");
 
@@ -106,13 +107,15 @@ const TabItem = ({ tab }: { tab: TabInfo }) => {
       >
         <Box className="w-full md:w-5/12">
           <p className="truncate font-medium text-gold">{tab.title}</p>
-          <p className="truncate">{tab.source ?? tab.artist}</p>
+          <p className="truncate">{tab.source || tab.artist}</p>
         </Box>
         <div className="hidden md:block">
           <HStack justifyContent="space-between" spacing={7}>
-            <div>
-              <Text>{tab.tuning.strings.join(" ")}</Text>
-            </div>
+            {tab.tuning && (
+              <div>
+                <p>{tab.tuning.strings.join(" ")}</p>
+              </div>
+            )}
             <Center w={20}>
               <Text>{tab.genre}</Text>
             </Center>
@@ -128,7 +131,7 @@ const TabItem = ({ tab }: { tab: TabInfo }) => {
                   className={
                     tab.spotifyLink
                       ? "text-white-soft hover:text-gold transition ease-in duration-300"
-                      : "text-grey-med"
+                      : "text-grey-med cursor-default"
                   }
                   size="sm"
                   disabled={!tab.spotifyLink}
@@ -144,7 +147,7 @@ const TabItem = ({ tab }: { tab: TabInfo }) => {
                   className={
                     tab.videoLink
                       ? "text-white-soft hover:text-gold transition ease-in duration-300"
-                      : "text-grey-med"
+                      : "text-grey-med cursor-default"
                   }
                   size="sm"
                   disabled={!tab.videoLink}
@@ -159,9 +162,7 @@ const TabItem = ({ tab }: { tab: TabInfo }) => {
           <tbody>
             <tr>
               <td>Link</td>
-              <td>
-                <TabDetailLink button={tab.button} />
-              </td>
+              <td>{tab.button ? <TabDetailLink button={tab.button} /> : ""}</td>
             </tr>
             <tr>
               <td>Difficulty</td>
@@ -183,32 +184,34 @@ const TabItem = ({ tab }: { tab: TabInfo }) => {
               <td>Song</td>
               <td>{tab.title}</td>
             </tr>
-            <tr>
-              <td>Source</td>
-              <td>{tab.source}</td>
-            </tr>
+            {tab.source && (
+              <tr>
+                <td>Source</td>
+                <td>{tab.source}</td>
+              </tr>
+            )}
             <tr>
               <td>Artist(s)</td>
               <td>{tab.artist}</td>
             </tr>
             <tr>
               <td>Price</td>
-              <td>
-                <TabDetailPrice button={tab.button} />
-              </td>
+              <td>{tab.button ? <TabDetailPrice button={tab.button} /> : ""}</td>
             </tr>
             <tr>
               <td>Genre</td>
               <td>{tab.genre}</td>
             </tr>
-            <tr>
-              <td>Tuning</td>
-              <td>
-                {tab.tuning.name}
-                <br />
-                {tab.tuning.strings.join(" ")}
-              </td>
-            </tr>
+            {tab.tuning && (
+              <tr>
+                <td>Tuning</td>
+                <td>
+                  {tab.tuning.name}
+                  <br />
+                  {tab.tuning.strings.join(" ")}
+                </td>
+              </tr>
+            )}
             {tab.videoLink && (
               <tr>
                 <td>Youtube</td>
@@ -257,7 +260,9 @@ const Tabs: NextPage = () => {
           matchingTabs.push(tab);
         } else if (tab.tuning.name.toLowerCase().includes(keywords)) {
           matchingTabs.push(tab);
-        } else if (tab.tuning.strings.join(" ").toLowerCase().includes(keywords)) {
+        } else if (
+          tab.tuning.strings.join("").toLowerCase().includes(keywords.replace(/\s/g, ""))
+        ) {
           matchingTabs.push(tab);
         }
       }
