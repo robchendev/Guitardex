@@ -83,13 +83,13 @@ const TabDetailLink = ({ button }: { button: Buy | Free }) => {
   }
 };
 
-const Difficulty = ({ rating }: { rating: number }) => {
+const Difficulty = ({ rating, hasNum = false }: { rating: number; hasNum?: boolean }) => {
   const full = Math.floor(rating / 2);
   const half = rating % 2;
   const empty = Math.floor((10 - rating) / 2);
   return (
     <span>
-      <HStack spacing={1}>
+      <HStack spacing={1} className="text-lg">
         {[...Array(full)].map((val: number, index: number) => (
           <ImStarFull key={index} />
         ))}
@@ -97,6 +97,7 @@ const Difficulty = ({ rating }: { rating: number }) => {
         {[...Array(empty)].map((val: number, index: number) => (
           <ImStarEmpty key={index} />
         ))}
+        {hasNum && <p className="pl-1">{(rating / 2).toFixed(1)}</p>}
       </HStack>
     </span>
   );
@@ -121,11 +122,7 @@ const TabItem = ({
         <Box className="w-full md:w-2/5">
           <p className="truncate font-medium text-gold">{tab.title}</p>
           <p className="truncate">{tab.source || tab.artist}</p>
-          {isDifficultyFilter && (
-            <div className="mt-1.5 mb-1 text-lg">
-              <Difficulty rating={tab.difficulty} />
-            </div>
-          )}
+          {isDifficultyFilter && <Difficulty rating={tab.difficulty} hasNum />}
         </Box>
         <Box className="hidden md:block w-3/5 pl-8">
           <HStack spacing={0}>
@@ -181,7 +178,7 @@ const TabItem = ({
             <tr>
               <td>Difficulty</td>
               <td>
-                <Difficulty rating={tab.difficulty} />
+                <Difficulty rating={tab.difficulty} hasNum />
               </td>
             </tr>
             {tab.guitardex && (
