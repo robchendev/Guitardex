@@ -20,6 +20,7 @@ module.exports = {
         med: "#555",
         hard: "#303030",
         ghost: "#272727",
+        dark: "#232323",
       },
       black: {
         soft: "#171717",

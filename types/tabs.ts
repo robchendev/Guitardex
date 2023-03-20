@@ -19,23 +19,27 @@ export type Genre =
   | "Anime"
   | "Anime/Game"
   | "EDM"
+  | "Film"
   | "Game"
   | "Hip-hop"
+  | "Jazz"
   | "Medley"
   | "Pop"
   | "R&B"
   | "Rock"
-  | "Film";
+  | "Vocaloid";
+
+export type Difficulty = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
 
 export type TabInfo = {
   title: string;
   source?: string;
   artist?: string;
-  genre: Genre; // if genre array includes anime, source becomes "Anime"
+  genre: Genre;
   tuning?: TuningInfo;
-  videoLink?: string;
-  spotifyLink?: string;
+  youtube?: string;
+  spotify?: string;
   button?: Buy | Free;
   guitardex?: string;
-  difficulty: number;
+  difficulty: Difficulty;
 };
