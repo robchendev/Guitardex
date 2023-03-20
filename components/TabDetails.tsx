@@ -1,23 +1,12 @@
 import { AccordionPanel } from "@chakra-ui/react";
 import React from "react";
 import { TabInfo } from "../types/tabs";
-import purgeLink from "../utils/purgeLink";
+import prepLink from "../utils/prepLink";
 import { Tab } from "./Tab/_index";
 import Truncate from "./Truncate";
 
 const TabDetails = ({
-  tab: {
-    button,
-    difficulty,
-    guitardex,
-    title,
-    source,
-    artist,
-    genre,
-    tuning,
-    videoLink,
-    spotifyLink,
-  },
+  tab: { button, difficulty, guitardex, title, source, artist, genre, tuning, youtube, spotify },
 }: {
   tab: TabInfo;
 }) => {
@@ -28,9 +17,6 @@ const TabDetails = ({
           <Tab.Detail label="Link">{button ? <Tab.Link button={button} /> : ""}</Tab.Detail>
           <Tab.Detail label="Difficulty">
             <Tab.Difficulty rating={difficulty} hasNum />
-          </Tab.Detail>
-          <Tab.Detail label="Guitardex" disabled={!guitardex}>
-            <Truncate href={guitardex}>{purgeLink(guitardex)}</Truncate>
           </Tab.Detail>
           <Tab.Detail label="Song">{title}</Tab.Detail>
           <Tab.Detail label="Source" disabled={!source}>
@@ -44,11 +30,14 @@ const TabDetails = ({
             <br />
             {tuning?.strings}
           </Tab.Detail>
-          <Tab.Detail label="Youtube" disabled={!videoLink}>
-            <Truncate href={videoLink}>{purgeLink(videoLink)}</Truncate>
+          <Tab.Detail label="Guitardex" disabled={!guitardex}>
+            <Truncate href={prepLink(guitardex)}>{guitardex}</Truncate>
           </Tab.Detail>
-          <Tab.Detail label="Spotify" disabled={!spotifyLink}>
-            <Truncate href={spotifyLink}>{purgeLink(spotifyLink)}</Truncate>
+          <Tab.Detail label="Youtube" disabled={!youtube}>
+            <Truncate href={prepLink(youtube)}>{youtube}</Truncate>
+          </Tab.Detail>
+          <Tab.Detail label="Spotify" disabled={!spotify}>
+            <Truncate href={prepLink(spotify)}>{spotify}</Truncate>
           </Tab.Detail>
         </tbody>
       </table>

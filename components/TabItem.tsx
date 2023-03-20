@@ -12,7 +12,7 @@ const TabItem = ({
   isDifficultyFilter?: boolean;
 }) => {
   return (
-    <AccordionItem className="w-full border-none box shadow-md shadow-black-hard/20" p="0">
+    <AccordionItem mb="0">
       <TabCard tab={tab} isDifficultyFilter={isDifficultyFilter} />
       <TabDetails tab={tab} />
     </AccordionItem>

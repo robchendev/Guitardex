@@ -1,4 +1,4 @@
-const purgeLink = (link?: string) => {
+const purgeLink = (link: string) => {
   if (link) {
     return link.replace(/http(s)?(:)?(\/\/)?|(\/\/)?(www\.)?/g, "");
   }
