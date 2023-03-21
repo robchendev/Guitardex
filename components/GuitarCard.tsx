@@ -35,16 +35,16 @@ const BuyButton = ({ item }: { item: ItemComponent }) => {
   switch (item.available) {
     case "buy":
       return (
-        <span className="inline-block align-middle">
-          <span className="w-max text-4xl p-6">${item.price}</span>
-          <a href={item.buyLink} className="bg-carmine-soft w-max text-lg px-5 py-2.5 rounded-sm">
+        <div className="flex align-middle mt-4">
+          <span className="text-4xl px-6">${item.price}</span>
+          <a href={item.buyLink} className="bg-carmine-soft text-lg px-5 py-2 rounded-sm">
             Buy this guitar
           </a>
-        </span>
+        </div>
       );
     case "discontinued":
       return (
-        <a href={item.buyLink} className="bg-grey-soft w-max text-2xl p-2 rounded-md">
+        <a href={item.buyLink} className="bg-grey-soft text-2xl p-2 rounded-md mt-4">
           Discontinued
         </a>
       );
@@ -64,7 +64,7 @@ const GuitarCard = ({ index, guitar }: { index: number; guitar: GuitarInfo }) =>
           params={{ rel: "0" }}
         />
       </div>
-      <div className="flex flex-col w-1/2 items-end justify-between">
+      <div className="flex flex-col items-end justify-between md:w-1/2">
         <div>
           <h2 className="text-4xl">{guitar.name}</h2>
           <span className=" text-gold">{guitar.brand}</span>

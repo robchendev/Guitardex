@@ -1,34 +1,18 @@
-import { HStack, Image, VStack } from "@chakra-ui/react";
+import { HStack, VStack } from "@chakra-ui/react";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import React from "react";
-import { navItems, NavItem, SocialIcon, icons } from "../config/config";
+import { SocialIcon, icons } from "../config/config";
+import HeaderDesktop from "./HeaderDesktop";
+import HeaderMobile from "./HeaderMobile";
 import LinkIcon from "./LinkIcon";
 import PageTitle from "./PageTitle";
 
 const Header = () => {
-  const router = useRouter();
   return (
-    <header className="text-white-soft p-5 mx-auto md:w-11/12 max-w-7xl fixed md:relative md:flex md:justify-between md:items-center md:text-center">
-      <Image
-        src="public/img/evdm.png"
-        fallbackSrc="https://eddievdmeer.com/wp-content/uploads/elementor/thumbs/cropped-evdmlogo-oqa4dzno6q4ah9xd5u0hy03itfxfgiimm19em295vk.png"
-        alt="evdm-logo"
-      />
-      <HStack>
-        {navItems.map((navItem: NavItem, index: number) => (
-          <Link
-            key={index}
-            href={navItem.link}
-            className={`font-medium font-serif text-2xl px-5 py-3.5 hover:text-gold${
-              router.pathname === navItem.link ? " text-gold" : ""
-            }`}
-          >
-            {navItem.name}
-          </Link>
-        ))}
-      </HStack>
-    </header>
+    <>
+      <HeaderDesktop />
+      <HeaderMobile />
+    </>
   );
 };
 
@@ -38,7 +22,7 @@ const Footer = () => {
       <div className="container flex items-center justify-center mx-auto mb-6 text-center">
         <VStack spacing={0} className=" text-white-soft w-2/6">
           <div className="h-px w-full bg-grey-med mb-14" />
-          <div className="font-serif mt-14">
+          <div className="font-serif">
             <HStack className="justify-center mb-5">
               {icons.map((icon: SocialIcon, index: number) => (
                 <LinkIcon key={index} icon={icon.icon} link={icon.link} />

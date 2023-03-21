@@ -7,6 +7,7 @@ import {
   VStack,
   Textarea,
   Checkbox,
+  Stack,
 } from "@chakra-ui/react";
 import React from "react";
 import { Controller, RegisterOptions, useForm } from "react-hook-form";
@@ -121,7 +122,7 @@ const Contact = () => {
     <Wrapper title="Contact Us">
       <form className="flex justify-center w-full" name="contact" method="POST" data-netlify="true">
         <VStack className="w-8/12" spacing={4}>
-          <HStack w="full" alignItems="flex-start">
+          <Stack direction={{ sm: "column", md: "row" }} w="full" alignItems="flex-start">
             {/* DONE: Name */}
             <FormItem
               errors={errors.name}
@@ -145,7 +146,7 @@ const Contact = () => {
                 { type: "pattern", msg: "Email must be valid" },
               ]}
             />
-          </HStack>
+          </Stack>
 
           {/* Done: Topic */}
           <FormItem

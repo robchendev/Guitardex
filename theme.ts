@@ -1,4 +1,4 @@
-import { extendTheme } from "@chakra-ui/react";
+import { Drawer, extendTheme } from "@chakra-ui/react";
 import { ComponentStyleConfig } from "@chakra-ui/theme";
 
 import { accordionAnatomy } from "@chakra-ui/anatomy";
