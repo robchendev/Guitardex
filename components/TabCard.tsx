@@ -22,7 +22,7 @@ const TabCard = ({ tab, isDifficultyFilter }: { tab: TabInfo; isDifficultyFilter
       </div>
       <div className="hidden md:block w-3/5 text-center">
         <HStack spacing={0}>
-          <p className="w-3/12 text-lg tracking-tight whitespace-pre">
+          <p className="w-3/12 text-lg tracking-tight whitespace-pre leading-6">
             {tab.tuning && tab.tuning.strings}
           </p>
           <p className="w-3/12">{tab.genre}</p>

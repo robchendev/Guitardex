@@ -15,6 +15,7 @@ import TabItem from "./TabItem";
 
 const TabList = ({
   expandedIndex,
+  setExpandedIndex,
   onChange,
   search,
   min,
@@ -25,6 +26,7 @@ const TabList = ({
   setPagination,
 }: {
   expandedIndex: number;
+  setExpandedIndex: (i: number) => void;
   onChange: (i: number) => void;
   search: string;
   min: number;
@@ -85,7 +87,10 @@ const TabList = ({
         <div className="lg:max-w-4xl lg:mx-auto w-full">
           <PaginationBar
             pagination={pagination}
-            onChange={(page: number) => setPagination(page)}
+            onChange={(page: number) => {
+              setPagination(page);
+              setExpandedIndex(-1);
+            }}
             maxPage={Math.ceil(tabs.length / tabsPerPage)}
           />
         </div>
