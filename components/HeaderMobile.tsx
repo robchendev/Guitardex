@@ -5,10 +5,10 @@ import {
   Button,
   Drawer,
   DrawerBody,
-  DrawerOverlay,
   DrawerContent,
   Icon,
   DrawerCloseButton,
+  DrawerOverlay,
 } from "@chakra-ui/react";
 import { useDisclosure } from "@chakra-ui/react";
 import { useRouter } from "next/router";
@@ -23,11 +23,7 @@ const HeaderMobile = () => {
   return (
     <div className="sm:block lg:hidden ">
       <header className=" flex text-white-soft p-4 px-10 mx-auto md:w-full max-w-7xl justify-between items-center text-center">
-        <Image
-          src="public/img/evdm.png"
-          fallbackSrc="https://eddievdmeer.com/wp-content/uploads/elementor/thumbs/cropped-evdmlogo-oqa4dzno6q4ah9xd5u0hy03itfxfgiimm19em295vk.png"
-          alt="evdm-logo"
-        />
+        <Image src="public/img/evdm.png" alt="evdm-logo" />
         <Button ref={btnRef} colorScheme="" onClick={onOpen}>
           <Icon as={FaAlignJustify} w={10} h={10} />
         </Button>

@@ -4,7 +4,12 @@ import { Icon } from "@chakra-ui/react";
 
 const LinkIcon = ({ icon, link }: { icon: IconType; link: string }) => (
   <a href={link}>
-    <Icon as={icon} className="m-0.5" color="white" _hover={{ color: "#fcdc97" }} />
+    <Icon
+      as={icon}
+      className="sm:mx-4 sm:text-4xl lg:m-0.5 lg:text-xl"
+      color="white"
+      _hover={{ color: "#fcdc97" }}
+    />
   </a>
 );
 
