@@ -18,13 +18,8 @@ const Header = () => {
 
 const Footer = () => {
   return (
-<<<<<<< HEAD
     <footer className="w-full justify-center flex text-white-soft mt-4 pb-8 relative">
       <div className="container flex items-center justify-center mx-auto mb-6 text-center">
-=======
-    <div className="w-full justify-center flex text-white-soft sm:mt-gi0 lg:mt-4 pb-8">
-      <footer className="container flex items-center justify-center mx-auto mb-6 h-fit text-center">
->>>>>>> responsive-design
         <VStack spacing={0} className=" text-white-soft w-2/6">
           <div className="h-px w-full bg-grey-med mb-14" />
           <div className="font-serif">

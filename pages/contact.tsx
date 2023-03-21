@@ -1,11 +1,13 @@
 import {
   FormControl,
   FormErrorMessage,
+  HStack,
   Input,
   Select,
   VStack,
   Textarea,
   Checkbox,
+  Stack,
 } from "@chakra-ui/react";
 import React from "react";
 import { Controller, RegisterOptions, useForm } from "react-hook-form";
@@ -43,7 +45,7 @@ type FormElementConfig = {
   value?: string | boolean;
 };
 
-const FormElement = ({ controlName, placeholder, onChange }: FormElementConfig) => {
+const FormElement = ({ controlName, placeholder, onChange, value }: FormElementConfig) => {
   switch (controlName) {
     case "name":
     case "email":

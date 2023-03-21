@@ -1,5 +1,4 @@
 import { Image } from "@chakra-ui/react";
-import Link from "next/link";
 import React from "react";
 import { FaGithub, FaInstagram, FaYoutube } from "react-icons/fa";
 import LinkIcon from "./LinkIcon";
