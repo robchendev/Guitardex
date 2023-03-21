@@ -1,4 +1,4 @@
-import { Box, Flex, HStack, Input, Select } from "@chakra-ui/react";
+import { Box, HStack } from "@chakra-ui/react";
 import React from "react";
 import {
   AiOutlineLeft,
@@ -57,7 +57,6 @@ const PaginationBar = ({
       </HStack>
       <Box w="4em" textAlign="center" px={2} className="text-xl font-medium">
         {pagination + 1} / {maxPage}
-        {/* <Input mx="5px" width="1.75em" p="1" h="1.75em" textAlign="center" value={pagination + 1} /> */}
       </Box>
       <HStack>
         <PButton onClick={() => onChange(pagination + 1)} disabled={pagination + 1 >= maxPage}>
