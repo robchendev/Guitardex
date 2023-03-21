@@ -25,7 +25,7 @@ const TabDetails = ({
           <Tab.Detail label="Artist">{artist}</Tab.Detail>
           <Tab.Detail label="Price">{button ? <Tab.Price button={button} /> : ""}</Tab.Detail>
           <Tab.Detail label="Genre">{genre}</Tab.Detail>
-          <Tab.Detail label="Tuning" disabled={!tuning}>
+          <Tab.Detail label="Tuning" disabled={!tuning} pre>
             {tuning?.name}
             <br />
             {tuning?.strings}

@@ -1,4 +1,13 @@
-import { HStack } from "@chakra-ui/react";
+import {
+  Flex,
+  HStack,
+  Input,
+  NumberDecrementStepper,
+  NumberIncrementStepper,
+  NumberInput,
+  NumberInputField,
+  NumberInputStepper,
+} from "@chakra-ui/react";
 import React from "react";
 
 const PaginationBar = ({
@@ -18,17 +27,17 @@ const PaginationBar = ({
     <HStack
       mt={mt}
       mb={mb}
-      className="w-full justify-center [&>button]:bg-carmine-soft [&>button]:py-1 [&>button]:px-3"
+      className="w-full justify-center [&>button]:bg-grey-med [&>button]:py-1 [&>button]:px-3"
     >
-      <button onClick={() => onChange(pagination - 1)}>{"<<"}</button>
-      <button onClick={() => onChange(0)}>{1}</button>
-      <button>...</button>
-      <button onClick={() => onChange(pagination - 1)}>{pagination}</button>
-      <button>{pagination + 1}</button>
-      <button onClick={() => onChange(pagination + 1)}>{pagination + 2}</button>
-      <button>...</button>
-      <button onClick={() => onChange(maxPage - 1)}>{maxPage}</button>
-      <button onClick={() => onChange(pagination + 1)}>{">>"}</button>
+      <button onClick={() => onChange(0)}>{"|<"}</button>
+      <button onClick={() => onChange(pagination - 1)}>{"<"}</button>
+      <Flex>
+        Page
+        <Input width="2em" p="1" h="2em" value={pagination + 1} />
+        of {maxPage}
+      </Flex>
+      <button onClick={() => onChange(pagination + 1)}>{">"}</button>
+      <button onClick={() => onChange(maxPage - 1)}>{">|"}</button>
     </HStack>
   );
 };
