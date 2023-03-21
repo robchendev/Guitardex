@@ -53,7 +53,7 @@ const BuyButton = ({ item }: { item: ItemComponent }) => {
 
 const GuitarCard = ({ index, guitar }: { index: number; guitar: GuitarInfo }) => {
   return (
-    <div key={index} className="max-w-5xl flex flex-row end text-right justify-items-end my-16">
+    <div key={index} className="max-w-5xl flex flex-row end text-right my-16 last:mb-0 first:mt-0">
       <div className="w-1/2 [&>div]:rounded-md">
         <LiteYoutubeEmbed
           id={guitar.videoId}
