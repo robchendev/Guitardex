@@ -65,6 +65,7 @@ const TabList = ({
           )}
         </div>
       </Accordion>
+      <div className="h-10 lg:h-0" />
       <div className="fixed bottom-0 left-0 right-0 bg-grey-ghost h-20 flex items-center">
         <div className="lg:max-w-4xl lg:mx-auto w-full">
           <PaginationBar
