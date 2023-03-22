@@ -1,6 +1,7 @@
 import { HStack, VStack } from "@chakra-ui/react";
 import Image from "next/image";
 import React from "react";
+import DynaImage from "../../../components/DynaImage";
 import { getAllLinkIds, getLinkData } from "../../../lib/link";
 import { LinkItem, LinkPage } from "../../../types/dynamic/link";
 
@@ -14,14 +15,36 @@ const Link = ({ linkData }: { linkData: LinkPage }) => {
           backgroundImage: `url(${imageSrc})`,
         }}
       />
-      <VStack spacing={0} className="relative top-0 w-full h-full">
+      <VStack
+        spacing={0}
+        divider={<div className="h-px w-full bg-grey-dark"></div>}
+        className="relative top-0 w-full h-full"
+      >
         <Image width={440} height={440} alt={linkData.title} src={imageSrc} />
-        <div style={{ width: 440 }} className="bg-black-soft">
-          <div className="text-center">{linkData.subtitle}</div>
+        <div style={{ width: 440 }} className=" bg-white-soft">
+          <div className="text-center text-2xl w-full pt-5 bg-grey-ghost text-white-soft">
+            {linkData.subtitle}
+          </div>
+          <div className="text-center text-md w-full py-5 bg-grey-ghost text-white-soft">
+            Choose streaming platform
+          </div>
+          <div
+            className="w-0 h-0 mx-auto
+   border-l-[10px] border-l-transparent
+   border-t-[15px] border-t-grey-ghost
+   border-r-[10px] border-r-transparent
+    "
+          ></div>
           {linkData.items.map((item: LinkItem, index: number) => (
-            <HStack key={index} className="text-lg" justifyContent="center">
-              <div>{item.brandLogo}</div>
-              <a href={item.buttonLink}>{item.buttonLabel}</a>
+            <HStack key={index} className="text-lg  p-4" justifyContent="space-between">
+              {/* <div>{item.brandLogo}</div> */}
+              <DynaImage prop={item.brandLogo} />
+              <a
+                className="text-grey-med text-md rounded-md border border-grey-med px-2 py-1"
+                href={item.buttonLink}
+              >
+                {item.buttonLabel}
+              </a>
             </HStack>
           ))}
         </div>
