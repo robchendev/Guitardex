@@ -65,6 +65,7 @@ const TabMaster = ({ tabs, tabsCache }: { tabs: TabInfo[]; tabsCache: TabsCache[
       />
       <TabList
         expandedIndex={expandedIndex}
+        setExpandedIndex={setExpandedIndex}
         onChange={(i: number) => setExpandedIndex(i)}
         search={search}
         min={difficulty[0]}

@@ -1,6 +1,6 @@
 import { Text } from "@chakra-ui/react";
 import React from "react";
-import { Gear, Section, GearLink } from "../../config/gear";
+import { Gear, Section, GearLink } from "../../types/dynamic/gear";
 
 const Links = ({ links }: { links?: GearLink[] }) => (
   <>

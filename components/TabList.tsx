@@ -6,6 +6,7 @@ import TabItem from "./TabItem";
 
 const TabList = ({
   expandedIndex,
+  setExpandedIndex,
   onChange,
   search,
   min,
@@ -16,6 +17,7 @@ const TabList = ({
   setPagination,
 }: {
   expandedIndex: number;
+  setExpandedIndex: (i: number) => void;
   onChange: (i: number) => void;
   search: string;
   min: number;
@@ -28,7 +30,7 @@ const TabList = ({
   const showSearchResults = !(!search && min === 0 && max === 10);
   const noMatch = showSearchResults && !searchResults.length;
   const isDifficultyFilter = !(min === 0 && max === 10);
-
+  const tabsPerPage = 10;
   return (
     <>
       <Accordion
@@ -38,18 +40,12 @@ const TabList = ({
         index={expandedIndex}
         onChange={onChange}
       >
-        <PaginationBar
-          pagination={pagination}
-          onChange={(page: number) => setPagination(page)}
-          maxPage={Math.ceil(tabs.length / 10)}
-          mb={3}
-        />
         <div className="w-full flex flex-col content-between space-y-3">
           {noMatch && <p>No matching tabs found</p>}
           {showSearchResults ? (
             <>
               {searchResults
-                .slice(10 * pagination, 10 * (pagination + 1))
+                .slice(tabsPerPage * pagination, tabsPerPage * (pagination + 1))
                 .map((matchingIndex: number) => (
                   <TabItem
                     key={matchingIndex}
@@ -61,7 +57,7 @@ const TabList = ({
           ) : (
             <>
               {tabs
-                .slice(10 * pagination, 10 * (pagination + 1))
+                .slice(tabsPerPage * pagination, tabsPerPage * (pagination + 1))
                 .map((tab: TabInfo, index: number) => (
                   <TabItem key={index} tab={tab} isDifficultyFilter={isDifficultyFilter} />
                 ))}
@@ -69,12 +65,19 @@ const TabList = ({
           )}
         </div>
       </Accordion>
-      <PaginationBar
-        pagination={pagination}
-        onChange={(page: number) => setPagination(page)}
-        maxPage={Math.ceil(tabs.length / 10)}
-        mt={3}
-      />
+      <div className="h-10 lg:h-0" />
+      <div className="fixed bottom-0 left-0 right-0 bg-grey-ghost h-16 lg:h-20 flex items-center">
+        <div className="lg:max-w-4xl lg:mx-auto w-full">
+          <PaginationBar
+            pagination={pagination}
+            onChange={(page: number) => {
+              setPagination(page);
+              setExpandedIndex(-1);
+            }}
+            maxPage={Math.ceil(tabs.length / tabsPerPage)}
+          />
+        </div>
+      </div>
     </>
   );
 };

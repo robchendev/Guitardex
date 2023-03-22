@@ -2,8 +2,22 @@ import { VStack } from "@chakra-ui/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
-import { GearItem } from "../../config/gear";
-import { gearNavItems as items } from "../../config/gear";
+import { GearItem } from "../../types/dynamic/gear";
+
+export const items: GearItem[] = [
+  {
+    name: "Audio",
+    id: "audio",
+  },
+  {
+    name: "Video",
+    id: "video",
+  },
+  {
+    name: "Misc",
+    id: "misc",
+  },
+];
 
 const GearNav = () => {
   const router = useRouter();

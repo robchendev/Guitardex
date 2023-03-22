@@ -1,5 +1,6 @@
 import { HStack } from "@chakra-ui/react";
 import { Buy, Free } from "../../types/tabs";
+import prepLink from "../../utils/prepLink";
 
 const Button = ({ button }: { button: Buy | Free }) => {
   let label = "";
@@ -21,7 +22,7 @@ const Button = ({ button }: { button: Buy | Free }) => {
       <p>{label}</p>
       <a
         onClick={(e) => e.stopPropagation()}
-        href={button.link}
+        href={prepLink(button.link)}
         className="block ml-2 px-3 pb-2 pt-1.5 rounded-md bg-carmine-soft hover:bg-carmine-hard transition ease-in duration-300"
       >
         {cta}
