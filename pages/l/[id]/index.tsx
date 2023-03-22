@@ -15,13 +15,9 @@ const Link = ({ linkData }: { linkData: LinkPage }) => {
           backgroundImage: `url(${imageSrc})`,
         }}
       />
-      <VStack
-        spacing={0}
-        divider={<div className="h-px w-full bg-grey-dark"></div>}
-        className="relative top-0 w-full h-full"
-      >
+      <VStack spacing={0} className="relative top-0 w-full h-full">
         <Image width={440} height={440} alt={linkData.title} src={imageSrc} />
-        <div style={{ width: 440 }} className=" bg-white-soft">
+        <div style={{ width: 440 }} className=" bg-white-soft pb-2">
           {/* grouped together because it shows the white bg between them */}
           <div className="bg-grey-hard">
             <div className="text-center text-xl w-full pt-5 text-white-ghost">
@@ -32,33 +28,44 @@ const Link = ({ linkData }: { linkData: LinkPage }) => {
               Choose streaming platform
             </div>
           </div>
-          {/* This is arrow using borders lmfao */}
-          <div
-            className="w-0 h-0 mx-auto
-   border-l-[10px] border-l-transparent
-   border-t-[15px] border-t-grey-ghost
-   border-r-[10px] border-r-transparent
-    "
-          ></div>
+          <Arrow />
           {linkData.items.map((item: LinkItem, index: number) => (
-            <HStack
-              key={index}
-              className="text-lg  p-4 first-of-type:pt-2"
-              justifyContent="space-between"
-            >
-              {/* <div>{item.brandLogo}</div> */}
-              <DynaImage prop={item.brandLogo} />
-              <a
-                className="text-grey-med text-md rounded-md border border-grey-med px-2 py-1 "
-                href={item.buttonLink}
+            <>
+              <HStack
+                key={index}
+                className="text-lg  p-4 first-of-type:pt-2"
+                justifyContent="space-between"
               >
-                {item.buttonLabel}
-              </a>
-            </HStack>
+                {/* <div>{item.brandLogo}</div> */}
+                <DynaImage prop={item.brandLogo} />
+                <a
+                  className="text-grey-med text-md rounded-md border border-grey-med px-2 py-1 "
+                  href={item.buttonLink}
+                >
+                  {item.buttonLabel}
+                </a>
+              </HStack>
+              <div className="w-full h-px bg-carmine-hard last-of-type:hidden"></div>
+            </>
           ))}
         </div>
       </VStack>
     </div>
+  );
+};
+
+const Arrow = () => {
+  {
+    /* This is arrow using borders lmfao */
+  }
+  return (
+    <div
+      className="w-0 h-0 mx-auto
+border-l-[10px] border-l-transparent
+border-t-[15px] border-t-grey-hard
+border-r-[10px] border-r-transparent
+"
+    ></div>
   );
 };
 
