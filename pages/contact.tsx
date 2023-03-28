@@ -1,13 +1,11 @@
 import {
   FormControl,
   FormErrorMessage,
-  HStack,
   Input,
   Select,
   VStack,
   Textarea,
   Checkbox,
-  Stack,
 } from "@chakra-ui/react";
 import React from "react";
 import { Controller, RegisterOptions, useForm } from "react-hook-form";

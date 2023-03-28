@@ -1,4 +1,3 @@
-import { HStack } from "@chakra-ui/react";
 import React from "react";
 import GearCard from "../../../components/Gear/GearCard";
 import GearNav from "../../../components/Gear/GearNav";
