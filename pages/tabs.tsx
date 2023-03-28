@@ -1,16 +1,3 @@
-import {
-  Accordion,
-  AccordionButton,
-  AccordionItem,
-  AccordionPanel,
-  Box,
-  Center,
-  HStack,
-  IconButton,
-  Link,
-  Text,
-  VStack,
-} from "@chakra-ui/react";
 import { NextPage } from "next";
 import React from "react";
 import Wrapper from "../components/Wrapper";

@@ -121,32 +121,30 @@ const Contact = () => {
   return (
     <Wrapper title="Contact Us">
       <form className="flex justify-center w-full" name="contact" method="POST" data-netlify="true">
-        <VStack className="w-8/12" spacing={4}>
-          <Stack direction={{ sm: "column", md: "row" }} w="full" alignItems="flex-start">
-            {/* DONE: Name */}
-            <FormItem
-              errors={errors.name}
-              control={control}
-              controlName="name"
-              rules={{ required: true, pattern: /^[a-zA-Z ]*$/g }}
-              errorDef={[
-                { type: "required", msg: "Name is required" },
-                { type: "pattern", msg: "Name must only contain letters and spaces" },
-              ]}
-            />
+        <VStack className="w-full lg:w-8/12" spacing={4}>
+          {/* DONE: Name */}
+          <FormItem
+            errors={errors.name}
+            control={control}
+            controlName="name"
+            rules={{ required: true, pattern: /^[a-zA-Z ]*$/g }}
+            errorDef={[
+              { type: "required", msg: "Name is required" },
+              { type: "pattern", msg: "Name must only contain letters and spaces" },
+            ]}
+          />
 
-            {/* DONE: Email */}
-            <FormItem
-              errors={errors.email}
-              control={control}
-              controlName="email"
-              rules={{ required: true, pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g }}
-              errorDef={[
-                { type: "required", msg: "Email is required" },
-                { type: "pattern", msg: "Email must be valid" },
-              ]}
-            />
-          </Stack>
+          {/* DONE: Email */}
+          <FormItem
+            errors={errors.email}
+            control={control}
+            controlName="email"
+            rules={{ required: true, pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g }}
+            errorDef={[
+              { type: "required", msg: "Email is required" },
+              { type: "pattern", msg: "Email must be valid" },
+            ]}
+          />
 
           {/* Done: Topic */}
           <FormItem
