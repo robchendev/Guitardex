@@ -23,7 +23,7 @@ const HeaderMobile = () => {
   return (
     <div className="sm:block lg:hidden ">
       <header className=" flex text-white-soft p-4 px-10 mx-auto md:w-full max-w-7xl justify-between items-center text-center">
-        <Image src="public/img/evdm.png" alt="evdm-logo" />
+        <Image src="img/evdm.png" alt="evdm-logo" />
         <Button ref={btnRef} colorScheme="" onClick={onOpen}>
           <Icon as={FaAlignJustify} w={10} h={10} />
         </Button>
