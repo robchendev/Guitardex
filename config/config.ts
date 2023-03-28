@@ -99,7 +99,7 @@ export const config: Config = {
       available: "discontinued",
       name: "smokey hybrid smh",
       brand: "rainsong",
-      desc: "I’ve seldom used this guitar, but it is a good pick. The red stripes and soundhole rosette gives it the unique appearance",
+      desc: "This guitar is a warmer, mellower version of the Rainsong Black Ice model. As a carbon fiber guitar, it’s lightweight, loud and very, very durable.",
       videoId: "L2o1Dv70kRo",
       title:
         "Boruto: Naruto the Next Generation  Opening 1 - Baton Road - Fingerstyle Guitar Cover",
