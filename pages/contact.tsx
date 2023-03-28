@@ -1,15 +1,13 @@
 import {
   FormControl,
   FormErrorMessage,
-  HStack,
   Input,
   Select,
   VStack,
   Textarea,
   Checkbox,
-  Stack,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from "react";
 import { Controller, RegisterOptions, useForm } from "react-hook-form";
 import Wrapper from "../components/Wrapper";
 import { FieldError, Control } from "react-hook-form";
@@ -70,7 +68,6 @@ const FormElement = ({ controlName, placeholder, onChange, value }: FormElementC
     default:
       return <Input value="Element not implemented" disabled />;
   }
-  // TODO: privacy
 };
 
 const FormItem = ({ errors, control, controlName, rules, errorDef }: FormItemConfig) => (
@@ -101,6 +98,7 @@ const Contact = () => {
     control,
     formState: { errors, defaultValues },
     getValues,
+    reset,
   } = useForm<ContactForm>({
     defaultValues: {
       name: "",
@@ -109,9 +107,36 @@ const Contact = () => {
       message: "",
     },
   });
+  const [success, setSuccess] = useState(false);
+  const [failure, setFailure] = useState(false);
+  const [isSending, setIsSending] = useState(false);
 
-  const onSubmit = (data: ContactForm) => {
+  const onSubmit = async (data: ContactForm) => {
+    setIsSending(true);
     console.log("Submitted Data: ", data);
+    const res = await fetch("/api/sendgrid", {
+      body: JSON.stringify({
+        email: data.email,
+        name: data.name,
+        topic: data.topic,
+        message: data.message,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+    });
+    const { error } = await res.json();
+    if (error) {
+      console.log(error);
+      setFailure(true);
+      setIsSending(false);
+      return;
+    }
+    setIsSending(false);
+    setSuccess(true);
+    setFailure(false);
+    reset();
   };
 
   if (Object.keys(errors).length !== 0) {
@@ -120,69 +145,85 @@ const Contact = () => {
 
   return (
     <Wrapper title="Contact Us">
-      <form className="flex justify-center w-full" name="contact" method="POST" data-netlify="true">
-        <VStack className="w-full lg:w-8/12" spacing={4}>
-          {/* DONE: Name */}
-          <FormItem
-            errors={errors.name}
-            control={control}
-            controlName="name"
-            rules={{ required: true, pattern: /^[a-zA-Z ]*$/g }}
-            errorDef={[
-              { type: "required", msg: "Name is required" },
-              { type: "pattern", msg: "Name must only contain letters and spaces" },
-            ]}
-          />
+      {!success && (
+        <form
+          className="flex justify-center w-full"
+          name="contact"
+          method="POST"
+          data-netlify="true"
+        >
+          <VStack className="w-full lg:w-8/12" spacing={4}>
+            {/* DONE: Name */}
+            <FormItem
+              errors={errors.name}
+              control={control}
+              controlName="name"
+              rules={{ required: true, pattern: /^[a-zA-Z ]*$/g }}
+              errorDef={[
+                { type: "required", msg: "Name is required" },
+                { type: "pattern", msg: "Name must only contain letters and spaces" },
+              ]}
+            />
 
-          {/* DONE: Email */}
-          <FormItem
-            errors={errors.email}
-            control={control}
-            controlName="email"
-            rules={{ required: true, pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g }}
-            errorDef={[
-              { type: "required", msg: "Email is required" },
-              { type: "pattern", msg: "Email must be valid" },
-            ]}
-          />
+            {/* DONE: Email */}
+            <FormItem
+              errors={errors.email}
+              control={control}
+              controlName="email"
+              rules={{ required: true, pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g }}
+              errorDef={[
+                { type: "required", msg: "Email is required" },
+                { type: "pattern", msg: "Email must be valid" },
+              ]}
+            />
 
-          {/* Done: Topic */}
-          <FormItem
-            errors={errors.topic}
-            control={control}
-            controlName="topic"
-            rules={{
-              validate: { selectedNone: () => getValues("topic") !== defaultValues?.topic },
-            }}
-            errorDef={[{ type: "selectedNone", msg: "Please select a topic." }]}
-          />
+            {/* Done: Topic */}
+            <FormItem
+              errors={errors.topic}
+              control={control}
+              controlName="topic"
+              rules={{
+                validate: { selectedNone: () => getValues("topic") !== defaultValues?.topic },
+              }}
+              errorDef={[{ type: "selectedNone", msg: "Please select a topic." }]}
+            />
 
-          {/* Done: Message textarea */}
-          <FormItem
-            errors={errors.message}
-            control={control}
-            controlName="message"
-            rules={{ required: true }}
-            errorDef={[{ type: "required", msg: "This is required" }]}
-          />
+            {/* Done: Message textarea */}
+            <FormItem
+              errors={errors.message}
+              control={control}
+              controlName="message"
+              rules={{ required: true }}
+              errorDef={[{ type: "required", msg: "This is required" }]}
+            />
 
-          {/* TODO: Privacy checkbox */}
-          <FormItem
-            errors={errors.privacy}
-            control={control}
-            controlName="privacy"
-            rules={{ required: true }}
-            errorDef={[{ type: "required", msg: "This is required" }]}
-          />
-
-          <button
-            className="px-4 py-2.5 rounded-md bg-carmine-soft hover:bg-carmine-hard transition ease-in duration-300"
-            onClick={handleSubmit(onSubmit)}
-          >
-            Submit
-          </button>
-        </VStack>
-      </form>
+            {/* TODO: Privacy checkbox */}
+            <FormItem
+              errors={errors.privacy}
+              control={control}
+              controlName="privacy"
+              rules={{ required: true }}
+              errorDef={[{ type: "required", msg: "This is required" }]}
+            />
+            <button
+              className={`px-4 py-2.5 rounded-md bg-carmine-soft ${
+                !isSending && "hover:bg-carmine-hard transition ease-in duration-300"
+              }`}
+              onClick={handleSubmit(onSubmit)}
+              disabled={isSending}
+            >
+              {isSending ? "Submitting..." : "Submit"}
+            </button>
+          </VStack>
+        </form>
+      )}
+      {success && <p className="text-gold text-center">Your email has successfully been sent.</p>}
+      {failure && (
+        <p className="text-carmine-soft text-center mt-4">
+          An error blocked the submission. If the error persists, contact us with your message at
+          management@eddievdmeer.com
+        </p>
+      )}
     </Wrapper>
   );
 };

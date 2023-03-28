@@ -115,27 +115,27 @@ export type NavItem = {
 
 export const navItems: NavItem[] = [
   {
-    name: "about",
+    name: "About",
     link: "/",
   },
   {
-    name: "music",
+    name: "Music",
     link: "/music",
   },
   {
-    name: "tabs",
+    name: "Tabs",
     link: "/tabs",
   },
   {
-    name: "guitars",
+    name: "Guitars",
     link: "/guitars",
   },
   {
-    name: "gear",
+    name: "Gear",
     link: "/gear/audio",
   },
   {
-    name: "contact",
+    name: "Contact",
     link: "/contact",
   },
 ];
