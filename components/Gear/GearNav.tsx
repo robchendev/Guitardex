@@ -1,4 +1,4 @@
-import { VStack } from "@chakra-ui/react";
+import { HStack, VStack } from "@chakra-ui/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
@@ -24,7 +24,7 @@ const GearNav = () => {
   const queryId = router.query.id as string;
 
   return (
-    <VStack alignItems="flex-start">
+    <HStack justifyContent="center" mb={4}>
       {items.map(({ id, name }: GearItem) => (
         <Link
           href={id}
@@ -32,13 +32,13 @@ const GearNav = () => {
           className={
             (queryId === id ? "text-gold border-gold" : "border-transparent hover:text-gold") +
             " " +
-            "border-l-2 pl-2 font-medium text-xl tracking-wide"
+            "border-b-2 pb-2 font-medium text-xl tracking-wide"
           }
         >
           {name}
         </Link>
       ))}
-    </VStack>
+    </HStack>
   );
 };
 

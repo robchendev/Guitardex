@@ -18,7 +18,7 @@ const Header = ({ title }: { title: string }) => {
 
 const Footer = () => {
   return (
-    <footer className="w-full justify-center flex text-white-soft mt-4 pb-8 relative">
+    <footer className="w-full justify-center flex text-white-soft pb-8 relative mt-12 lg:mt-16">
       <div className="container flex items-center justify-center mx-auto mb-6 text-center">
         <VStack spacing={0} className=" text-white-soft w-2/6">
           <div className="h-px w-full bg-grey-med mb-14" />

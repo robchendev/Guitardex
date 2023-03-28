@@ -33,13 +33,7 @@ const TabList = ({
   const tabsPerPage = 10;
   return (
     <>
-      <Accordion
-        allowToggle
-        w="full"
-        className="px-4 md:px-0"
-        index={expandedIndex}
-        onChange={onChange}
-      >
+      <Accordion allowToggle w="full" index={expandedIndex} onChange={onChange}>
         <div className="w-full flex flex-col content-between space-y-3">
           {noMatch && <p>No matching tabs found</p>}
           {showSearchResults ? (
@@ -65,7 +59,6 @@ const TabList = ({
           )}
         </div>
       </Accordion>
-      <div className="h-10 lg:h-0" />
       <div className="fixed bottom-0 left-0 right-0 bg-grey-ghost h-16 lg:h-20 flex items-center">
         <div className="lg:max-w-4xl lg:mx-auto w-full">
           <PaginationBar
