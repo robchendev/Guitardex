@@ -8,7 +8,7 @@ const HeaderDesktop = () => {
   return (
     <div className="hidden lg:block">
       <header className=" flex text-white-soft p-4 mx-auto md:w-8/12 max-w-7xl fixed md:relative md:flex md:justify-between md:items-center md:text-center">
-        <Image src="public/img/evdm.png" alt="evdm-logo" />
+        <Image src="/img/evdm.png" alt="evdm-logo" />
         <HStack>
           {navItems.map((navItem: NavItem, index: number) => (
             <Link

@@ -6,7 +6,7 @@ import Wrapper from "../components/Wrapper";
 
 export const Index: NextPage = () => {
   return (
-    <Wrapper title="biography">
+    <Wrapper title="About">
       <div className="w-full mx-0">
         <div className="flex flex-wrap justify-center mx-auto">
           <Image

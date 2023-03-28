@@ -7,11 +7,11 @@ import HeaderMobile from "./HeaderMobile";
 import LinkIcon from "./LinkIcon";
 import PageTitle from "./PageTitle";
 
-const Header = () => {
+const Header = ({ title }: { title: string }) => {
   return (
     <>
       <HeaderDesktop />
-      <HeaderMobile />
+      <HeaderMobile title={title} />
     </>
   );
 };
@@ -52,13 +52,13 @@ const Wrapper = ({
 }: {
   children: React.ReactNode;
   hasFooter?: boolean;
-  title?: string;
+  title: string;
 }) => {
   return (
     <div className="bg-black-soft text-white-soft flex flex-col h-screen justify-between">
       <div>
-        <Header />
-        <main className="font-serif lg:max-w-4xl lg:mx-auto mb-12 w-full h-full">
+        <Header title={title} />
+        <main className="font-serif p-4 lg:p-0 lg:max-w-4xl lg:mx-auto w-full h-full">
           {title && <PageTitle title={title} />}
           {children}
         </main>
