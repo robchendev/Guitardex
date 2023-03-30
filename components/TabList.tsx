@@ -35,7 +35,7 @@ const TabList = ({
     <>
       <Accordion allowToggle w="full" index={expandedIndex} onChange={onChange}>
         <div className="w-full flex flex-col content-between space-y-3">
-          {noMatch && <p>No matching tabs found</p>}
+          {noMatch && <p className="text-center">No matching tabs found</p>}
           {showSearchResults ? (
             <>
               {searchResults
