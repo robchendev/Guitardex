@@ -30,12 +30,8 @@ const Footer = () => {
             </HStack>
             <div>© 2018-2023 Eddie van der Meer</div>
             <div>
-              <Link className="text-gold" href="#">
+              <Link className="text-gold" href="/privacy-policy">
                 Privacy Policy
-              </Link>
-               • 
-              <Link className="text-gold" href="#">
-                Cookie Policy
               </Link>
             </div>
           </div>

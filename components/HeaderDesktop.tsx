@@ -1,4 +1,5 @@
-import { HStack, Image, Link } from "@chakra-ui/react";
+import { HStack, Image } from "@chakra-ui/react";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
 import { navItems, NavItem } from "../config/config";
@@ -14,8 +15,8 @@ const HeaderDesktop = () => {
             <Link
               key={index}
               href={navItem.link}
-              className={`sm:block font-serif text-2xl px-5 py-3.5 hover:text-gold${
-                router.pathname === navItem.link ? " text-gold" : ""
+              className={`sm:block font-serif text-2xl px-5 py-3.5 hover:text-gold ${
+                router.pathname === navItem.link ? "text-gold" : ""
               }`}
             >
               {navItem.name}
