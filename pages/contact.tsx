@@ -11,6 +11,7 @@ import React, { useState } from "react";
 import { Controller, RegisterOptions, useForm } from "react-hook-form";
 import Wrapper from "../components/Wrapper";
 import { FieldError, Control } from "react-hook-form";
+import Link from "next/link";
 
 type ContactForm = {
   name?: string;
@@ -62,7 +63,10 @@ const FormElement = ({ controlName, placeholder, onChange, value }: FormElementC
     case "privacy":
       return (
         <Checkbox onChange={onChange} isChecked={value as boolean}>
-          I agree to the Privacy Policy
+          I agree to the{" "}
+          <Link href="/privacy-policy" className="text-gold">
+            Privacy Policy
+          </Link>
         </Checkbox>
       );
     default:
