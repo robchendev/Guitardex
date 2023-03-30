@@ -180,7 +180,7 @@ export const tabs: TabInfo[] = [
     button: {
       type: "buy",
       price: 7.99,
-      link: "",
+      link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0243276",
     },
     difficulty: 0,
   },
@@ -395,7 +395,6 @@ export const tabs: TabInfo[] = [
     title: "Roundabout",
     source: "Jojo's Bizarre Adventure [ED]",
     artist: "Yes",
-    youtube: "",
     spotify: "https://open.spotify.com/track/7grLkzTJZRG6o9cbZFZxW8",
     genre: "Anime",
     tuning: {
@@ -404,8 +403,8 @@ export const tabs: TabInfo[] = [
     },
     button: {
       type: "buy",
-      price: 7.99,
-      link: "",
+      price: 5.99,
+      link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0234601",
     },
     difficulty: 0,
   },
@@ -1023,7 +1022,6 @@ export const tabs: TabInfo[] = [
     title: "Run",
     artist: "Joji",
     youtube: "https://youtu.be/nV9o1_Mc-NU",
-    spotify: "",
     genre: "R&B",
     tuning: {
       name: "Open Cm\nStandard",
@@ -2220,7 +2218,7 @@ export const tabs: TabInfo[] = [
     button: {
       type: "buy",
       price: 7.99,
-      link: "",
+      link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0190748",
     },
     difficulty: 0,
   },
@@ -2846,7 +2844,6 @@ export const tabs: TabInfo[] = [
     title: "Rick and Morty Theme Song",
     artist: "Ryan Elder",
     youtube: "https://youtu.be/AnIiiY9osEA",
-    spotify: "",
     genre: "Film",
     tuning: {
       name: "Open A#m",
