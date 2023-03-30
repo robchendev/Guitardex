@@ -4,6 +4,7 @@ sendgrid.setApiKey(process.env.SENDGRID_API_KEY as string);
 
 async function sendEmail(req, res) {
   try {
+    const messageParsed = req.body.message.replaceAll("\n", "<br>");
     console.log("REQ.BODY", req.body);
     await sendgrid.send({
       to: "management@eddievdmeer.com", // Your email where you'll receive emails
@@ -17,11 +18,9 @@ async function sendEmail(req, res) {
           <meta name="description" content="EVDM Website Contact Form">
         </head>
         <body>
-          <p>Name: ${req.body.name}</p>
-          <p>Email: ${req.body.email}</p>
-          <p>Topic: ${req.body.topic}</p>
+          <p>${req.body.name} (${req.body.email})</p>
           <p>Message:</p>
-          <p>${req.body.message}</p>
+          <p>${messageParsed ?? req.body.message}</p>
         </body>
       </html>`,
     });
