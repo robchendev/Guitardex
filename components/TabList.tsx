@@ -67,7 +67,11 @@ const TabList = ({
               setPagination(page);
               setExpandedIndex(-1);
             }}
-            maxPage={Math.ceil(tabs.length / tabsPerPage)}
+            maxPage={
+              searchResults
+                ? Math.ceil(searchResults.length / tabsPerPage)
+                : Math.ceil(tabs.length / tabsPerPage)
+            }
           />
         </div>
       </div>
