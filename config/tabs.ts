@@ -1698,9 +1698,9 @@ export const tabs: TabInfo[] = [
   // {
   //   title: "Kyouran Hey Kids!!",
   //   source: "Noragami Aragoto [OP]",
-  //   artist: "",
-  //   youtube: "",
-  //   spotify: "",
+  //   artist: "THE ORAL CIGARETTES",
+  //   youtube: "https://youtu.be/I0-pVDOA4OE",
+  //   spotify: "https://open.spotify.com/track/6VB22XW4UIQiJLiC9kAuoG",
   //   genre: "Anime",
   //   tuning: {
   //     name: "Raise F",
