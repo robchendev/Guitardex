@@ -1,5 +1,6 @@
 import { TabInfo } from "../types/tabs";
 
+// https://gdex.cc/?_14.16.15.18.17.22.6.7.11.1.2.3.4.5.19.28.24.23.29
 export const tabs: TabInfo[] = [
   {
     title: "Suzume",
@@ -16,7 +17,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0268543",
     },
-    guitardex: "https://gdex.cc/?Suzume_14.5.17.1.2.4.16.6.7.10.11.12.22",
+    guitardex: "https://gdex.cc/?Suzume_4.1.2.14.18.24.23.15",
     difficulty: 0,
   },
   {
@@ -34,6 +35,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0268403",
     },
+    guitardex: "https://gdex.cc/?IRWTSAYH_14.24.1.2.22.17",
     difficulty: 0,
   },
   // {
@@ -42,28 +44,32 @@ export const tabs: TabInfo[] = [
   //   artist: "Hiroyuki Sawano",
   //   youtube: "https://youtu.be/9JOwtlOqXIA",
   //   genre: "Anime",
-  //   difficulty: 0,
+  //   guitardex: "",
+  // difficulty: 0,
   // },
   // {
   //   title: "Die For You",
   //   artist: "Joji",
   //   youtube: "https://youtu.be/c-LBF9aST7Q",
   //   genre: "R&B",
-  //   difficulty: 0,
+  //   guitardex: "",
+  // difficulty: 0,
   // },
   // {
   //   title: "Anti-Hero",
   //   artist: "Taylor Swift",
   //   youtube: "",
   //   genre: "Pop",
-  //   difficulty: 0,
+  //   guitardex: "",
+  // difficulty: 0,
   // },
   // {
   //   title: "Glimpse of Us",
   //   artist: "Joji",
   //   youtube: "https://youtu.be/mgxGC2GP3Do",
   //   genre: "R&B",
-  //   difficulty: 0,
+  //   guitardex: "",
+  // difficulty: 0,
   // },
   // {
   //   title: "Shiver",
@@ -71,7 +77,8 @@ export const tabs: TabInfo[] = [
   //   artist: "Lucy Rose",
   //   youtube: "https://youtu.be/0qIkm6BOPCY",
   //   genre: "Anime",
-  //   difficulty: 0,
+  //   guitardex: "",
+  // difficulty: 0,
   // },
   // {
   //   title: "Bella Ciao",
@@ -79,7 +86,8 @@ export const tabs: TabInfo[] = [
   //   artist: "Manu Pilas",
   //   youtube: "https://youtu.be/umVfZVUFt_k",
   //   genre: "Film",
-  //   difficulty: 0,
+  //   guitardex: "",
+  // difficulty: 0,
   // },
   {
     title: "Make You Feel My Love",
@@ -95,6 +103,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0254688",
     },
+    guitardex: "https://gdex.cc/?Make-You-Feel-My-Love_14.16.17",
     difficulty: 0,
   },
   {
@@ -112,6 +121,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0253775",
     },
+    guitardex: "https://gdex.cc/?The-Rumbling_4.5.1.2.6.24.16.18",
     difficulty: 0,
   },
   {
@@ -129,6 +139,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0253634",
     },
+    guitardex: "https://gdex.cc/?Enemy_14.17.18.4.5.19.1.2.28.23.6.7",
     difficulty: 0,
   },
   {
@@ -146,6 +157,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0243443",
     },
+    guitardex: "https://gdex.cc/?Squid-Game-Medley_7.15.17.16.4.5",
     difficulty: 0,
   },
   {
@@ -165,6 +177,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0243661",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -182,6 +195,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0243276",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -198,6 +212,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0239435",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -215,6 +230,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0237446",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -234,6 +250,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0236925",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -253,6 +270,7 @@ export const tabs: TabInfo[] = [
       price: 5.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0235405",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -270,6 +288,7 @@ export const tabs: TabInfo[] = [
       price: 5.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0235334",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -288,6 +307,7 @@ export const tabs: TabInfo[] = [
       price: 5.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0235333",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -305,6 +325,7 @@ export const tabs: TabInfo[] = [
       price: 5.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0235224",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -323,6 +344,7 @@ export const tabs: TabInfo[] = [
       price: 5.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0234801",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -339,6 +361,7 @@ export const tabs: TabInfo[] = [
       price: 5.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0234800",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -355,6 +378,7 @@ export const tabs: TabInfo[] = [
       price: 5.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0234798",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -372,6 +396,7 @@ export const tabs: TabInfo[] = [
       price: 5.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0234602",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -389,6 +414,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191852",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -406,6 +432,7 @@ export const tabs: TabInfo[] = [
       price: 5.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0234601",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -424,6 +451,7 @@ export const tabs: TabInfo[] = [
       price: 5.99,
       link: "http://localhost:3001/tabs",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -441,6 +469,7 @@ export const tabs: TabInfo[] = [
       price: 5.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0234509",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -459,6 +488,7 @@ export const tabs: TabInfo[] = [
       price: 5.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0234492",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -475,6 +505,7 @@ export const tabs: TabInfo[] = [
       price: 5.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0234493",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -492,6 +523,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0234491",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -510,6 +542,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0234490",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -527,6 +560,7 @@ export const tabs: TabInfo[] = [
       price: 5.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0234510",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -544,6 +578,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0234507",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -561,6 +596,7 @@ export const tabs: TabInfo[] = [
       price: 4.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0225313",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -578,6 +614,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0225303",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -595,6 +632,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0225224",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -613,6 +651,7 @@ export const tabs: TabInfo[] = [
       price: 4.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0225218",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -631,6 +670,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0218978",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -647,6 +687,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0218564",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -665,6 +706,7 @@ export const tabs: TabInfo[] = [
       price: 4.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0219418",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -682,6 +724,7 @@ export const tabs: TabInfo[] = [
       price: 4.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0218661",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -699,6 +742,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0218611",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -717,6 +761,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0218610",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -734,6 +779,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0218348",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -752,6 +798,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0218137",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -770,6 +817,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0217543",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -788,6 +836,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0189131",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -806,6 +855,7 @@ export const tabs: TabInfo[] = [
       price: 8.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0217689",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -823,6 +873,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0210840",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -840,6 +891,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0209515",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -858,6 +910,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0209516",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -875,6 +928,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0209487",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -893,6 +947,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0209040",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -910,6 +965,7 @@ export const tabs: TabInfo[] = [
       price: 5.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0209039",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -928,6 +984,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0209038",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -945,6 +1002,7 @@ export const tabs: TabInfo[] = [
       price: 4.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0209013",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -963,6 +1021,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0209011",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -980,6 +1039,7 @@ export const tabs: TabInfo[] = [
       price: 4.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0209012",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -998,6 +1058,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0208845",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -1016,6 +1077,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0208732",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -1032,6 +1094,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0208681",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -1048,6 +1111,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0205852",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -1066,6 +1130,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0205693",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -1082,6 +1147,7 @@ export const tabs: TabInfo[] = [
       price: 4.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0218612",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -1100,6 +1166,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0205715",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -1117,6 +1184,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0205851",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -1135,6 +1203,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0201073",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -1152,6 +1221,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0200235",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -1170,6 +1240,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0205800",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -1186,6 +1257,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0218659",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -1204,6 +1276,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0199709",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -1222,6 +1295,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0198771",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -1239,6 +1313,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0200263",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -1257,6 +1332,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0198298",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -1275,6 +1351,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0199040",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -1292,6 +1369,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0197812",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -1309,6 +1387,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0198256",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -1326,6 +1405,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0198257",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -1344,6 +1424,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0196104",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -1362,6 +1443,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0196103",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -1379,6 +1461,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0196102",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -1396,6 +1479,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0195999",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -1413,6 +1497,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0194278",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -1431,6 +1516,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0193718",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -1449,6 +1535,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0193704",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -1466,6 +1553,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0193394",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -1484,6 +1572,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0193378",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -1500,6 +1589,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0193136",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -1517,6 +1607,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0193054",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -1535,6 +1626,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191849",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -1553,6 +1645,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191670",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -1571,6 +1664,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191670",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -1589,6 +1683,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0192543",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -1607,6 +1702,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191924",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -1624,6 +1720,7 @@ export const tabs: TabInfo[] = [
       price: 5.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0192123",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -1641,6 +1738,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0192088",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -1658,6 +1756,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191923",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -1675,6 +1774,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191856",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -1692,6 +1792,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0192138",
     },
+    guitardex: "",
     difficulty: 0,
   },
   // TODO: Removed from MN
@@ -1711,7 +1812,8 @@ export const tabs: TabInfo[] = [
   //     price: 7.99,
   //     link: "https://www.musicnotes.com/sheetmusic/display_error.asp?ppn=MN0192097",
   //   },
-  //   difficulty: 0,
+  //   guitardex: "",
+  // difficulty: 0,
   // },
   {
     title: "Ichiban no Takaramono",
@@ -1729,6 +1831,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191853",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -1747,6 +1850,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191968",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -1763,6 +1867,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191851",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -1781,6 +1886,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191854",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -1800,6 +1906,7 @@ export const tabs: TabInfo[] = [
       price: 9.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191937",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -1818,6 +1925,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191925",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -1836,6 +1944,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191848",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -1853,6 +1962,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191850",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -1871,6 +1981,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191969",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -1887,6 +1998,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191697",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -1904,6 +2016,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191855",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -1922,6 +2035,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191671",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -1939,6 +2053,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191627",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -1957,6 +2072,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191628",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -1975,6 +2091,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191696",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -1993,6 +2110,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191656",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2009,6 +2127,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191655",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2027,6 +2146,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191738",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2045,6 +2165,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191669",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2061,6 +2182,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191654",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2078,6 +2200,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191629",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2095,6 +2218,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191563",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2112,6 +2236,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191334",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2130,6 +2255,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191631",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2148,6 +2274,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191630",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2166,6 +2293,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191566",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2184,6 +2312,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0190983",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2202,6 +2331,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0190820",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2220,6 +2350,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0190748",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2238,6 +2369,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0190674",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2255,6 +2387,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0190606",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2273,6 +2406,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0190504",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2291,6 +2425,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0190288",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2308,6 +2443,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0190058",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2325,6 +2461,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0190001",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2342,6 +2479,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0189861",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2359,6 +2497,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0189102",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2376,6 +2515,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0189189",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2393,6 +2533,7 @@ export const tabs: TabInfo[] = [
       price: 4.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0188956",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2411,6 +2552,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0188838",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2429,6 +2571,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0188156",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2446,6 +2589,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0188006",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2463,6 +2607,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0188008",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2480,6 +2625,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0188009",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2497,6 +2643,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0188007",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2514,6 +2661,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0187975",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2532,6 +2680,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0187846",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2549,6 +2698,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0186285",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2566,6 +2716,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0187447",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2582,6 +2733,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0186093",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2599,6 +2751,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0185970",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2615,6 +2768,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0185239",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2631,6 +2785,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0185030",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2649,6 +2804,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0184222",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2666,6 +2822,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0184106",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2683,6 +2840,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0183916",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2699,6 +2857,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0183748",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2717,6 +2876,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0183621",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2734,6 +2894,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0183553",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2751,6 +2912,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0183031",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2769,6 +2931,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0183369",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2787,6 +2950,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0183279",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2804,6 +2968,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0182998",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2821,6 +2986,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0182903",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2838,6 +3004,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0182775",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2854,6 +3021,7 @@ export const tabs: TabInfo[] = [
       price: 5.79,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0182620",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2872,6 +3040,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0182619",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2889,6 +3058,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0182618",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2906,6 +3076,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0182559",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2923,6 +3094,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0182530",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2940,6 +3112,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0182478",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2957,6 +3130,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0182477",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2973,6 +3147,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0182040",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -2991,6 +3166,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0182373",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -3008,6 +3184,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0182372",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -3025,6 +3202,7 @@ export const tabs: TabInfo[] = [
       price: 6.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0182371",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -3043,6 +3221,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0182370",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -3060,6 +3239,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0182321",
     },
+    guitardex: "https://gdex.cc/?Something-Just-Like-This_14.16.12.24.15.17.4.1.2",
     difficulty: 0,
   },
   {
@@ -3077,6 +3257,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0182320",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -3094,6 +3275,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0182253",
     },
+    guitardex: "https://gdex.cc/?Perfect_14.16.1.2.6.18",
     difficulty: 0,
   },
   {
@@ -3111,6 +3293,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0182225",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -3129,6 +3312,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0182041",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -3147,6 +3331,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0182001",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -3165,6 +3350,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0181963",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -3183,6 +3369,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0181957",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -3201,6 +3388,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0181875",
     },
+    guitardex: "https://gdex.cc/?Unravel_16.17.15.24.6.11.18.4.5.19.1.2.28",
     difficulty: 0,
   },
   {
@@ -3218,6 +3406,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0181874",
     },
+    guitardex: "https://gdex.cc/?Believer_16.14.24.4.5.1.2.6.7.10.11.23",
     difficulty: 0,
   },
   {
@@ -3235,6 +3424,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0181804",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -3253,6 +3443,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0181757",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -3271,6 +3462,7 @@ export const tabs: TabInfo[] = [
       price: 9.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0181754",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -3288,6 +3480,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0181716",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -3306,6 +3499,7 @@ export const tabs: TabInfo[] = [
       price: 9.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0181678",
     },
+    guitardex: "",
     difficulty: 0,
   },
   {
@@ -3324,6 +3518,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0181043",
     },
+    guitardex: "https://gdex.cc/?Hes-a-Pirate_16.14.6.18.4.5.19",
     difficulty: 0,
   },
   {
@@ -3341,6 +3536,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0181607",
     },
+    guitardex: "https://gdex.cc/?My-Heart-Will-Go-On_14.16.1.2",
     difficulty: 0,
   },
   {
@@ -3358,6 +3554,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0181567",
     },
+    guitardex: "https://gdex.cc/?Despacito_16.14.17.24.1.2.4.5",
     difficulty: 0,
   },
   {
@@ -3375,6 +3572,7 @@ export const tabs: TabInfo[] = [
       price: 7.99,
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0181493",
     },
+    guitardex: "https://gdex.cc/?Shape-of-You_22.15.24.17.7.4.1.2",
     difficulty: 0,
   },
 
@@ -3394,6 +3592,7 @@ export const tabs: TabInfo[] = [
   //     price: 7.99,
   //     link: "",
   //   },
-  //   difficulty: 0,
+  //   guitardex: "",
+  // difficulty: 0,
   // },
 ];
