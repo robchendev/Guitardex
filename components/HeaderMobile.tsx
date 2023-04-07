@@ -24,7 +24,7 @@ const HeaderMobile = ({ title }: { title: string }) => {
   const btnRef = React.useRef(null);
   return (
     <div className="sm:block lg:hidden ">
-      <header className="flex text-white-soft p-4 mx-auto md:w-full max-w-7xl justify-between items-center text-center">
+      <header className="flex text-white-soft p-4 mx-auto md:w-full justify-between items-center text-center">
         <Box w={12}>
           <Image src="/img/evdm.png" alt="evdm-logo" h={12} />
         </Box>

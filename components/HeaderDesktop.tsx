@@ -8,14 +8,14 @@ const HeaderDesktop = () => {
   const router = useRouter();
   return (
     <div className="hidden lg:block">
-      <header className=" flex text-white-soft p-4 mx-auto md:w-8/12 max-w-7xl fixed md:relative md:flex md:justify-between md:items-center md:text-center">
+      <header className="flex text-white-soft p-4 mx-auto md:w-8/12 fixed md:relative md:flex md:justify-between md:items-center md:text-center">
         <Image src="/img/evdm.png" alt="evdm-logo" />
         <HStack>
           {navItems.map((navItem: NavItem, index: number) => (
             <Link
               key={index}
               href={navItem.link}
-              className={`sm:block font-serif text-2xl px-5 py-3.5 hover:text-gold ${
+              className={`sm:block font-serif text-2xl px-3 py-3.5 hover:text-gold ${
                 router.pathname === navItem.link ? "text-gold" : ""
               }`}
             >
