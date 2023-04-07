@@ -69,7 +69,6 @@ const FormElement = ({ controlName, placeholder, onChange, value }: FormElementC
     default:
       return <Input value="Element not implemented" disabled />;
   }
-  // TODO: privacy
 };
 
 const FormItem = ({ errors, control, controlName, rules, errorDef }: FormItemConfig) => (
