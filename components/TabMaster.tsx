@@ -38,12 +38,6 @@ const TabMaster = ({ tabs, tabsCache }: { tabs: TabInfo[]; tabsCache: TabsCache[
   const SHOW_OTHER = 2;
   const [genre, setGenre] = useState<number>(SHOW_ALL);
 
-  const onSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearch(e.target.value);
-    setExpandedIndex(-1);
-    setPagination(0);
-  };
-
   const onPaginateClick = (page: number) => {
     window.scrollTo({
       top: 0,
@@ -82,13 +76,15 @@ const TabMaster = ({ tabs, tabsCache }: { tabs: TabInfo[]; tabsCache: TabsCache[
     }
     console.log(matchingIndices);
     setResult(matchingIndices);
+    setExpandedIndex(-1);
+    setPagination(0);
   }, [search, difficulty, tabsCache, genre]);
 
   console.log(result.length);
 
   return (
     <Container maxW={["100%", "85%"]} p={0}>
-      <Tab.Search search={search} onChange={onSearch} />
+      <Tab.Search search={search} onChange={(e) => setSearch(e.target.value)} />
       <DifficultySlider
         min={difficulty[0]}
         max={difficulty[1]}
