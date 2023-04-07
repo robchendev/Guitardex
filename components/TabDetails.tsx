@@ -6,7 +6,7 @@ import { Tab } from "./Tab/_index";
 import Truncate from "./Truncate";
 
 const TabDetails = ({
-  tab: { button, difficulty, guitardex, title, source, artist, genre, tuning, youtube, spotify },
+  tab: { button, difficulty, guitardex, title, source, artist, tuning, youtube, spotify },
 }: {
   tab: TabInfo;
 }) => {
