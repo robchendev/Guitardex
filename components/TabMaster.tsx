@@ -56,16 +56,9 @@ const TabMaster = ({ tabs, tabsCache }: { tabs: TabInfo[]; tabsCache: TabsCache[
       const { diff, title, source, artist, isAnime, tuning, strings, price } = tabsCache[i];
       if (diff >= difficulty[0] && diff <= difficulty[1]) {
         if (genre !== SHOW_ALL && genre !== SHOW_FREE) {
-          if (genre !== SHOW_ANIME && isAnime) {
-            continue;
-          }
-          if (genre !== SHOW_OTHER && !isAnime) {
-            continue;
-          }
-        } else if (genre === SHOW_FREE && price !== 0) {
-          continue;
-        }
-
+          if (genre !== SHOW_ANIME && isAnime) continue;
+          if (genre !== SHOW_OTHER && !isAnime) continue;
+        } else if (genre === SHOW_FREE && price !== 0) continue;
         if (
           !keywords ||
           title.indexOf(keywords) !== -1 ||
