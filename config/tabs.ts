@@ -3,10 +3,27 @@ import { TabInfo } from "../types/tabs";
 // https://gdex.cc/?_14.16.15.18.17.22.6.7.11.1.2.3.4.5.19.28.24.23.29
 export const tabs: TabInfo[] = [
   {
+    title: "Free",
+    source: "Free! [OST]",
+    artist: "Free",
+    isAnime: false,
+    youtube: "https://youtu.be/wQANVR4vqXI",
+    tuning: {
+      name: "Open D#maj7",
+      strings: "D# G D G A# D",
+    },
+    button: {
+      type: "free",
+      link: "https://google.com",
+    },
+    difficulty: 0,
+  },
+  {
     title: "Suzume",
     source: "Suzume no Tojimari [OST]",
     artist: "RADWIMPS",
     isAnime: true,
+    youtube: "https://youtu.be/wQANVR4vqXI",
     tuning: {
       name: "Open D#maj7",
       strings: "D# G D G A# D",
