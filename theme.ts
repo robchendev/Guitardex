@@ -32,12 +32,6 @@ const accordionTheme = accordionConfig({
 
 // use this file to define/inject custom theme
 const theme = {
-  colors: {
-    // gold: "#FCDC97",
-    gray: {
-      900: "#171717",
-    },
-  },
   components: {
     Button,
     Accordion: accordionTheme,

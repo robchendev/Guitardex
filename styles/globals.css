@@ -55,10 +55,6 @@ a:hover {
   color: white;
 }
 
-option {
-  background-color: #171717 !important;
-}
-
 * {
   box-sizing: border-box;
 }
