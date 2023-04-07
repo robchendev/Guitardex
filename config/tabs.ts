@@ -6,8 +6,7 @@ export const tabs: TabInfo[] = [
     title: "Suzume",
     source: "Suzume no Tojimari [OST]",
     artist: "RADWIMPS",
-    youtube: "https://youtu.be/wQANVR4vqXI",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Open D#maj7",
       strings: "D# G D G A# D",
@@ -25,7 +24,7 @@ export const tabs: TabInfo[] = [
     source: "Cyberpunk: Edgerunners [OST]",
     artist: "Rosa Walton, Hallie Coggins",
     youtube: "https://youtu.be/DGtyrC2Xn3g",
-    genre: "Anime/Game",
+    isAnime: true,
     tuning: {
       name: "Open A#maj7",
       strings: "A# F D F A F",
@@ -43,7 +42,7 @@ export const tabs: TabInfo[] = [
   //   source: "Guilty Crown [OST]",
   //   artist: "Hiroyuki Sawano",
   //   youtube: "https://youtu.be/9JOwtlOqXIA",
-  //   genre: "Anime",
+  //   isAnime: true,
   //   guitardex: "",
   // difficulty: 0,
   // },
@@ -51,7 +50,7 @@ export const tabs: TabInfo[] = [
   //   title: "Die For You",
   //   artist: "Joji",
   //   youtube: "https://youtu.be/c-LBF9aST7Q",
-  //   genre: "R&B",
+  //   isAnime: false,
   //   guitardex: "",
   // difficulty: 0,
   // },
@@ -59,7 +58,7 @@ export const tabs: TabInfo[] = [
   //   title: "Anti-Hero",
   //   artist: "Taylor Swift",
   //   youtube: "",
-  //   genre: "Pop",
+  //   isAnime: false,
   //   guitardex: "",
   // difficulty: 0,
   // },
@@ -67,7 +66,7 @@ export const tabs: TabInfo[] = [
   //   title: "Glimpse of Us",
   //   artist: "Joji",
   //   youtube: "https://youtu.be/mgxGC2GP3Do",
-  //   genre: "R&B",
+  //   isAnime: false,
   //   guitardex: "",
   // difficulty: 0,
   // },
@@ -76,7 +75,7 @@ export const tabs: TabInfo[] = [
   //   source: "Mushishi Zoku Shou [OP]",
   //   artist: "Lucy Rose",
   //   youtube: "https://youtu.be/0qIkm6BOPCY",
-  //   genre: "Anime",
+  //   isAnime: true,
   //   guitardex: "",
   // difficulty: 0,
   // },
@@ -85,7 +84,7 @@ export const tabs: TabInfo[] = [
   //   source: "La casa de papel (Money Heist)",
   //   artist: "Manu Pilas",
   //   youtube: "https://youtu.be/umVfZVUFt_k",
-  //   genre: "Film",
+  //   isAnime: false,
   //   guitardex: "",
   // difficulty: 0,
   // },
@@ -93,7 +92,7 @@ export const tabs: TabInfo[] = [
     title: "Make You Feel My Love",
     artist: "Bob Dylan",
     youtube: "https://youtu.be/sThWUbjevjE",
-    genre: "Rock",
+    isAnime: false,
     tuning: {
       name: "Standard",
       strings: "E A D G B E",
@@ -111,7 +110,7 @@ export const tabs: TabInfo[] = [
     source: "Attack on Titan: Final Season Part 2 [OP]",
     artist: "SiM",
     youtube: "https://youtu.be/6Obd-qh9LJU",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Open G/D#",
       strings: "D# G D G B D",
@@ -129,7 +128,7 @@ export const tabs: TabInfo[] = [
     source: "League of Legends - Arcane",
     artist: "Imagine Dragons",
     youtube: "https://youtu.be/_ZG7Q5SgD9s",
-    genre: "Film",
+    isAnime: false,
     tuning: {
       name: "Open G/D#",
       strings: "D# G D G B D",
@@ -147,7 +146,7 @@ export const tabs: TabInfo[] = [
     source: "Squid Game Medley",
     artist: "Jung Jae-il",
     youtube: "https://youtu.be/LYcM1QIxmLA",
-    genre: "Film",
+    isAnime: false,
     tuning: {
       name: "Open Cm",
       strings: "C G C G C D#",
@@ -167,7 +166,7 @@ export const tabs: TabInfo[] = [
     artist:
       "Adele, Selena Gomez, Ellie Goulding, Jessie J, Major Lazer, Avicii, Wiz Khalifa, Hozier, One Direction, Ed Sheeran",
     youtube: "https://youtu.be/T5trmYRacAE",
-    genre: "Medley",
+    isAnime: false,
     tuning: {
       name: "Standard",
       strings: "E A D G B E",
@@ -185,7 +184,7 @@ export const tabs: TabInfo[] = [
     source: "Sword Art Online [OST]",
     artist: "Yuki Kajiura",
     youtube: "https://youtu.be/nts5ia-0O6c",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Open B",
       strings: "B F# B F# B D#",
@@ -202,7 +201,7 @@ export const tabs: TabInfo[] = [
     title: "Assassin's Creed III Main Theme",
     artist: "Lorne Balfe",
     youtube: "https://youtu.be/nc6UOFO9ZZc",
-    genre: "Game",
+    isAnime: false,
     tuning: {
       name: "Standard",
       strings: "E A D G B E",
@@ -220,7 +219,7 @@ export const tabs: TabInfo[] = [
     source: "Mirai Nikki [OST]",
     artist: "Tatsuya Kato",
     youtube: "https://youtu.be/8_2_JyIT5JI",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Raise F",
       strings: "F A D G B E",
@@ -240,7 +239,7 @@ export const tabs: TabInfo[] = [
     artist:
       "Alan Walker, Calvin Harris, The Chainsmokers, Coldplay, Sia, Shawn Mendes, James Arthur, Justin Bieber, Charlie Puth, Lukas Graham, Zayn, Martin Garrix",
     youtube: "https://youtu.be/G_F4iG5_l0s",
-    genre: "Medley",
+    isAnime: false,
     tuning: {
       name: "Standard",
       strings: "E A D G B E",
@@ -260,7 +259,7 @@ export const tabs: TabInfo[] = [
     artist:
       "Charlie Puth, Calvin Harris, Sia, Future, Sam Smith, Clean Bandit, Zara Larsson, Lana Del Ray, Paramore, Ed Sheeran, Dua Lipa, Luis FOnsi, Daddy Yankee, Imagine Dragons, Selena Gomez",
     youtube: "https://youtu.be/PxirHW1sT3Y",
-    genre: "Medley",
+    isAnime: false,
     tuning: {
       name: "Standard",
       strings: "E A D G B E",
@@ -278,7 +277,7 @@ export const tabs: TabInfo[] = [
     source: "Re:Zero [OP]",
     artist: "Konomi Suzuki",
     youtube: "https://youtu.be/38PucI0CBZY",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Open C",
       strings: "C G C G C E",
@@ -297,7 +296,7 @@ export const tabs: TabInfo[] = [
     artist: "Ramin Djawadi",
     youtube: "https://youtu.be/yDHm_yRcRHo",
     spotify: "https://open.spotify.com/track/3QvYQljqqIgxWHgeqQX28I",
-    genre: "Film",
+    isAnime: false,
     tuning: {
       name: "Open Cm",
       strings: "C G C G C D#",
@@ -315,7 +314,7 @@ export const tabs: TabInfo[] = [
     artist: "Martin Garrix & Bebe Rexha",
     youtube: "https://youtu.be/p8JlolXJC0k",
     spotify: "https://open.spotify.com/track/5Byx7WPth2xwHpkQQf1cwy",
-    genre: "EDM",
+    isAnime: false,
     tuning: {
       name: "Open Cadd9",
       strings: "C G C E G D",
@@ -334,7 +333,7 @@ export const tabs: TabInfo[] = [
     artist: "Linked Horizon",
     youtube: "https://youtu.be/q6I1CI77cyE",
     spotify: "https://open.spotify.com/track/3uIXlfdRCvKA0NfEX2nvjR",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Standard",
       strings: "E A D G B E",
@@ -351,7 +350,7 @@ export const tabs: TabInfo[] = [
     title: "For the Damaged Coda",
     artist: "Blonde Redhead",
     youtube: "https://youtu.be/SIvS0LCWbpw",
-    genre: "Alternative",
+    isAnime: false,
     tuning: {
       name: "Open Bsus4",
       strings: "B F# B F# B E",
@@ -368,7 +367,7 @@ export const tabs: TabInfo[] = [
     title: "Clocks",
     artist: "Coldplay",
     youtube: "https://youtu.be/-W2vDAmXDQY",
-    genre: "Alternative",
+    isAnime: false,
     tuning: {
       name: "Drop D",
       strings: "D A D G B E",
@@ -386,7 +385,7 @@ export const tabs: TabInfo[] = [
     source: "Attack on Titan [OP]",
     artist: "Linked Horizon",
     youtube: "https://youtu.be/YItwILZbLkA",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Open Gm",
       strings: "D G D G A# D",
@@ -404,7 +403,7 @@ export const tabs: TabInfo[] = [
     source: "League of Legends",
     artist: "Imagine Dragons",
     youtube: "https://youtu.be/PcpTkUAuyiE",
-    genre: "Game",
+    isAnime: false,
     tuning: {
       name: "Open Fm",
       strings: "C F C F G# C",
@@ -422,7 +421,7 @@ export const tabs: TabInfo[] = [
     source: "Jojo's Bizarre Adventure [ED]",
     artist: "Yes",
     spotify: "https://open.spotify.com/track/7grLkzTJZRG6o9cbZFZxW8",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Standard",
       strings: "E A D G B E",
@@ -441,7 +440,7 @@ export const tabs: TabInfo[] = [
     artist: "Asian Kung-Fu Generation",
     youtube: "https://youtu.be/iEh8frYAkjw",
     spotify: "https://open.spotify.com/track/2VrKOurPkPNS5ajibJ9AFC",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Open D#maj7",
       strings: "D# G D G A# D",
@@ -459,7 +458,7 @@ export const tabs: TabInfo[] = [
     artist: "The Chainsmokers",
     youtube: "https://youtu.be/2v_WZfAR-sg",
     spotify: "https://open.spotify.com/track/7FZCEFCzeQ0pPXCq9I6bpa",
-    genre: "EDM",
+    isAnime: false,
     tuning: {
       name: "Open A#maj9",
       strings: "A# F# D# F# A# C#",
@@ -478,7 +477,7 @@ export const tabs: TabInfo[] = [
     artist: "Dean Fujioka",
     youtube: "https://youtu.be/is_hB23MnsY",
     spotify: "https://open.spotify.com/track/7LFnWlU8XqsqgKTNxtCEMX",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Open Csus2",
       strings: "C G C G C D",
@@ -495,7 +494,7 @@ export const tabs: TabInfo[] = [
     title: "Otherside",
     artist: "Red Hot Chili Peppers",
     youtube: "https://youtu.be/NHuLpjyZPPs",
-    genre: "Alternative",
+    isAnime: false,
     tuning: {
       name: "Standard",
       strings: "E A D G B E",
@@ -513,7 +512,7 @@ export const tabs: TabInfo[] = [
     source: "Sword Art Online II [ED]",
     artist: "LiSA",
     youtube: "https://youtu.be/dc5zGlAQHjY",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Standard",
       strings: "E A D G B E",
@@ -532,7 +531,7 @@ export const tabs: TabInfo[] = [
     artist: "Taylor Swift, Jack Antonoff, Sam Dew",
     youtube: "https://youtu.be/iN1NSHVDZXE",
     spotify: "https://open.spotify.com/track/6w3LCVradKDVgpWvpGZEol",
-    genre: "Film",
+    isAnime: false,
     tuning: {
       name: "Open D#maj7",
       strings: "D# G D G A# D",
@@ -550,7 +549,7 @@ export const tabs: TabInfo[] = [
     artist: "Ramin Djawadi",
     youtube: "https://youtu.be/eKslQCItZjI",
     spotify: "https://open.spotify.com/track/3v8eOj39dwOu1SSq5YFGD6",
-    genre: "Film",
+    isAnime: false,
     tuning: {
       name: "Raise F",
       strings: "F A D G B E",
@@ -568,7 +567,7 @@ export const tabs: TabInfo[] = [
     source: "Harry Potter",
     artist: "John Williams",
     youtube: "https://youtu.be/9bEbuj4Qb3I",
-    genre: "Film",
+    isAnime: false,
     tuning: {
       name: "D#maj7",
       strings: "D# G D G A# D",
@@ -586,7 +585,7 @@ export const tabs: TabInfo[] = [
     artist: "Jessie J",
     youtube: "https://youtu.be/MVZLT6QKGCY",
     spotify: "https://open.spotify.com/track/0ejG4fIbfnL0ThIJZPT4nG",
-    genre: "Pop",
+    isAnime: false,
     tuning: {
       name: "Open C",
       strings: "C G C G C E",
@@ -604,7 +603,7 @@ export const tabs: TabInfo[] = [
     artist: "Martin Garrix & Dua Lipa",
     youtube: "https://youtu.be/xMnMdwJx9n8",
     spotify: "https://open.spotify.com/track/0fmWnDXzwc2UfV43OS4gxy",
-    genre: "EDM",
+    isAnime: false,
     tuning: {
       name: "D#maj7",
       strings: "D# G D G A# D",
@@ -622,7 +621,7 @@ export const tabs: TabInfo[] = [
     artist: "Coldplay",
     youtube: "https://youtu.be/fuNheENbBgs",
     spotify: "https://open.spotify.com/track/0jcwIVkZe9S2XnTV2t4sDV",
-    genre: "Rock",
+    isAnime: false,
     tuning: {
       name: "Open C5",
       strings: "C G C G G C",
@@ -641,7 +640,7 @@ export const tabs: TabInfo[] = [
     artist: "Ryo (Supercell)",
     youtube: "https://youtu.be/mMTTDKye_44",
     spotify: "https://open.spotify.com/track/7tSSsPUahcEHCMvmXySbLw",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Open Csus4",
       strings: "C G C G C F",
@@ -660,7 +659,7 @@ export const tabs: TabInfo[] = [
     artist: "Takahiro Obata",
     youtube: "https://youtu.be/zc-zOZ-gBR8",
     spotify: "https://open.spotify.com/track/5cBG7Xi3DgBfBwEbNhiszl",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Open Gsus2/C",
       strings: "C G C G A D",
@@ -677,7 +676,7 @@ export const tabs: TabInfo[] = [
     title: "Fly Me To The Moon",
     artist: "Frank Sinatra",
     youtube: "https://youtu.be/zO4s6-2loqQ",
-    genre: "Jazz",
+    isAnime: false,
     tuning: {
       name: "Open Am7/C",
       strings: "C G C G A C",
@@ -696,7 +695,7 @@ export const tabs: TabInfo[] = [
     artist: "Jun Maeda",
     youtube: "https://youtu.be/hEkbkcu1fQs",
     spotify: "https://open.spotify.com/track/1MXANs2TnbG03wC2sIjM31",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Open G6/D#",
       strings: "D# G D G B E",
@@ -714,7 +713,7 @@ export const tabs: TabInfo[] = [
     artist: "Coldplay",
     youtube: "https://youtu.be/48R6TGsZ8e8",
     spotify: "https://open.spotify.com/track/4vYmXoZiDVxnqcXr55dh0o",
-    genre: "Alternative",
+    isAnime: false,
     tuning: {
       name: "Open G#6",
       strings: "G# F C D# C D#",
@@ -732,7 +731,7 @@ export const tabs: TabInfo[] = [
     source: "Zero no Tsukaima [OP2]",
     artist: "Shinkichi Mitsumune",
     youtube: "https://youtu.be/xcwSIEO4xkU",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Standard",
       strings: "E A D G B E",
@@ -751,7 +750,7 @@ export const tabs: TabInfo[] = [
     artist: "Ryo Yokota",
     youtube: "https://youtu.be/u2apIzst4bM",
     spotify: "https://open.spotify.com/track/1gAldEZGL44HZAX2sH43L3",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Open Gm",
       strings: "D G D G A# D",
@@ -769,7 +768,7 @@ export const tabs: TabInfo[] = [
     artist: "WhiteFlame (Kurousa-P), Hatsune Miku",
     youtube: "https://youtu.be/6vex86Iq6Oo",
     spotify: "https://open.spotify.com/track/7uFr2YBn3HWk73jyLlKqEJ",
-    genre: "Vocaloid",
+    isAnime: true,
     tuning: {
       name: "Open D#maj9",
       strings: "D# G D F A# D",
@@ -788,7 +787,7 @@ export const tabs: TabInfo[] = [
     artist: "Konomi Suzuki",
     youtube: "https://youtu.be/uiAlctriyWw",
     spotify: "https://open.spotify.com/track/3sju4Sv9qUIWOXToTPAeIu",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Open Cm",
       strings: "C G C G C D#",
@@ -807,7 +806,7 @@ export const tabs: TabInfo[] = [
     artist: "Ryosuke Horii, Mitsuharu Fukuyama",
     youtube: "https://youtu.be/1vZhC5kxQno",
     spotify: "https://open.spotify.com/album/0gkaFUGzdY1m11rtJCYXHz",
-    genre: "Game",
+    isAnime: false,
     tuning: {
       name: "Open C",
       strings: "C G C G C E",
@@ -826,7 +825,7 @@ export const tabs: TabInfo[] = [
     artist: "Hyde",
     youtube: "https://youtu.be/Kk76m67gux8",
     spotify: "https://open.spotify.com/track/6ePNDktLmJKpMGJx2SCIgE",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Open E",
       strings: "E G# B E B E",
@@ -845,7 +844,7 @@ export const tabs: TabInfo[] = [
     artist: "Dave Rodgers",
     youtube: "https://youtu.be/YopskwDy45I",
     spotify: "https://open.spotify.com/track/1aSm0jHIJpglPZXh3yO0Py",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Standard\nOpen D",
       strings: "E A D G B E\nD A D F# A D",
@@ -863,7 +862,7 @@ export const tabs: TabInfo[] = [
     source: "Coffin Dance",
     artist: "Tony Igy, Vicetone",
     youtube: "https://youtu.be/l0K53I7lFh0",
-    genre: "EDM",
+    isAnime: false,
     tuning: {
       name: "Open Cm",
       strings: "C G C G C D#",
@@ -881,7 +880,7 @@ export const tabs: TabInfo[] = [
     artist: "Red Hot Chili Peppers",
     youtube: "https://youtu.be/uSbsoyG4W2Q",
     spotify: "https://open.spotify.com/track/20kc6hE07GY8SIU1TYTYGm",
-    genre: "Rock",
+    isAnime: false,
     tuning: {
       name: "Standard",
       strings: "E A D G B E",
@@ -900,7 +899,7 @@ export const tabs: TabInfo[] = [
     artist: "Sayuri",
     youtube: "https://youtu.be/A1BUuD1O5gI",
     spotify: "https://open.spotify.com/track/43hhgQnmsSMujLyqpJLvmI",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Drop D",
       strings: "D A D G B E",
@@ -918,7 +917,7 @@ export const tabs: TabInfo[] = [
     artist: "Justin Bieber, Ed Sheeran, Benny Blanco",
     youtube: "https://youtu.be/iyIhP5_JcOA",
     spotify: "https://open.spotify.com/track/49Hn5OZgDcZvkXjFV2jitt",
-    genre: "Pop",
+    isAnime: false,
     tuning: {
       name: "Open Csus2",
       strings: "C G C G C D",
@@ -937,7 +936,7 @@ export const tabs: TabInfo[] = [
     artist: "Hiroyuki Sawano",
     youtube: "https://youtu.be/IP5kGDFY4-k",
     spotify: "https://open.spotify.com/track/1cLwm9dinKGwMSVgrjtrsT",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Open D#maj7",
       strings: "D# G D G A# D",
@@ -955,7 +954,7 @@ export const tabs: TabInfo[] = [
     artist: "Hans Zimmer",
     youtube: "https://youtu.be/-dR5V0jskSs",
     spotify: "https://open.spotify.com/track/0WvNmvJSdBNoN089hQC871",
-    genre: "Film",
+    isAnime: false,
     tuning: {
       name: "Open Dm(maj7)",
       strings: "D F A F A C#",
@@ -974,7 +973,7 @@ export const tabs: TabInfo[] = [
     artist: "Jason Paige, John Siegler, John Loeffler",
     youtube: "https://youtu.be/bPMYkuBrb5o",
     spotify: "https://open.spotify.com/track/74quNvLmMguXFx0uUM6HyZ",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "1 Step Down",
       strings: "D G C F A D",
@@ -992,7 +991,7 @@ export const tabs: TabInfo[] = [
     source: "Lazy Town",
     artist: "Máni Svavarsson, Stefán Karl Stefánsson",
     youtube: "https://youtu.be/RdS-zJjXeIk",
-    genre: "Film",
+    isAnime: false,
     tuning: {
       name: "Open C#maj7",
       strings: "C# F C F G# C",
@@ -1011,7 +1010,7 @@ export const tabs: TabInfo[] = [
     artist: "Makoto Miyazaki",
     youtube: "https://youtu.be/LnoXxqILT7Y",
     spotify: "https://open.spotify.com/track/3CqV5uSdPvj5Ux3E8Idusc",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Standard",
       strings: "E A D G B E",
@@ -1029,7 +1028,7 @@ export const tabs: TabInfo[] = [
     artist: "The Weeknd, Daft Punk",
     youtube: "https://youtu.be/jG1lbuvKVM0",
     spotify: "https://open.spotify.com/track/5ZlAq2Z7GglWqlr1j8I4eB",
-    genre: "R&B",
+    isAnime: false,
     tuning: {
       name: "Open D#maj7",
       strings: "D# G D G A# D",
@@ -1048,7 +1047,7 @@ export const tabs: TabInfo[] = [
     artist: "Porno Graffitti",
     youtube: "https://youtu.be/6kGAx70Coo0",
     spotify: "https://open.spotify.com/track/1Kwrq3whtnoVQLXG24HL9q",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Open Cm",
       strings: "C G C G C D#",
@@ -1067,7 +1066,7 @@ export const tabs: TabInfo[] = [
     artist: "Hans Zimmer",
     youtube: "https://youtu.be/1jLh28fY4QA",
     spotify: "https://open.spotify.com/track/74r3tHLUWNS5ZFoUS8p6XU",
-    genre: "Film",
+    isAnime: false,
     tuning: {
       name: "Open Gm/C",
       strings: "C G D G A# D",
@@ -1084,7 +1083,7 @@ export const tabs: TabInfo[] = [
     title: "Run",
     artist: "Joji",
     youtube: "https://youtu.be/nV9o1_Mc-NU",
-    genre: "R&B",
+    isAnime: false,
     tuning: {
       name: "Open Cm\nStandard",
       strings: "C G D# G C D#\nE A D G B E",
@@ -1101,7 +1100,7 @@ export const tabs: TabInfo[] = [
     title: "Closed on Sunday",
     artist: "Kanye West",
     youtube: "https://youtu.be/3j3qszALnE8",
-    genre: "Hip-hop",
+    isAnime: false,
     tuning: {
       name: "Standard",
       strings: "E A D G B E",
@@ -1120,7 +1119,7 @@ export const tabs: TabInfo[] = [
     artist: "LiSA",
     youtube: "https://youtu.be/TpobQaJtp0o",
     spotify: "https://open.spotify.com/track/58u0TB73Qb3mg6wGZsm5h8",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Open B",
       strings: "B F# B F# B D#",
@@ -1137,7 +1136,7 @@ export const tabs: TabInfo[] = [
     title: "Internet",
     artist: "Post Malone",
     youtube: "https://youtu.be/joODxDIzKO0",
-    genre: "Hip-hop",
+    isAnime: false,
     tuning: {
       name: "Open Dsus4/B",
       strings: "B G D G A D",
@@ -1156,7 +1155,7 @@ export const tabs: TabInfo[] = [
     artist: "Mrs.GREEN APPLE",
     youtube: "https://youtu.be/kKXizebFUhg",
     spotify: "https://open.spotify.com/track/3u5O7AjlwxElJPIEap8Iaf",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Open Cm",
       strings: "C G C G C D#",
@@ -1174,7 +1173,7 @@ export const tabs: TabInfo[] = [
     artist: "Billie Eilish",
     youtube: "https://youtu.be/hnPnEJcaF7Q",
     spotify: "https://open.spotify.com/track/5UU1SFmkmIj0LtD3mamnKv",
-    genre: "Pop",
+    isAnime: false,
     tuning: {
       name: "Open Gm",
       strings: "D G D G A# D",
@@ -1193,7 +1192,7 @@ export const tabs: TabInfo[] = [
     artist: "Aimer",
     youtube: "https://youtu.be/33Bhmkz6JJA",
     spotify: "https://open.spotify.com/track/6ttWgxYEfyDzSackKha0KQ",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Open D#maj7",
       strings: "D# G D G A# D",
@@ -1211,7 +1210,7 @@ export const tabs: TabInfo[] = [
     source: "Minecraft Medley",
     artist: "Daniel Rosenfeld (C418)",
     youtube: "https://youtu.be/cXlhq0_ucmc",
-    genre: "Game",
+    isAnime: false,
     tuning: {
       name: "Open Gsus2/C",
       strings: "C G D G A D",
@@ -1230,7 +1229,7 @@ export const tabs: TabInfo[] = [
     artist: "Hiroyuki Sawano, Gemie",
     youtube: "https://youtu.be/ua6kPbGXcRc",
     spotify: "https://open.spotify.com/track/2HInaew8oU0F4dbgqm5jUl",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Open Dadd9",
       strings: "D A D F# A E",
@@ -1247,7 +1246,7 @@ export const tabs: TabInfo[] = [
     title: "Sanctuary",
     artist: "Joji",
     youtube: "https://youtu.be/m0iVo2E_mRQ",
-    genre: "Alternative",
+    isAnime: false,
     tuning: {
       name: "Open G/C",
       strings: "C G C G B D",
@@ -1266,7 +1265,7 @@ export const tabs: TabInfo[] = [
     artist: "Minami",
     youtube: "https://youtu.be/QUO-F6z-ILk",
     spotify: "https://open.spotify.com/track/4dhT7zXf0SQX3weVKSbIAx",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Open Cm",
       strings: "C G C G C D#",
@@ -1285,7 +1284,7 @@ export const tabs: TabInfo[] = [
     artist: "Kenshi Yonezu",
     youtube: "https://youtu.be/I29XpIFRblc",
     spotify: "https://open.spotify.com/track/7a2rh2MIRzMoT5prkZN08b",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Open G/C",
       strings: "C G C G B D",
@@ -1303,7 +1302,7 @@ export const tabs: TabInfo[] = [
     artist: "Tyler, the Creator",
     youtube: "https://youtu.be/GtjvG2ORzUY",
     spotify: "https://open.spotify.com/track/6ddsmQjfvckfyFcqCG0JqP",
-    genre: "Hip-hop",
+    isAnime: false,
     tuning: {
       name: "Open B",
       strings: "B F# B F# B D#",
@@ -1322,7 +1321,7 @@ export const tabs: TabInfo[] = [
     artist: "Kana Hanazawa",
     youtube: "https://youtu.be/1MgIqz66NZA",
     spotify: "https://open.spotify.com/track/4NIQLdhKmhVnZWHJDtRirW",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Open C\nStandard",
       strings: "C G C G C E\nE A D G B E",
@@ -1341,7 +1340,7 @@ export const tabs: TabInfo[] = [
     artist: "Queen Bee (Ziyoou-vachi)",
     youtube: "https://youtu.be/7RHFGzwEBv8",
     spotify: "https://open.spotify.com/track/4wZt3s82Y9OQ5LdUuY6aU9",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Open C",
       strings: "C G C G C E",
@@ -1359,7 +1358,7 @@ export const tabs: TabInfo[] = [
     artist: "Billie Eilish",
     youtube: "https://youtu.be/pug5VSQHPgI",
     spotify: "https://open.spotify.com/track/3i2CsJu1qMCcI48Q5hSIVB",
-    genre: "Alternative",
+    isAnime: false,
     tuning: {
       name: "Open Gm",
       strings: "D G D G A# D",
@@ -1377,7 +1376,7 @@ export const tabs: TabInfo[] = [
     artist: "Ed Sheeran, Justin Bieber",
     youtube: "https://youtu.be/C1azs50n5r0",
     spotify: "https://open.spotify.com/track/09hvugZy2uvhlHsADVW14M",
-    genre: "Pop",
+    isAnime: false,
     tuning: {
       name: "Open D",
       strings: "D A D F# A D",
@@ -1395,7 +1394,7 @@ export const tabs: TabInfo[] = [
     artist: "Lil Nas X",
     youtube: "https://youtu.be/7RUuMwUtljI",
     spotify: "https://open.spotify.com/track/1shuiXJHe4BFbcgqnx8ZLc",
-    genre: "Pop",
+    isAnime: false,
     tuning: {
       name: "Open Cmaj7",
       strings: "C G C G B E",
@@ -1414,7 +1413,7 @@ export const tabs: TabInfo[] = [
     artist: "JAM Project",
     youtube: "https://youtu.be/KWbGhwCnMx4",
     spotify: "https://open.spotify.com/track/3GSwDRLP7iKBOhQOzIYdZD",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Standard",
       strings: "E A D G B E",
@@ -1433,7 +1432,7 @@ export const tabs: TabInfo[] = [
     artist: "Ramin Djawadi",
     youtube: "https://youtu.be/6556AH1cBzw",
     spotify: "https://open.spotify.com/track/4Fv2DLddyAFqBPJZ0AkBEM",
-    genre: "Film",
+    isAnime: false,
     tuning: {
       name: "Open Cm",
       strings: "C G D# G C D#",
@@ -1451,7 +1450,7 @@ export const tabs: TabInfo[] = [
     artist: "Ramin Djawadi",
     youtube: "https://youtu.be/lQ_92dXkcwc",
     spotify: "https://open.spotify.com/track/2zhe605XJwwGRgET8LXx9f",
-    genre: "Film",
+    isAnime: false,
     tuning: {
       name: "Drop C",
       strings: "C G C F A D",
@@ -1469,7 +1468,7 @@ export const tabs: TabInfo[] = [
     source: "Naruto [OST]",
     artist: "Yasuharu Takanashi",
     spotify: "https://open.spotify.com/track/0gk60tLjDErXRqR3UQWaWP",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Open Cm",
       strings: "C G C G C D#",
@@ -1487,7 +1486,7 @@ export const tabs: TabInfo[] = [
     artist: "Ed Sheeran",
     youtube: "https://youtu.be/tjStH5qBnqY",
     spotify: "https://open.spotify.com/track/3OFPdxOBVtNZiWIbZIw2jv",
-    genre: "Pop",
+    isAnime: false,
     tuning: {
       name: "Open C",
       strings: "C G C G C E",
@@ -1506,7 +1505,7 @@ export const tabs: TabInfo[] = [
     artist: "Miyu Tomita, Mariya Ise",
     youtube: "https://youtu.be/A9cec7LuExo",
     spotify: "https://open.spotify.com/track/5tpJtPlcWjtzm9hUGOtGXa",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Open D/C#",
       strings: "D F# C# F# A C#",
@@ -1525,7 +1524,7 @@ export const tabs: TabInfo[] = [
     artist: "Jeremy Soule",
     youtube: "https://youtu.be/S7NBS5Wy-uM",
     spotify: "https://open.spotify.com/track/4efSWGSQ5pTWD6dr5BbmGz",
-    genre: "Game",
+    isAnime: false,
     tuning: {
       name: "Open Cm",
       strings: "C G C G C D#",
@@ -1543,7 +1542,7 @@ export const tabs: TabInfo[] = [
     artist: "Bon Jovi",
     youtube: "https://youtu.be/23KPYWT9tc0",
     spotify: "https://open.spotify.com/track/4vHR3YbSsnMJ6PQ8zDvTp8",
-    genre: "Rock",
+    isAnime: false,
     tuning: {
       name: "Open D#maj7",
       strings: "D# G D G A# D",
@@ -1562,7 +1561,7 @@ export const tabs: TabInfo[] = [
     artist: "Dua Lipa",
     youtube: "https://youtu.be/6ddAnYbhpL4",
     spotify: "https://open.spotify.com/track/0ven9BR6gW06MFbllY8Muu",
-    genre: "Film",
+    isAnime: false,
     tuning: {
       name: "Open G#6",
       strings: "G# D# C D# C F",
@@ -1579,7 +1578,7 @@ export const tabs: TabInfo[] = [
     title: "Crab Rave",
     artist: "Noisestorm",
     youtube: "https://youtu.be/j8VdOwlgwPI",
-    genre: "EDM",
+    isAnime: false,
     tuning: {
       name: "Drop C",
       strings: "C G C F A D",
@@ -1597,7 +1596,7 @@ export const tabs: TabInfo[] = [
     artist: "Billie Eilish",
     youtube: "https://youtu.be/utce31tsEj8",
     spotify: "https://open.spotify.com/track/4G8IJDJqiUdA5e9sqt4MfY",
-    genre: "Alternative",
+    isAnime: false,
     tuning: {
       name: "Open C",
       strings: "C G C G C E",
@@ -1616,7 +1615,7 @@ export const tabs: TabInfo[] = [
     artist: "Kensuke Oshio",
     youtube: "https://youtu.be/A7GL8UvIWs0",
     spotify: "https://open.spotify.com/track/4NTCnxf11nUeDEJuDqDmJd",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Open B",
       strings: "B F# B F# B D#",
@@ -1635,7 +1634,7 @@ export const tabs: TabInfo[] = [
     artist: "MYTH & ROID",
     youtube: "https://youtu.be/S5QEUCMqVEo",
     spotify: "https://open.spotify.com/track/1PNknkfeQ9CRlxIgeYd5fF",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Open A#",
       strings: "A# F C# F A# F",
@@ -1654,7 +1653,7 @@ export const tabs: TabInfo[] = [
     artist: "Zone",
     youtube: "https://youtu.be/gwr2_a3zX2g",
     spotify: "https://open.spotify.com/track/4qyJf5WfPTj4JxL6vmpsfB",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "1/2 Step Down",
       strings: "D# G# C# F# A# D#",
@@ -1673,7 +1672,7 @@ export const tabs: TabInfo[] = [
     artist: "Kensuke Ushio",
     youtube: "https://youtu.be/-3k8R2P_Z4c",
     spotify: "https://open.spotify.com/track/0V2bH7stS8o73GDMZclO6d",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Open Bm",
       strings: "B F# B F# B D",
@@ -1692,7 +1691,7 @@ export const tabs: TabInfo[] = [
     artist: "nano.RIPE",
     youtube: "https://youtu.be/XxI6H39LM3I",
     spotify: "https://open.spotify.com/track/5yPZPSzGVo301By178Z969",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Open Cm",
       strings: "C G C G C D#",
@@ -1710,7 +1709,7 @@ export const tabs: TabInfo[] = [
     source: "Minecraft",
     artist: "Daniel Rosenfeld (C418)",
     youtube: "https://youtu.be/BvJ2YsWPckk",
-    genre: "Game",
+    isAnime: false,
     tuning: {
       name: "Standard",
       strings: "E A D G B E",
@@ -1728,7 +1727,7 @@ export const tabs: TabInfo[] = [
     artist: "Ed Sheeran",
     youtube: "https://youtu.be/j-6ormqziaI",
     spotify: "https://open.spotify.com/track/67mjHvHDZ44lCLBRZFfluE",
-    genre: "Pop",
+    isAnime: false,
     tuning: {
       name: "Open C",
       strings: "C G C G C E",
@@ -1746,7 +1745,7 @@ export const tabs: TabInfo[] = [
     artist: "Timbaland, One Republic",
     youtube: "https://youtu.be/AVE59W1kjZ0",
     spotify: "https://open.spotify.com/track/3yOiCx9ZiaHOse6uQDGpxo",
-    genre: "R&B",
+    isAnime: false,
     tuning: {
       name: "Open A#maj9",
       strings: "A# F D F A C",
@@ -1764,7 +1763,7 @@ export const tabs: TabInfo[] = [
     source: "Koi wa Ameagari no You ni [ED]",
     artist: "Aimer",
     youtube: "https://youtu.be/FkbIDH26HNo",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Open Cm",
       strings: "C G D# G C D#",
@@ -1782,7 +1781,7 @@ export const tabs: TabInfo[] = [
     artist: "Dua Lipa",
     youtube: "https://youtu.be/cSwCc2VpS7k",
     spotify: "https://open.spotify.com/track/1lA2bdxSA9i0XfeVnu4F7o",
-    genre: "Pop",
+    isAnime: false,
     tuning: {
       name: "Open D#maj7",
       strings: "D# G D G A# D",
@@ -1802,7 +1801,7 @@ export const tabs: TabInfo[] = [
   //   artist: "THE ORAL CIGARETTES",
   //   youtube: "https://youtu.be/I0-pVDOA4OE",
   //   spotify: "https://open.spotify.com/track/6VB22XW4UIQiJLiC9kAuoG",
-  //   genre: "Anime",
+  //   isAnime: true,
   //   tuning: {
   //     name: "Raise F",
   //     strings: "F A D G B E",
@@ -1821,7 +1820,7 @@ export const tabs: TabInfo[] = [
     artist: "Jun Maeda",
     youtube: "https://youtu.be/FzcdABw5s_c",
     spotify: "https://open.spotify.com/track/3HcgM4wC07xE2pjhK0dmsX",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Standard",
       strings: "E A D G B E",
@@ -1840,7 +1839,7 @@ export const tabs: TabInfo[] = [
     artist: "Eir Aoi",
     youtube: "https://youtu.be/-CV0Q0H2Qqo",
     spotify: "https://open.spotify.com/track/2GAIzk6TJhO8uNYej6s7ZV",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Standard",
       strings: "E A D G B E",
@@ -1857,7 +1856,7 @@ export const tabs: TabInfo[] = [
     title: "See You Again",
     artist: "Wiz Khalifa, Charlie Puth",
     youtube: "https://youtu.be/OqXuyb3qSvw",
-    genre: "Hip-hop",
+    isAnime: false,
     tuning: {
       name: "Standard",
       strings: "E A D G B E",
@@ -1876,7 +1875,7 @@ export const tabs: TabInfo[] = [
     artist: "MAN WITH A MISSION",
     youtube: "https://youtu.be/Tml9tPCcCCA",
     spotify: "https://open.spotify.com/track/0FIC7v7EC0AnnKUCoFEy07",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Open Cm",
       strings: "C G C G C D#",
@@ -1896,7 +1895,7 @@ export const tabs: TabInfo[] = [
     artist:
       "Anne-Marie, Marshmello, Post Malone, 21 Savage, Selena Gomez, Dua Lipa, Calvin Harris, XXXTENTACION, Lil Peep, Camila Cabello, Ariana Grande Juice Wrld, Lana del Rey, Kenshi Yonezu, Billie Eilish, Khalid",
     youtube: "https://youtu.be/swcdVwnERco",
-    genre: "Medley",
+    isAnime: false,
     tuning: {
       name: "Standard",
       strings: "E A D G B E",
@@ -1915,7 +1914,7 @@ export const tabs: TabInfo[] = [
     artist: "Jun Maeda, Lia",
     youtube: "https://youtu.be/iGQXJNu5UXc",
     spotify: "https://open.spotify.com/track/7MZLqteD1lSyffiRrLaHjQ",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Standard",
       strings: "E A D G B E",
@@ -1934,7 +1933,7 @@ export const tabs: TabInfo[] = [
     artist: "Eir Aoi",
     youtube: "https://youtu.be/MlzL3tMKE70",
     spotify: "https://open.spotify.com/track/3Ptnox8TfCbkam9TYdLfj7",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Standard",
       strings: "E A D G B E",
@@ -1952,7 +1951,7 @@ export const tabs: TabInfo[] = [
     source: "FullMetal Alchemist [OST]",
     artist: "Michiru Ooshima, Seiji Mizushima, Tatiana Naumova",
     youtube: "https://youtu.be/IVnegQXUr3U",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Standard",
       strings: "E A D G B E",
@@ -1971,7 +1970,7 @@ export const tabs: TabInfo[] = [
     artist: "Fear, and Loathing in Las Vegas",
     youtube: "https://youtu.be/BKxq6ftfVSA",
     spotify: "https://open.spotify.com/track/7vR5BCpsFWpxPbf0H1STZu",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Standard",
       strings: "E A D G B E",
@@ -1988,7 +1987,7 @@ export const tabs: TabInfo[] = [
     title: "Photograph",
     artist: "Ed Sheeran",
     youtube: "https://youtu.be/sXUJtMEKHQY",
-    genre: "Pop",
+    isAnime: false,
     tuning: {
       name: "Open A",
       strings: "A E C# E A E",
@@ -2006,7 +2005,7 @@ export const tabs: TabInfo[] = [
     artist: "Coldplay",
     youtube: "https://youtu.be/tKwuKftVUI8",
     spotify: "https://open.spotify.com/track/3HVCB7SiyrHoAPNtDdqZA3",
-    genre: "Rock",
+    isAnime: false,
     tuning: {
       name: "Open A#",
       strings: "A# F A# F A# D",
@@ -2025,7 +2024,7 @@ export const tabs: TabInfo[] = [
     artist: "Funkist",
     youtube: "https://youtu.be/Z6Z8V_M2hWc",
     spotify: "https://open.spotify.com/track/1Rl1EbV0e7GwroKpwSipX2",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Standard",
       strings: "E A D G B E",
@@ -2043,7 +2042,7 @@ export const tabs: TabInfo[] = [
     artist: "John Legend",
     youtube: "https://youtu.be/1eaOdePV2Tc",
     spotify: "https://open.spotify.com/track/6jk4LFgTJmzpsr0wD8bmh4",
-    genre: "R&B",
+    isAnime: false,
     tuning: {
       name: "Open A#maj9",
       strings: "A# F D F A C",
@@ -2062,7 +2061,7 @@ export const tabs: TabInfo[] = [
     artist: "LiSA",
     youtube: "https://youtu.be/1hTiGdOp9Bk",
     spotify: "https://open.spotify.com/track/6st3fVuEPbwKCc4e4xkJXt",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Raise F",
       strings: "F A D G B E",
@@ -2081,7 +2080,7 @@ export const tabs: TabInfo[] = [
     artist: "Yoko Takahashi",
     youtube: "https://youtu.be/4JKP013TOIQ",
     spotify: "https://open.spotify.com/track/0V0gY9dRpt2ZpGw9X6mpge",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Raise F",
       strings: "F A D G B E",
@@ -2100,7 +2099,7 @@ export const tabs: TabInfo[] = [
     artist: "Yasuharu Takanashi",
     youtube: "https://youtu.be/Bgwvvu6Z8xs",
     spotify: "https://open.spotify.com/track/4Dmdxf6W2uZquwF8TgvhHu",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "1/2 Step Down",
       strings: "D# G# C# F# A# D#",
@@ -2117,7 +2116,7 @@ export const tabs: TabInfo[] = [
     title: "Hey Brother",
     artist: "Avicii",
     youtube: "https://youtu.be/xbeLoC9MsO4",
-    genre: "EDM",
+    isAnime: false,
     tuning: {
       name: "Open C7sus2/D",
       strings: "D G D G A# C",
@@ -2136,7 +2135,7 @@ export const tabs: TabInfo[] = [
     artist: "Haruka Tomatsu",
     youtube: "https://youtu.be/eXB1DBRSvNQ",
     spotify: "https://open.spotify.com/track/7h8CCKCyi2ynIitjj0PKwW",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Standard",
       strings: "E A D G B E",
@@ -2155,7 +2154,7 @@ export const tabs: TabInfo[] = [
     artist: "Eir Aoi",
     youtube: "https://youtu.be/i7IOR8FDc5M",
     spotify: "https://open.spotify.com/track/5Eawg1Z9HxPkEUAdy1Im6W",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Standard",
       strings: "E A D G B E",
@@ -2172,7 +2171,7 @@ export const tabs: TabInfo[] = [
     title: "Radioactive",
     artist: "Imagine Dragons",
     youtube: "https://youtu.be/OL_3h3hP-LA",
-    genre: "Alternative",
+    isAnime: false,
     tuning: {
       name: "Standard",
       strings: "E A D G B E",
@@ -2190,7 +2189,7 @@ export const tabs: TabInfo[] = [
     artist: "Imagine Dragons",
     youtube: "https://youtu.be/Aci2ZgyFUm8",
     spotify: "https://open.spotify.com/track/1hoUhg0a4jgMSVISelNaAN",
-    genre: "Alternative",
+    isAnime: false,
     tuning: {
       name: "Standard",
       strings: "E A D G B E",
@@ -2208,7 +2207,7 @@ export const tabs: TabInfo[] = [
     artist: "Kenshi Yonezu",
     youtube: "https://youtu.be/yrs_zWcdxHE",
     spotify: "https://open.spotify.com/track/23WHZJj7UETlnaicfPxo1S",
-    genre: "Pop",
+    isAnime: false,
     tuning: {
       name: "Standard",
       strings: "E A D G B E",
@@ -2226,7 +2225,7 @@ export const tabs: TabInfo[] = [
     artist: "XXXTENTACION",
     youtube: "https://youtu.be/IV16BW5eJwQ",
     spotify: "https://open.spotify.com/track/1ol6nKyyJCwMUPBAYUBuVF",
-    genre: "R&B",
+    isAnime: false,
     tuning: {
       name: "Standard",
       strings: "E A D G B E",
@@ -2245,7 +2244,7 @@ export const tabs: TabInfo[] = [
     artist: "Jun Maeda",
     youtube: "https://youtu.be/HLDVlzLWxN0?t=1070",
     spotify: "https://open.spotify.com/track/2jxcTMgp5RHTg2RhZcIr2Z",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Open C",
       strings: "C G C G C E",
@@ -2264,7 +2263,7 @@ export const tabs: TabInfo[] = [
     artist: "Magome Togoshi",
     youtube: "https://youtu.be/HLDVlzLWxN0?t=826",
     spotify: "https://open.spotify.com/track/1fhAHFNBxMY6M9po3t6EZj",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Open C",
       strings: "C G C G C E",
@@ -2283,7 +2282,7 @@ export const tabs: TabInfo[] = [
     artist: "Shinji Orito",
     youtube: "https://youtu.be/HLDVlzLWxN0?t=635",
     spotify: "https://open.spotify.com/track/3YmeEkyAgfokz6m1vKGm6j",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Open C",
       strings: "C G C G C E",
@@ -2302,7 +2301,7 @@ export const tabs: TabInfo[] = [
     artist: "Shinji Orito",
     youtube: "https://youtu.be/HLDVlzLWxN0?t=464",
     spotify: "https://open.spotify.com/track/3048OYgfowde8pld2y0bTi",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Drop D",
       strings: "D A D G B E",
@@ -2321,7 +2320,7 @@ export const tabs: TabInfo[] = [
     artist: "Jun Maeda, Lia",
     youtube: "https://youtu.be/HLDVlzLWxN0?t=227",
     spotify: "https://open.spotify.com/track/7a5A0DNRWl8YjoBmBOAw5c",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Standard",
       strings: "E A D G B E",
@@ -2340,7 +2339,7 @@ export const tabs: TabInfo[] = [
     artist: "Jun Maeda",
     youtube: "https://youtu.be/HLDVlzLWxN0",
     spotify: "https://open.spotify.com/track/1eODf4PvA6xUCHiCdhc2uk",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Standard",
       strings: "E A D G B E",
@@ -2359,7 +2358,7 @@ export const tabs: TabInfo[] = [
     artist: "Konomi Suzuki",
     youtube: "https://youtu.be/1Oz5R6Rw2TY",
     spotify: "https://open.spotify.com/track/4Eqw8jbMHNNgomuLmk6Fcg",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Open D#maj7",
       strings: "D# G D G A# D",
@@ -2377,7 +2376,7 @@ export const tabs: TabInfo[] = [
     artist: "Paramore",
     youtube: "https://youtu.be/ZlNJ-zpCkxs",
     spotify: "https://open.spotify.com/track/7xpLGS6TyFYQfMy1XtPxps",
-    genre: "Pop",
+    isAnime: false,
     tuning: {
       name: "Open Cm",
       strings: "C G C G C D#",
@@ -2396,7 +2395,7 @@ export const tabs: TabInfo[] = [
     artist: "Toru Kitajima (TK)",
     youtube: "https://youtu.be/LiSKpS_u4PA",
     spotify: "https://open.spotify.com/track/6UPffF4elKqetjW0KVViZB",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Open C#",
       strings: "C# F C F C F",
@@ -2415,7 +2414,7 @@ export const tabs: TabInfo[] = [
     artist: "Hiroyuki Sawano",
     youtube: "https://youtu.be/Ex0teIbxpD4",
     spotify: "https://open.spotify.com/track/5LYLkig5PPtNFBNR3MSXlQ",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Open Cm",
       strings: "C G C G C D#",
@@ -2433,7 +2432,7 @@ export const tabs: TabInfo[] = [
     artist: "Lil Peep, XXXTENTACION",
     youtube: "https://youtu.be/uTIFTIucyJ8",
     spotify: "https://open.spotify.com/track/08P7HOdZr1AO4Yr2KtfGlh",
-    genre: "Hip-hop",
+    isAnime: false,
     tuning: {
       name: "Standard",
       strings: "E A D G B E",
@@ -2451,7 +2450,7 @@ export const tabs: TabInfo[] = [
     artist: "Selena Gomez, Marshmello",
     youtube: "https://youtu.be/f6rlu66cBD0",
     spotify: "https://open.spotify.com/track/4ylBxNJHQRZuzl4MHMSJ1A",
-    genre: "EDM",
+    isAnime: false,
     tuning: {
       name: "Open C",
       strings: "C G C G C E",
@@ -2469,7 +2468,7 @@ export const tabs: TabInfo[] = [
     artist: "Ariana Grande",
     youtube: "https://youtu.be/qTVytqxJkQ4",
     spotify: "https://open.spotify.com/track/6GFo1MLTw2K8b6AuJ3c0rF",
-    genre: "Pop",
+    isAnime: false,
     tuning: {
       name: "Open Cmaj9",
       strings: "C E D G B D",
@@ -2487,7 +2486,7 @@ export const tabs: TabInfo[] = [
     artist: "Billie Eilish, Khalid",
     youtube: "https://youtu.be/pGVMkkXawyU",
     spotify: "https://open.spotify.com/track/1B2UMqJGtdV7ejh6Kg6tD4",
-    genre: "Alternative",
+    isAnime: false,
     tuning: {
       name: "Open G/C",
       strings: "C G C G B D",
@@ -2505,7 +2504,7 @@ export const tabs: TabInfo[] = [
     source: "Overlord III [OP]",
     artist: "MYTH & ROID",
     youtube: "https://youtu.be/KLsxfDzPw0E",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Standard",
       strings: "E A D G B E",
@@ -2523,7 +2522,7 @@ export const tabs: TabInfo[] = [
     artist: "Drake",
     youtube: "https://youtu.be/SVawEZ2XC3w",
     spotify: "https://open.spotify.com/track/3zDVTNHRUJYfsktDLIzg8v",
-    genre: "Hip-hop",
+    isAnime: false,
     tuning: {
       name: "Open Cm",
       strings: "C G C G C D#",
@@ -2542,7 +2541,7 @@ export const tabs: TabInfo[] = [
     artist: "Elements Garden",
     youtube: "https://youtu.be/ZYTUE0y2qEE",
     spotify: "https://open.spotify.com/track/4B4MMDgigGcnFcUQx14Bew",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "1/2 Step Down",
       strings: "D# G# C# F# A# D#",
@@ -2561,7 +2560,7 @@ export const tabs: TabInfo[] = [
     artist: "Toshio Masuda, Musashi Purojekuto",
     youtube: "https://youtu.be/G-MZhNKszq4",
     spotify: "https://open.spotify.com/track/7n9EWtXm2er6MqmgatjtVT",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Standard",
       strings: "E A D G B E",
@@ -2579,7 +2578,7 @@ export const tabs: TabInfo[] = [
     source: "Naruto: Shippuden [OST]",
     artist: "Toshio Masuda, Yasuharu Takanashi",
     spotify: "https://open.spotify.com/track/1waFJm6i8PTWpg08VeXdCb",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Open C",
       strings: "C G C G C E",
@@ -2597,7 +2596,7 @@ export const tabs: TabInfo[] = [
     source: "Naruto: Shippuden [OST]",
     artist: "Yasuharu Takanashi",
     spotify: "https://open.spotify.com/track/4zZzctxMJt7tnBFbVfHspM",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Open Cm",
       strings: "C G C G C D#",
@@ -2615,7 +2614,7 @@ export const tabs: TabInfo[] = [
     source: "Naruto [OST]",
     artist: "Toshio Masuda, Yasuharu Takanashi",
     spotify: "https://open.spotify.com/track/4HQcHeZX9Sg0ZHxC8H2FH6",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Standard",
       strings: "E A D G B E",
@@ -2633,7 +2632,7 @@ export const tabs: TabInfo[] = [
     source: "Naruto: Shippuden [OST]",
     artist: "Yasuharu Takanashi",
     spotify: "https://open.spotify.com/track/6hRvoKvQunuI8NMivcObkU",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Open Cm",
       strings: "C G C G C D#",
@@ -2651,7 +2650,7 @@ export const tabs: TabInfo[] = [
     source: "Naruto: Shippuden [OST]",
     artist: "Yasuharu Takanashi",
     spotify: "https://open.spotify.com/track/3FnZIoU9EMZprMlKKy7Kie",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Drop D",
       strings: "D A D G B E",
@@ -2670,7 +2669,7 @@ export const tabs: TabInfo[] = [
     artist: "Yasuharu Takanashi",
     youtube: "https://youtu.be/ca1Hipl3Kyc",
     spotify: "https://open.spotify.com/track/4yGxcBSyK0l1WBWNVJLrlN",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Drop D",
       strings: "D A D G B E",
@@ -2688,7 +2687,7 @@ export const tabs: TabInfo[] = [
     artist: "XXXTENTACION",
     youtube: "https://youtu.be/aYgo9thr3cs",
     spotify: "https://open.spotify.com/track/69eIHSE6YPyUC4S46TMwCQ",
-    genre: "Hip-hop",
+    isAnime: false,
     tuning: {
       name: "Open D#maj7",
       strings: "D# G D G A# D",
@@ -2706,7 +2705,7 @@ export const tabs: TabInfo[] = [
     artist: "Ariana Grande",
     youtube: "https://youtu.be/nhWjlMCMLI4",
     spotify: "https://open.spotify.com/track/0QiXOv4IwLQSkJH9QuyFtp",
-    genre: "Pop",
+    isAnime: false,
     tuning: {
       name: "Open D#maj7",
       strings: "D# G D G A# D",
@@ -2723,7 +2722,7 @@ export const tabs: TabInfo[] = [
     title: "Otherside",
     artist: "Post Malone",
     youtube: "https://youtu.be/CR3JVvHBzPU",
-    genre: "Hip-hop",
+    isAnime: false,
     tuning: {
       name: "Open D#maj7",
       strings: "D# G D G A# D",
@@ -2741,7 +2740,7 @@ export const tabs: TabInfo[] = [
     artist: "Kenshi Yonezu",
     youtube: "https://youtu.be/yWP5JsA_Rms",
     spotify: "https://open.spotify.com/track/4XXgFH6mgUt6cpITKd61rM",
-    genre: "Pop",
+    isAnime: false,
     tuning: {
       name: "Open B",
       strings: "B F# B F# B D#",
@@ -2758,7 +2757,7 @@ export const tabs: TabInfo[] = [
     title: "Jocelyn Flores",
     artist: "XXXTENTACION",
     youtube: "https://youtu.be/9CXa9RmZpsA",
-    genre: "Hip-hop",
+    isAnime: false,
     tuning: {
       name: "Open Gm",
       strings: "D G D G A# D",
@@ -2775,7 +2774,7 @@ export const tabs: TabInfo[] = [
     title: "Nevermind",
     artist: "Dennis Floyd",
     youtube: "https://youtu.be/Wufv-clNmsw",
-    genre: "Pop",
+    isAnime: false,
     tuning: {
       name: "Open A#sus2",
       strings: "A# F C F C C",
@@ -2794,7 +2793,7 @@ export const tabs: TabInfo[] = [
     artist: "Ikimonogakari",
     youtube: "https://youtu.be/FwoXpNCSMl8",
     spotify: "https://open.spotify.com/track/3ZZQuZSwNtNyt9l8KjhDOc",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Standard",
       strings: "E A D G B E",
@@ -2812,7 +2811,7 @@ export const tabs: TabInfo[] = [
     source: "Sword Art Online Alternative: Gun Gale Online [OP]",
     artist: "Eir Aoi",
     youtube: "https://youtu.be/5blMDh1gQdk",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Raise F",
       strings: "F A D G B E",
@@ -2830,7 +2829,7 @@ export const tabs: TabInfo[] = [
     artist: "Clean Bandit, Zara Larsson",
     youtube: "https://youtu.be/QvCA5KnTLXg",
     spotify: "https://open.spotify.com/track/5rtzXUU0MaqUGYbU1yvTAc",
-    genre: "EDM",
+    isAnime: false,
     tuning: {
       name: "Open C",
       strings: "C G C G C E",
@@ -2847,7 +2846,7 @@ export const tabs: TabInfo[] = [
     title: "Fatima",
     source: "Steins;Gate 0 [OP]",
     youtube: "https://youtu.be/xJYcLQxqQsM",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Standard",
       strings: "E A D G B E",
@@ -2866,7 +2865,7 @@ export const tabs: TabInfo[] = [
     artist: "JUNNA",
     youtube: "https://youtu.be/9xGjdh92QlQ",
     spotify: "https://open.spotify.com/track/2bsdZ4LLv2bmbSadFvq0wm",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Standard",
       strings: "E A D G B E",
@@ -2884,7 +2883,7 @@ export const tabs: TabInfo[] = [
     source: "The Melancholy of Haruhi Suzumiya [OST]",
     artist: "Aya Hirano",
     youtube: "https://youtu.be/tsya54Cerwc",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Standard",
       strings: "E A D G B E",
@@ -2902,7 +2901,7 @@ export const tabs: TabInfo[] = [
     artist: "Anne-Marie",
     youtube: "https://youtu.be/O0RAAKa-EbQ",
     spotify: "https://open.spotify.com/track/3dsz3SC9vDlJ3cYvcxcjYR",
-    genre: "Pop",
+    isAnime: false,
     tuning: {
       name: "Open C",
       strings: "C G C G C E",
@@ -2921,7 +2920,7 @@ export const tabs: TabInfo[] = [
     artist: "Co shu Nie",
     youtube: "https://youtu.be/G2HhXQPLrbo",
     spotify: "https://open.spotify.com/track/32iVl6KUiIvBDEFqohlp5V",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Open A#sus2",
       strings: "A# F C F C F",
@@ -2940,7 +2939,7 @@ export const tabs: TabInfo[] = [
     source: "Far Cry 5 Medley",
     artist: "Dan Romer",
     youtube: "https://youtu.be/rXEl8n1ILmo",
-    genre: "Game",
+    isAnime: false,
     tuning: {
       name: "Raise F",
       strings: "F A D G B E",
@@ -2958,7 +2957,7 @@ export const tabs: TabInfo[] = [
     artist: "Drake",
     youtube: "https://youtu.be/X1L4SXbxqXI",
     spotify: "https://open.spotify.com/track/6HqKGWa3VrgyxztA2oNKFO",
-    genre: "Hip-hop",
+    isAnime: false,
     tuning: {
       name: "Open Csus2",
       strings: "C G C G C D",
@@ -2976,7 +2975,7 @@ export const tabs: TabInfo[] = [
     artist: "XXXTENTACION",
     youtube: "https://youtu.be/8iuSFiHMoeg",
     spotify: "https://open.spotify.com/track/4zwuNWlnojWlKKbS1CmUrz",
-    genre: "Hip-hop",
+    isAnime: false,
     tuning: {
       name: "Standard",
       strings: "E A D G B E",
@@ -2994,7 +2993,7 @@ export const tabs: TabInfo[] = [
     artist: "XXXTENTACION",
     youtube: "https://youtu.be/xWL_eE-DjGo",
     spotify: "https://open.spotify.com/track/6otZnTJPkhZXAl6tVj5euo",
-    genre: "Hip-hop",
+    isAnime: false,
     tuning: {
       name: "Drop D",
       strings: "D A D G B E",
@@ -3011,7 +3010,7 @@ export const tabs: TabInfo[] = [
     title: "Rick and Morty Theme Song",
     artist: "Ryan Elder",
     youtube: "https://youtu.be/AnIiiY9osEA",
-    genre: "Film",
+    isAnime: false,
     tuning: {
       name: "Open A#m",
       strings: "A# F A# F A# C#",
@@ -3030,7 +3029,7 @@ export const tabs: TabInfo[] = [
     artist: "Ryo (Supercell)",
     youtube: "https://youtu.be/oUmnLPI3xrY",
     spotify: "https://open.spotify.com/track/76EFsgLEMUmzHoxRKqpygu",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Raise F",
       strings: "F A D G B E",
@@ -3048,7 +3047,7 @@ export const tabs: TabInfo[] = [
     artist: "Post Malone",
     youtube: "https://youtu.be/fLDZiRe-iIc",
     spotify: "https://open.spotify.com/track/411vh6l9fIMhB9pU74ctCE",
-    genre: "Hip-hop",
+    isAnime: false,
     tuning: {
       name: "Open C",
       strings: "C G C G C E",
@@ -3066,7 +3065,7 @@ export const tabs: TabInfo[] = [
     artist: "Anne-Marie, Marshmello",
     youtube: "https://youtu.be/2GfakCspzHQ",
     spotify: "https://open.spotify.com/track/0t3DADP3XQ0ncjQVixkt2E",
-    genre: "Pop",
+    isAnime: false,
     tuning: {
       name: "Open D#maj7",
       strings: "D# G D G A# D",
@@ -3084,7 +3083,7 @@ export const tabs: TabInfo[] = [
     artist: "Sam Smith",
     youtube: "https://youtu.be/WaxykZewSDU",
     spotify: "https://open.spotify.com/track/3UBiFC4Wpzmwpud8FOiLvy",
-    genre: "Pop",
+    isAnime: false,
     tuning: {
       name: "Open C",
       strings: "C G C G C E",
@@ -3102,7 +3101,7 @@ export const tabs: TabInfo[] = [
     artist: "Zayn, Sia",
     youtube: "https://youtu.be/0XNiXTUpspw",
     spotify: "https://open.spotify.com/track/75ThQx7I5b2Iryf0IqbKxI",
-    genre: "Pop",
+    isAnime: false,
     tuning: {
       name: "Open D#maj7",
       strings: "D# G D G A# D",
@@ -3120,7 +3119,7 @@ export const tabs: TabInfo[] = [
     artist: "Linkin Park",
     youtube: "https://youtu.be/wSDojPQ1_c4",
     spotify: "https://open.spotify.com/track/5yoU7gZzdhpHPZy7luHUHw",
-    genre: "Rock",
+    isAnime: false,
     tuning: {
       name: "Standard",
       strings: "E A D G B E",
@@ -3137,7 +3136,7 @@ export const tabs: TabInfo[] = [
     title: "Gucci Gang",
     artist: "Lil Pump",
     youtube: "https://youtu.be/B10miW6eohE",
-    genre: "Hip-hop",
+    isAnime: false,
     tuning: {
       name: "Open Amadd11",
       strings: "A D C E A E",
@@ -3156,7 +3155,7 @@ export const tabs: TabInfo[] = [
     artist: "DAOKO, Kenshi Yonezu",
     youtube: "https://youtu.be/sU8rlnKGG8Q",
     spotify: "https://open.spotify.com/track/5SGOudFmzp1oPwSUtz0ov5",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Open Bmaj9",
       strings: "B F# D# F# A# C#",
@@ -3174,7 +3173,7 @@ export const tabs: TabInfo[] = [
     artist: "Gustavo Santeollala",
     youtube: "https://youtu.be/CrltUZayrxQ",
     spotify: "https://open.spotify.com/track/0a2RNi29GqQbdqszJQfEEC",
-    genre: "Game",
+    isAnime: false,
     tuning: {
       name: "1/2 Step Down",
       strings: "D# G# C# F# A# D#",
@@ -3192,7 +3191,7 @@ export const tabs: TabInfo[] = [
     artist: "Kyle Dixon, Michael Stein",
     youtube: "https://youtu.be/r38IE9yr5wk",
     spotify: "https://open.spotify.com/track/2EacBWFy9pdquKDj23px2s",
-    genre: "Film",
+    isAnime: false,
     tuning: {
       name: "Open Amaj7",
       strings: "A A C# E G# E",
@@ -3211,7 +3210,7 @@ export const tabs: TabInfo[] = [
     artist: "Linked Horizon",
     youtube: "https://youtu.be/Hkl10-9_PLk",
     spotify: "https://open.spotify.com/track/737qRbscxtoZU4mNISYafl",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Open G",
       strings: "D G D G B D",
@@ -3229,7 +3228,7 @@ export const tabs: TabInfo[] = [
     artist: "Chainsmokers, Coldplay",
     youtube: "https://youtu.be/rLnhfqcNFVQ",
     spotify: "https://open.spotify.com/track/2Ft1guAkFdsn1TdDW0FNEp",
-    genre: "EDM",
+    isAnime: false,
     tuning: {
       name: "Open D#maj7",
       strings: "D# G D G A# D",
@@ -3247,7 +3246,7 @@ export const tabs: TabInfo[] = [
     artist: "Post Malone",
     youtube: "https://youtu.be/7ppSIW4dnlQ",
     spotify: "https://open.spotify.com/track/4akPUrHU6Zie3yDqpNR2QP",
-    genre: "Hip-hop",
+    isAnime: false,
     tuning: {
       name: "Open Dadd11",
       strings: "D G D F# A D",
@@ -3265,7 +3264,7 @@ export const tabs: TabInfo[] = [
     artist: "Ed Sheeran",
     youtube: "https://youtu.be/q9oXds-WVb4",
     spotify: "https://open.spotify.com/track/5QAetSWYn94tWXrjUg8fph",
-    genre: "Pop",
+    isAnime: false,
     tuning: {
       name: "Open C",
       strings: "C G C G C E",
@@ -3283,7 +3282,7 @@ export const tabs: TabInfo[] = [
     artist: "Drake",
     youtube: "https://youtu.be/lBuULFGblKE",
     spotify: "https://open.spotify.com/track/2PH4ucaOZLvXFYpjlrLBky",
-    genre: "Pop",
+    isAnime: false,
     tuning: {
       name: "Open Gm",
       strings: "G G D G A# D",
@@ -3302,7 +3301,7 @@ export const tabs: TabInfo[] = [
     artist: "Yuki Hayashi",
     youtube: "https://youtu.be/fOcJrJtSFRo",
     spotify: "https://open.spotify.com/track/1KeQ17eK5t1q7kKOwpRPEy",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Open D#maj7",
       strings: "D# G D G A# D",
@@ -3321,7 +3320,7 @@ export const tabs: TabInfo[] = [
     artist: "Amazarashi",
     youtube: "https://youtu.be/soBUE3iK5DE",
     spotify: "https://open.spotify.com/track/7c83AvfOsfsQETwfHY2v7P",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Open C",
       strings: "C G C G C E",
@@ -3340,7 +3339,7 @@ export const tabs: TabInfo[] = [
     artist: "Kenshi Yonezu",
     youtube: "https://youtu.be/IX4KhREj3ng",
     spotify: "https://open.spotify.com/track/6CQNWAqPhtljVYKAN5ugCx",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Open D#maj7",
       strings: "D# G D G A# D",
@@ -3359,7 +3358,7 @@ export const tabs: TabInfo[] = [
     artist: "MYTH & ROID",
     youtube: "https://youtu.be/6SBD2KywFpE",
     spotify: "https://open.spotify.com/track/1ES6L3gw6I97rp9nU8EWiN",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Open Cm",
       strings: "C G C G C D#",
@@ -3378,7 +3377,8 @@ export const tabs: TabInfo[] = [
     artist: "Toru Kitajima (TK)",
     youtube: "https://youtu.be/WxOulfAfKvk",
     spotify: "https://open.spotify.com/track/3l6kDySxDhPwkPQ5Yx14cb",
-    genre: "Anime",
+    apple: "https://music.apple.com/us/album/unravel-op-from-tokyo-ghoul/1164616512?i=1164617002",
+    isAnime: true,
     tuning: {
       name: "1/2 Step Down",
       strings: "D# G# C# F# A# D#",
@@ -3396,7 +3396,7 @@ export const tabs: TabInfo[] = [
     artist: "Imagine Dragons",
     youtube: "https://youtu.be/hXQxSi34GWY",
     spotify: "https://open.spotify.com/track/6bJjjnfcE55MIfg6lZiRUs",
-    genre: "Pop",
+    isAnime: false,
     tuning: {
       name: "Open A#m",
       strings: "A# F A# F A# C#",
@@ -3414,7 +3414,7 @@ export const tabs: TabInfo[] = [
     artist: "Post Malone, 21 Savage",
     youtube: "https://youtu.be/zvV4RH59lJ8",
     spotify: "https://open.spotify.com/track/44uZ4I5wV7v7Ec6w8ISiq9",
-    genre: "Hip-hop",
+    isAnime: false,
     tuning: {
       name: "Open Dmaj7",
       strings: "D F# C# F# A C#",
@@ -3433,7 +3433,7 @@ export const tabs: TabInfo[] = [
     artist: "Dan Salvato",
     youtube: "https://youtu.be/xsRZejd0YBs",
     spotify: "https://open.spotify.com/track/410hHJ74zIy9g6rQiMExGP",
-    genre: "Game",
+    isAnime: false,
     tuning: {
       name: "Open C",
       strings: "C G C G C E",
@@ -3452,7 +3452,7 @@ export const tabs: TabInfo[] = [
     artist: "Nightmare",
     youtube: "https://youtu.be/_aLEhQ6KX2Q",
     spotify: "https://open.spotify.com/track/6pG7yxpLt08pUf3SgAikFu",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Standard",
       strings: "E A D G B E",
@@ -3470,7 +3470,7 @@ export const tabs: TabInfo[] = [
     artist: "Porter Robinson, Madeon",
     youtube: "https://youtu.be/NtOJw5DUrKw",
     spotify: "https://open.spotify.com/track/3XoItrDBRE7fxaWfklJH7n",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Open F#/B",
       strings: "B F# B F# A# C#",
@@ -3489,7 +3489,7 @@ export const tabs: TabInfo[] = [
     artist: "TRUE, Shota Horie",
     youtube: "https://youtu.be/fPSZGQbzn9s",
     spotify: "https://open.spotify.com/track/3iEsEmTkhfYFkkA72RqCxg",
-    genre: "Anime",
+    isAnime: true,
     tuning: {
       name: "Open C",
       strings: "C G C G C E",
@@ -3508,7 +3508,7 @@ export const tabs: TabInfo[] = [
     artist: "Klaus Badelt, Hans Zimmer, Geoff Zanelli",
     youtube: "https://youtu.be/e_k-yLShHC8",
     spotify: "https://open.spotify.com/track/0DCmkHy3eZl8ht8OciCZk8",
-    genre: "Film",
+    isAnime: false,
     tuning: {
       name: "Open Csus2",
       strings: "C G C G C D",
@@ -3526,7 +3526,7 @@ export const tabs: TabInfo[] = [
     source: "Titanic",
     artist: "Celine Dion, James Horner",
     youtube: "https://youtu.be/hhxM3RJxJK0",
-    genre: "Film",
+    isAnime: false,
     tuning: {
       name: "Open Csus2",
       strings: "C G C G C D",
@@ -3544,7 +3544,7 @@ export const tabs: TabInfo[] = [
     artist: "Luis Fonsi, Justin Bieber, Daddy Yankee",
     youtube: "https://youtu.be/LNUcQ3QbqdY",
     spotify: "https://open.spotify.com/track/4ulyWajax5bYVmHV1nfOtu",
-    genre: "Pop",
+    isAnime: false,
     tuning: {
       name: "Open D#maj7",
       strings: "D# G D G A# D",
@@ -3562,7 +3562,7 @@ export const tabs: TabInfo[] = [
     artist: "Ed Sheeran",
     youtube: "https://youtu.be/q3FgVVP_MKY",
     spotify: "https://open.spotify.com/track/4hvaxn5YowOMKv6jD2RE2h",
-    genre: "Pop",
+    isAnime: false,
     tuning: {
       name: "Open D#maj7",
       strings: "D# G D G A# D",

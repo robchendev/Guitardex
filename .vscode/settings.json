@@ -6,13 +6,7 @@
     "source.fixAll.eslint": true
   },
   "editor.tabSize": 2,
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "html",
-    "typescript",
-    "typescriptreact"
-  ],
+  "eslint.validate": ["javascript", "javascriptreact", "html", "typescript", "typescriptreact"],
   "eslint.codeActionsOnSave.mode": "problems",
   "eslint.format.enable": true,
   "eslint.lintTask.enable": true,
@@ -23,5 +17,6 @@
   "git.autorefresh": true,
   "eslint.enable": true,
   "eslint.debug": true,
-  "eslint.run": "onType"
+  "eslint.run": "onType",
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

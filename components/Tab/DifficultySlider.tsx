@@ -20,7 +20,7 @@ const DifficultySlider = ({
   onChange: (rating: [Difficulty, Difficulty]) => void;
 }) => {
   return (
-    <div className="mb-3">
+    <div className="mb-1">
       <div className="text-lg">
         {min !== max ? (
           <Flex gap={2} alignItems="center" justifyContent="center">
