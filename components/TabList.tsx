@@ -1,5 +1,5 @@
 import { Accordion } from "@chakra-ui/react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { TabInfo } from "../types/tabs";
 import PaginationBar from "./PaginationBar";
 import TabItem from "./TabItem";
@@ -27,12 +27,24 @@ const TabList = ({
 }) => {
   const noMatch = showSearchResults && !searchResults.length;
   const tabsPerPage = 10;
+  const [buffer, setBuffer] = useState(true);
+  useEffect(() => {
+    setBuffer(false);
+  }, []);
   return (
     <>
       <Accordion allowToggle w="full" index={expandedIndex} onChange={onChange}>
         <div className="w-full flex flex-col content-between space-y-3">
-          {noMatch && <p className="text-center">No matching tabs found</p>}
-          {showSearchResults ? (
+          {!buffer && noMatch && <p className="text-center">No matching tabs found</p>}
+          {buffer || !showSearchResults ? (
+            <>
+              {tabs
+                .slice(tabsPerPage * pagination, tabsPerPage * (pagination + 1))
+                .map((tab: TabInfo, index: number) => (
+                  <TabItem key={index} tab={tab} isDifficultyFilter={isDifficultyFilter} />
+                ))}
+            </>
+          ) : (
             <>
               {searchResults
                 .slice(tabsPerPage * pagination, tabsPerPage * (pagination + 1))
@@ -42,14 +54,6 @@ const TabList = ({
                     tab={tabs[matchingIndex]}
                     isDifficultyFilter={isDifficultyFilter}
                   />
-                ))}
-            </>
-          ) : (
-            <>
-              {tabs
-                .slice(tabsPerPage * pagination, tabsPerPage * (pagination + 1))
-                .map((tab: TabInfo, index: number) => (
-                  <TabItem key={index} tab={tab} isDifficultyFilter={isDifficultyFilter} />
                 ))}
             </>
           )}
