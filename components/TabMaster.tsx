@@ -4,7 +4,7 @@ import { Difficulty, TabInfo } from "../types/tabs";
 import DifficultySlider from "../components/Tab/DifficultySlider";
 import { Tab } from "../components/Tab/_index";
 import TabList from "../components/TabList";
-import { Box, Container, HStack, Radio, RadioGroup, Stack } from "@chakra-ui/react";
+import { Container, HStack } from "@chakra-ui/react";
 
 const TabNavButton = ({
   isActive,
