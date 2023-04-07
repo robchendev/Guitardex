@@ -39,6 +39,10 @@ const theme = {
     Button,
     Accordion: accordionTheme,
   },
+  breakpoints: {
+    md: "768px",
+    lg: "1024px",
+  },
 };
 
 export default extendTheme(theme);

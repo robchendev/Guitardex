@@ -19,8 +19,8 @@ export const config: Config = {
   guitars: [
     {
       available: "buy",
-      name: "Avian Songbird 5A",
-      brand: "avian",
+      name: "Songbird 5A",
+      brand: "Avian",
       buyLink: "https://avianguitar.com/discount/EVDM?redirect=%2Fcollections%2Fguitars",
       desc: "The best sounding guitar I own. The tone is clean and it has a comfortable neck and body shape. Use my discount code “EVDM” to get 5% off any Avian Guitar.",
       price: "3199",
@@ -30,7 +30,7 @@ export const config: Config = {
     {
       available: "buy",
       name: "X4",
-      brand: "enya",
+      brand: "Enya",
       buyLink: "https://www.enya-music.com/collections/guitar/products/x4-cutaway",
       desc: "A carbon fibre guitar with a deep and rich sound. The interesting soundhole placement projects the sound to player better while not sacrificing the audience’s listening experience.",
       price: "899",
@@ -41,10 +41,10 @@ export const config: Config = {
     {
       available: "buy",
       name: "cwg-23s rosewood",
-      brand: "cuntz",
+      brand: "Cuntz",
       buyLink:
         "https://www.thomann.de/gb/cuntz_guitars_cwg_23s_indian_rose_custom.htm?partner_id=69983",
-      desc: "The best sounding guitar I own. The tone is clean and it has a comfortable neck and body shape. Use my discount code “EVDM” to get 5% off any Avian Guitar.",
+      desc: "My most comfortable and favorite all-purpose guitar. Ever since I bought it, I’ve been using it as my main practice guitar.",
       price: "4550",
       videoId: "I29XpIFRblc",
       title:
@@ -53,7 +53,7 @@ export const config: Config = {
     {
       available: "buy",
       name: "Black Ice WS1000N2",
-      brand: "rainsong",
+      brand: "RainSong",
       buyLink: "https://www.thomann.de/gb/rainsong_bi_ws1000n2_black_ice.htm?partner_id=69983",
       desc: "One of my more visually appealing guitars. Being made out of carbon fiber, it’s light, loud and is indestructable compared to wood guitars.",
       price: "2700",
@@ -63,7 +63,7 @@ export const config: Config = {
     {
       available: "buy",
       name: "ea80c",
-      brand: "maton",
+      brand: "Maton",
       buyLink: "https://maton.com.au/product/ea80c",
       desc: "My oldest, most nostalgic guitar. I played this guitar in my early and pre-youtube years, when I first discovered Tommy Emmanuel’s works.",
       price: "2000",
@@ -73,7 +73,7 @@ export const config: Config = {
     {
       available: "discontinued",
       name: "evdm signature",
-      brand: "baton rouge",
+      brand: "Baton Rouge",
       desc: "My signature model from Baton Rouge guitars. I like this guitar the most out of all the guitars I’ve received from Baton Rouge.",
       videoId: "xsRZejd0YBs",
       title:
@@ -82,7 +82,7 @@ export const config: Config = {
     {
       available: "discontinued",
       name: "ar101s",
-      brand: "baton rouge",
+      brand: "Baton Rouge",
       desc: "My other signature model from Baton Rouge guitars. It is comfortable to use, has a nice appearance and a decent tone.",
       videoId: "hXQxSi34GWY",
       title: "Shape of You - Ed Sheeran - Fingerstyle Guitar Cover",
@@ -90,7 +90,7 @@ export const config: Config = {
     {
       available: "discontinued",
       name: "x4s/gace fabulous",
-      brand: "baton rouge",
+      brand: "Baton Rouge",
       desc: "I’ve seldom used this guitar, but it is a good pick. The red stripes and soundhole rosette gives it the unique appearance",
       videoId: "e_k-yLShHC8",
       title: "Pirates of the Caribbean Theme - Fingerstyle Guitar Cover",
@@ -98,8 +98,8 @@ export const config: Config = {
     {
       available: "discontinued",
       name: "smokey hybrid smh",
-      brand: "rainsong",
-      desc: "I’ve seldom used this guitar, but it is a good pick. The red stripes and soundhole rosette gives it the unique appearance",
+      brand: "RainSong",
+      desc: "This guitar is a warmer, mellower version of the Rainsong Black Ice model. As a carbon fiber guitar, it’s lightweight, loud and very, very durable.",
       videoId: "L2o1Dv70kRo",
       title:
         "Boruto: Naruto the Next Generation  Opening 1 - Baton Road - Fingerstyle Guitar Cover",
