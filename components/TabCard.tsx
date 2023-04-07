@@ -15,21 +15,22 @@ const TabCard = ({ tab, isDifficultyFilter }: { tab: TabInfo; isDifficultyFilter
         borderRadius: "8px 8px 0px 0px",
       }}
     >
-      <div className="w-full md:w-2/5 pr-8 text-left">
+      <div className="w-full md:w-1/2 pr-8 text-left">
         <Truncate className="font-medium text-gold">{tab.title}</Truncate>
         <Truncate>{tab.source || tab.artist}</Truncate>
         {isDifficultyFilter && <Tab.Difficulty rating={tab.difficulty} hasNum />}
       </div>
-      <div className="hidden md:block w-3/5 text-center">
+      <div className="hidden md:block w-1/2 text-center">
         <HStack spacing={0}>
-          <p className="w-3/12 text-lg tracking-tight whitespace-pre leading-6">
+          <p className="w-5/12 text-lg tracking-tight whitespace-pre leading-6">
             {tab.tuning && tab.tuning.strings}
           </p>
-          <p className="w-3/12">{tab.genre}</p>
-          <div className="w-3/12">{tab.button && <Tab.Button button={tab.button} />}</div>
+          {/* <p className="w-3/12">{tab.genre}</p> */}
+          <div className="w-4/12">{tab.button && <Tab.Button button={tab.button} />}</div>
           <div className="w-3/12">
             <HStack justifyContent="flex-end" spacing={2}>
-              <Tab.Social link={tab.guitardex} type="gdex" />
+              {/* <Tab.Social link={tab.guitardex} type="gdex" /> */}
+              {/* <Tab.Social link={tab.apple} type="apple" /> */}
               <Tab.Social link={tab.spotify} type="spotify" />
               <Tab.Social link={tab.youtube} type="youtube" />
             </HStack>

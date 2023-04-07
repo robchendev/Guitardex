@@ -1,4 +1,4 @@
-import { Text } from "@chakra-ui/react";
+import { Stack, Text, VStack } from "@chakra-ui/react";
 import React from "react";
 import { GuitarInfo } from "../config/config";
 import dynamic from "next/dynamic";
@@ -35,16 +35,16 @@ const BuyButton = ({ item }: { item: ItemComponent }) => {
   switch (item.available) {
     case "buy":
       return (
-        <div className="flex align-middle mt-4">
-          <span className="text-4xl px-6">${item.price}</span>
-          <a href={item.buyLink} className="bg-carmine-soft text-lg px-5 py-2 rounded-sm">
-            Buy this guitar
-          </a>
-        </div>
+        <a
+          href={item.buyLink}
+          className="bg-carmine-soft hover:bg-carmine-hard text-lg px-5 py-2 rounded-sm"
+        >
+          Buy this guitar
+        </a>
       );
     case "discontinued":
       return (
-        <a href={item.buyLink} className="bg-grey-soft text-2xl p-2 rounded-md mt-4">
+        <a href={item.buyLink} className="bg-grey-soft text-lg px-5 py-2 rounded-sm">
           Discontinued
         </a>
       );
@@ -53,8 +53,8 @@ const BuyButton = ({ item }: { item: ItemComponent }) => {
 
 const GuitarCard = ({ index, guitar }: { index: number; guitar: GuitarInfo }) => {
   return (
-    <div key={index} className="max-w-5xl flex flex-row end text-right my-16 last:mb-0 first:mt-0">
-      <div className="w-1/2 [&>div]:rounded-md">
+    <Stack direction={{ base: "column", md: "row" }} spacing={{ base: 2, md: 0 }}>
+      <div className="w-full lg:w-1/2 [&>div]:rounded-md">
         <LiteYoutubeEmbed
           id={guitar.videoId}
           isMobile={true}
@@ -64,16 +64,20 @@ const GuitarCard = ({ index, guitar }: { index: number; guitar: GuitarInfo }) =>
           params={{ rel: "0" }}
         />
       </div>
-      <div className="flex flex-col items-end justify-between md:w-1/2">
+      <VStack
+        className="w-full lg:w-1/2 [&>div]:rounded-md text-left md:text-right"
+        alignItems={{ base: "flex-start", md: "flex-end" }}
+        justifyContent="space-between"
+        spacing={3}
+      >
         <div>
-          <h2 className="text-4xl">{guitar.name}</h2>
-          <span className=" text-gold">{guitar.brand}</span>
+          <p className="text-2xl">{guitar.name}</p>
+          <p className="text-gold -mb-1">{guitar.brand}</p>
         </div>
-        <Text className="text-xl pl-10">{guitar.desc}</Text>
-
+        <Text className="lg:pl-10">{guitar.desc}</Text>
         <BuyButton key={index} item={guitar}></BuyButton>
-      </div>
-    </div>
+      </VStack>
+    </Stack>
   );
 };
 

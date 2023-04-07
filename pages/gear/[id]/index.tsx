@@ -1,4 +1,3 @@
-import { HStack } from "@chakra-ui/react";
 import React from "react";
 import GearCard from "../../../components/Gear/GearCard";
 import GearNav from "../../../components/Gear/GearNav";
@@ -10,11 +9,11 @@ const Gear = ({ gearData }: { gearData: GearItem }) => {
   return (
     <Wrapper title="Gear">
       <div className="flex justify-center">
-        <HStack spacing="8" alignItems="flex-start" className="w-8/12">
-          {/* Need to update GearNav if adding to category */}
+        <div>
           <GearNav />
+          {/* Need to update GearNav if adding to category */}
           <GearCard sections={gearData?.sections} />
-        </HStack>
+        </div>
       </div>
     </Wrapper>
   );

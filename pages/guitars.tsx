@@ -6,14 +6,12 @@ import { config, GuitarInfo } from "../config/config";
 
 export const Index: NextPage = () => {
   return (
-    <Wrapper title="guitars">
-      <div className="p-4">
-        <VStack divider={<div className="h-px w-full bg-grey-med" />} spacing={4}>
-          {config.guitars.map((guitar: GuitarInfo, index: number) => (
-            <GuitarCard key={index} index={index} guitar={guitar} />
-          ))}
-        </VStack>
-      </div>
+    <Wrapper title="Guitars">
+      <VStack divider={<div className="h-px w-full bg-grey-med my-8 lg:my-12" />}>
+        {config.guitars.map((guitar: GuitarInfo, index: number) => (
+          <GuitarCard key={index} index={index} guitar={guitar} />
+        ))}
+      </VStack>
     </Wrapper>
   );
 };

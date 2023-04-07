@@ -20,7 +20,7 @@ const DifficultySlider = ({
   onChange: (rating: [Difficulty, Difficulty]) => void;
 }) => {
   return (
-    <div className="mb-3">
+    <div className="mb-1">
       <div className="text-lg">
         {min !== max ? (
           <Flex gap={2} alignItems="center" justifyContent="center">
@@ -33,7 +33,7 @@ const DifficultySlider = ({
         )}
       </div>
       <Center>
-        <div className="w-4/5 lg:w-2/5">
+        <div className="w-full px-2 lg:w-2/5 lg:px-0">
           <RangeSlider
             // eslint-disable-next-line
             aria-label={["min", "max"]}

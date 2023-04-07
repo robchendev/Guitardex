@@ -14,31 +14,17 @@ export type TuningInfo = {
   strings: string;
 };
 
-export type Genre =
-  | "Alternative"
-  | "Anime"
-  | "Anime/Game"
-  | "EDM"
-  | "Film"
-  | "Game"
-  | "Hip-hop"
-  | "Jazz"
-  | "Medley"
-  | "Pop"
-  | "R&B"
-  | "Rock"
-  | "Vocaloid";
-
 export type Difficulty = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
 
 export type TabInfo = {
   title: string;
   source?: string;
   artist?: string;
-  genre: Genre;
+  isAnime?: boolean;
   tuning?: TuningInfo;
   youtube?: string;
   spotify?: string;
+  apple?: string;
   button?: Buy | Free;
   guitardex?: string;
   difficulty: Difficulty;

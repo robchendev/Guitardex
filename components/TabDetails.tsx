@@ -6,7 +6,7 @@ import { Tab } from "./Tab/_index";
 import Truncate from "./Truncate";
 
 const TabDetails = ({
-  tab: { button, difficulty, guitardex, title, source, artist, genre, tuning, youtube, spotify },
+  tab: { button, difficulty, guitardex, title, source, artist, tuning, youtube, spotify },
 }: {
   tab: TabInfo;
 }) => {
@@ -24,7 +24,6 @@ const TabDetails = ({
           </Tab.Detail>
           <Tab.Detail label="Artist">{artist}</Tab.Detail>
           <Tab.Detail label="Price">{button ? <Tab.Price button={button} /> : ""}</Tab.Detail>
-          <Tab.Detail label="Genre">{genre}</Tab.Detail>
           <Tab.Detail label="Tuning" disabled={!tuning} pre>
             {tuning?.name}
             <br />

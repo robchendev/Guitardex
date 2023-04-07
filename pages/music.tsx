@@ -6,11 +6,10 @@ import { images, MusicIcon } from "../config/config";
 
 export const Music: NextPage = () => {
   return (
-    <Wrapper title="releases produced">
+    <Wrapper title="Music">
       <Grid
-        templateColumns={{ sm: "repeat(2,1fr)", md: "repeat(3,1fr)", lg: "repeat(4,1fr)" }}
-        gap={{ sm: "4", lg: "6" }}
-        className="mb-16 sm:mx-10 lg:mx-autogi flex align-items-center"
+        templateColumns={{ base: "repeat(2,1fr)", md: "repeat(4,1fr)" }}
+        gap={{ base: "4", lg: "6" }}
       >
         {images.map((image: MusicIcon, index: number) => (
           <MusicRelease key={index} image={image} />

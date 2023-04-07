@@ -7,7 +7,7 @@ const Truncate = ({
   href,
   isInternal = false,
 }: {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   className?: string;
   href?: string;
   isInternal?: boolean;
