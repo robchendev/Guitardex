@@ -8,28 +8,24 @@ const TabList = ({
   expandedIndex,
   setExpandedIndex,
   onChange,
-  search,
-  min,
-  max,
   searchResults,
   tabs,
   pagination,
   setPagination,
+  showSearchResults,
+  isDifficultyFilter,
 }: {
   expandedIndex: number;
   setExpandedIndex: (i: number) => void;
   onChange: (i: number) => void;
-  search: string;
-  min: number;
-  max: number;
   searchResults: number[];
   tabs: TabInfo[];
   pagination: number;
   setPagination: (page: number) => void;
+  showSearchResults: boolean;
+  isDifficultyFilter: boolean;
 }) => {
-  const showSearchResults = !(!search && min === 0 && max === 10);
   const noMatch = showSearchResults && !searchResults.length;
-  const isDifficultyFilter = !(min === 0 && max === 10);
   const tabsPerPage = 10;
   return (
     <>

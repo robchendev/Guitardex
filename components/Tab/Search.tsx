@@ -11,7 +11,7 @@ const Search = ({
   return (
     <Center mb={4}>
       <input
-        placeholder="Search song, artist, tuning, genre"
+        placeholder="Search song, source, artist, tuning"
         className="border-gold border-px rounded-md py-3 px-4 bg-grey-hard w-72"
         value={search}
         onChange={onChange}

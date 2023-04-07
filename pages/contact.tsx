@@ -16,7 +16,7 @@ import Link from "next/link";
 type ContactForm = {
   name?: string;
   email?: string;
-  topic?: "" | "Inquiry" | "Tab / Sheet Music" | "Sponsorship" | "Other";
+  topic?: "" | "Inquiry" | "Tab / Sheet Music" | "Business" | "Other";
   message?: string;
   privacy?: boolean;
 };
@@ -54,7 +54,7 @@ const FormElement = ({ controlName, placeholder, onChange, value }: FormElementC
         <Select placeholder="-- Select Topic --" onChange={onChange}>
           <option value="Inquiry">Inquiry</option>
           <option value="Tab / Sheet Music">Tab / Sheet Music</option>
-          <option value="Sponsorship">Sponsorship</option>
+          <option value="Business">Business</option>
           <option value="Other">Other</option>
         </Select>
       );

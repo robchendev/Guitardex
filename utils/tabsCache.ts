@@ -6,18 +6,18 @@ export type TabsCache = {
   title: string;
   source?: string;
   artist?: string;
-  genre: string;
+  isAnime?: boolean;
   tuning?: string;
   strings?: string;
   diff: number;
 };
 
 export const tabsCache: TabsCache[] = tabs.map(
-  ({ title, source, artist, genre, tuning, difficulty }: TabInfo) => ({
+  ({ title, source, artist, isAnime, tuning, difficulty }: TabInfo) => ({
     title: title.toLowerCase(),
     source: source?.toLowerCase(),
     artist: artist?.toLowerCase(),
-    genre: genre.toLowerCase(),
+    isAnime: isAnime,
     tuning: tuning?.name.toLowerCase(),
     strings: tuning?.strings.toLowerCase().replace(/\s/g, ""),
     diff: difficulty,
@@ -31,6 +31,7 @@ export const tabCloneCache: TabInfo[] = tabs.map((tab: TabInfo) => ({
   guitardex: tab.guitardex ? purgeLink(tab.guitardex) : undefined,
   youtube: tab.youtube ? purgeLink(tab.youtube) : undefined,
   spotify: tab.spotify ? purgeLink(tab.spotify) : undefined,
+  apple: tab.apple ? purgeLink(tab.apple) : undefined,
   button: tab.button
     ? /* eslint-disable */
       {

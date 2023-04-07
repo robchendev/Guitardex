@@ -7,7 +7,7 @@ const Detail = ({
   disabled = false,
 }: {
   label: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   pre?: boolean;
   disabled?: boolean;
 }) => {
