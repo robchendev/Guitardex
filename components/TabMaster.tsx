@@ -88,7 +88,7 @@ const TabMaster = ({ tabs, tabsCache }: { tabs: TabInfo[]; tabsCache: TabsCache[
           setPagination(0);
         }}
       />
-      <HStack justifyContent="center" mb={4} spacing={5}>
+      <HStack justifyContent="center" mb={4} spacing={4}>
         <TabNavButton isActive={genre === 0} onClick={() => setGenre(0)}>
           All
         </TabNavButton>
