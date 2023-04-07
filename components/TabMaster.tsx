@@ -70,17 +70,12 @@ const TabMaster = ({ tabs, tabsCache }: { tabs: TabInfo[]; tabsCache: TabsCache[
         ) {
           matchingIndices.push(i);
         }
-      } else {
-        console.log("does not match diff");
       }
     }
-    console.log(matchingIndices);
     setResult(matchingIndices);
     setExpandedIndex(-1);
     setPagination(0);
   }, [search, difficulty, tabsCache, genre]);
-
-  console.log(result.length);
 
   return (
     <Container maxW={["100%", "80%"]} p={0}>

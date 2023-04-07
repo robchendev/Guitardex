@@ -117,7 +117,6 @@ const Contact = () => {
 
   const onSubmit = async (data: ContactForm) => {
     setIsSending(true);
-    console.log("Submitted Data: ", data);
     const res = await fetch("/api/sendgrid", {
       body: JSON.stringify({
         email: data.email,
@@ -132,7 +131,6 @@ const Contact = () => {
     });
     const { error } = await res.json();
     if (error) {
-      console.log(error);
       setFailure(true);
       setIsSending(false);
       return;
