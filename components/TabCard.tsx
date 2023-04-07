@@ -15,12 +15,12 @@ const TabCard = ({ tab, isDifficultyFilter }: { tab: TabInfo; isDifficultyFilter
         borderRadius: "8px 8px 0px 0px",
       }}
     >
-      <div className="w-full md:w-1/2 pr-8 text-left">
+      <div className="w-full md:w-5/12 pr-8 text-left">
         <Truncate className="font-medium text-gold">{tab.title}</Truncate>
         <Truncate>{tab.source || tab.artist}</Truncate>
         {isDifficultyFilter && <Tab.Difficulty rating={tab.difficulty} hasNum />}
       </div>
-      <div className="hidden md:block w-1/2 text-center">
+      <div className="hidden md:block w-7/12">
         <HStack spacing={0}>
           <p className="w-5/12 text-lg tracking-tight whitespace-pre leading-6">
             {tab.tuning && tab.tuning.strings}

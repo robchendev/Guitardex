@@ -83,7 +83,7 @@ const TabMaster = ({ tabs, tabsCache }: { tabs: TabInfo[]; tabsCache: TabsCache[
   console.log(result.length);
 
   return (
-    <Container maxW={["100%", "85%"]} p={0}>
+    <Container maxW={["100%", "80%"]} p={0}>
       <Tab.Search search={search} onChange={(e) => setSearch(e.target.value)} />
       <DifficultySlider
         min={difficulty[0]}
