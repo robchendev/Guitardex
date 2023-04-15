@@ -59,6 +59,12 @@ a:hover {
   box-sizing: border-box;
 }
 
+input,
+select,
+textarea {
+  border-color: #777 !important;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

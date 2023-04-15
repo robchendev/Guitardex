@@ -59,7 +59,9 @@ const FormElement = ({ controlName, placeholder, onChange, value }: FormElementC
         </Select>
       );
     case "message":
-      return <Textarea placeholder={placeholder} onChange={onChange} value={value as string} />;
+      return (
+        <Textarea h={36} placeholder={placeholder} onChange={onChange} value={value as string} />
+      );
     case "privacy":
       return (
         <Checkbox onChange={onChange} isChecked={value as boolean}>

@@ -29,7 +29,7 @@ const Social = ({
 }) => {
   if (type === "gdex") {
     return (
-      <a href={prepLink(link)} onClick={(e) => e.stopPropagation()}>
+      <a href={prepLink(link)} onClick={(e) => e.stopPropagation()} target="_blank">
         <GuitardexIcon
           className={link ? "fill-white-soft hover:fill-gold" : "fill-grey-med cursor-default"}
         />
@@ -41,6 +41,7 @@ const Social = ({
       href={prepLink(link)}
       onClick={(e) => e.stopPropagation()}
       className="flex justify-center items-center"
+      target="_blank"
     >
       <Icon
         type={type}

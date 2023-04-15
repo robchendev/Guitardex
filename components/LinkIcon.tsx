@@ -6,7 +6,8 @@ const LinkIcon = ({ icon, link }: { icon: IconType; link: string }) => (
   <a href={link}>
     <Icon
       as={icon}
-      className="sm:mx-4 sm:text-4xl lg:m-0.5 lg:text-xl"
+      size="lg"
+      className="mx-1 text-3xl"
       color="white"
       _hover={{ color: "#fcdc97" }}
     />
