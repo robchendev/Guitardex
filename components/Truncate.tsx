@@ -6,16 +6,18 @@ const Truncate = ({
   className,
   href,
   isInternal = false,
+  newTab = false,
 }: {
   children?: React.ReactNode;
   className?: string;
   href?: string;
   isInternal?: boolean;
+  newTab?: boolean;
 }) => {
   if (href) {
     if (isInternal) {
       return (
-        <Link href={href}>
+        <Link href={href} target={newTab ? "_blank" : "_self"}>
           <p className={`truncate text-gold ${className}`}>{children}</p>
         </Link>
       );

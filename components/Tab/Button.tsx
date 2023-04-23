@@ -1,34 +1,36 @@
 import { HStack } from "@chakra-ui/react";
+import Link from "next/link";
 import { Buy, Free } from "../../types/tabs";
 import prepLink from "../../utils/prepLink";
 
 const Button = ({ button }: { button: Buy | Free }) => {
-  let label = "";
-  let cta = "";
-
   switch (button.type) {
     case "buy":
-      label = "$" + button.price;
-      cta = "Buy";
-      break;
+      return (
+        <HStack justifyContent="flex-end">
+          <p>{"$" + button.price}</p>
+          <a
+            onClick={(e) => e.stopPropagation()}
+            href={prepLink(button.link)}
+            target="_blank"
+            className="block ml-2 px-3 pb-2 pt-1.5 rounded-md bg-carmine-soft hover:bg-carmine-hard transition ease-in duration-300"
+          >
+            Buy
+          </a>
+        </HStack>
+      );
     case "free":
-      label = "Free";
-      cta = "Get";
-      break;
+      return (
+        <HStack justifyContent="flex-end">
+          <p>Free</p>
+          <Link onClick={(e) => e.stopPropagation()} href={button.link} target="_blank">
+            <div className="block ml-2 px-3 pb-2 pt-1.5 rounded-md bg-carmine-soft hover:bg-carmine-hard transition ease-in duration-300">
+              Get
+            </div>
+          </Link>
+        </HStack>
+      );
   }
-
-  return (
-    <HStack justifyContent="flex-end">
-      <p>{label}</p>
-      <a
-        onClick={(e) => e.stopPropagation()}
-        href={prepLink(button.link)}
-        className="block ml-2 px-3 pb-2 pt-1.5 rounded-md bg-carmine-soft hover:bg-carmine-hard transition ease-in duration-300"
-      >
-        {cta}
-      </a>
-    </HStack>
-  );
 };
 
 export default Button;

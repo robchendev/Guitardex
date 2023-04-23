@@ -3,22 +3,6 @@ import { TabInfo } from "../types/tabs";
 // https://gdex.cc/?_14.16.15.18.17.22.6.7.11.1.2.3.4.5.19.28.24.23.29
 export const tabs: TabInfo[] = [
   {
-    title: "Free",
-    source: "Free! [OST]",
-    artist: "Free",
-    isAnime: false,
-    youtube: "https://youtu.be/wQANVR4vqXI",
-    tuning: {
-      name: "Open D#maj7",
-      strings: "D# G D G A# D",
-    },
-    button: {
-      type: "free",
-      link: "https://google.com",
-    },
-    difficulty: 0,
-  },
-  {
     title: "Suzume",
     source: "Suzume no Tojimari [OST]",
     artist: "RADWIMPS",
@@ -3612,4 +3596,286 @@ export const tabs: TabInfo[] = [
   //   guitardex: "",
   // difficulty: 0,
   // },
+
+  // FREE
+  {
+    title: "I Don't Care",
+    source: "Produced",
+    artist: "Jabron ft.Eddie van der Meer",
+    isAnime: false,
+    spotify: "https://open.spotify.com/track/5orgwKy5MevPMecmYDVkp1",
+    tuning: {
+      name: "Standard",
+      strings: "E A D G B E",
+    },
+    button: {
+      type: "free",
+      link: "/produced/Jabron%20-%20I%20Dont%20Care.pdf",
+    },
+    difficulty: 4,
+  },
+  {
+    title: "Creepin'",
+    source: "Produced",
+    artist: "Noble ft. Eddie van der Meer",
+    isAnime: false,
+    youtube: "https://youtu.be/_s0_ONuhXfE",
+    spotify: "https://open.spotify.com/track/3lgeOdl7NEUNYVrsdAPfny",
+    tuning: {
+      name: "Standard",
+      strings: "E A D G B E",
+    },
+    button: {
+      type: "free",
+      link: "/produced/Noble%20-%20Creepin.pdf",
+    },
+    difficulty: 3,
+  },
+  {
+    title: "Helpless (Acoustic)",
+    source: "Produced",
+    artist: "Noble ft. Eddie van der Meer",
+    isAnime: false,
+    youtube: "https://youtu.be/xQgHapX-TFg",
+    tuning: {
+      name: "Standard",
+      strings: "E A D G B E",
+    },
+    button: {
+      type: "free",
+      link: "/produced/Noble%20-%20Helpless%20%28Acoustic%29.pdf",
+    },
+    difficulty: 3,
+  },
+  {
+    title: "Helpless",
+    source: "Produced",
+    artist: "Noble ft. Eddie van der Meer",
+    isAnime: false,
+    youtube: "https://youtu.be/EAcv1RUUD2s",
+    spotify: "https://open.spotify.com/track/790gY9SJ8qTXnLkhI7olAe",
+    tuning: {
+      name: "Standard",
+      strings: "E A D G B E",
+    },
+    button: {
+      type: "free",
+      link: "/produced/Noble%20-%20Helpless.pdf",
+    },
+    difficulty: 4,
+  },
+  {
+    title: "All I Wanted (Acoustic)",
+    source: "Produced",
+    artist: "Noble ft. Eddie van der Meer",
+    isAnime: false,
+    youtube: "https://youtu.be/GNYMV3W9JHw",
+    tuning: {
+      name: "Standard",
+      strings: "E A D G B E",
+    },
+    button: {
+      type: "free",
+      link: "/produced/Noble%20-%20All%20I%20Wanted%20%28Acoustic%29.pdf",
+    },
+    difficulty: 3,
+  },
+  {
+    title: "All I Wanted",
+    source: "Produced",
+    artist: "Noble ft. Eddie van der Meer",
+    isAnime: false,
+    youtube: "https://youtu.be/w61Qqsrbdsw",
+    spotify: "https://open.spotify.com/track/0MDxI7M5A6kjEAcqUrpvkk",
+    tuning: {
+      name: "Standard\nOpen Edim",
+      strings: "E A D G B E\nE G D G A# E",
+    },
+    button: {
+      type: "free",
+      link: "/produced/Noble%20-%20All%20I%20Wanted.pdf",
+    },
+    difficulty: 4,
+  },
+  {
+    title: "Go Fast (Acoustic)",
+    source: "Produced",
+    artist: "Noble ft. Eddie van der Meer",
+    isAnime: false,
+    youtube: "https://youtu.be/hrH7RkgQbd4",
+    tuning: {
+      name: "1/2 Step Down",
+      strings: "D# G# C# F# A# D#",
+    },
+    button: {
+      type: "free",
+      link: "/produced/Noble%20-%20Go%20Fast%20%28Acoustic%29.pdf",
+    },
+    difficulty: 5,
+  },
+  {
+    title: "Paralyzed",
+    source: "Produced",
+    artist: "Jabron ft. Eddie van der Meer",
+    isAnime: false,
+    spotify: "https://open.spotify.com/track/552uMPCGWE524Ut5Ey9vLX",
+    tuning: {
+      name: "Standard",
+      strings: "E A D G B E",
+    },
+    button: {
+      type: "free",
+      link: "/produced/Jabron%20-%20Paralyzed.pdf",
+    },
+    difficulty: 2,
+  },
+  {
+    title: "30 Minutes Challenge",
+    source: "Original",
+    artist: "Eddie van der Meer",
+    isAnime: false,
+    youtube: "https://youtu.be/GSgis8ioF-w?t=528",
+    tuning: {
+      name: "Open Emaj9",
+      strings: "E G# B F# B D#",
+    },
+    button: {
+      type: "free",
+      link: "original/30%20Minutes%20Challenge.pdf",
+    },
+    difficulty: 4,
+  },
+  {
+    title: "Path to the Unknown",
+    source: "Original",
+    artist: "Eddie van der Meer",
+    isAnime: false,
+    youtube: "https://youtu.be/cNbiUMuy6yA",
+    spotify: "https://open.spotify.com/track/2NfZV0CQ1A56WReaPwP9Pv",
+    tuning: {
+      name: "Open A#m7",
+      strings: "A# F A# F G# C#",
+    },
+    button: {
+      type: "free",
+      link: "/original/Path%20to%20the%20Unknown.pdf",
+    },
+    difficulty: 5,
+  },
+  {
+    title: "No Way Back",
+    source: "Original",
+    artist: "Eddie van der Meer",
+    isAnime: false,
+    spotify: "https://open.spotify.com/track/7fDvTgQGfg26OLBBLyLsbc",
+    tuning: {
+      name: "Open Gm",
+      strings: "D G D G A# D",
+    },
+    button: {
+      type: "free",
+      link: "/original/No%20Way%20Back.pdf",
+    },
+    difficulty: 6,
+  },
+  {
+    title: "The Undertaking",
+    source: "Original",
+    artist: "Eddie van der Meer",
+    isAnime: false,
+    youtube: "https://youtu.be/ZTv6E0UKNrE",
+    spotify: "https://open.spotify.com/track/00ZjTA9HWT0580FMk3nsR0",
+    tuning: {
+      name: "Open Dm",
+      strings: "D F A F A D",
+    },
+    button: {
+      type: "free",
+      link: "/original/The%20Undertaking.pdf",
+    },
+    difficulty: 7,
+  },
+  {
+    title: "Next to You",
+    source: "Original",
+    artist: "Eddie van der Meer",
+    isAnime: false,
+    spotify: "https://open.spotify.com/track/6v4lqOT2Wi1vWxyRx5K2Bl",
+    tuning: {
+      name: "Open Fadd11",
+      strings: "A F A# F A C",
+    },
+    button: {
+      type: "free",
+      link: "/originals/Next%20to%20You.pdf",
+    },
+    difficulty: 5,
+  },
+  {
+    title: "Last Man Standing",
+    source: "Original",
+    artist: "Eddie van der Meer",
+    isAnime: false,
+    youtube: "https://youtu.be/_w1qFqvjq_Y",
+    spotify: "https://open.spotify.com/track/4sztBRW4QCJRmQgaKQLlJH",
+    tuning: {
+      name: "Open Bsus2",
+      strings: "B F# B F# B C#",
+    },
+    button: {
+      type: "free",
+      link: "original/Last%20Man%20Standing.pdf",
+    },
+    difficulty: 7,
+  },
+  {
+    title: "The Motion Below",
+    source: "Original",
+    artist: "Eddie van der Meer",
+    isAnime: false,
+    youtube: "https://youtu.be/p1kfd4oUkYA",
+    spotify: "https://open.spotify.com/track/1GgfEqZqY5nIJzSBAcWGYD",
+    tuning: {
+      name: "Open G#",
+      strings: "G# G# C D# G# D#",
+    },
+    button: {
+      type: "free",
+      link: "/original/The%20Motion%20Below.pdf",
+    },
+    difficulty: 5,
+  },
+  {
+    title: "Road to Success",
+    source: "Original",
+    artist: "Eddie van der Meer ft. Andrea Valeri",
+    isAnime: false,
+    youtube: "https://youtu.be/9QcCw_h--SU",
+    spotify: "https://open.spotify.com/track/3XZJRYfoULkDiBDI3EnG3H",
+    tuning: {
+      name: "Open Fmaj7\nStandard",
+      strings: "A F C E A E\nE A D G B E",
+    },
+    button: {
+      type: "free",
+      link: "/original/Road%20to%20Success.pdf",
+    },
+    difficulty: 7,
+  },
+  {
+    title: "The Known",
+    source: "Original",
+    artist: "Eddie van der Meer",
+    isAnime: false,
+    spotify: "https://open.spotify.com/track/0xVHUIGGNCeOGq8OLnenI2",
+    tuning: {
+      name: "Open Csus2",
+      strings: "C G C G C D",
+    },
+    button: {
+      type: "free",
+      link: "/original/The%20Known.pdf",
+    },
+    difficulty: 6,
+  },
 ];

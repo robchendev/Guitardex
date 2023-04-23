@@ -7,7 +7,11 @@ const Link = ({ button }: { button: Buy | Free }) => {
     case "buy":
       return <Truncate href={prepLink(button.link)}>{button.link}</Truncate>;
     case "free":
-      return <Truncate href={prepLink(button.link)}>placeholder link for free</Truncate>;
+      return (
+        <Truncate href={button.link} isInternal newTab>
+          eddievdmeer.com/{button.link}
+        </Truncate>
+      );
   }
 };
 
