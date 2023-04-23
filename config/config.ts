@@ -40,7 +40,7 @@ export const config: Config = {
 
     {
       available: "buy",
-      name: "cwg-23s rosewood",
+      name: "CWG-23S Indian Rosewood",
       brand: "Cuntz",
       buyLink:
         "https://www.thomann.de/gb/cuntz_guitars_cwg_23s_indian_rose_custom.htm?partner_id=69983",
@@ -62,7 +62,7 @@ export const config: Config = {
     },
     {
       available: "buy",
-      name: "ea80c",
+      name: "EA80C",
       brand: "Maton",
       buyLink: "https://maton.com.au/product/ea80c",
       desc: "My oldest, most nostalgic guitar. I played this guitar in my early and pre-youtube years, when I first discovered Tommy Emmanuel’s works.",
@@ -72,7 +72,7 @@ export const config: Config = {
     },
     {
       available: "discontinued",
-      name: "evdm signature",
+      name: "Signature Model",
       brand: "Baton Rouge",
       desc: "My signature model from Baton Rouge guitars. I like this guitar the most out of all the guitars I’ve received from Baton Rouge.",
       videoId: "xsRZejd0YBs",
@@ -81,7 +81,7 @@ export const config: Config = {
     },
     {
       available: "discontinued",
-      name: "ar101s",
+      name: "AR101S",
       brand: "Baton Rouge",
       desc: "My other signature model from Baton Rouge guitars. It is comfortable to use, has a nice appearance and a decent tone.",
       videoId: "hXQxSi34GWY",
@@ -89,7 +89,7 @@ export const config: Config = {
     },
     {
       available: "discontinued",
-      name: "x4s/gace fabulous",
+      name: "X4S/GACE Fabulous",
       brand: "Baton Rouge",
       desc: "I’ve seldom used this guitar, but it is a good pick. The red stripes and soundhole rosette gives it the unique appearance",
       videoId: "e_k-yLShHC8",
@@ -97,7 +97,7 @@ export const config: Config = {
     },
     {
       available: "discontinued",
-      name: "smokey hybrid smh",
+      name: "Smokey Hybrid SMH",
       brand: "RainSong",
       desc: "This guitar is a warmer, mellower version of the Rainsong Black Ice model. As a carbon fiber guitar, it’s lightweight, loud and very, very durable.",
       videoId: "L2o1Dv70kRo",

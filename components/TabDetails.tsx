@@ -23,7 +23,9 @@ const TabDetails = ({
             {source}
           </Tab.Detail>
           <Tab.Detail label="Artist">{artist}</Tab.Detail>
-          <Tab.Detail label="Price">{button ? <Tab.Price button={button} /> : ""}</Tab.Detail>
+          <Tab.Detail label="Price">
+            {button ? <>{button.type === "buy" ? <p>${button.price}</p> : <p>Free</p>}</> : ""}
+          </Tab.Detail>
           <Tab.Detail label="Tuning" disabled={!tuning} pre>
             {tuning?.name}
             <br />

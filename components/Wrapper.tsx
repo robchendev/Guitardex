@@ -28,7 +28,7 @@ const Footer = () => {
                 <LinkIcon key={index} icon={icon.icon} link={icon.link} />
               ))}
             </HStack>
-            <div>© 2018-2023 Eddie van der Meer</div>
+            <div>© 2018-{new Date().getFullYear()} Eddie van der Meer</div>
             <div>
               <Link className="text-gold" href="/privacy-policy">
                 Privacy Policy

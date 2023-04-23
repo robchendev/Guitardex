@@ -3,10 +3,27 @@ import { TabInfo } from "../types/tabs";
 // https://gdex.cc/?_14.16.15.18.17.22.6.7.11.1.2.3.4.5.19.28.24.23.29
 export const tabs: TabInfo[] = [
   {
+    title: "Free",
+    source: "Free! [OST]",
+    artist: "Free",
+    isAnime: false,
+    youtube: "https://youtu.be/wQANVR4vqXI",
+    tuning: {
+      name: "Open D#maj7",
+      strings: "D# G D G A# D",
+    },
+    button: {
+      type: "free",
+      link: "https://google.com",
+    },
+    difficulty: 0,
+  },
+  {
     title: "Suzume",
     source: "Suzume no Tojimari [OST]",
     artist: "RADWIMPS",
     isAnime: true,
+    youtube: "https://youtu.be/wQANVR4vqXI",
     tuning: {
       name: "Open D#maj7",
       strings: "D# G D G A# D",
@@ -17,7 +34,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0268543",
     },
     guitardex: "https://gdex.cc/?Suzume_4.1.2.14.18.24.23.15",
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "I Really Want to Stay At Your House",
@@ -35,7 +52,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0268403",
     },
     guitardex: "https://gdex.cc/?IRWTSAYH_14.24.1.2.22.17",
-    difficulty: 0,
+    difficulty: 5,
   },
   // {
   //   title: "Krone",
@@ -103,7 +120,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0254688",
     },
     guitardex: "https://gdex.cc/?Make-You-Feel-My-Love_14.16.17",
-    difficulty: 0,
+    difficulty: 4,
   },
   {
     title: "The Rumbling",
@@ -121,7 +138,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0253775",
     },
     guitardex: "https://gdex.cc/?The-Rumbling_4.5.1.2.6.24.16.18",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "Enemy",
@@ -139,7 +156,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0253634",
     },
     guitardex: "https://gdex.cc/?Enemy_14.17.18.4.5.19.1.2.28.23.6.7",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "Red Light, Green Light, Way Back Then, I Remember My Name, Unfolded",
@@ -157,7 +174,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0243443",
     },
     guitardex: "https://gdex.cc/?Squid-Game-Medley_7.15.17.16.4.5",
-    difficulty: 0,
+    difficulty: 4,
   },
   {
     title:
@@ -177,7 +194,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0243661",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "A Tender Feeling",
@@ -195,7 +212,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0243276",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 3,
   },
   {
     title: "Assassin's Creed III Main Theme",
@@ -212,7 +229,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0239435",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 2,
   },
   {
     title: "Here With You",
@@ -230,7 +247,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0237446",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 4,
   },
   {
     title:
@@ -250,7 +267,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0236925",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title:
@@ -270,7 +287,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0235405",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 7,
   },
   {
     title: "Redo",
@@ -288,7 +305,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0235334",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "The Rains of Castamere",
@@ -307,7 +324,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0235333",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 4,
   },
   {
     title: "In the Name of Love",
@@ -325,7 +342,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0235224",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "Jiyuu no Tsubasa",
@@ -344,7 +361,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0234801",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "For the Damaged Coda",
@@ -361,7 +378,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0234800",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "Clocks",
@@ -378,7 +395,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0234798",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 3,
   },
   {
     title: "Guren no Yumiya",
@@ -396,7 +413,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0234602",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "Warriors",
@@ -414,7 +431,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191852",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "Roundabout",
@@ -432,7 +449,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0234601",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 7,
   },
   {
     title: "Blood Circulator",
@@ -451,7 +468,7 @@ export const tabs: TabInfo[] = [
       link: "http://localhost:3001/tabs",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "Young",
@@ -469,7 +486,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0234509",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "History Maker",
@@ -488,7 +505,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0234492",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "Otherside",
@@ -505,7 +522,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0234493",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "Shiruishi",
@@ -523,7 +540,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0234491",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 4,
   },
   {
     title: "I Don't Wanna Live Forever",
@@ -542,7 +559,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0234490",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "Westworld Theme",
@@ -560,7 +577,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0234510",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 4,
   },
   {
     title: "Hedwig's Theme",
@@ -578,7 +595,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0234507",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 1,
   },
   {
     title: "Flashlight",
@@ -596,7 +613,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0225313",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 4,
   },
   {
     title: "Scared to be Lonely",
@@ -614,7 +631,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0225303",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "Fix You",
@@ -632,7 +649,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0225224",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "Euterpe (Inori's Song)",
@@ -651,7 +668,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0225218",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 3,
   },
   {
     title: "Isabella's Lullaby",
@@ -670,7 +687,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0218978",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 7,
   },
   {
     title: "Fly Me To The Moon",
@@ -687,7 +704,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0218564",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "Bravely You",
@@ -706,7 +723,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0219418",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 4,
   },
   {
     title: "Hymn for the Weekend",
@@ -724,7 +741,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0218661",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "I Say Yes (Wedding Version)",
@@ -742,7 +759,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0218611",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 3,
   },
   {
     title: "Deal with the Devil",
@@ -761,7 +778,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0218610",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 8,
   },
   {
     title: "Senbonzakura",
@@ -779,7 +796,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0218348",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 7,
   },
   {
     title: "Realize",
@@ -798,7 +815,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0218137",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "Baka Mitai",
@@ -817,7 +834,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0217543",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "Red Swan",
@@ -836,7 +853,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0189131",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "Deja Vu",
@@ -855,7 +872,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0217689",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 7,
   },
   {
     title: "Astronomia",
@@ -873,7 +890,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0210840",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "Snow (Hey Oh)",
@@ -891,7 +908,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0209515",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "Heikosen",
@@ -910,7 +927,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0209516",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 7,
   },
   {
     title: "Love Yourself",
@@ -928,13 +945,13 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0209487",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "Krone",
     source: "Guilty Crown [OST]",
     artist: "Hiroyuki Sawano",
-    youtube: "https://youtu.be/IP5kGDFY4-k",
+    youtube: "https://youtu.be/9JOwtlOqXIA",
     spotify: "https://open.spotify.com/track/1cLwm9dinKGwMSVgrjtrsT",
     isAnime: true,
     tuning: {
@@ -947,7 +964,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0209040",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 4,
   },
   {
     title: "Interstellar Main Theme",
@@ -965,7 +982,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0209039",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 2,
   },
   {
     title: "Gotta Catch 'Em All!",
@@ -984,7 +1001,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0209038",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "We Are Number One",
@@ -1002,7 +1019,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0209013",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "Sad Theme",
@@ -1021,7 +1038,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0209011",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 4,
   },
   {
     title: "Starboy",
@@ -1039,7 +1056,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0209012",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "THE DAY",
@@ -1058,7 +1075,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0208845",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "Davy Jones",
@@ -1077,7 +1094,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0208732",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 2,
   },
   {
     title: "Run",
@@ -1094,7 +1111,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0208681",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 6, // Maybe 7
   },
   {
     title: "Closed on Sunday",
@@ -1111,7 +1128,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0205852",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 4,
   },
   {
     title: "Gurenge",
@@ -1130,7 +1147,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0205693",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 7, // Maybe 6
   },
   {
     title: "Internet",
@@ -1147,7 +1164,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0218612",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "Inferno",
@@ -1166,7 +1183,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0205715",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "bury a friend",
@@ -1184,7 +1201,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0205851",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "Torches",
@@ -1203,7 +1220,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0201073",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "Wet Hands, Sweden, Living Mice, Danny, Mice on Venus",
@@ -1221,7 +1238,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0200235",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "Call of Silence",
@@ -1240,7 +1257,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0205800",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "Sanctuary",
@@ -1257,7 +1274,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0218659",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "Kawaki wo Ameku",
@@ -1276,7 +1293,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0199709",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 7,
   },
   {
     title: "Umi no Yuurei",
@@ -1295,7 +1312,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0198771",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 7,
   },
   {
     title: "EARFQUAKE",
@@ -1313,7 +1330,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0200263",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "Renai Circulation",
@@ -1332,7 +1349,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0198298",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "Kaen",
@@ -1351,7 +1368,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0199040",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 6, // Maybe 7
   },
   {
     title: "bad guy",
@@ -1369,7 +1386,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0197812",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "I Don't Care",
@@ -1387,7 +1404,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0198256",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 7,
   },
   {
     title: "Old Town Road",
@@ -1405,7 +1422,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0198257",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "The Hero!!",
@@ -1424,7 +1441,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0196104",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "Light of the Seven",
@@ -1443,7 +1460,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0196103",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "Game of Thrones Theme",
@@ -1461,25 +1478,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0196102",
     },
     guitardex: "",
-    difficulty: 0,
-  },
-  {
-    title: "Despair",
-    source: "Naruto [OST]",
-    artist: "Yasuharu Takanashi",
-    spotify: "https://open.spotify.com/track/0gk60tLjDErXRqR3UQWaWP",
-    isAnime: true,
-    tuning: {
-      name: "Open Cm",
-      strings: "C G C G C D#",
-    },
-    button: {
-      type: "buy",
-      price: 7.99,
-      link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0195999",
-    },
-    guitardex: "",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "Castle on the Hill",
@@ -1497,7 +1496,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0194278",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "Deep in Abyss",
@@ -1516,7 +1515,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0193718",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 7,
   },
   {
     title: "The Dragonborn Comes",
@@ -1535,7 +1534,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0193704",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "It's My Life",
@@ -1553,7 +1552,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0193394",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 4,
   },
   {
     title: "Swan Song",
@@ -1572,7 +1571,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0193378",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 7,
   },
   {
     title: "Crab Rave",
@@ -1589,7 +1588,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0193136",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "idontwannabeyouanymore",
@@ -1607,7 +1606,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0193054",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 7,
   },
   {
     title: "LIT",
@@ -1626,7 +1625,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191849",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "shadowgraph",
@@ -1645,7 +1644,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191670",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 10,
   },
   {
     title: "Secret Base",
@@ -1664,7 +1663,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191670",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "Crybaby",
@@ -1683,7 +1682,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0192543",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "Azalea",
@@ -1702,7 +1701,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191924",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "Wet Hands",
@@ -1720,7 +1719,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0192123",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 1,
   },
   {
     title: "Supermarket Flowers",
@@ -1738,7 +1737,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0192088",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "Apologize",
@@ -1756,7 +1755,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191923",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 7,
   },
   {
     title: "Ref:rain",
@@ -1774,7 +1773,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191856",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "New Rules",
@@ -1792,7 +1791,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0192138",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 7,
   },
   // TODO: Removed from MN
   // {
@@ -1831,7 +1830,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191853",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "Innocence",
@@ -1850,7 +1849,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191968",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "See You Again",
@@ -1867,7 +1866,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191851",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 4,
   },
   {
     title: "My Hero",
@@ -1886,7 +1885,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191854",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 7,
   },
   {
     title:
@@ -1906,7 +1905,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191937",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "My Soul, Your Beats!",
@@ -1925,7 +1924,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191925",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "Memoria",
@@ -1944,7 +1943,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191848",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "Brothers (Bratja)",
@@ -1962,7 +1961,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191850",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "Let Me Hear",
@@ -1981,7 +1980,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191969",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "Photograph",
@@ -1998,7 +1997,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191697",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 4,
   },
   {
     title: "The Scientist",
@@ -2016,7 +2015,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191855",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "Snow Fairy",
@@ -2035,7 +2034,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191671",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "All of Me",
@@ -2053,7 +2052,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191627",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "Crossing Field",
@@ -2072,7 +2071,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191628",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 4,
   },
   {
     title: "A Cruel Angel's Thesis",
@@ -2091,7 +2090,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191696",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "Fairy Tail Main Theme",
@@ -2110,7 +2109,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191656",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 4,
   },
   {
     title: "Hey Brother",
@@ -2127,7 +2126,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191655",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 4,
   },
   {
     title: "Courage",
@@ -2146,7 +2145,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191738",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "Ignite",
@@ -2165,7 +2164,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191669",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "Radioactive",
@@ -2182,7 +2181,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191654",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 4,
   },
   {
     title: "Demons",
@@ -2200,7 +2199,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191629",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "Flamingo",
@@ -2218,7 +2217,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191563",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 7,
   },
   {
     title: "BAD!",
@@ -2236,7 +2235,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191334",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "The Place Where Wishes Come True",
@@ -2255,7 +2254,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191631",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 3,
   },
   {
     title: "Shining in the Sky",
@@ -2274,7 +2273,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191630",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 4,
   },
   {
     title: "Spring Wind",
@@ -2293,7 +2292,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0191566",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 4,
   },
   {
     title: "Roaring Tides",
@@ -2312,7 +2311,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0190983",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "Toki Wo Kizamu Uta",
@@ -2331,7 +2330,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0190820",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "Dango Daikazoku",
@@ -2350,7 +2349,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0190748",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "This Game",
@@ -2369,7 +2368,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0190674",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "crushcrushcrush",
@@ -2387,7 +2386,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0190606",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 7,
   },
   {
     title: "katharsis",
@@ -2406,7 +2405,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0190504",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 7,
   },
   {
     title: "aLIEz",
@@ -2425,7 +2424,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0190288",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "Falling Down",
@@ -2443,7 +2442,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0190058",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "Wolves",
@@ -2461,7 +2460,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0190001",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 7,
   },
   {
     title: "breathin",
@@ -2479,7 +2478,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0189861",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 7,
   },
   {
     title: "lovely",
@@ -2497,7 +2496,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0189102",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "Voracity",
@@ -2515,7 +2514,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0189189",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 8,
   },
   {
     title: "In My Feelings",
@@ -2533,7 +2532,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0188956",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 7, // Maybe 6
   },
   {
     title: "White Album",
@@ -2552,7 +2551,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0188838",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "Sadness and Sorrow",
@@ -2571,7 +2570,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0188156",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "Grief and Sorrow",
@@ -2589,7 +2588,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0188006",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "Loneliness",
@@ -2607,7 +2606,25 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0188008",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 5,
+  },
+  {
+    title: "Despair",
+    source: "Naruto [OST]",
+    artist: "Yasuharu Takanashi",
+    spotify: "https://open.spotify.com/track/0gk60tLjDErXRqR3UQWaWP",
+    isAnime: true,
+    tuning: {
+      name: "Open Cm",
+      strings: "C G C G C D#",
+    },
+    button: {
+      type: "buy",
+      price: 7.99,
+      link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0195999",
+    },
+    guitardex: "",
+    difficulty: 5,
   },
   {
     title: "The Raising Fighting Spirit",
@@ -2625,7 +2642,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0188009",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 8,
   },
   {
     title: "Guren Theme",
@@ -2643,7 +2660,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0188007",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "Experienced Many Battles",
@@ -2661,7 +2678,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0187975",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "Sasuke's Ninja Way",
@@ -2698,7 +2715,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0186285",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "no tears left to cry",
@@ -2716,7 +2733,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0187447",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 7,
   },
   {
     title: "Otherside",
@@ -2733,7 +2750,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0186093",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "Lemon",
@@ -2751,7 +2768,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0185970",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "Jocelyn Flores",
@@ -2768,7 +2785,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0185239",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "Nevermind",
@@ -2785,7 +2802,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0185030",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 7,
   },
   {
     title: "Blue Bird",
@@ -2804,7 +2821,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0184222",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "Ryusei",
@@ -2822,7 +2839,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0184106",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "Symphony",
@@ -2840,7 +2857,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0183916",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "Fatima",
@@ -2857,7 +2874,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0183748",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "Here",
@@ -2876,7 +2893,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0183621",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 7,
   },
   {
     title: "God Knows",
@@ -2894,7 +2911,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0183553",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "Ciao Adios",
@@ -2912,7 +2929,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0183031",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 7,
   },
   {
     title: "asphyxia",
@@ -2931,7 +2948,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0183369",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 9,
   },
   {
     title:
@@ -2950,7 +2967,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0183279",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "Passionfruit",
@@ -2968,7 +2985,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0182998",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "changes",
@@ -2986,7 +3003,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0182903",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 4,
   },
   {
     title: "SAD!",
@@ -3004,7 +3021,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0182775",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "Rick and Morty Theme Song",
@@ -3021,7 +3038,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0182620",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "My Dearest",
@@ -3040,7 +3057,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0182619",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "Congratulations",
@@ -3058,7 +3075,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0182618",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "FRIENDS",
@@ -3076,7 +3093,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0182559",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 7,
   },
   {
     title: "Too Good At Goodbyes",
@@ -3094,7 +3111,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0182530",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "Dusk Till Dawn",
@@ -3112,12 +3129,12 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0182478",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 7,
   },
   {
     title: "New Divide",
     artist: "Linkin Park",
-    youtube: "https://youtu.be/wSDojPQ1_c4",
+    youtube: "https://youtu.be/r3TnS2mSn1U",
     spotify: "https://open.spotify.com/track/5yoU7gZzdhpHPZy7luHUHw",
     isAnime: false,
     tuning: {
@@ -3130,7 +3147,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0182477",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "Gucci Gang",
@@ -3147,7 +3164,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0182040",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "Uchiage Hanabi",
@@ -3166,7 +3183,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0182373",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 9,
   },
   {
     title: "The Last of Us Main Theme",
@@ -3184,7 +3201,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0182372",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 2,
   },
   {
     title: "Stranger Things Main Theme",
@@ -3202,7 +3219,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0182371",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 2,
   },
   {
     title: "Shinzou wo Sasageyo!",
@@ -3221,7 +3238,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0182370",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 7,
   },
   {
     title: "Something Just Like This",
@@ -3239,7 +3256,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0182321",
     },
     guitardex: "https://gdex.cc/?Something-Just-Like-This_14.16.12.24.15.17.4.1.2",
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "Psycho",
@@ -3257,7 +3274,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0182320",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 4,
   },
   {
     title: "Perfect",
@@ -3275,7 +3292,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0182253",
     },
     guitardex: "https://gdex.cc/?Perfect_14.16.1.2.6.18",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "God's Plan",
@@ -3293,7 +3310,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0182225",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "You Can Become A Hero!",
@@ -3312,7 +3329,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0182041",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "Sora ni Utaeba",
@@ -3331,7 +3348,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0182001",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 7,
   },
   {
     title: "Peace Sign",
@@ -3350,7 +3367,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0181963",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "Styx Helix",
@@ -3369,7 +3386,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0181957",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "Unravel",
@@ -3389,7 +3406,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0181875",
     },
     guitardex: "https://gdex.cc/?Unravel_16.17.15.24.6.11.18.4.5.19.1.2.28",
-    difficulty: 0,
+    difficulty: 7,
   },
   {
     title: "Believer",
@@ -3407,7 +3424,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0181874",
     },
     guitardex: "https://gdex.cc/?Believer_16.14.24.4.5.1.2.6.7.10.11.23",
-    difficulty: 0,
+    difficulty: 7,
   },
   {
     title: "rockstar",
@@ -3425,7 +3442,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0181804",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 7,
   },
   {
     title: "Your Reality",
@@ -3444,7 +3461,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0181757",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "The World",
@@ -3463,7 +3480,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0181754",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "Shelter",
@@ -3481,7 +3498,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0181716",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "Sincerely",
@@ -3500,7 +3517,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0181678",
     },
     guitardex: "",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "He's a Pirate (Main Theme)",
@@ -3519,7 +3536,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0181043",
     },
     guitardex: "https://gdex.cc/?Hes-a-Pirate_16.14.6.18.4.5.19",
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "My Heart Will Go On",
@@ -3537,7 +3554,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0181607",
     },
     guitardex: "https://gdex.cc/?My-Heart-Will-Go-On_14.16.1.2",
-    difficulty: 0,
+    difficulty: 5,
   },
   {
     title: "Despacito",
@@ -3555,7 +3572,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0181567",
     },
     guitardex: "https://gdex.cc/?Despacito_16.14.17.24.1.2.4.5",
-    difficulty: 0,
+    difficulty: 6,
   },
   {
     title: "Shape of You",
@@ -3573,7 +3590,7 @@ export const tabs: TabInfo[] = [
       link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0181493",
     },
     guitardex: "https://gdex.cc/?Shape-of-You_22.15.24.17.7.4.1.2",
-    difficulty: 0,
+    difficulty: 6,
   },
 
   // {

@@ -59,7 +59,9 @@ const FormElement = ({ controlName, placeholder, onChange, value }: FormElementC
         </Select>
       );
     case "message":
-      return <Textarea placeholder={placeholder} onChange={onChange} value={value as string} />;
+      return (
+        <Textarea h={36} placeholder={placeholder} onChange={onChange} value={value as string} />
+      );
     case "privacy":
       return (
         <Checkbox onChange={onChange} isChecked={value as boolean}>
@@ -117,7 +119,6 @@ const Contact = () => {
 
   const onSubmit = async (data: ContactForm) => {
     setIsSending(true);
-    console.log("Submitted Data: ", data);
     const res = await fetch("/api/sendgrid", {
       body: JSON.stringify({
         email: data.email,
@@ -132,7 +133,6 @@ const Contact = () => {
     });
     const { error } = await res.json();
     if (error) {
-      console.log(error);
       setFailure(true);
       setIsSending(false);
       return;

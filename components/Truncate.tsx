@@ -21,7 +21,7 @@ const Truncate = ({
       );
     }
     return (
-      <a href={href}>
+      <a href={href} target="_blank">
         <p className={`truncate text-gold ${className}`}>{children}</p>
       </a>
     );

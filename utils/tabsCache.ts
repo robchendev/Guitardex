@@ -10,10 +10,11 @@ export type TabsCache = {
   tuning?: string;
   strings?: string;
   diff: number;
+  price: number;
 };
 
 export const tabsCache: TabsCache[] = tabs.map(
-  ({ title, source, artist, isAnime, tuning, difficulty }: TabInfo) => ({
+  ({ title, source, artist, isAnime, tuning, difficulty, button }: TabInfo) => ({
     title: title.toLowerCase(),
     source: source?.toLowerCase(),
     artist: artist?.toLowerCase(),
@@ -21,6 +22,7 @@ export const tabsCache: TabsCache[] = tabs.map(
     tuning: tuning?.name.toLowerCase(),
     strings: tuning?.strings.toLowerCase().replace(/\s/g, ""),
     diff: difficulty,
+    price: button?.type === "buy" ? button.price : 0,
   })
 );
 

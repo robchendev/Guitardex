@@ -36,13 +36,8 @@ const TabMaster = ({ tabs, tabsCache }: { tabs: TabInfo[]; tabsCache: TabsCache[
   const SHOW_ALL = 0;
   const SHOW_ANIME = 1;
   const SHOW_OTHER = 2;
+  const SHOW_FREE = 3;
   const [genre, setGenre] = useState<number>(SHOW_ALL);
-
-  const onSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearch(e.target.value);
-    setExpandedIndex(-1);
-    setPagination(0);
-  };
 
   const onPaginateClick = (page: number) => {
     window.scrollTo({
@@ -58,14 +53,12 @@ const TabMaster = ({ tabs, tabsCache }: { tabs: TabInfo[]; tabsCache: TabsCache[
     const keywords = search.toLowerCase();
     const noSpaceKeywords = keywords.replace(/\s/g, "");
     for (let i = 0; i < tabsCacheSize; i++) {
-      const { diff, title, source, artist, isAnime, tuning, strings } = tabsCache[i];
+      const { diff, title, source, artist, isAnime, tuning, strings, price } = tabsCache[i];
       if (diff >= difficulty[0] && diff <= difficulty[1]) {
-        if (genre !== SHOW_ALL && genre !== SHOW_ANIME && isAnime) {
-          continue;
-        }
-        if (genre !== SHOW_ALL && genre !== SHOW_OTHER && !isAnime) {
-          continue;
-        }
+        if (genre !== SHOW_ALL && genre !== SHOW_FREE) {
+          if (genre !== SHOW_ANIME && isAnime) continue;
+          if (genre !== SHOW_OTHER && !isAnime) continue;
+        } else if (genre === SHOW_FREE && price !== 0) continue;
         if (
           !keywords ||
           title.indexOf(keywords) !== -1 ||
@@ -76,19 +69,16 @@ const TabMaster = ({ tabs, tabsCache }: { tabs: TabInfo[]; tabsCache: TabsCache[
         ) {
           matchingIndices.push(i);
         }
-      } else {
-        console.log("does not match diff");
       }
     }
-    console.log(matchingIndices);
     setResult(matchingIndices);
+    setExpandedIndex(-1);
+    setPagination(0);
   }, [search, difficulty, tabsCache, genre]);
 
-  console.log(result.length);
-
   return (
-    <Container maxW={["100%", "85%"]} p={0}>
-      <Tab.Search search={search} onChange={onSearch} />
+    <Container maxW={["100%", "80%"]} p={0}>
+      <Tab.Search search={search} onChange={(e) => setSearch(e.target.value)} />
       <DifficultySlider
         min={difficulty[0]}
         max={difficulty[1]}
@@ -98,7 +88,7 @@ const TabMaster = ({ tabs, tabsCache }: { tabs: TabInfo[]; tabsCache: TabsCache[
           setPagination(0);
         }}
       />
-      <HStack justifyContent="center" mb={4} spacing={5}>
+      <HStack justifyContent="center" mb={4} spacing={{ base: 4, md: 5 }}>
         <TabNavButton isActive={genre === 0} onClick={() => setGenre(0)}>
           All
         </TabNavButton>
@@ -107,6 +97,9 @@ const TabMaster = ({ tabs, tabsCache }: { tabs: TabInfo[]; tabsCache: TabsCache[
         </TabNavButton>
         <TabNavButton isActive={genre === 2} onClick={() => setGenre(2)}>
           Non-Anime
+        </TabNavButton>
+        <TabNavButton isActive={genre === 3} onClick={() => setGenre(3)}>
+          Free
         </TabNavButton>
       </HStack>
       <TabList
