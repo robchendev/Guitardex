@@ -32,7 +32,7 @@ export const config: Config = {
       buyLink: "https://avianguitar.com/discount/EVDM?redirect=%2Fcollections%2Fguitars",
       desc: "The best sounding guitar I own. The tone is clean and it has a comfortable neck and body shape.",
       price: "3199",
-      videoId: "wQANVR4vqXI",
+      videoId: "asy2-MU-FbQ",
     },
     {
       available: "buy",
@@ -180,12 +180,12 @@ export type MusicIcon = {
 export const images: MusicIcon[] = [
   {
     name: "get out the way",
-    link: "https://open.spotify.com/track/5orgwKy5MevPMecmYDVkp1?si=73b8e483615e415b",
+    link: "https://open.spotify.com/track/5FXCk4Hu9jCcjOIhTozB6Y?si=64121cad3175468f",
     picture: "/img/music1.jpg",
   },
   {
     name: "i don't care",
-    link: "https://open.spotify.com/track/5FXCk4Hu9jCcjOIhTozB6Y?si=64121cad3175468f",
+    link: "https://open.spotify.com/track/5orgwKy5MevPMecmYDVkp1?si=73b8e483615e415b",
     picture: "/img/music2.jpg",
   },
   {
