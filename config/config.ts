@@ -180,7 +180,7 @@ export type MusicIcon = {
 export const images: MusicIcon[] = [
   {
     name: "get out the way",
-    link: "https://open.spotify.com/track/5FXCk4Hu9jCcjOIhTozB6Y?si=64121cad3175468f",
+    link: "https://open.spotify.com/track/5orgwKy5MevPMecmYDVkp1?si=73b8e483615e415b",
     picture: "/img/music1.jpg",
   },
   {
