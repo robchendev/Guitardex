@@ -5,10 +5,3 @@ const SubHeading = ({ label }: { label: string }) => {
 };
 
 export default SubHeading;
-// import React from "react";
-
-// const Cell = () => {
-//   return
-// };
-
-// export default Cell;

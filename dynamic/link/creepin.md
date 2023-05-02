@@ -10,7 +10,7 @@ items:
       buttonLink: "https://open.spotify.com/track/3lgeOdl7NEUNYVrsdAPfny",
     },
     {
-      brandLogo: "apple",
+      brandLogo: "applemusic",
       buttonLabel: "Play",
       buttonLink: "https://music.apple.com/ca/album/1589393833?i=1589393834&app=music&at=1l3vpUI&ct=LFV_d23977d069ba39ebefbcbe20827a681f&itscg=30440&itsct=catchall_p2&lId=24288308&cId=none&sr=2&src=Linkfire&ls=1",
     },
