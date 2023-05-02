@@ -31,9 +31,9 @@ const TabDetails = ({
             <br />
             {tuning?.strings}
           </Tab.Detail>
-          <Tab.Detail label="Guitardex" disabled={!guitardex}>
+          {/* <Tab.Detail label="Guitardex" disabled={!guitardex}>
             <Truncate href={prepLink(guitardex)}>{guitardex}</Truncate>
-          </Tab.Detail>
+          </Tab.Detail> */}
           <Tab.Detail label="Youtube" disabled={!youtube}>
             <Truncate href={prepLink(youtube)}>{youtube}</Truncate>
           </Tab.Detail>

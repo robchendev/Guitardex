@@ -9,7 +9,7 @@ const Link = ({ button }: { button: Buy | Free }) => {
     case "free":
       return (
         <Truncate href={button.link} isInternal newTab>
-          eddievdmeer.com/{button.link}
+          eddievdmeer.com{button.link}
         </Truncate>
       );
   }

@@ -7,7 +7,6 @@ export type GuitarInfo = {
   brand: string;
   desc: string;
   videoId: string;
-  title: string;
   buyLink?: string;
   price?: string;
 } & ({ available: "buy"; buyLink: string; price: string } | { available: "discontinued" });
@@ -19,13 +18,21 @@ export const config: Config = {
   guitars: [
     {
       available: "buy",
+      name: "Songbird 2A",
+      brand: "Avian",
+      buyLink: "https://avianguitar.com/discount/EVDM?redirect=%2Fcollections%2Fguitars",
+      desc: "A full-body mahogany guitar. It's got a warm yet vibrant tone, and the build is the same as my Songbird 5A.",
+      price: "1299",
+      videoId: "s0DhUOQCchw",
+    },
+    {
+      available: "buy",
       name: "Songbird 5A",
       brand: "Avian",
       buyLink: "https://avianguitar.com/discount/EVDM?redirect=%2Fcollections%2Fguitars",
-      desc: "The best sounding guitar I own. The tone is clean and it has a comfortable neck and body shape. Use my discount code “EVDM” to get 5% off any Avian Guitar.",
+      desc: "The best sounding guitar I own. The tone is clean and it has a comfortable neck and body shape.",
       price: "3199",
       videoId: "wQANVR4vqXI",
-      title: "RADWIMPS - Suzume (すずめ) feat.十明 - すずめの戸締まり OST Fingerstyle Guitar Cover",
     },
     {
       available: "buy",
@@ -35,7 +42,6 @@ export const config: Config = {
       desc: "A carbon fibre guitar with a deep and rich sound. The interesting soundhole placement projects the sound to player better while not sacrificing the audience’s listening experience.",
       price: "899",
       videoId: "DGtyrC2Xn3g",
-      title: "I really wanna stay at your home",
     },
 
     {
@@ -47,8 +53,6 @@ export const config: Config = {
       desc: "My most comfortable and favorite all-purpose guitar. Ever since I bought it, I’ve been using it as my main practice guitar.",
       price: "4550",
       videoId: "I29XpIFRblc",
-      title:
-        "Kenshi Yonezu (米津玄師) Umi no Yuurei (海の幽霊) - Children of the Sea OST - Fingerstyle Guitar Cover",
     },
     {
       available: "buy",
@@ -58,7 +62,6 @@ export const config: Config = {
       desc: "One of my more visually appealing guitars. Being made out of carbon fiber, it’s light, loud and is indestructable compared to wood guitars.",
       price: "2700",
       videoId: "hXQxSi34GWY",
-      title: "Believer - Imagine Dragons - Fingerstyle Guitar Cover",
     },
     {
       available: "buy",
@@ -68,7 +71,6 @@ export const config: Config = {
       desc: "My oldest, most nostalgic guitar. I played this guitar in my early and pre-youtube years, when I first discovered Tommy Emmanuel’s works.",
       price: "2000",
       videoId: "6SBD2KywFpE",
-      title: "Re:Zero ED - STYX HELIX - Fingerstyle Guitar Cover",
     },
     {
       available: "discontinued",
@@ -76,8 +78,6 @@ export const config: Config = {
       brand: "Baton Rouge",
       desc: "My signature model from Baton Rouge guitars. I like this guitar the most out of all the guitars I’ve received from Baton Rouge.",
       videoId: "xsRZejd0YBs",
-      title:
-        "Doki Doki Literature Club! OST - Your Reality (Credit Theme) Fingerstyle Guitar Cover",
     },
     {
       available: "discontinued",
@@ -85,7 +85,6 @@ export const config: Config = {
       brand: "Baton Rouge",
       desc: "My other signature model from Baton Rouge guitars. It is comfortable to use, has a nice appearance and a decent tone.",
       videoId: "hXQxSi34GWY",
-      title: "Shape of You - Ed Sheeran - Fingerstyle Guitar Cover",
     },
     {
       available: "discontinued",
@@ -93,7 +92,6 @@ export const config: Config = {
       brand: "Baton Rouge",
       desc: "I’ve seldom used this guitar, but it is a good pick. The red stripes and soundhole rosette gives it the unique appearance",
       videoId: "e_k-yLShHC8",
-      title: "Pirates of the Caribbean Theme - Fingerstyle Guitar Cover",
     },
     {
       available: "discontinued",
@@ -101,8 +99,6 @@ export const config: Config = {
       brand: "RainSong",
       desc: "This guitar is a warmer, mellower version of the Rainsong Black Ice model. As a carbon fiber guitar, it’s lightweight, loud and very, very durable.",
       videoId: "L2o1Dv70kRo",
-      title:
-        "Boruto: Naruto the Next Generation  Opening 1 - Baton Road - Fingerstyle Guitar Cover",
     },
   ],
 };
