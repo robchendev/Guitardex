@@ -1,4 +1,4 @@
-import { Image } from "@chakra-ui/react";
+import { HStack, Image, VStack } from "@chakra-ui/react";
 import React from "react";
 import { FaGithub, FaInstagram, FaYoutube } from "react-icons/fa";
 import LinkIcon from "./LinkIcon";
@@ -31,16 +31,16 @@ const TeamMember = ({
   socials: TeamSocial[];
 }) => {
   return (
-    <div className="flex flex-col items-center mx-5 lg:w-1/4 ">
-      <Image src={imageUrl} alt={`${name} as ${role}`} className="rounded-3xl w-full h-full mb-5" />
+    <VStack>
+      <Image src={imageUrl} alt={`${name} as ${role}`} className="rounded-3xl w-full h-full mb-2" />
       <span className="text-2xl">{name}</span>
-      <p className="text-lg italic text-gold ">{role}</p>
-      <div className="text-3xl mt-4">
+      <p className="text-lg italic text-gold">{role}</p>
+      <HStack spacing={0} pt={1}>
         {socials.map((item: TeamSocial, index: number) => (
           <TeamSocialIcon key={index} item={item} />
         ))}
-      </div>
-    </div>
+      </HStack>
+    </VStack>
   );
 };
 

@@ -1,4 +1,4 @@
-import { Image, VStack } from "@chakra-ui/react";
+import { Image, Stack, VStack } from "@chakra-ui/react";
 import { NextPage } from "next";
 import SubHeading from "../components/SubHeading";
 import TeamMember from "../components/TeamMember";
@@ -41,29 +41,32 @@ export const Index: NextPage = () => {
         </div>
       </div>
       <SubHeading label="Team" />
-      <div className="flex flex-wrap sm:flex-col lg:flex-row lg:max-w-6xl md:max-w-full justify-center mb-14 mx-auto">
+      <Stack direction={{ base: "column", lg: "row" }} spacing={{ base: 8, lg: 8 }}>
         <TeamMember
           name="Juliano"
           role="Cameraman"
           imageUrl="/img/jc300px.jpg"
           socials={[
-            { type: "youtube", link: "#" },
-            { type: "instagram", link: "#" },
+            { type: "youtube", link: "https://www.youtube.com/julianocroese" },
+            { type: "instagram", link: "https://www.instagram.com/julianocroese" },
           ]}
         />
         <TeamMember
           name="Robert"
           role="Transcriber"
           imageUrl="/img/unnamed300px.jpg"
-          socials={[{ type: "youtube", link: "#" }]}
+          socials={[{ type: "youtube", link: "https://www.youtube.com/robertchen" }]}
         />
         <TeamMember
           name="Constantine"
           role="Web Developer"
-          imageUrl="/img/constantine.jpg"
+          imageUrl="/img/constantine300px.jpg"
           socials={[{ type: "github", link: "https://github.com/kulakdev" }]}
         />
-      </div>
+      </Stack>
+      {/* <div className="flex flex-wrap sm:flex-col lg:flex-row lg:max-w-6xl md:max-w-full justify-center mb-14 mx-auto"> */}
+
+      {/* </div> */}
     </Wrapper>
   );
 };
