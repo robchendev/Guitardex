@@ -40,11 +40,11 @@ export const Index: NextPage = () => {
           </VStack>
         </div>
       </div>
-      <SubHeading label="team" />
+      <SubHeading label="Team" />
       <div className="flex flex-wrap sm:flex-col lg:flex-row lg:max-w-6xl md:max-w-full justify-center mb-14 mx-auto">
         <TeamMember
-          name="juliano"
-          role="cameraman"
+          name="Juliano"
+          role="Cameraman"
           imageUrl="/img/jc300px.jpg"
           socials={[
             { type: "youtube", link: "#" },
@@ -52,14 +52,14 @@ export const Index: NextPage = () => {
           ]}
         />
         <TeamMember
-          name="robert"
-          role="transcriber"
+          name="Robert"
+          role="Transcriber"
           imageUrl="/img/unnamed300px.jpg"
           socials={[{ type: "youtube", link: "#" }]}
         />
         <TeamMember
-          name="constantine"
-          role="web developer"
+          name="Constantine"
+          role="Web Developer"
           imageUrl="/img/constantine.jpg"
           socials={[{ type: "github", link: "https://github.com/kulakdev" }]}
         />
