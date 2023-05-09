@@ -130,10 +130,10 @@ export const navItems: NavItem[] = [
     name: "Gear",
     link: "/gear/audio",
   },
-  {
-    name: "Contact",
-    link: "/contact",
-  },
+  // {
+  //   name: "Contact",
+  //   link: "/contact",
+  // },
 ];
 
 export type SocialIcon = {
