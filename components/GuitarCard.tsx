@@ -53,7 +53,7 @@ const BuyButton = ({ item }: { item: ItemComponent }) => {
 
 const GuitarCard = ({ index, guitar }: { index: number; guitar: GuitarInfo }) => {
   return (
-    <Stack direction={{ base: "column", md: "row" }} spacing={{ base: 2, md: 0 }}>
+    <Stack direction={{ base: "column", md: "row" }} spacing={{ base: 2, md: 0 }} w="full">
       <div className="w-full lg:w-1/2 [&>div]:rounded-md">
         <LiteYoutubeEmbed
           id={guitar.videoId}
