@@ -145,27 +145,27 @@ export type SocialIcon = {
 export const icons: SocialIcon[] = [
   {
     name: "youtube",
-    link: "/",
+    link: "https://www.youtube.com/@EddievanderMeer",
     icon: FaYoutube,
   },
   {
     name: "instagram",
-    link: "/music",
+    link: "https://www.instagram.com/eddievandermeer_",
     icon: FaInstagram,
   },
   {
-    name: "tabs",
-    link: "/tabs",
+    name: "twitter",
+    link: "https://twitter.com/EddievanderMeer",
     icon: FaTwitter,
   },
   {
-    name: "guitars",
-    link: "/guitars",
+    name: "spotify",
+    link: "https://open.spotify.com/artist/08WRjJPbPqSEOkFuc99ymW",
     icon: FaSpotify,
   },
   {
-    name: "gear",
-    link: "/gear/audio",
+    name: "apple-music",
+    link: "https://music.apple.com/us/artist/eddie-van-der-meer/879551373",
     icon: FaApple,
   },
 ];
