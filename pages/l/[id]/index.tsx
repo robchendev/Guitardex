@@ -32,7 +32,7 @@ const Link = ({ linkData }: { linkData: LinkPage }) => {
                   className="text-grey-med text-md rounded-md border border-white-ghost px-2 py-1 hover:text-grey-med"
                   href={item.buttonLink}
                 >
-                  {item.buttonLabel}
+                  Play
                 </a>
               </HStack>
             ))}
