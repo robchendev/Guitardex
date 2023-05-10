@@ -11,7 +11,7 @@ export const Index: NextPage = () => {
         <div className="pr-0 pt-0 lg:pt-1.5 lg:pr-4 lg:w-1/2 ">
           <Image
             src="img/eddie.jpeg"
-            alt="image is broken"
+            alt="eddie van der meer"
             className="h-max mb-5 object-scale-down rounded-lg md:w-full "
           />
         </div>
