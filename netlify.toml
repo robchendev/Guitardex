@@ -1,0 +1,17 @@
+[[redirects]]
+  from = "https://evdm.cc/*"
+  to = "https://eddievdmeer.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://eddievdmeer.com/gear"
+  to = "https://eddievdmeer.com/gear/audio"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://evdm.cc/gear"
+  to = "https://eddievdmeer.com/gear/audio"
+  status = 301
+  force = true

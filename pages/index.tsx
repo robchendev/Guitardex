@@ -53,9 +53,12 @@ export const Index: NextPage = () => {
         />
         <TeamMember
           name="Robert"
-          role="Transcriber"
+          role="Transcriber & Web Developer"
           imageUrl="/img/unnamed300px.jpg"
-          socials={[{ type: "youtube", link: "https://www.youtube.com/robertchen" }]}
+          socials={[
+            { type: "youtube", link: "https://www.youtube.com/robertchen" },
+            { type: "github", link: "https://github.com/robchendev" },
+          ]}
         />
         <TeamMember
           name="Constantine"
