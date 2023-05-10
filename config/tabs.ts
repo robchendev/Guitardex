@@ -449,7 +449,7 @@ export const tabs: TabInfo[] = [
     button: {
       type: "buy",
       price: 5.99,
-      link: "http://localhost:3001/tabs",
+      link: "https://www.musicnotes.com/sheetmusic/mtd.asp?ppn=MN0234508",
     },
     guitardex: "",
     difficulty: 6,
