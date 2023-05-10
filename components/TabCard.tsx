@@ -17,7 +17,9 @@ const TabCard = ({ tab, isDifficultyFilter }: { tab: TabInfo; isDifficultyFilter
     >
       <div className="w-full md:w-5/12 pr-8 text-left">
         <Truncate className="font-medium text-gold">{tab.title}</Truncate>
-        <Truncate>{tab.source || tab.artist}</Truncate>
+        <Truncate>
+          {tab.button?.type === "free" ? tab.artist || tab.source : tab.source || tab.artist}
+        </Truncate>
         {isDifficultyFilter && <Tab.Difficulty rating={tab.difficulty} hasNum />}
       </div>
       <div className="hidden md:block w-7/12">

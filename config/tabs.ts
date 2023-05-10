@@ -3601,7 +3601,7 @@ export const tabs: TabInfo[] = [
   {
     title: "I Don't Care",
     source: "Produced",
-    artist: "Jabron ft.Eddie van der Meer",
+    artist: "Jabron ft. Eddie van der Meer",
     isAnime: false,
     spotify: "https://open.spotify.com/track/5orgwKy5MevPMecmYDVkp1",
     tuning: {
