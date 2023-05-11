@@ -8,5 +8,5 @@ export type LinkPage = {
 export type LinkItem = {
   type: string;
   buttonLabel: string;
-  buttonLink: string;
+  url: string;
 };

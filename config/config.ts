@@ -180,42 +180,42 @@ export type MusicIcon = {
 export const images: MusicIcon[] = [
   {
     name: "get out the way",
-    link: "https://open.spotify.com/track/5FXCk4Hu9jCcjOIhTozB6Y?si=64121cad3175468f",
-    picture: "/img/music1.jpg",
+    link: "/l/get-out-the-way",
+    picture: "/img/l/get-out-the-way.jpg",
   },
   {
     name: "i don't care",
-    link: "https://open.spotify.com/track/5orgwKy5MevPMecmYDVkp1?si=73b8e483615e415b",
-    picture: "/img/music2.jpg",
+    link: "/l/i-dont-care",
+    picture: "/img/l/i-dont-care.jpg",
   },
   {
     name: "silence",
-    link: "https://open.spotify.com/album/67myKGkmkSt6l6OvTwMg4I",
-    picture: "/img/music3.jpg",
+    link: "/l/silence",
+    picture: "/img/l/silence.jpg",
   },
   {
     name: "creepin",
-    link: "https://eddie-van-der-meer.lnk.to/Creepin",
-    picture: "/img/music4.jpg",
+    link: "/l/creepin",
+    picture: "/img/l/creepin.jpg",
   },
   {
     name: "helpless",
-    link: "https://eddie-van-der-meer.lnk.to/HelplessTP",
-    picture: "/img/music5.jpg",
+    link: "/l/helpless",
+    picture: "/img/l/helpless.jpg",
   },
   {
     name: "all i wanted",
-    link: "https://eddie-van-der-meer.lnk.to/AllIWanted",
-    picture: "/img/music6.jpg",
+    link: "/l/all-i-wanted",
+    picture: "/img/l/all-i-wanted.jpg",
   },
   {
     name: "go fast",
-    link: "https://eddie-van-der-meer.lnk.to/GoFast",
-    picture: "/img/music7.jpg",
+    link: "/l/go-fast",
+    picture: "/img/l/go-fast.jpg",
   },
   {
     name: "paralyzed",
-    link: "https://eddie-van-der-meer.lnk.to/Paralyzed",
-    picture: "/img/music8.jpg",
+    link: "/l/paralyzed",
+    picture: "/img/l/paralyzed.jpg",
   },
 ];

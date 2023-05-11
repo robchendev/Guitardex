@@ -29,7 +29,7 @@ const Link = ({ linkData }: { linkData: LinkPage }) => {
                 <DynaImage prop={item.type} />
                 <a
                   className="text-grey-med text-md rounded-md border border-white-ghost px-2 py-1 transition-200 hover:text-white-hard hover:bg-carmine-soft"
-                  href={item.buttonLink}
+                  href={item.url}
                 >
                   {item.type === "tab" ? "Download" : "Play"}
                 </a>

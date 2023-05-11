@@ -4,9 +4,10 @@ subtitle: "Jabron, Eddie van der Meer"
 imagePath: "get-out-the-way.jpg"
 items:
   [
-    { type: "spotify", buttonLink: "https://open.spotify.com/track/3lgeOdl7NEUNYVrsdAPfny" },
-    { type: "apple", buttonLink: "https://music.apple.com/ca/album/1589393833?i=1589393834" },
-    { type: "deezer", buttonLink: "https://www.deezer.com/track/1516478312" },
-    { type: "tidal", buttonLink: "http://listen.tidalhifi.com/track/200601739" },
+    { type: "spotify", url: "https://open.spotify.com/track/5FXCk4Hu9jCcjOIhTozB6Y" },
+    { type: "amazon", url: "https://music.amazon.com/albums/B0BSNRDKFG/" },
+    { type: "apple", url: "https://music.apple.com/ca/album/1666535424" },
+    { type: "deezer", url: "https://www.deezer.com/track/2114932907" },
+    { type: "tidal", url: "http://www.tidal.com/track/272301523" },
   ]
 ---
