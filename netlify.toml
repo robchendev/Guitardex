@@ -6,13 +6,13 @@
   force = true
 
 [[redirects]]
-  from = "https://evdm.cc/music"
+  from = "https://eddievdmeer.com/music"
   to = "https://eddievdmeer.com/l/music"
   status = 301
   force = true
 
 [[redirects]]
-  from = "https://evdm.cc/avian"
+  from = "https://eddievdmeer.com/avian"
   to = "https://avianguitar.com/discount/EVDM?redirect=%2Fcollections%2Fguitars"
   status = 301
   force = true
