@@ -15,3 +15,9 @@
   to = "https://eddievdmeer.com/gear/audio"
   status = 301
   force = true
+
+[[redirects]]
+  from = "https://evdm.cc/twitter"
+  to = "https://twitter.com/EddievanderMeer"
+  status = 301
+  force = true
