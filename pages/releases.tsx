@@ -6,7 +6,7 @@ import { images, MusicIcon } from "../config/config";
 
 export const Music: NextPage = () => {
   return (
-    <Wrapper title="Music">
+    <Wrapper title="Music Releases">
       <Grid
         templateColumns={{ base: "repeat(2,1fr)", md: "repeat(4,1fr)" }}
         gap={{ base: "4", lg: "6" }}

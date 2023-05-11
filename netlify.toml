@@ -11,13 +11,13 @@
   force = true
 
 [[redirects]]
-  from = "https://evdm.cc/gear"
-  to = "https://eddievdmeer.com/gear/audio"
+  from = "https://evdm.cc/music"
+  to = "https://eddievdmeer.com/l/music"
   status = 301
   force = true
 
 [[redirects]]
-  from = "https://evdm.cc/twitter"
-  to = "https://twitter.com/EddievanderMeer"
+  from = "https://evdm.cc/avian"
+  to = "https://avianguitar.com/discount/EVDM?redirect=%2Fcollections%2Fguitars"
   status = 301
   force = true

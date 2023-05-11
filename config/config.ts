@@ -116,7 +116,7 @@ export const navItems: NavItem[] = [
   },
   {
     name: "Music",
-    link: "/music",
+    link: "/releases",
   },
   {
     name: "Tabs",
