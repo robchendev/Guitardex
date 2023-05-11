@@ -1,7 +1,7 @@
 ---
 title: "Stream My Music"
 subtitle: "Available On:"
-imagePath: "eddie.jpg"
+imagePath: "eddie.webp"
 items:
   [
     { type: "spotify", url: "https://open.spotify.com/artist/08WRjJPbPqSEOkFuc99ymW" },
