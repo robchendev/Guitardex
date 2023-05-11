@@ -26,13 +26,12 @@ const Link = ({ linkData }: { linkData: LinkPage }) => {
           <VStack divider={<div className="w-full h-px bg-white-ghost"></div>}>
             {linkData.items.map((item: LinkItem, index: number) => (
               <HStack key={index} className="text-lg p-4 w-full" justifyContent="space-between">
-                {/* <div>{item.brandLogo}</div> */}
-                <DynaImage prop={item.brandLogo} />
+                <DynaImage prop={item.type} />
                 <a
-                  className="text-grey-med text-md rounded-md border border-white-ghost px-2 py-1 hover:text-grey-med"
+                  className="text-grey-med text-md rounded-md border border-white-ghost px-2 py-1 transition-200 hover:text-white-hard hover:bg-carmine-soft"
                   href={item.buttonLink}
                 >
-                  Play
+                  {item.type === "tab" ? "Download" : "Play"}
                 </a>
               </HStack>
             ))}

@@ -6,7 +6,7 @@ export type LinkPage = {
 };
 
 export type LinkItem = {
-  brandLogo: string;
+  type: string;
   buttonLabel: string;
   buttonLink: string;
 };
