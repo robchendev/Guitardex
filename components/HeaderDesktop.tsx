@@ -2,7 +2,6 @@ import { HStack, Image } from "@chakra-ui/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
-import { navItems, NavItem } from "../config/config";
 
 const HeaderDesktop = () => {
   const router = useRouter();
@@ -11,7 +10,7 @@ const HeaderDesktop = () => {
       <header className="flex text-white-soft p-4 mx-auto lg:max-w-5xl  fixed md:relative md:flex md:justify-between md:items-center md:text-center">
         <Image src="/img/evdm.png" alt="evdm-logo" />
         <HStack>
-          {navItems.map((navItem: NavItem, index: number) => (
+          {/* {navItems.map((navItem: NavItem, index: number) => (
             <Link
               key={index}
               href={navItem.link}
@@ -21,7 +20,7 @@ const HeaderDesktop = () => {
             >
               {navItem.name}
             </Link>
-          ))}
+          ))} */}
         </HStack>
       </header>
     </div>

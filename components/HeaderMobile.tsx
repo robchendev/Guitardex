@@ -15,7 +15,6 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
 import { BiMenu } from "react-icons/bi";
-import { navItems, NavItem } from "../config/config";
 import { PageTitleMobile } from "./PageTitle";
 
 const HeaderMobile = ({ title }: { title: string }) => {
@@ -48,7 +47,7 @@ const HeaderMobile = ({ title }: { title: string }) => {
               bg="linear-gradient(70deg, #444 0%, #212121 45%, #171717 100%)"
             >
               <VStack spacing={6} mt={14}>
-                {navItems.map((navItem: NavItem, index: number) => (
+                {/* {navItems.map((navItem: NavItem, index: number) => (
                   <Link
                     key={index}
                     href={navItem.link}
@@ -58,7 +57,7 @@ const HeaderMobile = ({ title }: { title: string }) => {
                   >
                     {navItem.name}
                   </Link>
-                ))}
+                ))} */}
               </VStack>
             </DrawerBody>
           </DrawerContent>

@@ -1,6 +1,5 @@
 import { Stack, Text, VStack } from "@chakra-ui/react";
 import React from "react";
-import { GuitarInfo } from "../config/config";
 import dynamic from "next/dynamic";
 const LiteYoutubeEmbed = dynamic<ILiteYouTubeEmbedProps>(
   () => import("react-lite-yt-embed").then((module) => module.LiteYoutubeEmbed),
@@ -51,7 +50,7 @@ const BuyButton = ({ item }: { item: ItemComponent }) => {
   }
 };
 
-const GuitarCard = ({ index, guitar }: { index: number; guitar: GuitarInfo }) => {
+const GuitarCard = ({ index, guitar }: { index: number; guitar: any }) => {
   return (
     <Stack direction={{ base: "column", md: "row" }} spacing={{ base: 2, md: 0 }} w="full">
       <div className="w-full lg:w-1/2 [&>div]:rounded-md">
@@ -64,7 +63,7 @@ const GuitarCard = ({ index, guitar }: { index: number; guitar: GuitarInfo }) =>
           params={{ rel: "0" }}
         />
       </div>
-      <VStack
+      {/* <VStack
         className="w-full lg:w-1/2 [&>div]:rounded-md text-left md:text-right"
         alignItems={{ base: "flex-start", md: "flex-end" }}
         justifyContent="space-between"
@@ -76,7 +75,7 @@ const GuitarCard = ({ index, guitar }: { index: number; guitar: GuitarInfo }) =>
         </div>
         <Text className="lg:pl-10">{guitar.desc}</Text>
         <BuyButton key={index} item={guitar}></BuyButton>
-      </VStack>
+      </VStack> */}
     </Stack>
   );
 };

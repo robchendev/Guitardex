@@ -1,7 +1,6 @@
 import { HStack, VStack } from "@chakra-ui/react";
 import Link from "next/link";
 import React from "react";
-import { SocialIcon, icons } from "../config/config";
 import HeaderDesktop from "./HeaderDesktop";
 import HeaderMobile from "./HeaderMobile";
 import LinkIcon from "./LinkIcon";
@@ -24,9 +23,9 @@ const Footer = () => {
           <div className="h-px w-full bg-grey-med mb-14" />
           <div className="font-serif">
             <HStack className="justify-center mb-5">
-              {icons.map((icon: SocialIcon, index: number) => (
+              {/* {icons.map((icon: SocialIcon, index: number) => (
                 <LinkIcon key={index} icon={icon.icon} link={icon.link} />
-              ))}
+              ))} */}
             </HStack>
             <div>© 2018-{new Date().getFullYear()} Eddie van der Meer</div>
             <div>
