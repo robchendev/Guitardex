@@ -1,6 +1,4 @@
 import React from "react";
-import GearCard from "../../../components/Gear/GearCard";
-import GearNav from "../../../components/Gear/GearNav";
 import Wrapper from "../../../components/Wrapper";
 import { getAllGearIds, getGearData } from "../../../lib/gear";
 import { GearItem } from "../../../types/dynamic/gear";
@@ -9,11 +7,7 @@ const Gear = ({ gearData }: { gearData: GearItem }) => {
   return (
     <Wrapper title="Gear">
       <div className="flex justify-center">
-        <div>
-          <GearNav />
-          {/* Need to update GearNav if adding to category */}
-          <GearCard sections={gearData?.sections} />
-        </div>
+        <div>{/* Need to update GearNav if adding to category */}</div>
       </div>
     </Wrapper>
   );
