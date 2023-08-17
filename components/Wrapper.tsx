@@ -1,4 +1,4 @@
-import { HStack, VStack } from "@chakra-ui/react";
+import { Flex, Grid, GridItem, HStack, VStack } from "@chakra-ui/react";
 import Link from "next/link";
 import React from "react";
 import HeaderDesktop from "./HeaderDesktop";
@@ -50,15 +50,75 @@ const Wrapper = ({
   title: string;
 }) => {
   return (
-    <div className="bg-black-soft text-white-soft flex flex-col h-screen justify-between">
-      <div>
-        <Header title={title} />
-        <main className="font-serif p-4 lg:p-0 lg:max-w-4xl lg:mx-auto w-full h-full">
-          {title && <PageTitle title={title} />}
-          {children}
-        </main>
+    // <div className="bg-black-soft text-white-soft flex flex-col h-screen justify-between">
+    //   <div>
+    //     <Header title={title} />
+    //     <main className="font-serif p-4 lg:p-0 lg:max-w-4xl lg:mx-auto w-full h-full">
+    //       {title && <PageTitle title={title} />}
+    //       {children}
+    //     </main>
+    //   </div>
+    //   {hasFooter && <Footer />}
+    // </div>
+    <div className="h-full my-20">
+      <div className="h-full max-w-[1200px] m-auto my-0">
+        <Flex className="justify-between">
+          <div className="w-[300px]">
+            <div className="bg-grey-med rounded-lg py-4 px-5 w-[300px] fixed">Sidebar</div>
+          </div>
+          <div className="w-[900px]">
+            <div className="h-full ml-12 bg-grey-med">
+              content
+              <div>hello</div>
+              <div>hello</div>
+              <div>hello</div>
+              <div>hello</div>
+              <div>hello</div>
+              <div>hello</div>
+              <div>hello</div>
+              <div>hello</div>
+              <div>hello</div>
+              <div>hello</div>
+              <div>hello</div>
+              <div>hello</div>
+              <div>hello</div>
+              <div>hello</div>
+              <div>hello</div>
+              <div>hello</div>
+              <div>hello</div>
+              <div>hello</div>
+              <div>hello</div>
+              <div>hello</div>
+              <div>hello</div>
+              <div>hello</div>
+              <div>hello</div>
+              <div>hello</div>
+              <div>hello</div>
+              <div>hello</div>
+              <div>hello</div>
+              <div>hello</div>
+              <div>hello</div>
+              <div>hello</div>
+              <div>hello</div>
+              <div>hello</div>
+              <div>hello</div>
+              <div>hello</div>
+              <div>hello</div>
+              <div>hello</div>
+              <div>hello</div>
+              <div>hello</div>
+              <div>hello</div>
+              <div>hello</div>
+              <div>hello</div>
+              <div>hello</div>
+              <div>hello</div>
+              <div>hello</div>
+              <div>hello</div>
+              <div>hello</div>
+            </div>
+          </div>
+        </Flex>
       </div>
-      {hasFooter && <Footer />}
     </div>
   );
 };
