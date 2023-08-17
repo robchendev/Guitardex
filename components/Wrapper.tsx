@@ -5,6 +5,7 @@ import HeaderDesktop from "./HeaderDesktop";
 import HeaderMobile from "./HeaderMobile";
 import LinkIcon from "./LinkIcon";
 import PageTitle from "./PageTitle";
+import Sidebar from "./Sidebar";
 
 const Header = ({ title }: { title: string }) => {
   return (
@@ -60,14 +61,14 @@ const Wrapper = ({
     //   </div>
     //   {hasFooter && <Footer />}
     // </div>
-    <div className="h-full my-20">
+    <div className="h-full my-16 bg-white">
       <div className="h-full max-w-[1200px] m-auto my-0">
         <Flex className="justify-between">
           <div className="w-[300px]">
-            <div className="bg-grey-med rounded-lg py-4 px-5 w-[300px] fixed">Sidebar</div>
+            <Sidebar />
           </div>
           <div className="w-[900px]">
-            <div className="h-full ml-12 bg-grey-med">
+            <div className="h-full ml-12">
               content
               <div>hello</div>
               <div>hello</div>
