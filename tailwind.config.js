@@ -7,35 +7,79 @@ module.exports = {
       sans: ["PT Serif", "serif"],
     },
     colors: {
-      white: "#fafafa",
-      slate: "#e7edf3",
-      transparent: "transparent",
-      current: "currentColor",
-      gold: "#FCDC97",
-      // white: {
-      //   soft: "#F7F7F7",
-      //   hard: "#FFF",
-      //   ghost: "#999",
+      text: {
+        light: "#1E293B",
+        dark: "#E7E5E4",
+      },
+      slate: {
+        light: "#E7EDF3",
+        dark: "#1e1e1e",
+      },
+      purple: {
+        light: "#7C3AED",
+        dark: "#7C3AED",
+      },
+      bg2: {
+        light: "#FAFAFA",
+        dark: "#363636",
+      },
+      bg3: {
+        light: "#CBD5E1",
+        dark: "#737373",
+      },
+      bgAlpha: {
+        light: "rgba(255,255,255,.4)",
+        dark: "rgba(0,0,0,.4)",
+      },
+      link: {
+        light: "#7C3AED",
+        dark: "#C4B5FD",
+      },
+      linkHover: {
+        light: "#fff",
+        dark: "rgb(45,45,45)",
+      },
+      // tabimg: {
+      //   light: 'brightness(1.017)',
+      //   dark: 'invert(0.822) contrast(105%) brightness(115%)',
       // },
-      // grey: {
-      //   soft: "#777",
-      //   med: "#555",
-      //   hard: "#303030",
-      //   ghost: "#272727",
-      //   dark: "#232323",
+      // toggleName: {
+      //   light: '"Dark Theme"',
+      //   dark: '"Light Theme"',
       // },
-      // black: {
-      //   soft: "#171717",
-      //   hard: "#000",
+      // moonIcon: {
+      //   light: 'flex',
+      //   dark: 'none',
       // },
-      // carmine: {
-      //   soft: "#B51C42",
-      //   hard: "#901534",
+      // sunIcon: {
+      //   light: 'none',
+      //   dark: 'flex',
       // },
-      // purple: {
-      //   soft: "#7C3AED",
-      //   hard: "#6D28D9",
-      // },
+      greyChecked: {
+        light: "#9CA3AF",
+        dark: "#6B7280",
+      },
+      tooltip: {
+        light: "rgba(139, 92, 246, 0.3)",
+        dark: "rgba(139, 92, 246, 0.5)",
+      },
+      tooltipText: {
+        light: "#F1F5F9",
+        dark: "rgb(45,45,45)",
+      },
+      white: "#FAFAFA",
+      green: "#16A34A",
+      yellow: "#F59E0B",
+      red: "#E11D48",
+
+      grey: {
+        light: "#CBD5E1",
+        dark: "#52525B",
+      },
+      ghost: {
+        light: "#6B7280",
+        dark: "#9CA3AF",
+      },
     },
   },
   plugins: [],

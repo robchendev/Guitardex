@@ -62,13 +62,13 @@ const Wrapper = ({
     //   {hasFooter && <Footer />}
     // </div>
     <div className="h-full my-16 bg-white">
-      <div className="h-full max-w-[1200px] m-auto my-0">
+      <div className="h-full max-w-[1100px] m-auto my-0 px-8">
         <Flex className="justify-between">
-          <div className="w-[300px]">
+          <div className="w-1/4">
             <Sidebar />
           </div>
-          <div className="w-[900px]">
-            <div className="h-full ml-12">
+          <div className="w-3/4">
+            <div className="h-full ml-8">
               content
               <div>hello</div>
               <div>hello</div>
