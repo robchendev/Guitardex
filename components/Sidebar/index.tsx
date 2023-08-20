@@ -2,19 +2,46 @@ import { VStack } from "@chakra-ui/react";
 import React from "react";
 import Button from "./Button";
 import Divider from "./Divider";
+import { useRouter } from "next/router";
+import {
+  HiOutlineUserGroup,
+  HiOutlineHome,
+  HiOutlineViewGrid,
+  HiOutlineQuestionMarkCircle,
+  HiOutlineDatabase,
+  HiOutlineCurrencyDollar,
+} from "react-icons/hi";
+import { FiMoon, FiSun } from "react-icons/fi";
 
 const Sidebar = () => {
+  const path = useRouter().pathname;
+
   return (
     <div className="rounded-lg bg-slate-light py-4 px-5 w-full sticky top-16">
       <VStack alignItems="flex-start" spacing={2}>
-        <Button isActive>My Guitardex</Button>
-        <Button>Techniques</Button>
-        <Button>Help</Button>
+        <Button url="/" path={path} icon={HiOutlineHome}>
+          My Guitardex
+        </Button>
+        <Button url="/t" path={path} icon={HiOutlineViewGrid}>
+          Techniques
+        </Button>
+        <Button url="/help" path={path} icon={HiOutlineQuestionMarkCircle}>
+          Help
+        </Button>
         <Divider />
-        <Button>About</Button>
-        <Button>Updates</Button>
+        <Button url="about" path={path} icon={HiOutlineUserGroup}>
+          About
+        </Button>
+        <Button url="/dev" path={path} icon={HiOutlineDatabase}>
+          Updates
+        </Button>
+        <Button url="/nope" path={path} icon={HiOutlineCurrencyDollar} isExternal>
+          Donate
+        </Button>
         <Divider />
-        <Button>Dark Mode</Button>
+        <Button url="/dark" path={path} icon={FiMoon}>
+          Dark Mode
+        </Button>
       </VStack>
     </div>
   );

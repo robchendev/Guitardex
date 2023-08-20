@@ -1,22 +1,49 @@
+import Link from "next/link";
 import React from "react";
+import { IconType } from "react-icons";
+import { Icon } from "@chakra-ui/react";
 
 const Button = ({
-  isActive = false,
+  url,
+  path,
+  icon,
+  isExternal = false,
   children,
 }: {
-  isActive?: boolean;
+  url: string;
+  path: string;
+  icon: IconType;
+  isExternal?: boolean;
   children: React.ReactNode;
 }) => {
+  const isActive = path === url;
+  if (isExternal) {
+    return (
+      <a
+        href={url}
+        className={`pb-1 hover:cursor-pointer w-full px-3 py-2 rounded-md border${
+          isActive
+            ? " border-purple-light  hover:border-purple-light bg-purple-light text-white"
+            : " border-slate-light  hover:border-grey2-light hover:text-text-light transition-none"
+        }`}
+      >
+        <Icon as={icon} className="text-2xl mb-[4px] mr-2" />
+        {children}
+      </a>
+    );
+  }
   return (
-    <div
-      className={`hover:cursor-pointer w-full px-4 py-2 rounded-md border${
+    <Link
+      href={url}
+      className={`pb-1 hover:cursor-pointer w-full px-3 py-2 rounded-md border${
         isActive
           ? " border-purple-light  hover:border-purple-light bg-purple-light text-white"
-          : " border-slate-light  hover:border-grey2-light"
+          : " border-slate-light  hover:border-grey2-light hover:text-text-light transition-none"
       }`}
     >
-      ?? {children}
-    </div>
+      <Icon as={icon} className="text-2xl mb-[4px] mr-2" />
+      {children}
+    </Link>
   );
 };
 
