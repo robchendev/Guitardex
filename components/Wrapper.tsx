@@ -68,55 +68,7 @@ const Wrapper = ({
             <Sidebar />
           </div>
           <div className="w-3/4">
-            <div className="h-full ml-8">
-              content
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-              <div>hello</div>
-            </div>
+            <div className="h-full ml-8">{children}</div>
           </div>
         </Flex>
       </div>

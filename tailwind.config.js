@@ -23,7 +23,7 @@ module.exports = {
         light: "#FAFAFA",
         dark: "#363636",
       },
-      bg3: {
+      grey2: {
         light: "#CBD5E1",
         dark: "#737373",
       },

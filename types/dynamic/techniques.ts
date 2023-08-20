@@ -18,3 +18,16 @@ export type GearItem = {
   id: string;
   sections?: Section[];
 };
+
+export type PreReq = {
+  name: string;
+  id: number;
+};
+
+export type Technique = {
+  name: string;
+  id: number;
+  requirements: PreReq[];
+  category: "Basics" | "Percussion" | "Utility" | "Articulation";
+  difficulty: "easy" | "med" | "hard";
+};

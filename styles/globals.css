@@ -15,7 +15,7 @@ body {
   padding: 0;
   margin: 0;
   height: 100%;
-  background: #fafafa;
+  background: #fafafa !important;
   font-family: "Outfit", sans-serif !important;
 }
 
