@@ -24,13 +24,17 @@ export type PreReq = {
   id: number;
 };
 
-export type Technique = {
+export type Difficulty = "easy" | "med" | "hard";
+
+export type TechniqueFrontMatter = {
   name: string;
   id: number;
   requirements: PreReq[];
   category: "basics" | "percussion" | "utility" | "articulation";
-  difficulty: "easy" | "med" | "hard";
+  difficulty: Difficulty;
   demo: string;
-  contentHtml: string;
+};
+
+export type Technique = TechniqueFrontMatter & {
   contentMarkdown: string;
 };

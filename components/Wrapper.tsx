@@ -1,20 +1,9 @@
-import { Flex, Grid, GridItem, HStack, VStack } from "@chakra-ui/react";
+import { Flex, HStack, VStack } from "@chakra-ui/react";
 import Link from "next/link";
 import React from "react";
-import HeaderDesktop from "./HeaderDesktop";
-import HeaderMobile from "./HeaderMobile";
 import LinkIcon from "./LinkIcon";
 import PageTitle from "./PageTitle";
 import Sidebar from "./Sidebar";
-
-const Header = ({ title }: { title: string }) => {
-  return (
-    <>
-      <HeaderDesktop />
-      <HeaderMobile title={title} />
-    </>
-  );
-};
 
 const Footer = () => {
   return (
@@ -41,26 +30,8 @@ const Footer = () => {
   );
 };
 
-const Wrapper = ({
-  children,
-  hasFooter = true,
-  title,
-}: {
-  children: React.ReactNode;
-  hasFooter?: boolean;
-  title: string;
-}) => {
+const Wrapper = ({ children, title }: { children: React.ReactNode; title?: string }) => {
   return (
-    // <div className="bg-black-soft text-white-soft flex flex-col h-screen justify-between">
-    //   <div>
-    //     <Header title={title} />
-    //     <main className="font-serif p-4 lg:p-0 lg:max-w-4xl lg:mx-auto w-full h-full">
-    //       {title && <PageTitle title={title} />}
-    //       {children}
-    //     </main>
-    //   </div>
-    //   {hasFooter && <Footer />}
-    // </div>
     <div className="h-full my-16 bg-white">
       <div className="h-full max-w-[1100px] m-auto my-0 px-8">
         <Flex className="justify-between">
@@ -68,7 +39,10 @@ const Wrapper = ({
             <Sidebar />
           </div>
           <div className="w-3/4">
-            <div className="h-full ml-8">{children}</div>
+            <div className="h-full ml-8">
+              {title && <h1>{title}</h1>}
+              {children}
+            </div>
           </div>
         </Flex>
       </div>
