@@ -4,6 +4,7 @@ import { getAllTechniqueIds, getTechniqueData } from "../../../lib/techniques";
 import { PreReq, Technique } from "../../../types/dynamic/techniques";
 import ReactMarkdown from "react-markdown";
 import Image from "next/image";
+import Link from "next/link";
 
 const Technique = ({ technique }: { technique: Technique }) => {
   // console.log(technique);
@@ -16,9 +17,9 @@ const Technique = ({ technique }: { technique: Technique }) => {
           <div>
             PreReq:{" "}
             {technique.requirements.map((req: PreReq, index: number) => (
-              <a key={index} href={"/t/" + req.id}>
+              <Link key={index} href={"/t/" + req.id}>
                 {req.name}
-              </a>
+              </Link>
             ))}
           </div>
           <div>Category: {technique.category}</div>

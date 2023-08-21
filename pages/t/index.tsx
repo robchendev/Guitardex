@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import Wrapper from "../../components/Wrapper";
 import { getAllTechniqueFrontMatter } from "../../lib/techniques";
@@ -9,10 +10,12 @@ const index = ({ techniques }: { techniques: Technique[] }) => {
   return (
     <Wrapper title="techniques">
       {techniques.map((technique: Technique) => (
-        <div key={technique.id}>
-          {technique.name}, {technique.id}, {technique.difficulty}, {technique.category},{" "}
-          {technique.requirements.length}
-        </div>
+        <Link href={"/t/" + technique.id} key={technique.id}>
+          <div>
+            {technique.name}, {technique.id}, {technique.difficulty}, {technique.category},{" "}
+            {technique.requirements.length}
+          </div>
+        </Link>
       ))}
     </Wrapper>
   );
