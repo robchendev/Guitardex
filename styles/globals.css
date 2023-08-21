@@ -65,6 +65,7 @@ textarea {
   border-color: #777 !important;
 }
 
+/* I don't know why this code was here, but it was causing FOUC
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
@@ -73,7 +74,7 @@ textarea {
     color: white;
     background: black;
   }
-}
+} */
 
 .tab-filter-light {
   filter: brightness(1.017);
