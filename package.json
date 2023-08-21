@@ -38,8 +38,11 @@
     "react-hook-form": "^7.42.1",
     "react-icons": "^4.4.0",
     "react-lite-yt-embed": "^1.2.7",
+    "react-markdown": "^8.0.7",
     "react-svg": "^16.1.6",
     "react-virtuoso": "^4.1.0",
+    "remark": "^14.0.3",
+    "remark-html": "^15.0.2",
     "ts-node": "^10.9.1"
   },
   "devDependencies": {

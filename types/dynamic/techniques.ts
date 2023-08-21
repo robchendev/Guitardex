@@ -28,6 +28,9 @@ export type Technique = {
   name: string;
   id: number;
   requirements: PreReq[];
-  category: "Basics" | "Percussion" | "Utility" | "Articulation";
+  category: "basics" | "percussion" | "utility" | "articulation";
   difficulty: "easy" | "med" | "hard";
+  demo: string;
+  contentHtml: string;
+  contentMarkdown: string;
 };

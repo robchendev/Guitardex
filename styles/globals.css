@@ -75,6 +75,14 @@ textarea {
   }
 }
 
+.tab-filter-light {
+  filter: brightness(1.017);
+}
+
+.tab-filter-dark {
+  filter: invert(0.822) contrast(105%) brightness(115%);
+}
+
 /* Change Selection Text Color When Highlighting */
 ::-moz-selection {
   background-color: #b51c42;
