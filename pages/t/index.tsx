@@ -52,6 +52,9 @@ export async function getStaticProps() {
   const articulation = techniques
     .filter((technique: Technique) => technique.category === "articulation")
     .sort((a: Technique, b: Technique) => (a.name > b.name ? 1 : -1));
+  const harmonics = techniques
+    .filter((technique: Technique) => technique.category === "harmonics")
+    .sort((a: Technique, b: Technique) => (a.name > b.name ? 1 : -1));
   const percussion = techniques
     .filter((technique: Technique) => technique.category === "percussion")
     .sort((a: Technique, b: Technique) => (a.name > b.name ? 1 : -1));
@@ -60,7 +63,7 @@ export async function getStaticProps() {
     .sort((a: Technique, b: Technique) => (a.name > b.name ? 1 : -1));
   return {
     props: {
-      techniques: [...basics, ...articulation, ...utility, ...percussion],
+      techniques: [...basics, ...articulation, ...harmonics, ...utility, ...percussion],
     },
   };
 }
