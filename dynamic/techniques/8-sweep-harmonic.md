@@ -4,7 +4,7 @@ name: Sweep Harmonic
 category: harmonics
 difficulty: med
 requirements: [{ name: Artificial Harmonic, id: 7 }]
-demo: https://youtu.be/FPpkZcuy-Ik
+demo: FPpkZcuy-Ik
 ---
 
 ![tab](/img/t/sweep-harmonic.jpg)

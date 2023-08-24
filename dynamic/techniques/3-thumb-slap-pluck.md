@@ -4,7 +4,7 @@ name: Thumb Slap Pluck
 category: percussion
 difficulty: hard
 requirements: [{ name: Thumb Slap, id: 1 }]
-demo: https://youtu.be/L0_Ror_WgRc
+demo: L0_Ror_WgRc
 ---
 
 ![tab](/img/t/thumb-slap-pluck.jpg)

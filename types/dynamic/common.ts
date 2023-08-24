@@ -4,3 +4,5 @@ export type PreReq = {
 };
 
 export type Difficulty = "easy" | "med" | "hard";
+
+export type Module = "technique" | "audioSkill";

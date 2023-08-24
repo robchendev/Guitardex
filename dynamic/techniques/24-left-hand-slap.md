@@ -4,7 +4,7 @@ name: Left Hand Slap
 category: Percussion
 difficulty: easy
 requirements: []
-demo: https://youtu.be/XfWcgr6kIPE
+demo: XfWcgr6kIPE
 ---
 
 ![tab](/img/t/left-hand-slap.jpg)

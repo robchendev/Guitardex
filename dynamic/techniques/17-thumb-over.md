@@ -4,7 +4,7 @@ name: Thumb-Over
 category: utility
 difficulty: easy
 requirements: []
-demo: https://youtu.be/Y-wve3IZ48s
+demo: Y-wve3IZ48s
 ---
 
 ![tab](/img/t/thumb-over.jpg)

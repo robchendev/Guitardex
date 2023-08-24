@@ -4,7 +4,7 @@ name: Thumb Tap Strum
 category: percussion
 difficulty: med
 requirements: [{ name: Thumb Slap Strum, id: 2 }, { name: Thumb Tap, id: 29 }]
-demo: https://youtu.be/Qgdgfl0czdI
+demo: Qgdgfl0czdI
 ---
 
 ![tab](/img/t/thumb-tap-strum.jpg)

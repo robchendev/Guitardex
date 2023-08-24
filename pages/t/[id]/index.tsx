@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Wrapper from "../../../components/Wrapper";
 import { getAllTechniqueIds, getTechniqueData } from "../../../lib/techniques";
-import ReactMarkdown from "react-markdown";
-import Image from "next/image";
-import Link from "next/link";
 import { GlossaryItem } from "../../../types";
 import { Technique } from "../../../types/dynamic/techniques";
-import { PreReq } from "../../../types/dynamic/common";
 import RenderMarkdown from "../../../components/ModulePage/RenderMarkdown";
 import ModuleHeader from "../../../components/ModulePage/ModuleHeader";
+import YoutubePlayer from "../../../components/ModulePage/YoutubePlayer";
 
 const Technique = ({ technique }: { technique: Technique }) => {
   // console.log(technique);
@@ -31,8 +28,8 @@ const Technique = ({ technique }: { technique: Technique }) => {
     <Wrapper>
       <div className="flex justify-center">
         <div>
-          <ModuleHeader frontmatter={technique} />
-          <div>Demo: {technique.demo}</div>
+          <ModuleHeader frontmatter={technique} module="technique" />
+          <YoutubePlayer videoId={technique.demo} />
           <div>
             <div>Glossary: </div>
             <ul>

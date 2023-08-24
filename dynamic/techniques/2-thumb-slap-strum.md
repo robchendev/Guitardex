@@ -4,7 +4,7 @@ name: Thumb Slap Strum
 category: percussion
 difficulty: med
 requirements: [{ name: Thumb Slap, id: 1 }]
-demo: https://youtu.be/ugrxyiJs880
+demo: ugrxyiJs880
 ---
 
 ![tab](/img/t/thumb-slap-strum.jpg)

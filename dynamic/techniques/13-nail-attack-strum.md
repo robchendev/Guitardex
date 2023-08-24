@@ -4,7 +4,7 @@ name: Nail Attack Strum
 category: percussion
 difficulty: easy
 requirements: [{ name: Nail Attack, id: 12 }, { name: Strum, id: 16 }]
-demo: https://youtu.be/zZDqVblqDjc
+demo: zZDqVblqDjc
 ---
 
 ![tab](/img/t/nail-attack-strum.jpg)

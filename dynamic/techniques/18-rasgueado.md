@@ -4,7 +4,7 @@ name: Rasgueado
 category: basics
 difficulty: med
 requirements: []
-demo: https://youtu.be/rwj5GrSVQL4
+demo: rwj5GrSVQL4
 ---
 
 ![tab](/img/t/rasgueado.jpg)

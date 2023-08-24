@@ -4,7 +4,7 @@ name: Strum
 category: basics
 difficulty: easy
 requirements: []
-demo: https://youtu.be/2BR0DWkBmks
+demo: 2BR0DWkBmks
 ---
 
 ![tab](/img/t/strum.jpg)

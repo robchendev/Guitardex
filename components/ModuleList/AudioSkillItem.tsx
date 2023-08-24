@@ -23,7 +23,7 @@ const AudioSkillItem = ({ audioSkill }: { audioSkill: AudioSkillFrontMatter }) =
             </HStack>
           </div>
         </div>
-        <SaveButton id={audioSkill.id} />
+        <SaveButton id={audioSkill.id} module="audioSkill" />
       </HStack>
     </Link>
   );

@@ -4,7 +4,7 @@ name: Nail Attack
 category: percussion
 difficulty: hard
 requirements: []
-demo: https://youtu.be/f1wsGFIrAV8
+demo: f1wsGFIrAV8
 ---
 
 ![tab](/img/t/nail-attack.jpg)

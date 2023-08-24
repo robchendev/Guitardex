@@ -4,7 +4,7 @@ name: Soundhole Strum
 category: percussion
 difficulty: easy
 requirements: [{ name: Strum, id: 16 }]
-demo: https://youtu.be/iJiF1cmrcu4
+demo: iJiF1cmrcu4
 ---
 
 ![tab](/img/t/soundhole-strum.jpg)

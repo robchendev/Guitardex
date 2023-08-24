@@ -4,7 +4,7 @@ name: Wrist Thump
 category: percussion
 difficulty: med
 requirements: []
-demo: https://youtu.be/L4x-1_IRc0c
+demo: L4x-1_IRc0c
 ---
 
 ![tab](/img/t/wrist-thump.jpg)

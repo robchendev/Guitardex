@@ -4,7 +4,7 @@ name: Palm Mute
 category: articulation
 difficulty: easy
 requirements: []
-demo: https://youtu.be/XOYN8wYVdHc
+demo: XOYN8wYVdHc
 ---
 
 ![tab](/img/t/palm-mute.jpg)

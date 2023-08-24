@@ -4,7 +4,7 @@ name: Slam Strum
 category: percussion
 difficulty: hard
 requirements: [{ name: Wrist Thump Strum, id: 5 }, { name: Thumb Slap, id: 1 }]
-demo: https://youtu.be/jORQuGHoDSA
+demo: jORQuGHoDSA
 ---
 
 ![tab](/img/t/slam-strum.jpg)

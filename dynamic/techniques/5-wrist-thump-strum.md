@@ -4,7 +4,7 @@ name: Wrist Thump Strum
 category: percussion
 difficulty: med
 requirements: [{ name: Wrist Thump, id: 4 }]
-demo: https://youtu.be/_N3zkNg9OQM
+demo: _N3zkNg9OQM
 ---
 
 ![tab](/img/t/wrist-thump-strum.jpg)

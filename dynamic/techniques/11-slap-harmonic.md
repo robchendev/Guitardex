@@ -4,7 +4,7 @@ name: Slap Harmonic
 category: harmonics
 difficulty: med
 requirements: [{ name: Tap Harmonic, id: 10 }]
-demo: https://youtu.be/vTJy0LcRFf0
+demo: vTJy0LcRFf0
 ---
 
 ![tab](/img/t/slap-harmonic.jpg)

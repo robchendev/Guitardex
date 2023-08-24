@@ -4,7 +4,7 @@ name: Thumb Tap Pluck
 category: percussion
 difficulty: med
 requirements: [{ name: Thumb Slap Pluck, id: 3 }, { name: Thumb Tap, id: 29 }]
-demo: https://youtu.be/6KcuRDdhfHI
+demo: 6KcuRDdhfHI
 ---
 
 ![tab](/img/t/thumb-tap-pluck.jpg)

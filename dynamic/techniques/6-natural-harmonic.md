@@ -4,7 +4,7 @@ name: Natural Harmonic
 category: harmonics
 difficulty: easy
 requirements: []
-demo: https://youtu.be/uUTCfahTViY
+demo: uUTCfahTViY
 ---
 
 ![tab](/img/t/natural-harmonic.jpg)

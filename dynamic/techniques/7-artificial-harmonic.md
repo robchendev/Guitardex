@@ -4,7 +4,7 @@ name: Artificial Harmonic
 category: harmonics
 difficulty: easy
 requirements: [{ name: Natural Harmonic, id: 6 }]
-demo: https://youtu.be/t1OPIpaH8Qg
+demo: t1OPIpaH8Qg
 ---
 
 ![tab](/img/t/artificial-harmonic.jpg)

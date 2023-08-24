@@ -4,7 +4,7 @@ name: Thumb-Under
 category: utility
 difficulty: easy
 requirements: []
-demo: https://youtu.be/eUwoiV_PEhM
+demo: eUwoiV_PEhM
 ---
 
 ![tab](/img/t/thumb-under.jpg)

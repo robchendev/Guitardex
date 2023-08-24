@@ -4,7 +4,7 @@ name: Mute / Plant
 category: basics
 difficulty: easy
 requirements: []
-demo: https://youtu.be/7AVrYjgTM9w
+demo: 7AVrYjgTM9w
 ---
 
 ![tab](/img/t/mute-plant.jpg)

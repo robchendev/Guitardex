@@ -4,7 +4,7 @@ name: Finger Roll
 category: basics
 difficulty: easy
 requirements: []
-demo: https://youtu.be/uNm1ijvWJFA
+demo: uNm1ijvWJFA
 ---
 
 ![tab](/img/t/finger-roll.jpg)

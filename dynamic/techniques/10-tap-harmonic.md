@@ -4,7 +4,7 @@ name: Tap Harmonic
 category: harmonics
 difficulty: med
 requirements: [{ name: Artificial Harmonic, id: 7 }]
-demo: https://youtu.be/s2FIhDB23Qo
+demo: s2FIhDB23Qo
 ---
 
 ![tab](/img/t/tap-harmonic.jpg)

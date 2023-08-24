@@ -4,7 +4,7 @@ name: Thumb Slap
 category: percussion
 difficulty: easy
 requirements: []
-demo: https://youtu.be/uLGajwU3eEU
+demo: uLGajwU3eEU
 ---
 
 ![tab](/img/t/thumb-slap.jpg)

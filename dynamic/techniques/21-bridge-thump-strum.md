@@ -4,7 +4,7 @@ name: Bridge Thump Strum
 category: percussion
 difficulty: med
 requirements: [{ name: Bridge Thump, id: 20 }]
-demo: https://youtu.be/B_AiLFfwB4g
+demo: B_AiLFfwB4g
 ---
 
 ![tab](/img/t/bridge-thump-strum.jpg)

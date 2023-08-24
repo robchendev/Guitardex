@@ -4,7 +4,7 @@ name: Palm Slap
 category: percussion
 difficulty: easy
 requirements: []
-demo: https://youtu.be/baKK0MI0aOY
+demo: baKK0MI0aOY
 ---
 
 ![tab](/img/t/palm-slap.jpg)

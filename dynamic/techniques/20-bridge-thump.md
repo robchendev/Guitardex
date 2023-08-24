@@ -4,7 +4,7 @@ name: Bridge Thump
 category: percussion
 difficulty: med
 requirements: [{ name: Wrist Thump, id: 4 }, { name: Palm Mute, id: 22 }]
-demo: https://youtu.be/WA0k1WuOwrc
+demo: WA0k1WuOwrc
 ---
 
 ![tab](/img/t/bridge-thump.jpg)

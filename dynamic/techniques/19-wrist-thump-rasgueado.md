@@ -4,7 +4,7 @@ name: Wrist Thump Rasgueado
 category: percussion
 difficulty: easy
 requirements: [{ name: Wrist Thump Strum, id: 5 }, { name: Rasgueado, id: 18 }]
-demo: https://youtu.be/5CRqjnpX4l8
+demo: 5CRqjnpX4l8
 ---
 
 ![tab](/img/t/wrist-thump-rasgueado.jpg)

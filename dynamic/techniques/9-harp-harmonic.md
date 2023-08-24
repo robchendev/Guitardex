@@ -4,7 +4,7 @@ name: Harp Harmonic
 category: harmonics
 difficulty: med
 requirements: [{ name: Artificial Harmonic, id: 7 }]
-demo: https://youtu.be/tPA2PZZa8-E
+demo: tPA2PZZa8-E
 ---
 
 ![tab](/img/t/harp-harmonic.jpg)

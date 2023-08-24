@@ -1,12 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Wrapper from "../../../components/Wrapper";
-import { getAllTechniqueIds, getTechniqueData } from "../../../lib/techniques";
-import ReactMarkdown from "react-markdown";
-import Image from "next/image";
-import Link from "next/link";
 import { GlossaryItem } from "../../../types";
 import { AudioSkill } from "../../../types/dynamic/audio";
-import { PreReq } from "../../../types/dynamic/common";
 import { getAllAudioSkillIds, getAudioSkillData } from "../../../lib/audioSkills";
 import RenderMarkdown from "../../../components/ModulePage/RenderMarkdown";
 import ModuleHeader from "../../../components/ModulePage/ModuleHeader";
@@ -32,7 +27,7 @@ const AudioSkill = ({ audioSkill }: { audioSkill: AudioSkill }) => {
     <Wrapper>
       <div className="flex justify-center">
         <div>
-          <ModuleHeader frontmatter={audioSkill} />
+          <ModuleHeader frontmatter={audioSkill} module="audioSkill" />
           <div>Demo: {audioSkill.demo}</div>
           <div>
             <div>Glossary: </div>

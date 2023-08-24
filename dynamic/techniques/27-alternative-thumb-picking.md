@@ -4,7 +4,7 @@ name: Alternative Thumb Picking
 category: articulation
 difficulty: med
 requirements: []
-demo: https://youtu.be/HGtmN7seQXw
+demo: HGtmN7seQXw
 ---
 
 ![tab](/img/t/alternative-thumb-picking.jpg)

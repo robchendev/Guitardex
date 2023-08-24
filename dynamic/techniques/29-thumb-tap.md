@@ -4,7 +4,7 @@ name: Thumb Tap
 category: percussion
 difficulty: easy
 requirements: [{ name: Thumb Slap, id: 1 }]
-demo: https://youtu.be/fefPpPD7N-U
+demo: fefPpPD7N-U
 ---
 
 ![tab](/img/t/thumb-tap.jpg)
