@@ -9,7 +9,7 @@ import SaveButton from "./SaveButton";
 const AudioSkillItem = ({ audioSkill }: { audioSkill: AudioSkillFrontMatter }) => {
   return (
     <Link
-      className="bg-slate-light px-3.5 py-2 rounded-md"
+      className="bg-bg-light px-3.5 py-2 rounded-md"
       href={"/a/" + audioSkill.id}
       key={audioSkill.id}
     >

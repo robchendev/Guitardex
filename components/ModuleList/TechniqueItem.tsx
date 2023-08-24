@@ -9,13 +9,13 @@ import SaveButton from "./SaveButton";
 const TechniqueItem = ({ technique }: { technique: TechniqueFrontMatter }) => {
   return (
     <Link
-      className="bg-slate-light px-3.5 py-2 rounded-md"
+      className="bg-bg-light px-3.5 py-2 rounded-md"
       href={"/t/" + technique.id}
       key={technique.id}
     >
       <HStack justifyContent="space-between">
         <div>
-          {technique.name}
+          <h2 className="font-medium">{technique.name}</h2>
           <div>
             <HStack spacing={1}>
               <Difficulty value={technique.difficulty} />

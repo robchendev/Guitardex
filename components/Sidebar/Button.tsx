@@ -23,8 +23,8 @@ const Button = ({
         href={url}
         className={`pb-1 hover:cursor-pointer w-full px-3 py-2 rounded-md border${
           isActive
-            ? " border-purple-light  hover:border-purple-light bg-purple-light text-white"
-            : " border-slate-light  hover:border-grey2-light hover:text-text-light transition-none"
+            ? " border-purple  hover:border-purple bg-purple text-white"
+            : " border-bg-light  hover:border-grey-light hover:text-text-light transition-none"
         }`}
       >
         <Icon as={icon} className="text-2xl mb-[4px] mr-2" />
@@ -35,10 +35,10 @@ const Button = ({
   return (
     <Link
       href={url}
-      className={`pb-1 hover:cursor-pointer w-full px-3 py-2 rounded-md border${
+      className={`font-medium pb-1 hover:cursor-pointer w-full px-3 py-2 rounded-md border${
         isActive
-          ? " border-purple-light  hover:border-purple-light bg-purple-light text-white"
-          : " border-slate-light  hover:border-grey2-light hover:text-text-light transition-none"
+          ? " border-purple  hover:border-purple bg-purple text-white"
+          : " border-bg-light  hover:border-grey-light hover:text-text-light transition-none"
       }`}
     >
       <Icon as={icon} className="text-2xl mb-[4px] mr-2" />

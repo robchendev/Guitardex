@@ -13,7 +13,7 @@ const SaveButton = ({ id, module }: { id: number; module: Module }) => {
 
   // TODO: Lots of todo, also make sure the module can be differentiated
   return (
-    <div className="p-4 bg-grey2-dark" onClick={onSave}>
+    <div className="p-4 bg-grey-dark" onClick={onSave}>
       {saved ? <ImCheckmark /> : <BiSave />}
     </div>
   );

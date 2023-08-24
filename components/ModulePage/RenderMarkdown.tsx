@@ -41,7 +41,7 @@ const RenderMarkdown = ({
             return (
               <a
                 href={props.href}
-                className="text-base text-purple-light hover:bg-purple-light transition-none"
+                className="text-base text-purple hover:bg-purple transition-none"
               >
                 {props.children}
               </a>
@@ -50,7 +50,7 @@ const RenderMarkdown = ({
           return (
             <Link
               href={props.href as string}
-              className="text-base text-purple-light hover:bg-purple-light transition-none"
+              className="text-base text-purple hover:bg-purple transition-none"
             >
               {props.children}
             </Link>
