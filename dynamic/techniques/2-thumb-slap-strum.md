@@ -1,9 +1,9 @@
 ---
-name: Thumb Slap Strum
 id: 2
-requirements: []
+name: Thumb Slap Strum
 category: percussion
 difficulty: med
+requirements: [{ name: Thumb Slap, id: 1 }]
 demo: https://youtu.be/ugrxyiJs880
 ---
 
@@ -21,6 +21,6 @@ In order for the thumb slap strum to be done correctly, the strum must be done q
 
 The thumb slap strum becomes more complicated when you only want to play notes on certain strings. Targeting specific strings can be difficult even for intermediate players, and requires a good deal of practice and patience to perfect the technique.
 
-In order to target the strings you need, you will need to control your finger movements to prevent hitting the wrong strings. You can also deaden the strings you're not playing by <span class="tt" data-tip="stopping the strings from ringing">muting</span> them, which is usually a lot easier.
+In order to target the strings you need, you will need to control your finger movements to prevent hitting the wrong strings. You can also deaden the strings you're not playing by `muting | stopping the strings from ringing` them, which is usually a lot easier.
 
 For a consistent method of targeting specific strings that doesn't require muting strings, consider using a [thumb slap pluck](4).

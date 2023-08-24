@@ -1,10 +1,10 @@
 ---
-name: Example
-id: 0
+id:
+name:
+category:
+difficulty:
 requirements: []
-category: basics
-difficulty: easy
-demo: https://youtu.be/uLGajwU3eEU
+demo:
 ---
 
 ![tab](/img/t/thumb-slap.jpg)

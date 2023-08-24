@@ -1,9 +1,9 @@
 ---
-name: Thumb Slap
 id: 1
-requirements: []
+name: Thumb Slap
 category: percussion
 difficulty: easy
+requirements: []
 demo: https://youtu.be/uLGajwU3eEU
 ---
 
