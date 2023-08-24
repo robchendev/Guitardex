@@ -21,15 +21,19 @@ const ModuleHeader = ({
       <div className="bg-slate-light px-4 py-2.5 rounded-lg mb-4">
         <HStack justifyContent="space-between">
           <div>
-            {frontmatter.name}
-            <div>
+            <h1 className="text-xl font-semibold tracking-wider">{frontmatter.name}</h1>
+            <p className="text-base">
               Required:{" "}
               {frontmatter.requirements.map((req: PreReq, index: number) => (
-                <Link key={index} href={"/t/" + req.id}>
+                <Link
+                  key={index}
+                  href={"/t/" + req.id}
+                  className="text-base text-purple-light hover:bg-purple-light transition-none"
+                >
                   {req.name}
                 </Link>
               ))}
-            </div>
+            </p>
             <HStack spacing={1}>
               <Difficulty value={frontmatter.difficulty} />
               <ModuleTag module={module} />

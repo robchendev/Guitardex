@@ -13,7 +13,7 @@ const GlossaryItem = ({
   addToGlossary(term, definition);
   return (
     // TODO: Tooltip
-    <span className="text-purple-dark">
+    <span className="text-green">
       {term}={definition}
     </span>
   );
