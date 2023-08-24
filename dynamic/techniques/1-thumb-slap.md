@@ -13,7 +13,7 @@ The thumb slap is commonly notated as an X on the string you're supposed to slap
 
 ### Explanation
 
-The slap sound comes from the guitar string coming in contact with the `fretwire | the metal strips on your fretboard` itself. This sound is similar to a snare drum, commonly used on beats 2 and 4 in modern music.
+The slap sound comes from the guitar string coming in contact with the `fret wire | the metal strips on your fretboard` itself. This sound is similar to a snare drum, commonly used on beats 2 and 4 in modern music.
 
 Most of the slapping motion should come from your wrist and thumb. You should not be using your arm as your main source of motion. Rotate your wrist and point your thumb away from the guitar as preparation, then reverse that motion to slap the string. The goal is to get a 'click' sound.
 

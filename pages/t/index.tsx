@@ -7,9 +7,10 @@ import { getAllTechniqueFrontMatter } from "../../lib/techniques";
 import { Technique, TechniqueFrontMatter } from "../../types/dynamic/techniques";
 
 const Index = ({ techniques }: { techniques: Technique[] }) => {
-  console.log(techniques);
+  // console.log(techniques);
   // const [difficulty, setDifficulty] = useState("any");
   // const [category, setCategory] = useState("any");
+
   return (
     <Wrapper title="Techniques">
       {/* Difficulty:
@@ -45,9 +46,12 @@ const Index = ({ techniques }: { techniques: Technique[] }) => {
 
 export async function getStaticProps() {
   const techniques = getAllTechniqueFrontMatter();
+  const techniquesSorted = techniques.sort((a: Technique, b: Technique) =>
+    a.name > b.name ? 1 : -1
+  );
   return {
     props: {
-      techniques,
+      techniques: techniquesSorted,
     },
   };
 }

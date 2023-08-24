@@ -1,13 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Wrapper from "../../../components/Wrapper";
 import { getAllTechniqueIds, getTechniqueData } from "../../../lib/techniques";
 import { PreReq, Technique } from "../../../types/dynamic/techniques";
 import ReactMarkdown from "react-markdown";
 import Image from "next/image";
 import Link from "next/link";
+import { GlossaryItem } from "../../../types";
 
 const Technique = ({ technique }: { technique: Technique }) => {
   // console.log(technique);
+  const [glossary, setGlossary] = useState<GlossaryItem[]>([]);
+  const initialGlossary: GlossaryItem[] = [];
+
+  // add in glossary only if there isn't a duplicate
+  const addToGlossary = (term: string, definition: string) => {
+    // if an obj with the key matching term not already in glossary, .push()
+    if (!initialGlossary.some((item: GlossaryItem) => item.term === term)) {
+      initialGlossary.push({ term, definition });
+    }
+  };
+
+  useEffect(() => {
+    setGlossary(initialGlossary);
+  }, []);
+
   return (
     <Wrapper title="Techniques">
       <div className="flex justify-center">
@@ -25,6 +41,16 @@ const Technique = ({ technique }: { technique: Technique }) => {
           <div>Category: {technique.category}</div>
           <div>Difficulty: {technique.difficulty}</div>
           <div>Demo: {technique.demo}</div>
+          <div>
+            <div>Glossary: </div>
+            <ul>
+              {glossary.map((item: GlossaryItem, index: number) => (
+                <li key={index}>
+                  {item.term}: {item.definition}
+                </li>
+              ))}
+            </ul>
+          </div>
 
           <ReactMarkdown
             components={{
@@ -42,7 +68,6 @@ const Technique = ({ technique }: { technique: Technique }) => {
                         // blurDataURL={props.src}
                         width={1200}
                         height={200}
-                        // TODO: Need hardcoded filter
                         className="w-full h-full tab-filter-light"
                       />
                     );
@@ -53,6 +78,8 @@ const Technique = ({ technique }: { technique: Technique }) => {
                 const [t, d] = str.split("|");
                 const term = t.trim();
                 const definition = d.trim();
+                addToGlossary(term, definition);
+                // console.log("what");
                 return (
                   // TODO: Tooltip
                   <span className="text-purple-dark">

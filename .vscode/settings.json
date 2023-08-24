@@ -18,5 +18,27 @@
   "eslint.enable": true,
   "eslint.debug": true,
   "eslint.run": "onType",
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "editor.tokenColorCustomizations": {
+    "[Atom One Dark]": {
+      "textMateRules": [
+        {
+          "scope": "markup.inline.raw.string.markdown",
+          "settings": {
+            "foreground": "#c1db16" // Markdown `code` color
+          }
+        }
+      ]
+    },
+    "[Visual Studio Dark]": {
+      "textMateRules": [
+        {
+          "scope": "markup.inline.raw.string.markdown",
+          "settings": {
+            "foreground": "#c1db16" // Markdown `code` color
+          }
+        }
+      ]
+    }
+  }
 }
