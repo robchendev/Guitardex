@@ -19,7 +19,7 @@ const TechniqueItem = ({ technique }: { technique: TechniqueFrontMatter }) => {
           <div>
             <HStack spacing={1}>
               <Difficulty value={technique.difficulty} />
-              <Category>{technique.category}</Category>
+              <Category value={technique.category} />
             </HStack>
           </div>
         </div>

@@ -19,7 +19,7 @@ const AudioSkillItem = ({ audioSkill }: { audioSkill: AudioSkillFrontMatter }) =
           <div>
             <HStack spacing={1}>
               <Difficulty value={audioSkill.difficulty} />
-              <Category>{audioSkill.category}</Category>
+              <Category value={audioSkill.category} />
             </HStack>
           </div>
         </div>

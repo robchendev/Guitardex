@@ -37,7 +37,7 @@ const ModuleHeader = ({
             <HStack spacing={1}>
               <Difficulty value={frontmatter.difficulty} />
               <ModuleTag module={module} />
-              <Category>{frontmatter.category}</Category>
+              <Category value={frontmatter.category} />
             </HStack>
           </div>
           <SaveButton id={frontmatter.id} module={module} />
