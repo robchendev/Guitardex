@@ -7,6 +7,7 @@ import Link from "next/link";
 import { GlossaryItem } from "../../../types";
 import { Technique } from "../../../types/dynamic/techniques";
 import { PreReq } from "../../../types/dynamic/common";
+import RenderMarkdown from "../../../components/ModulePage/RenderMarkdown";
 
 const Technique = ({ technique }: { technique: Technique }) => {
   // console.log(technique);
@@ -52,45 +53,10 @@ const Technique = ({ technique }: { technique: Technique }) => {
               ))}
             </ul>
           </div>
-
-          <ReactMarkdown
-            components={{
-              img: (props) => {
-                // This is hack to transform ![]() to anything we need
-                switch (props.alt) {
-                  default:
-                  case "tab":
-                    return (
-                      <Image
-                        src={props.src ?? ""}
-                        alt={technique?.name + " tab"}
-                        // TODO: Need a suitable blur image placeholder
-                        // placeholder="blur"
-                        // blurDataURL={props.src}
-                        width={1200}
-                        height={200}
-                        className="w-full h-full tab-filter-light"
-                      />
-                    );
-                }
-              },
-              code: (props) => {
-                const str = (props.children[0] ?? "") as string;
-                const [t, d] = str.split("|");
-                const term = t.trim();
-                const definition = d.trim();
-                addToGlossary(term, definition);
-                return (
-                  // TODO: Tooltip
-                  <span className="text-purple-dark">
-                    {term}={definition}
-                  </span>
-                );
-              },
-            }}
-          >
-            {technique.contentMarkdown}
-          </ReactMarkdown>
+          <RenderMarkdown
+            contentMarkdown={technique.contentMarkdown}
+            addToGlossary={addToGlossary}
+          />
         </div>
       </div>
     </Wrapper>

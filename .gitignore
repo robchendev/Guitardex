@@ -12,3 +12,7 @@ yarn-error.log
 .next
 .env
 .env.local
+
+# Don't want huge audio files being pushed to github
+public/audio/a/*
+public/audio/t/*

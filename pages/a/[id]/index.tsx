@@ -8,6 +8,7 @@ import { GlossaryItem } from "../../../types";
 import { AudioSkill } from "../../../types/dynamic/audio";
 import { PreReq } from "../../../types/dynamic/common";
 import { getAllAudioSkillIds, getAudioSkillData } from "../../../lib/audioSkills";
+import RenderMarkdown from "../../../components/ModulePage/RenderMarkdown";
 
 const AudioSkill = ({ audioSkill }: { audioSkill: AudioSkill }) => {
   // console.log(technique);
@@ -53,46 +54,10 @@ const AudioSkill = ({ audioSkill }: { audioSkill: AudioSkill }) => {
               ))}
             </ul>
           </div>
-
-          <ReactMarkdown
-            components={{
-              img: (props) => {
-                // This is hack to transform ![]() to anything we need
-                switch (props.alt) {
-                  default:
-                  case "tab":
-                    return (
-                      <Image
-                        src={props.src ?? ""}
-                        alt={audioSkill?.name + " tab"}
-                        // TODO: Need a suitable blur image placeholder
-                        // placeholder="blur"
-                        // blurDataURL={props.src}
-                        width={1200}
-                        height={200}
-                        className="w-full h-full tab-filter-light"
-                      />
-                    );
-                }
-              },
-              code: (props) => {
-                const str = (props.children[0] ?? "") as string;
-                const [t, d] = str.split("|");
-                const term = t.trim();
-                const definition = d.trim();
-                addToGlossary(term, definition);
-                // console.log("what");
-                return (
-                  // TODO: Tooltip
-                  <span className="text-purple-dark">
-                    {term}={definition}
-                  </span>
-                );
-              },
-            }}
-          >
-            {audioSkill.contentMarkdown}
-          </ReactMarkdown>
+          <RenderMarkdown
+            contentMarkdown={audioSkill.contentMarkdown}
+            addToGlossary={addToGlossary}
+          />
         </div>
       </div>
     </Wrapper>

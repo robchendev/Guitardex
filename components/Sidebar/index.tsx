@@ -27,7 +27,10 @@ const Sidebar = () => {
           Techniques
         </Button>
         <Button url="/a" path={path} icon={HiOutlineAdjustments}>
-          Audio
+          Audio Skills
+        </Button>
+        <Button url="/maintenance" path={path} icon={HiOutlineAdjustments}>
+          AudioMaint
         </Button>
         <Button url="/help" path={path} icon={HiOutlineQuestionMarkCircle}>
           Help
