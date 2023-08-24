@@ -25,25 +25,23 @@ const AudioSkill = ({ audioSkill }: { audioSkill: AudioSkill }) => {
 
   return (
     <Wrapper>
-      <div className="flex justify-center">
+      <div>
+        <ModuleHeader frontmatter={audioSkill} module="audioSkill" />
+        <div>Demo: {audioSkill.demo}</div>
         <div>
-          <ModuleHeader frontmatter={audioSkill} module="audioSkill" />
-          <div>Demo: {audioSkill.demo}</div>
-          <div>
-            <div>Glossary: </div>
-            <ul>
-              {glossary.map((item: GlossaryItem, index: number) => (
-                <li key={index}>
-                  {item.term}: {item.definition}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <RenderMarkdown
-            contentMarkdown={audioSkill.contentMarkdown}
-            addToGlossary={addToGlossary}
-          />
+          <div>Glossary: </div>
+          <ul>
+            {glossary.map((item: GlossaryItem, index: number) => (
+              <li key={index}>
+                {item.term}: {item.definition}
+              </li>
+            ))}
+          </ul>
         </div>
+        <RenderMarkdown
+          contentMarkdown={audioSkill.contentMarkdown}
+          addToGlossary={addToGlossary}
+        />
       </div>
     </Wrapper>
   );

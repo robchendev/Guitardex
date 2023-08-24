@@ -26,25 +26,20 @@ const Technique = ({ technique }: { technique: Technique }) => {
 
   return (
     <Wrapper>
-      <div className="flex justify-center">
+      <div>
+        <ModuleHeader frontmatter={technique} module="technique" />
+        <YoutubePlayer videoId={technique.demo} />
         <div>
-          <ModuleHeader frontmatter={technique} module="technique" />
-          <YoutubePlayer videoId={technique.demo} />
-          <div>
-            <div>Glossary: </div>
-            <ul>
-              {glossary.map((item: GlossaryItem, index: number) => (
-                <li key={index}>
-                  {item.term}: {item.definition}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <RenderMarkdown
-            contentMarkdown={technique.contentMarkdown}
-            addToGlossary={addToGlossary}
-          />
+          <div>Glossary: </div>
+          <ul>
+            {glossary.map((item: GlossaryItem, index: number) => (
+              <li key={index}>
+                {item.term}: {item.definition}
+              </li>
+            ))}
+          </ul>
         </div>
+        <RenderMarkdown contentMarkdown={technique.contentMarkdown} addToGlossary={addToGlossary} />
       </div>
     </Wrapper>
   );
