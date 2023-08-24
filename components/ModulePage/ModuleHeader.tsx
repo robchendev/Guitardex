@@ -21,7 +21,7 @@ const ModuleHeader = ({
       <div className="bg-bg-light px-4 py-2.5 rounded-lg mb-4">
         <HStack justifyContent="space-between">
           <div>
-            <h1 className="text-xl font-semibold tracking-wider">{frontmatter.name}</h1>
+            <h1 className="text-xl font-medium tracking-wider">{frontmatter.name}</h1>
             <p className="text-base">
               Required:{" "}
               {frontmatter.requirements.map((req: PreReq, index: number) => (

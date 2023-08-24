@@ -4,10 +4,7 @@ module.exports = {
   theme: {
     extend: {},
     fontFamily: {
-      signika: ["Signika Negative", "sans"],
-      poppins: ["Poppins", "sans"],
-      montserrat: ["Montserrat", "sans"],
-      outfit: ["Outfit", "sans"],
+      fredoka: ["Fredoka", "sans"],
     },
     colors: {
       text: {
@@ -57,6 +54,7 @@ module.exports = {
         dark: "rgb(45,45,45)",
       },
       white: "#FAFAFA",
+      whiteHard: "#fff",
       green: "#16A34A",
       yellow: "#F59E0B",
       red: "#E11D48",
