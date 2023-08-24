@@ -5,10 +5,11 @@ import ReactMarkdown from "react-markdown";
 import Image from "next/image";
 import Link from "next/link";
 import { GlossaryItem } from "../../../types";
-import { Technique } from "../../../types/dynamic/techniques";
+import { AudioSkill } from "../../../types/dynamic/audio";
 import { PreReq } from "../../../types/dynamic/common";
+import { getAllAudioSkillIds, getAudioSkillData } from "../../../lib/audioSkills";
 
-const Technique = ({ technique }: { technique: Technique }) => {
+const AudioSkill = ({ audioSkill }: { audioSkill: AudioSkill }) => {
   // console.log(technique);
   const [glossary, setGlossary] = useState<GlossaryItem[]>([]);
   const initialGlossary: GlossaryItem[] = [];
@@ -29,19 +30,19 @@ const Technique = ({ technique }: { technique: Technique }) => {
     <Wrapper title="Techniques">
       <div className="flex justify-center">
         <div>
-          <div>ID: {technique.id}</div>
-          <div>Title: {technique.name}</div>
+          <div>ID: {audioSkill.id}</div>
+          <div>Title: {audioSkill.name}</div>
           <div>
             PreReq:{" "}
-            {technique.requirements.map((req: PreReq, index: number) => (
+            {audioSkill.requirements.map((req: PreReq, index: number) => (
               <Link key={index} href={"/t/" + req.id}>
                 {req.name}
               </Link>
             ))}
           </div>
-          <div>Category: {technique.category}</div>
-          <div>Difficulty: {technique.difficulty}</div>
-          <div>Demo: {technique.demo}</div>
+          <div>Category: {audioSkill.category}</div>
+          <div>Difficulty: {audioSkill.difficulty}</div>
+          <div>Demo: {audioSkill.demo}</div>
           <div>
             <div>Glossary: </div>
             <ul>
@@ -63,7 +64,7 @@ const Technique = ({ technique }: { technique: Technique }) => {
                     return (
                       <Image
                         src={props.src ?? ""}
-                        alt={technique?.name + " tab"}
+                        alt={audioSkill?.name + " tab"}
                         // TODO: Need a suitable blur image placeholder
                         // placeholder="blur"
                         // blurDataURL={props.src}
@@ -80,6 +81,7 @@ const Technique = ({ technique }: { technique: Technique }) => {
                 const term = t.trim();
                 const definition = d.trim();
                 addToGlossary(term, definition);
+                // console.log("what");
                 return (
                   // TODO: Tooltip
                   <span className="text-purple-dark">
@@ -89,7 +91,7 @@ const Technique = ({ technique }: { technique: Technique }) => {
               },
             }}
           >
-            {technique.contentMarkdown}
+            {audioSkill.contentMarkdown}
           </ReactMarkdown>
         </div>
       </div>
@@ -99,7 +101,7 @@ const Technique = ({ technique }: { technique: Technique }) => {
 
 export async function getStaticPaths() {
   // Return a list of possible values for id
-  const paths = getAllTechniqueIds();
+  const paths = getAllAudioSkillIds();
   return {
     paths,
     fallback: false,
@@ -108,12 +110,12 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   // Fetch necessary data using params.id
-  const technique = await getTechniqueData(params.id);
+  const audioSkill = await getAudioSkillData(params.id);
   return {
     props: {
-      technique,
+      audioSkill,
     },
   };
 }
 
-export default Technique;
+export default AudioSkill;

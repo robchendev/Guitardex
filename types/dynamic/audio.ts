@@ -1,14 +1,14 @@
 import { Difficulty, PreReq } from "./common";
 
-export type TechniqueFrontMatter = {
+export type AudioSkillFrontMatter = {
   name: string;
   id: number;
   requirements: PreReq[];
-  category: "basics" | "percussion" | "utility" | "articulation";
+  category: "general" | "recording" | "mixing" | "mastering";
   difficulty: Difficulty;
   demo: string;
 };
 
-export type Technique = TechniqueFrontMatter & {
+export type AudioSkill = AudioSkillFrontMatter & {
   contentMarkdown: string;
 };

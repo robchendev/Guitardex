@@ -1,18 +1,19 @@
 import { Select, VStack } from "@chakra-ui/react";
 import Link from "next/link";
 import React, { useState } from "react";
-import TechniqueItem from "../../components/ModuleList/TechniqueItem";
 import Wrapper from "../../components/Wrapper";
-import { getAllTechniqueFrontMatter } from "../../lib/techniques";
-import { Technique, TechniqueFrontMatter } from "../../types/dynamic/techniques";
+import { AudioSkill, AudioSkillFrontMatter } from "../../types/dynamic/audio";
+import { getAllAudioSkillsFrontMatter } from "../../lib/audioSkills";
+import AudioSkillItem from "../../components/ModuleList/AudioSkillItem";
 
-const Index = ({ techniques }: { techniques: Technique[] }) => {
+const Index = ({ audioSkills }: { audioSkills: AudioSkill[] }) => {
+  console.log(audioSkills);
   // console.log(techniques);
   // const [difficulty, setDifficulty] = useState("any");
   // const [category, setCategory] = useState("any");
 
   return (
-    <Wrapper title="Techniques">
+    <Wrapper title="Audio Skills">
       {/* Difficulty:
       <Select
         placeholder="Select option"
@@ -36,8 +37,8 @@ const Index = ({ techniques }: { techniques: Technique[] }) => {
         <option value="percussion">percussion</option>
       </Select> */}
       <div className="w-full flex flex-col content-between space-y-3">
-        {techniques.map((technique: TechniqueFrontMatter, index: number) => (
-          <TechniqueItem key={index} technique={technique} />
+        {audioSkills.map((audioSkill: AudioSkillFrontMatter, index: number) => (
+          <AudioSkillItem key={index} audioSkill={audioSkill} />
         ))}
       </div>
     </Wrapper>
@@ -45,13 +46,13 @@ const Index = ({ techniques }: { techniques: Technique[] }) => {
 };
 
 export async function getStaticProps() {
-  const techniques = getAllTechniqueFrontMatter();
-  const techniquesSorted = techniques.sort((a: Technique, b: Technique) =>
+  const audioSkills = getAllAudioSkillsFrontMatter();
+  const audioSkillsSorted = audioSkills.sort((a: AudioSkill, b: AudioSkill) =>
     a.name > b.name ? 1 : -1
   );
   return {
     props: {
-      techniques: techniquesSorted,
+      audioSkills: audioSkillsSorted,
     },
   };
 }
