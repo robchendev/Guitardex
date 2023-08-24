@@ -46,12 +46,21 @@ const Index = ({ techniques }: { techniques: Technique[] }) => {
 
 export async function getStaticProps() {
   const techniques = getAllTechniqueFrontMatter();
-  const techniquesSorted = techniques.sort((a: Technique, b: Technique) =>
-    a.name > b.name ? 1 : -1
-  );
+  const basics = techniques
+    .filter((technique: Technique) => technique.category === "basics")
+    .sort((a: Technique, b: Technique) => (a.name > b.name ? 1 : -1));
+  const articulation = techniques
+    .filter((technique: Technique) => technique.category === "articulation")
+    .sort((a: Technique, b: Technique) => (a.name > b.name ? 1 : -1));
+  const percussion = techniques
+    .filter((technique: Technique) => technique.category === "percussion")
+    .sort((a: Technique, b: Technique) => (a.name > b.name ? 1 : -1));
+  const utility = techniques
+    .filter((technique: Technique) => technique.category === "utility")
+    .sort((a: Technique, b: Technique) => (a.name > b.name ? 1 : -1));
   return {
     props: {
-      techniques: techniquesSorted,
+      techniques: [...basics, ...articulation, ...utility, ...percussion],
     },
   };
 }

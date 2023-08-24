@@ -1,7 +1,7 @@
 ---
 id: 0
-name: Example
-category: General
+name: 0_Example
+category: general
 difficulty: easy
 requirements: []
 demo: https://youtube.com

@@ -8,7 +8,7 @@ import AudioSkillItem from "../../components/ModuleList/AudioSkillItem";
 
 const Index = ({ audioSkills }: { audioSkills: AudioSkill[] }) => {
   console.log(audioSkills);
-  // console.log(techniques);
+  // console.log(audioSkills);
   // const [difficulty, setDifficulty] = useState("any");
   // const [category, setCategory] = useState("any");
 
@@ -47,12 +47,21 @@ const Index = ({ audioSkills }: { audioSkills: AudioSkill[] }) => {
 
 export async function getStaticProps() {
   const audioSkills = getAllAudioSkillsFrontMatter();
-  const audioSkillsSorted = audioSkills.sort((a: AudioSkill, b: AudioSkill) =>
-    a.name > b.name ? 1 : -1
-  );
+  const general = audioSkills
+    .filter((audioSkill: AudioSkill) => audioSkill.category === "general")
+    .sort((a: AudioSkill, b: AudioSkill) => (a.name > b.name ? 1 : -1));
+  const recording = audioSkills
+    .filter((audioSkill: AudioSkill) => audioSkill.category === "recording")
+    .sort((a: AudioSkill, b: AudioSkill) => (a.name > b.name ? 1 : -1));
+  const mixing = audioSkills
+    .filter((audioSkill: AudioSkill) => audioSkill.category === "mixing")
+    .sort((a: AudioSkill, b: AudioSkill) => (a.name > b.name ? 1 : -1));
+  const mastering = audioSkills
+    .filter((audioSkill: AudioSkill) => audioSkill.category === "mastering")
+    .sort((a: AudioSkill, b: AudioSkill) => (a.name > b.name ? 1 : -1));
   return {
     props: {
-      audioSkills: audioSkillsSorted,
+      audioSkills: [...general, ...recording, ...mixing, ...mastering],
     },
   };
 }

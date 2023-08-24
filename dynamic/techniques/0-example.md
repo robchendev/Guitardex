@@ -1,8 +1,8 @@
 ---
-id:
-name:
-category:
-difficulty:
+id: 0
+name: 0_Example
+category: basics
+difficulty: easy
 requirements: []
 demo:
 ---
