@@ -9,6 +9,7 @@ import { AudioSkill } from "../../../types/dynamic/audio";
 import { PreReq } from "../../../types/dynamic/common";
 import { getAllAudioSkillIds, getAudioSkillData } from "../../../lib/audioSkills";
 import RenderMarkdown from "../../../components/ModulePage/RenderMarkdown";
+import ModuleHeader from "../../../components/ModulePage/ModuleHeader";
 
 const AudioSkill = ({ audioSkill }: { audioSkill: AudioSkill }) => {
   // console.log(technique);
@@ -28,21 +29,10 @@ const AudioSkill = ({ audioSkill }: { audioSkill: AudioSkill }) => {
   }, []);
 
   return (
-    <Wrapper title="Techniques">
+    <Wrapper>
       <div className="flex justify-center">
         <div>
-          <div>ID: {audioSkill.id}</div>
-          <div>Title: {audioSkill.name}</div>
-          <div>
-            PreReq:{" "}
-            {audioSkill.requirements.map((req: PreReq, index: number) => (
-              <Link key={index} href={"/t/" + req.id}>
-                {req.name}
-              </Link>
-            ))}
-          </div>
-          <div>Category: {audioSkill.category}</div>
-          <div>Difficulty: {audioSkill.difficulty}</div>
+          <ModuleHeader frontmatter={audioSkill} />
           <div>Demo: {audioSkill.demo}</div>
           <div>
             <div>Glossary: </div>

@@ -8,6 +8,7 @@ import { GlossaryItem } from "../../../types";
 import { Technique } from "../../../types/dynamic/techniques";
 import { PreReq } from "../../../types/dynamic/common";
 import RenderMarkdown from "../../../components/ModulePage/RenderMarkdown";
+import ModuleHeader from "../../../components/ModulePage/ModuleHeader";
 
 const Technique = ({ technique }: { technique: Technique }) => {
   // console.log(technique);
@@ -27,21 +28,10 @@ const Technique = ({ technique }: { technique: Technique }) => {
   }, []);
 
   return (
-    <Wrapper title="Techniques">
+    <Wrapper>
       <div className="flex justify-center">
         <div>
-          <div>ID: {technique.id}</div>
-          <div>Title: {technique.name}</div>
-          <div>
-            PreReq:{" "}
-            {technique.requirements.map((req: PreReq, index: number) => (
-              <Link key={index} href={"/t/" + req.id}>
-                {req.name}
-              </Link>
-            ))}
-          </div>
-          <div>Category: {technique.category}</div>
-          <div>Difficulty: {technique.difficulty}</div>
+          <ModuleHeader frontmatter={technique} />
           <div>Demo: {technique.demo}</div>
           <div>
             <div>Glossary: </div>
