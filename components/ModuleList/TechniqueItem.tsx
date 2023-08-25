@@ -1,4 +1,4 @@
-import { HStack } from "@chakra-ui/react";
+import { HStack, Text } from "@chakra-ui/react";
 import Link from "next/link";
 import React, { useState } from "react";
 import { TechniqueFrontMatter } from "../../types/dynamic/techniques";
@@ -13,7 +13,9 @@ const TechniqueItem = ({ technique }: { technique: TechniqueFrontMatter }) => {
         <HStack justifyContent="space-between" align="stretch">
           <div className="px-3.5 py-2">
             <div>
-              <h2 className="font-medium">{technique.name}</h2>
+              <Text as="h1" noOfLines={1} className="font-medium">
+                {technique.name}
+              </Text>
               <div>
                 <HStack spacing={1}>
                   <Difficulty value={technique.difficulty} />
@@ -22,7 +24,9 @@ const TechniqueItem = ({ technique }: { technique: TechniqueFrontMatter }) => {
               </div>
             </div>
           </div>
-          <SaveButton id={technique.id} module="technique" isGhost />
+          <div>
+            <SaveButton id={technique.id} module="technique" isGhost />
+          </div>
         </HStack>
       </div>
     </Link>

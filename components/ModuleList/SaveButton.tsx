@@ -135,7 +135,7 @@ const SaveButton = ({
   if (isGhost) {
     return (
       <div
-        className={`w-16 flex justify-center items-center cursor-pointer group ${
+        className={`w-16 h-full flex justify-center items-center cursor-pointer group ${
           saved
             ? "text-2xl hover:text-greyChecked-light text-purple"
             : "text-3xl text-greyChecked-light hover:text-purple"

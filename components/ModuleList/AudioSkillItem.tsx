@@ -1,4 +1,4 @@
-import { HStack } from "@chakra-ui/react";
+import { HStack, Text } from "@chakra-ui/react";
 import Link from "next/link";
 import React from "react";
 import { AudioSkillFrontMatter } from "../../types/dynamic/audio";
@@ -13,7 +13,9 @@ const AudioSkillItem = ({ audioSkill }: { audioSkill: AudioSkillFrontMatter }) =
         <HStack justifyContent="space-between" align="stretch">
           <div className="px-3.5 py-2">
             <div>
-              <h2 className="font-medium">{audioSkill.name}</h2>
+              <Text as="h1" noOfLines={1} className="font-medium">
+                {audioSkill.name}
+              </Text>
               <div>
                 <HStack spacing={1}>
                   <Difficulty value={audioSkill.difficulty} />
