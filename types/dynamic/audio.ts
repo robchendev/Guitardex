@@ -1,10 +1,10 @@
-import { Difficulty, PreReq } from "./common";
+import { Category, Difficulty, PreReq } from "./common";
 
 export type AudioSkillFrontMatter = {
   name: string;
   id: number;
   requirements: PreReq[];
-  category: "general" | "recording" | "mixing" | "mastering";
+  category: Category;
   difficulty: Difficulty;
   demo: string;
 };

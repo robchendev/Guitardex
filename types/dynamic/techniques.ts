@@ -1,10 +1,10 @@
-import { Difficulty, PreReq } from "./common";
+import { Category, Difficulty, PreReq } from "./common";
 
 export type TechniqueFrontMatter = {
   name: string;
   id: number;
   requirements: PreReq[];
-  category: "basics" | "percussion" | "harmonics" | "utility" | "articulation";
+  category: Category;
   difficulty: Difficulty;
   demo: string;
 };

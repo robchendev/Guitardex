@@ -1,6 +1,7 @@
 import { Select, VStack } from "@chakra-ui/react";
 import Link from "next/link";
 import React, { useState } from "react";
+import SearchBar from "../../components/ModuleList/SearchBar";
 import TechniqueItem from "../../components/ModuleList/TechniqueItem";
 import Wrapper from "../../components/Wrapper";
 import { getAllTechniqueFrontMatter } from "../../lib/techniques";
@@ -10,7 +11,8 @@ const Index = ({ techniques }: { techniques: Technique[] }) => {
   // console.log(techniques);
   // const [difficulty, setDifficulty] = useState("any");
   // const [category, setCategory] = useState("any");
-
+  const [search, setSearch] = useState("");
+  const [filter, setFilter] = useState(techniques);
   return (
     <Wrapper title="Techniques">
       {/* Difficulty:
@@ -35,8 +37,14 @@ const Index = ({ techniques }: { techniques: Technique[] }) => {
         <option value="basics">basics</option>
         <option value="percussion">percussion</option>
       </Select> */}
+      <SearchBar
+        list={techniques}
+        search={search}
+        setFilter={(newFilter: Technique[]) => setFilter(newFilter)}
+        setSearch={setSearch}
+      />
       <VStack w="full" spacing={1.5}>
-        {techniques.map((technique: TechniqueFrontMatter, index: number) => (
+        {filter.map((technique: TechniqueFrontMatter, index: number) => (
           <TechniqueItem key={index} technique={technique} />
         ))}
       </VStack>
