@@ -3,7 +3,15 @@ import { ImCheckmark } from "react-icons/im";
 import { BiSave } from "react-icons/bi";
 import { Module } from "../../types/dynamic/common";
 
-const SaveButton = ({ id, module }: { id: number; module: Module }) => {
+const SaveButton = ({
+  id,
+  module,
+  isGhost = false,
+}: {
+  id: number;
+  module: Module;
+  isGhost?: boolean;
+}) => {
   const [saved, setSaved] = useState(false);
 
   const onSave = (e: any) => {
@@ -11,9 +19,29 @@ const SaveButton = ({ id, module }: { id: number; module: Module }) => {
     setSaved(!saved);
   };
 
-  // TODO: Lots of todo, also make sure the module can be differentiated
+  if (isGhost) {
+    return (
+      <div
+        className={`w-16 flex justify-center items-center cursor-pointer group ${
+          saved
+            ? "text-2xl hover:text-greyChecked-light text-purple"
+            : "text-3xl text-greyChecked-light hover:text-purple"
+        }`}
+        onClick={onSave}
+      >
+        {saved ? <ImCheckmark /> : <BiSave />}
+      </div>
+    );
+  }
   return (
-    <div className="p-4 bg-grey-dark" onClick={onSave}>
+    <div
+      className={`w-14 h-14 flex justify-center items-center border-2 border-grey-light bg-white rounded-md cursor-pointer group ${
+        saved
+          ? "text-2xl hover:text-greyChecked-light text-purple"
+          : "text-3xl text-greyChecked-light hover:text-purple"
+      }`}
+      onClick={onSave}
+    >
       {saved ? <ImCheckmark /> : <BiSave />}
     </div>
   );

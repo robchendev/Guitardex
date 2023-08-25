@@ -8,23 +8,23 @@ import SaveButton from "./SaveButton";
 
 const AudioSkillItem = ({ audioSkill }: { audioSkill: AudioSkillFrontMatter }) => {
   return (
-    <Link
-      className="bg-bg-light px-3.5 py-2 rounded-md"
-      href={"/a/" + audioSkill.id}
-      key={audioSkill.id}
-    >
-      <HStack justifyContent="space-between">
-        <div>
-          {audioSkill.name}
-          <div>
-            <HStack spacing={1}>
-              <Difficulty value={audioSkill.difficulty} />
-              <Category value={audioSkill.category} />
-            </HStack>
+    <Link className="w-full hover:text-text-light group" href={"/t/" + audioSkill.id}>
+      <div className={"bg-bg-light rounded-md duration-200 group-hover:ml-3"}>
+        <HStack justifyContent="space-between" align="stretch">
+          <div className="px-3.5 py-2">
+            <div>
+              <h2 className="font-medium">{audioSkill.name}</h2>
+              <div>
+                <HStack spacing={1}>
+                  <Difficulty value={audioSkill.difficulty} />
+                  <Category value={audioSkill.category} />
+                </HStack>
+              </div>
+            </div>
           </div>
-        </div>
-        <SaveButton id={audioSkill.id} module="audioSkill" />
-      </HStack>
+          <SaveButton id={audioSkill.id} module="audioSkill" isGhost />
+        </HStack>
+      </div>
     </Link>
   );
 };

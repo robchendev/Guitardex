@@ -35,11 +35,11 @@ const Index = ({ techniques }: { techniques: Technique[] }) => {
         <option value="basics">basics</option>
         <option value="percussion">percussion</option>
       </Select> */}
-      <div className="w-full flex flex-col content-between space-y-3">
+      <VStack w="full" spacing={1.5}>
         {techniques.map((technique: TechniqueFrontMatter, index: number) => (
           <TechniqueItem key={index} technique={technique} />
         ))}
-      </div>
+      </VStack>
     </Wrapper>
   );
 };

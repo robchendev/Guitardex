@@ -36,11 +36,11 @@ const Index = ({ audioSkills }: { audioSkills: AudioSkill[] }) => {
         <option value="basics">basics</option>
         <option value="percussion">percussion</option>
       </Select> */}
-      <div className="w-full flex flex-col content-between space-y-3">
+      <VStack w="full" spacing={1.5}>
         {audioSkills.map((audioSkill: AudioSkillFrontMatter, index: number) => (
           <AudioSkillItem key={index} audioSkill={audioSkill} />
         ))}
-      </div>
+      </VStack>
     </Wrapper>
   );
 };

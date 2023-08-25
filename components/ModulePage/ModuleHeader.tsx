@@ -33,6 +33,7 @@ const ModuleHeader = ({
                   {req.name}
                 </Link>
               ))}
+              {!frontmatter.requirements.length && "None"}
             </p>
             <HStack spacing={1}>
               <Difficulty value={frontmatter.difficulty} />
