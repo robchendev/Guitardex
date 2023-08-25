@@ -6,6 +6,7 @@ import { Technique } from "../../../types/dynamic/techniques";
 import RenderMarkdown from "../../../components/ModulePage/RenderMarkdown";
 import ModuleHeader from "../../../components/ModulePage/ModuleHeader";
 import YoutubePlayer from "../../../components/ModulePage/YoutubePlayer";
+import Glossary from "../../../components/ModulePage/Glossary";
 
 const Technique = ({ technique }: { technique: Technique }) => {
   // console.log(technique);
@@ -28,17 +29,8 @@ const Technique = ({ technique }: { technique: Technique }) => {
     <Wrapper>
       <div>
         <ModuleHeader frontmatter={technique} module="technique" />
+        <Glossary glossary={glossary} />
         <YoutubePlayer videoId={technique.demo} />
-        <div>
-          <div>Glossary: </div>
-          <ul>
-            {glossary.map((item: GlossaryItem, index: number) => (
-              <li key={index}>
-                {item.term}: {item.definition}
-              </li>
-            ))}
-          </ul>
-        </div>
         <RenderMarkdown contentMarkdown={technique.contentMarkdown} addToGlossary={addToGlossary} />
       </div>
     </Wrapper>

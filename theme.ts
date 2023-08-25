@@ -12,29 +12,29 @@ const Button: ComponentStyleConfig = {
   },
 };
 
-const { defineMultiStyleConfig: accordionConfig } = createMultiStyleConfigHelpers(
-  accordionAnatomy.keys
-);
+// const { defineMultiStyleConfig: accordionConfig } = createMultiStyleConfigHelpers(
+//   accordionAnatomy.keys
+// );
 
-const accordionTheme = accordionConfig({
-  baseStyle: {
-    container: {
-      bgColor: "#232323",
-      borderRadius: "md",
-      border: "none",
-    },
-    button: {
-      px: "4",
-      py: "3",
-    },
-  },
-});
+// const accordionTheme = accordionConfig({
+//   baseStyle: {
+//     container: {
+//       bgColor: "#232323",
+//       borderRadius: "md",
+//       border: "none",
+//     },
+//     button: {
+//       px: "4",
+//       py: "3",
+//     },
+//   },
+// });
 
 // use this file to define/inject custom theme
 const theme = {
   components: {
     Button,
-    Accordion: accordionTheme,
+    // Accordion: accordionTheme,
   },
   breakpoints: {
     md: "768px",
