@@ -4,7 +4,7 @@ import Wrapper from "../components/Wrapper";
 
 const Index: NextPage = () => {
   return (
-    <Wrapper title="Guitardex V2" hasFooter={false}>
+    <Wrapper title="Guitardex V2">
       <div>TODO</div>
     </Wrapper>
   );
