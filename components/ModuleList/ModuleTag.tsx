@@ -3,7 +3,12 @@ import { Module } from "../../types/dynamic/common";
 import ColorTag from "./ColorTag";
 
 const ModuleTag = ({ module }: { module: Module }) => {
-  return <ColorTag className="bg-purple">{module}</ColorTag>;
+  switch (module) {
+    case "technique":
+      return <ColorTag className="bg-purple">technique</ColorTag>;
+    case "audioSkill":
+      return <ColorTag className="bg-purple">audio</ColorTag>;
+  }
 };
 
 export default ModuleTag;

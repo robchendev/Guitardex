@@ -10,8 +10,9 @@ const Difficulty = ({ value }: { value: Difficulty }) => {
       return <ColorTag className="bg-yellow">med</ColorTag>;
     case "hard":
       return <ColorTag className="bg-red">hard</ColorTag>;
+    default:
+      return <span>Difficulty</span>;
   }
-  return <span>Difficulty</span>;
 };
 
 export default Difficulty;

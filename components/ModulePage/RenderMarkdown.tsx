@@ -1,4 +1,3 @@
-import Link from "next/link";
 import React from "react";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import A from "../Typography/A";
