@@ -41,6 +41,7 @@
     "react-lite-yt-embed": "^1.2.7",
     "react-markdown": "^8.0.7",
     "react-svg": "^16.1.6",
+    "react-tooltip": "^5.21.1",
     "react-virtuoso": "^4.1.0",
     "remark": "^14.0.3",
     "remark-html": "^15.0.2",

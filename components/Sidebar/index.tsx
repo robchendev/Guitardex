@@ -29,9 +29,9 @@ const Sidebar = () => {
         <Button url="/a" path={path} icon={HiOutlineAdjustments}>
           Audio Production
         </Button>
-        <Button url="/maintenance" path={path} icon={HiOutlineAdjustments}>
+        {/* <Button url="/maintenance" path={path} icon={HiOutlineAdjustments}>
           Audio Production
-        </Button>
+        </Button> */}
         <Button url="/help" path={path} icon={HiOutlineQuestionMarkCircle}>
           Help
         </Button>

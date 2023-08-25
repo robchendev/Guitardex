@@ -7,7 +7,7 @@ export type Log = {
 
 export const changeLog: Log[] = [
   {
-    version: "2.4",
+    version: "2.3",
     title: "Audio Skills Library Content",
     date: "??? ?, 2023",
     changes: [
@@ -15,7 +15,7 @@ export const changeLog: Log[] = [
     ],
   },
   {
-    version: "2.3",
+    version: "2.2",
     title: "Audio Skills Library List",
     date: "??? ?, 2023",
     changes: [
@@ -25,7 +25,7 @@ export const changeLog: Log[] = [
     ],
   },
   {
-    version: "2.2",
+    version: "2.1",
     title: "Contact Form + Report Problem Form",
     date: "??? ?, 2023",
     changes: [

@@ -54,6 +54,30 @@ a:hover {
   box-sizing: border-box;
 }
 
+.ttLight {
+  padding: 3px 5px !important;
+  line-height: 1.25em;
+  background-color: rgba(139, 92, 246, 0.3);
+  color: #f1f5f9;
+  opacity: 1 !important;
+  font-size: 1rem;
+  max-width: 13em;
+  text-align: center;
+  transition: none;
+}
+
+.ttDark {
+  padding: 3px 5px !important;
+  line-height: 1.25em;
+  background-color: rgba(139, 92, 246, 0.3);
+  color: #2d2d2d;
+  opacity: 1 !important;
+  font-size: 1rem;
+  max-width: 13em;
+  text-align: center;
+  transition: none;
+}
+
 input,
 select,
 textarea {

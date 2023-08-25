@@ -1,4 +1,5 @@
 import React from "react";
+import { Tooltip } from "react-tooltip";
 
 const GlossaryItem = ({
   item = "",
@@ -12,9 +13,22 @@ const GlossaryItem = ({
   const definition = d.trim();
   addToGlossary(term, definition);
   return (
-    // TODO: Tooltip
-    <span className="text-green">
-      {term}={definition}
+    <span className="">
+      <Tooltip
+        id="my-tooltip"
+        className="transition-none duration-0 ttLight"
+        offset={0}
+        noArrow={true}
+        closeOnScroll={false}
+        closeOnResize={false}
+      />
+      <a
+        data-tooltip-id="my-tooltip"
+        data-tooltip-content={definition}
+        className="border-b-2 pb-px border-purple hover:text-text-light hover:bg-tooltip-light"
+      >
+        {term}
+      </a>
     </span>
   );
 };

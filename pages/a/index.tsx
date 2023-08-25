@@ -14,7 +14,7 @@ const Index = ({ audioSkills }: { audioSkills: AudioSkill[] }) => {
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState(audioSkills);
   return (
-    <Wrapper title="Audio Skills">
+    <Wrapper title="Audio Production">
       {/* Difficulty:
       <Select
         placeholder="Select option"
