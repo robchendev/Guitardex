@@ -40,7 +40,7 @@ const Wrapper = ({ children, title }: { children: React.ReactNode; title?: strin
           </div>
           <div className="w-3/4">
             <div className="h-full ml-8">
-              {title && <h1>{title}</h1>}
+              {title && <PageTitle title={title} />}
               {children}
             </div>
           </div>
