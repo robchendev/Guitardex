@@ -8,7 +8,6 @@ import AudioSkillItem from "../../components/ModuleList/AudioSkillItem";
 import SearchBar from "../../components/ModuleList/SearchBar";
 
 const Index = ({ audioSkills }: { audioSkills: AudioSkill[] }) => {
-  console.log(audioSkills);
   // console.log(audioSkills);
   // const [difficulty, setDifficulty] = useState("any");
   // const [category, setCategory] = useState("any");
