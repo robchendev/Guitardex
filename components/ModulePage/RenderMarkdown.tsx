@@ -1,6 +1,10 @@
 import Link from "next/link";
 import React from "react";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
+import A from "../Typography/A";
+import H3 from "../Typography/H3";
+import H4 from "../Typography/H4";
+import P from "../Typography/P";
 import AudioPlayer from "./AudioPlayer";
 import GlossaryItem from "./GlossaryItem";
 import TabImage from "./TabImage";
@@ -29,33 +33,10 @@ const RenderMarkdown = ({
         code: (props) => (
           <GlossaryItem item={props.children[0] as string} addToGlossary={addToGlossary} />
         ),
-        h3: (props) => (
-          <h3 className="mt-4 mb-2 text-xl font-semibold tracking-wider">{props.children}</h3>
-        ),
-        h4: (props) => (
-          <h4 className="mt-4 mb-2 text-lg font-semibold tracking-wider">{props.children}</h4>
-        ),
-        p: (props) => <p className="text-base pb-2 last:pb-0">{props.children}</p>,
-        a: (props) => {
-          if (props.href?.startsWith("http")) {
-            return (
-              <a
-                href={props.href}
-                className="text-base text-purple hover:bg-purple transition-none"
-              >
-                {props.children}
-              </a>
-            );
-          }
-          return (
-            <Link
-              href={props.href as string}
-              className="text-base text-purple hover:bg-purple transition-none"
-            >
-              {props.children}
-            </Link>
-          );
-        },
+        h3: (props) => <H3 text={props.children} />,
+        h4: (props) => <H4 text={props.children} />,
+        p: (props) => <P text={props.children} />,
+        a: (props) => <A text={props.children} href={props.href} />,
       }}
     >
       {contentMarkdown}
