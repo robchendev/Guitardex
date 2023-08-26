@@ -36,6 +36,7 @@ const RenderMarkdown = ({
         h4: (props) => <H4 text={props.children} />,
         p: (props) => <P text={props.children} />,
         a: (props) => <A text={props.children} href={props.href} />,
+        li: (props) => <li className="list-disc ml-4 mb-2">{props.children}</li>,
       }}
     >
       {contentMarkdown}
