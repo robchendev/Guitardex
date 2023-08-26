@@ -13,6 +13,11 @@ export type Credit = {
   links: CreditLink[];
 };
 
+export type CreditExternal = {
+  name: string;
+  contribution: string;
+};
+
 export const mainCredits: Credit[] = [
   {
     name: "Robert Chen",
@@ -108,4 +113,15 @@ export const mainCredits: Credit[] = [
   //     },
   //   ],
   // },
+];
+
+export const externalCredit: CreditExternal[] = [
+  {
+    name: "Sample",
+    contribution: "Found bug lore ipsum dolor cant eat bugs kek line line line mo",
+  },
+  {
+    name: "Sample",
+    contribution: "Found bug lore ipsum dolor cant eat bugs kek line line line m",
+  },
 ];

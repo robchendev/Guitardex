@@ -6,7 +6,6 @@ import MainCredit from "../components/MainCredit";
 import { ILiteYouTubeEmbedProps } from "../components/ModulePage/YoutubePlayer";
 import A from "../components/Typography/A";
 import H3 from "../components/Typography/H3";
-import H4 from "../components/Typography/H4";
 import P from "../components/Typography/P";
 import Wrapper from "../components/Wrapper";
 import { Credit, mainCredits } from "../config/credits";
@@ -20,7 +19,7 @@ export const LiteYoutubeEmbed = dynamic<ILiteYouTubeEmbedProps>(
 const About = () => {
   return (
     <Wrapper title="About">
-      <div className="w-full [&>div]:rounded-lg">
+      <div className="w-full [&>div]:rounded-lg mb-6">
         <LiteYoutubeEmbed
           id="ef2ZcJt0EaU"
           isMobile={true}

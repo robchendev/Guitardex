@@ -36,7 +36,7 @@ const Sidebar = () => {
           Help
         </Button>
         <Divider />
-        <Button url="about" path={path} icon={HiOutlineUserGroup}>
+        <Button url="/about" path={path} icon={HiOutlineUserGroup}>
           About
         </Button>
         <Button url="/dev" path={path} icon={HiOutlineDatabase}>
