@@ -1,13 +1,13 @@
 import React from "react";
 import dynamic from "next/dynamic";
-const LiteYoutubeEmbed = dynamic<ILiteYouTubeEmbedProps>(
+export const LiteYoutubeEmbed = dynamic<ILiteYouTubeEmbedProps>(
   () => import("react-lite-yt-embed").then((module) => module.LiteYoutubeEmbed),
   {
     ssr: false,
   }
 );
 
-interface ILiteYouTubeEmbedProps {
+export interface ILiteYouTubeEmbedProps {
   id: string;
   adLinksPreconnect?: boolean;
   defaultPlay?: boolean;
