@@ -13,7 +13,7 @@ const GlossaryItem = ({
   const definition = d.trim();
   addToGlossary(term, definition);
   return (
-    <span className="">
+    <span>
       <Tooltip
         id="my-tooltip"
         className="transition-none duration-0 ttLight"
