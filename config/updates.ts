@@ -20,7 +20,7 @@ export const changeLog: Log[] = [
     date: "??? ?, 2023",
     changes: [
       "Added Audio Production library page, populated with a list of planned modules.",
-      "Although this library is not yet, users can see a list of the modules in Audio Production and save it to their Guitardex for future access.",
+      "Although this library is not released yet, users can see a list of the modules in Audio Production and save it to their Guitardex for future access.",
       "Added survey link to the Audio Production library page for users to request specific topics not yet shown in the list of planned modules.",
     ],
   },
@@ -29,7 +29,7 @@ export const changeLog: Log[] = [
     title: "Contact Form + Report Problem Form",
     date: "??? ?, 2023",
     changes: [
-      "Contact form added.",
+      "Added a contact form page.",
       "A link has been added to the bottom of each module for users to report errors via a partially-filled contact form.",
     ],
   },
