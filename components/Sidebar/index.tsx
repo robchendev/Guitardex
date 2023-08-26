@@ -13,6 +13,7 @@ import {
   HiOutlineAdjustments,
 } from "react-icons/hi";
 import { FiMoon, FiSun } from "react-icons/fi";
+import { changeLog } from "../../config/updates";
 
 const Sidebar = () => {
   const path = useRouter().pathname;
@@ -40,7 +41,7 @@ const Sidebar = () => {
           About
         </Button>
         <Button url="/dev" path={path} icon={HiOutlineDatabase}>
-          Updates
+          Updates (v{changeLog[0].version})
         </Button>
         <Button url="/nope" path={path} icon={HiOutlineCurrencyDollar} isExternal>
           Donate
