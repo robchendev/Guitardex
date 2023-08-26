@@ -16,10 +16,10 @@ export const changeLog: Log[] = [
   },
   {
     version: "1.9",
-    title: "Audio Production Module Testing",
+    title: "Audio Production Module Test",
     date: "??? ?, 2023",
     changes: [
-      "Audio Production Library features tested by a select group of volunteer end-user testers in a sample Audio Production module.",
+      "Features specific to the Audio Production Library are launched to a select group of volunteer users to test on a sample Audio Production module.",
     ],
   },
   {
@@ -31,6 +31,7 @@ export const changeLog: Log[] = [
       "Reduced flash of unstyled content caused by inefficient dynamically generated content.",
     ],
   },
+
   {
     version: "1.7",
     title: "Re: Dark Mode",
@@ -39,20 +40,19 @@ export const changeLog: Log[] = [
   },
   {
     version: "1.6",
+    title: "Library Glossary",
+    date: "??? ?, 2023",
+    changes: [
+      "Terms and definitions in every module within a library will be scanned when building production packages server-side and shown in a glossary at the top of the library list.",
+    ],
+  },
+  {
+    version: "1.5",
     title: "Contact Form + Report Problem Form",
     date: "??? ?, 2023",
     changes: [
       "Added a contact form page.",
       "A link has been added to the bottom of each module for users to report errors via a partially-filled contact form.",
-    ],
-  },
-  {
-    version: "1.5",
-    title: "Multiple Libraries",
-    date: "August ??, 2023",
-    changes: [
-      "Saving functionality for multiple libraries (Techniques, Audio Production) added.",
-      "New dex linking URL usage for multiple libraries, backwards compatible with v1.0 (URL querie strings without t= and a= will default to techniques).",
     ],
   },
   {
@@ -67,17 +67,20 @@ export const changeLog: Log[] = [
   },
   {
     version: "1.3",
-    title: "Module Continuation Upgrade",
+    title: "Multiple Libraries",
     date: "August ??, 2023",
     changes: [
-      "The 'Continue Learning' section in each module now also shows the links for the other techniques that the continuation requires.",
+      "Saving functionality for multiple libraries (Techniques, Audio Production) added.",
+      "New dex linking URL usage for multiple libraries, backwards compatible with v1.0 (URL query strings without t= and a= will default to techniques).",
     ],
   },
   {
     version: "1.2",
     title: "Module Glossary",
     date: "August ??, 2023",
-    changes: ["Terms and defintions will be scanned upon page load and shown in a glossary."],
+    changes: [
+      "Terms and definitions will be scanned when building production packages server-side and shown in a glossary at the top of the module page.",
+    ],
   },
   {
     version: "1.1",
@@ -98,7 +101,7 @@ export const changeLog: Log[] = [
   },
   {
     version: "0.9",
-    title: "Testing Launch",
+    title: "Test",
     date: "Apr 29, 2022",
     changes: ["Guitardex is launched to a select group of volunteer end-user testers."],
   },
@@ -114,10 +117,10 @@ export const changeLog: Log[] = [
   },
   {
     version: "0.7",
-    title: "Technique Continuation",
+    title: "Module Continuation",
     date: "Apr 24, 2022",
     changes: [
-      "Technique pages now have a 'Continue learning...' section at the bottom of the page that links techniques that have the current page's technique as a pre-requisite. Other pre-requisites of the linked technique are also listed as required.",
+      "Module pages (currently only techniques) now have a 'Continue learning...' section at the bottom of the page that links modules that have the current page's module as a pre-requisite. Other pre-requisites of the linked technique are also listed as required.",
       "Added drafts of all the techniques' written content for the public release with IDs 1-32.",
     ],
   },

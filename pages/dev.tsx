@@ -10,7 +10,7 @@ const Development: NextPage = () => {
     <Wrapper title="Development">
       <VStack divider={<Divider />} align="stretch">
         {changeLog.map((log: Log, index: number) => (
-          <div key={index} className="mb-5">
+          <div key={index} className="mb-3">
             <h4 className={"mt-4 mb-0 text-lg font-medium tracking-wider"}>
               v{log.version} - {log.title}
             </h4>
