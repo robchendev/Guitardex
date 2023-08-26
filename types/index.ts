@@ -10,5 +10,5 @@ export type GlossaryItem = {
 export type Guitardex = {
   name: string;
   techniques: number[];
-  audioSkills: number[];
+  audioProduction: number[];
 };

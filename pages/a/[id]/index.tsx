@@ -1,19 +1,17 @@
 import React, { useEffect, useState } from "react";
 import Wrapper from "../../../components/Wrapper";
 import { GlossaryItem } from "../../../types";
-import { AudioSkill } from "../../../types/dynamic/audio";
-import { getAllAudioSkillIds, getAudioSkillData } from "../../../lib/audioSkills";
+import { AudioProduction } from "../../../types/dynamic/audio";
+import { getAllAudioProductionIds, getAudioProductionData } from "../../../lib/audioProduction";
 import RenderMarkdown from "../../../components/ModulePage/RenderMarkdown";
 import ModuleHeader from "../../../components/ModulePage/ModuleHeader";
 
-const AudioSkill = ({ audioSkill }: { audioSkill: AudioSkill }) => {
-  // console.log(technique);
+const AudioProduction = ({ audioProduction }: { audioProduction: AudioProduction }) => {
   const [glossary, setGlossary] = useState<GlossaryItem[]>([]);
   const initialGlossary: GlossaryItem[] = [];
 
   // add in glossary only if there isn't a duplicate
   const addToGlossary = (term: string, definition: string) => {
-    // if an obj with the key matching term not already in glossary, .push()
     if (!initialGlossary.some((item: GlossaryItem) => item.term === term)) {
       initialGlossary.push({ term, definition });
     }
@@ -26,8 +24,8 @@ const AudioSkill = ({ audioSkill }: { audioSkill: AudioSkill }) => {
   return (
     <Wrapper>
       <div>
-        <ModuleHeader frontmatter={audioSkill} module="audioSkill" />
-        <div>Demo: {audioSkill.demo}</div>
+        <ModuleHeader frontmatter={audioProduction} library="a" />
+        <div>Demo: {audioProduction.demo}</div>
         <div>
           <div>Glossary: </div>
           <ul>
@@ -39,7 +37,7 @@ const AudioSkill = ({ audioSkill }: { audioSkill: AudioSkill }) => {
           </ul>
         </div>
         <RenderMarkdown
-          contentMarkdown={audioSkill.contentMarkdown}
+          contentMarkdown={audioProduction.contentMarkdown}
           addToGlossary={addToGlossary}
         />
       </div>
@@ -49,7 +47,7 @@ const AudioSkill = ({ audioSkill }: { audioSkill: AudioSkill }) => {
 
 export async function getStaticPaths() {
   // Return a list of possible values for id
-  const paths = getAllAudioSkillIds();
+  const paths = getAllAudioProductionIds();
   return {
     paths,
     fallback: false,
@@ -58,12 +56,12 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   // Fetch necessary data using params.id
-  const audioSkill = await getAudioSkillData(params.id);
+  const audioProduction = await getAudioProductionData(params.id);
   return {
     props: {
-      audioSkill,
+      audioProduction,
     },
   };
 }
 
-export default AudioSkill;
+export default AudioProduction;

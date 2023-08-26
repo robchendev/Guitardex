@@ -1,6 +1,6 @@
 import { Category, Difficulty, PreReq } from "./common";
 
-export type AudioSkillFrontMatter = {
+export type AudioProductionFrontMatter = {
   name: string;
   id: number;
   requirements: PreReq[];
@@ -9,6 +9,6 @@ export type AudioSkillFrontMatter = {
   demo: string;
 };
 
-export type AudioSkill = AudioSkillFrontMatter & {
+export type AudioProduction = AudioProductionFrontMatter & {
   contentMarkdown: string;
 };

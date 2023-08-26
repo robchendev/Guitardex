@@ -1,14 +1,14 @@
 import React from "react";
-import { Module } from "../../types/dynamic/common";
+import { Library } from "../../types/dynamic/common";
 import ColorTag from "./ColorTag";
 
-const ModuleTag = ({ module }: { module: Module }) => {
-  switch (module) {
-    case "technique":
+const LibraryTag = ({ library }: { library: Library }) => {
+  switch (library) {
+    case "t":
       return <ColorTag className="bg-purple">technique</ColorTag>;
-    case "audioSkill":
+    case "a":
       return <ColorTag className="bg-purple">audio</ColorTag>;
   }
 };
 
-export default ModuleTag;
+export default LibraryTag;

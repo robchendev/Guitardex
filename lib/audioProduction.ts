@@ -3,10 +3,10 @@ import path from "path";
 import matter from "gray-matter";
 import { mapIdToFilename } from "./common";
 
-const audioSkillsDirectory = path.join(process.cwd(), "dynamic/audioSkills");
+const audioProductionDirectory = path.join(process.cwd(), "dynamic/audioProduction");
 
-export function getAllAudioSkillIds() {
-  const fileNames = fs.readdirSync(audioSkillsDirectory);
+export function getAllAudioProductionIds() {
+  const fileNames = fs.readdirSync(audioProductionDirectory);
   return fileNames.map((fileName) => {
     const id = fileName.replace(/-(.*)/, "");
     return {
@@ -17,12 +17,12 @@ export function getAllAudioSkillIds() {
   });
 }
 
-export async function getAudioSkillData(id: string) {
-  const mappedId = mapIdToFilename(id, audioSkillsDirectory);
+export async function getAudioProductionData(id: string) {
+  const mappedId = mapIdToFilename(id, audioProductionDirectory);
   if (!mappedId) {
     throw new Error("Could not find the file for the given ID: " + id);
   }
-  const fullPath = path.join(audioSkillsDirectory, `${mappedId}.md`);
+  const fullPath = path.join(audioProductionDirectory, `${mappedId}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
 
   // Use gray-matter to parse the post metadata section
@@ -36,13 +36,13 @@ export async function getAudioSkillData(id: string) {
   };
 }
 
-export function getAllAudioSkillsFrontMatter() {
-  // Get file names under /audioSkills
-  const fileNames = fs.readdirSync(audioSkillsDirectory);
+export function getAllAudioProductionFrontMatter() {
+  // Get file names under /audioProduction
+  const fileNames = fs.readdirSync(audioProductionDirectory);
 
   const allFrontMatters = fileNames.map((fileName) => {
     // Read markdown file as string
-    const fullPath = path.join(audioSkillsDirectory, fileName);
+    const fullPath = path.join(audioProductionDirectory, fileName);
     const fileContents = fs.readFileSync(fullPath, "utf8");
 
     // Use gray-matter to parse the post metadata section

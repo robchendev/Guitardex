@@ -1,20 +1,20 @@
 import { HStack } from "@chakra-ui/react";
 import Link from "next/link";
 import React from "react";
-import { AudioSkillFrontMatter } from "../../types/dynamic/audio";
-import { Module, PreReq } from "../../types/dynamic/common";
+import { AudioProductionFrontMatter } from "../../types/dynamic/audio";
+import { Library, PreReq } from "../../types/dynamic/common";
 import { TechniqueFrontMatter } from "../../types/dynamic/techniques";
 import Category from "../ModuleList/Category";
 import Difficulty from "../ModuleList/Difficulty";
-import ModuleTag from "../ModuleList/ModuleTag";
+import LibraryTag from "../ModuleList/LibraryTag";
 import SaveButton from "../ModuleList/SaveButton";
 
 const ModuleHeader = ({
   frontmatter,
-  module,
+  library,
 }: {
-  frontmatter: AudioSkillFrontMatter | TechniqueFrontMatter;
-  module: Module;
+  frontmatter: AudioProductionFrontMatter | TechniqueFrontMatter;
+  library: Library;
 }) => {
   return (
     <>
@@ -37,11 +37,11 @@ const ModuleHeader = ({
             </p>
             <HStack spacing={1}>
               <Difficulty value={frontmatter.difficulty} />
-              <ModuleTag module={module} />
+              <LibraryTag library={library} />
               <Category value={frontmatter.category} />
             </HStack>
           </div>
-          <SaveButton id={frontmatter.id} module={module} />
+          <SaveButton id={frontmatter.id} library={library} />
         </HStack>
       </div>
     </>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { ImCheckmark } from "react-icons/im";
 import { BiSave } from "react-icons/bi";
-import { Module } from "../../types/dynamic/common";
+import { Library } from "../../types/dynamic/common";
 import { Guitardex } from "../../types";
 
 const hasDupes = (array: number[]) => new Set(array).size !== array.length;
@@ -9,11 +9,11 @@ const SAVE_KEY = "save";
 
 const SaveButton = ({
   id,
-  module,
+  library,
   isGhost = false,
 }: {
   id: number;
-  module: Module;
+  library: Library;
   isGhost?: boolean;
 }) => {
   const [saved, setSaved] = useState(false);
@@ -21,7 +21,7 @@ const SaveButton = ({
   const initSave: Guitardex = {
     name: "My Guitardex",
     techniques: [],
-    audioSkills: [],
+    audioProduction: [],
   };
   let save: Guitardex;
   save = initSave;
@@ -30,32 +30,34 @@ const SaveButton = ({
     try {
       save = JSON.parse(localStorage.getItem(SAVE_KEY) ?? "");
       if (hasDupes(save.techniques)) throw new Error("Save has duplicate ID in techniques");
-      if (hasDupes(save.audioSkills)) throw new Error("Save has duplicate ID in audioSkills");
+      if (hasDupes(save.audioProduction))
+        throw new Error("Save has duplicate ID in audioProduction");
       if (
         typeof save.name !== "string" &&
         (Object.prototype.toString.call(save.techniques) !== "[object Array]" ||
-          Object.prototype.toString.call(save.audioSkills) !== "[object Array]")
+          Object.prototype.toString.call(save.audioProduction) !== "[object Array]")
       ) {
         save = initSave;
       } else if (typeof save.name !== "string") {
         save.name = "My Guitardex";
       } else if (Object.prototype.toString.call(save.techniques) !== "[object Array]") {
         save.techniques = [];
-      } else if (Object.prototype.toString.call(save.audioSkills) !== "[object Array]") {
-        save.audioSkills = [];
+      } else if (Object.prototype.toString.call(save.audioProduction) !== "[object Array]") {
+        save.audioProduction = [];
       }
     } catch (error) {
       alert("Invalid save profile detected. Clearing save.\n" + error);
+      localStorage.setItem(SAVE_KEY, JSON.stringify(initSave));
     }
   }
 
   let index = -1;
-  switch (module) {
-    case "technique":
+  switch (library) {
+    case "t":
       index = save.techniques.findIndex((item: number) => item === id);
       break;
-    case "audioSkill":
-      index = save.audioSkills.findIndex((item: number) => item === id);
+    case "a":
+      index = save.audioProduction.findIndex((item: number) => item === id);
       break;
   }
   useEffect(() => {
@@ -63,43 +65,46 @@ const SaveButton = ({
     const newSave = {
       name: save.name,
       techniques: save.techniques,
-      audioSkills: save.audioSkills,
+      audioProduction: save.audioProduction,
     };
     localStorage.setItem(SAVE_KEY, JSON.stringify(newSave));
-  }, [index, save.name, save.techniques, save.audioSkills]);
+  }, [index, save.name, save.techniques, save.audioProduction]);
 
   const addSave = (id: number) => {
-    switch (module) {
-      case "technique":
+    switch (library) {
+      case "t":
         localStorage.setItem(
           SAVE_KEY,
           JSON.stringify({ ...save, techniques: save.techniques.concat(id) })
         );
         break;
-      case "audioSkill":
+      case "a":
         localStorage.setItem(
           SAVE_KEY,
-          JSON.stringify({ ...save, audioSkills: save.audioSkills.concat(id) })
+          JSON.stringify({ ...save, audioProduction: save.audioProduction.concat(id) })
         );
         break;
       default:
-        console.log(`Module ${module} is not supported for addSave.`);
+        console.log(`Library ${library} is not supported for addSave.`);
     }
     setSaved(true);
   };
 
   const removeSave = (index: number) => {
-    switch (module) {
-      case "technique":
+    switch (library) {
+      case "t":
         save.techniques.splice(index, 1);
         localStorage.setItem(SAVE_KEY, JSON.stringify({ ...save, techniques: save.techniques }));
         break;
-      case "audioSkill":
-        save.audioSkills.splice(index, 1);
-        localStorage.setItem(SAVE_KEY, JSON.stringify({ ...save, audioSkills: save.audioSkills }));
+      case "a":
+        save.audioProduction.splice(index, 1);
+        localStorage.setItem(
+          SAVE_KEY,
+          JSON.stringify({ ...save, audioProduction: save.audioProduction })
+        );
         break;
       default:
-        console.log(`Module ${module} is not supported for removeSave.`);
+        console.log(`Library ${library} is not supported for removeSave.`);
     }
     setSaved(false);
   };
@@ -109,15 +114,15 @@ const SaveButton = ({
     if (localStorage.getItem(SAVE_KEY)) {
       save = JSON.parse(localStorage.getItem(SAVE_KEY) ?? "");
     }
-    switch (module) {
-      case "technique":
+    switch (library) {
+      case "t":
         index = save.techniques.findIndex((item: number) => item === id);
         break;
-      case "audioSkill":
-        index = save.audioSkills.findIndex((item: number) => item === id);
+      case "a":
+        index = save.audioProduction.findIndex((item: number) => item === id);
         break;
       default:
-        console.log(`Module ${module} is not supported for updateSave.`);
+        console.log(`Library ${library} is not supported for updateSave.`);
     }
     if (index >= 0) {
       removeSave(index);

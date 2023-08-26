@@ -1,16 +1,16 @@
 import React, { useEffect } from "react";
-import { AudioSkill } from "../../types/dynamic/audio";
+import { AudioProduction } from "../../types/dynamic/audio";
 import { Technique } from "../../types/dynamic/techniques";
 import { Input } from "@chakra-ui/react";
 
 const runFilter = (
-  list: Technique[] | AudioSkill[],
+  list: Technique[] | AudioProduction[],
   search: string
-): Technique[] | AudioSkill[] => {
+): Technique[] | AudioProduction[] => {
   if (search === "") {
     return list;
   }
-  const filter: Technique[] | AudioSkill[] = [];
+  const filter: Technique[] | AudioProduction[] = [];
   for (const item of list) {
     let pendingItem: Technique | undefined;
     if (
@@ -33,9 +33,9 @@ const SearchBar = ({
   setFilter,
   setSearch,
 }: {
-  list: Technique[] | AudioSkill[];
+  list: Technique[] | AudioProduction[];
   search: string;
-  setFilter: (newFilter: Technique[] | AudioSkill[]) => void;
+  setFilter: (newFilter: Technique[] | AudioProduction[]) => void;
   setSearch: (newString: string) => void;
 }) => {
   useEffect(() => {

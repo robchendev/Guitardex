@@ -3,7 +3,7 @@ import path from "path";
 import matter from "gray-matter";
 import { mapIdToFilename } from "./common";
 import { Technique, TechniqueFrontMatter } from "../types/dynamic/techniques";
-import { Continuation, ModuleContinuation, PreReq, PreReqExpanded } from "../types/dynamic/common";
+import { Continuation, PreReq, PreReqExpanded } from "../types/dynamic/common";
 
 const techniquesDirectory = path.join(process.cwd(), "dynamic/techniques");
 
@@ -74,10 +74,6 @@ export async function getTechniqueContinuations(id: string) {
   const { data } = matter(fileContents);
   const technique = data as Technique;
 
-  // console.log(data);
-
-  // for (const preReq of allPreReqs) {
-  //TODO: USE innner nested CONTINUATIONS instead of ModuleContinuation
   const continuations: Continuation[] = [];
   for (const preReqExpanded of allPreReqs) {
     const requirementIds: number[] = preReqExpanded.requirements.map(

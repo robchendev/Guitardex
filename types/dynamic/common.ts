@@ -13,15 +13,10 @@ export type Continuation = PreReq & {
   alsoRequires: PreReq[];
 };
 
-export type ModuleContinuation = {
-  module: PreReq; // Current module
-  continuations: Continuation[];
-};
-
 export type Difficulty = "easy" | "med" | "hard";
 
-export type CategoryAudioSkill = "general" | "recording" | "mixing" | "mastering";
+export type CategoryaudioProduction = "general" | "recording" | "mixing" | "mastering";
 export type CategoryTechnique = "basics" | "percussion" | "harmonics" | "utility" | "articulation";
-export type Category = CategoryAudioSkill | CategoryTechnique;
+export type Category = CategoryaudioProduction | CategoryTechnique;
 
-export type Module = "technique" | "audioSkill";
+export type Library = "t" | "a";

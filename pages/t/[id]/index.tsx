@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Wrapper from "../../../components/Wrapper";
 import {
   getTechniqueContinuations,
-  getAllTechniqueFrontMatter,
   getAllTechniqueIds,
   getTechniqueData,
 } from "../../../lib/techniques";
@@ -13,12 +12,7 @@ import ModuleHeader from "../../../components/ModulePage/ModuleHeader";
 import YoutubePlayer from "../../../components/ModulePage/YoutubePlayer";
 import Glossary from "../../../components/ModulePage/Glossary";
 import ContinueLearning from "../../../components/ModulePage/ContinueLearning";
-import {
-  Continuation,
-  ModuleContinuation,
-  PreReq,
-  PreReqExpanded,
-} from "../../../types/dynamic/common";
+import { Continuation } from "../../../types/dynamic/common";
 
 const Technique = ({
   technique,
@@ -44,11 +38,11 @@ const Technique = ({
   return (
     <Wrapper>
       <div>
-        <ModuleHeader frontmatter={technique} module="technique" />
+        <ModuleHeader frontmatter={technique} library="t" />
         <Glossary glossary={glossary} />
         <YoutubePlayer videoId={technique.demo} />
         <RenderMarkdown contentMarkdown={technique.contentMarkdown} addToGlossary={addToGlossary} />
-        <ContinueLearning continuations={continuations} library="technique" />
+        <ContinueLearning continuations={continuations} library="t" />
       </div>
     </Wrapper>
   );

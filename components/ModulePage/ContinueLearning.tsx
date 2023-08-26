@@ -1,12 +1,5 @@
-import Link from "next/link";
 import React from "react";
-import {
-  Continuation,
-  ModuleContinuation,
-  PreReq,
-  PreReqExpanded,
-} from "../../types/dynamic/common";
-import { Technique } from "../../types/dynamic/techniques";
+import { Continuation, Library, PreReq } from "../../types/dynamic/common";
 import A from "../Typography/A";
 
 const ContinueLearning = ({
@@ -14,7 +7,7 @@ const ContinueLearning = ({
   library,
 }: {
   continuations: Continuation[];
-  library: "technique" | "audioSkill";
+  library: Library;
 }) => {
   return (
     <div>
@@ -24,7 +17,7 @@ const ContinueLearning = ({
           {continuations.map((continuation: Continuation, index: number) => (
             <li className="list-disc ml-4 mb-0" key={index}>
               <A href={`/${library}/${continuation.id}`} text={continuation.name} />
-              {continuation.alsoRequires.length && (
+              {continuation.alsoRequires.length !== 0 && (
                 <>
                   {" "}
                   (Also requires:{" "}

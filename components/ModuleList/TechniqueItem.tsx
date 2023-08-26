@@ -26,7 +26,7 @@ const TechniqueItem = ({ technique }: { technique: TechniqueFrontMatter }) => {
           </div>
         </div>
         <div>
-          <SaveButton id={technique.id} module="technique" isGhost />
+          <SaveButton id={technique.id} library="t" isGhost />
         </div>
       </HStack>
     </Link>
