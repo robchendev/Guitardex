@@ -21,7 +21,7 @@ export type CreditExternal = {
 export const mainCredits: Credit[] = [
   {
     name: "Robert Chen",
-    roles: "Developer, Content Creator, Content Writer",
+    roles: "Developer, Content Writer",
     img: "/img/team/robert-chen.jpg",
     links: [
       {
@@ -45,7 +45,7 @@ export const mainCredits: Credit[] = [
   {
     name: "Eddie van der Meer",
     img: "/img/team/eddie-van-der-meer.jpg",
-    roles: "Content Advisor - Audio Production",
+    roles: "Content Advisor (Audio Production)",
     links: [
       {
         icon: FaYoutube,
@@ -62,9 +62,20 @@ export const mainCredits: Credit[] = [
     ],
   },
   {
+    name: "Constantine Kulak",
+    img: "/img/team/constantine-kulak.jpg",
+    roles: "Developer",
+    links: [
+      {
+        icon: FaGithub,
+        url: "https://github.com/kulakdev",
+      },
+    ],
+  },
+  {
     name: "Bob Ma",
     img: "/img/team/bob-ma.jpg",
-    roles: "Content Advisor - Techniques",
+    roles: "Content Advisor (Techniques)",
     links: [
       {
         icon: FaYoutube,
