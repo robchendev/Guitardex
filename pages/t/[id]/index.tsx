@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Wrapper from "../../../components/Wrapper";
 import {
-  getAllTechniqueContinuations,
+  getTechniqueContinuations,
   getAllTechniqueFrontMatter,
   getAllTechniqueIds,
   getTechniqueData,
@@ -13,14 +13,19 @@ import ModuleHeader from "../../../components/ModulePage/ModuleHeader";
 import YoutubePlayer from "../../../components/ModulePage/YoutubePlayer";
 import Glossary from "../../../components/ModulePage/Glossary";
 import ContinueLearning from "../../../components/ModulePage/ContinueLearning";
-import { ModuleContinuation, PreReq, PreReqExpanded } from "../../../types/dynamic/common";
+import {
+  Continuation,
+  ModuleContinuation,
+  PreReq,
+  PreReqExpanded,
+} from "../../../types/dynamic/common";
 
 const Technique = ({
   technique,
-  allModuleContinuations,
+  continuations,
 }: {
   technique: Technique;
-  allModuleContinuations: ModuleContinuation[];
+  continuations: Continuation[];
 }) => {
   const [glossary, setGlossary] = useState<GlossaryItem[]>([]);
   const initialGlossary: GlossaryItem[] = [];
@@ -43,10 +48,7 @@ const Technique = ({
         <Glossary glossary={glossary} />
         <YoutubePlayer videoId={technique.demo} />
         <RenderMarkdown contentMarkdown={technique.contentMarkdown} addToGlossary={addToGlossary} />
-        <ContinueLearning
-          continuations={allModuleContinuations[technique.id].continuations}
-          library="technique"
-        />
+        <ContinueLearning continuations={continuations} library="technique" />
       </div>
     </Wrapper>
   );
@@ -64,11 +66,11 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   // Fetch necessary data using params.id
   const technique = await getTechniqueData(params.id);
-  const allModuleContinuations = await getAllTechniqueContinuations(params.id);
+  const continuations: Continuation[] = await getTechniqueContinuations(params.id);
   return {
     props: {
       technique,
-      allModuleContinuations,
+      continuations,
     },
   };
 }

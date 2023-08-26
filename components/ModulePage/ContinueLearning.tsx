@@ -16,32 +16,6 @@ const ContinueLearning = ({
   continuations: Continuation[];
   library: "technique" | "audioSkill";
 }) => {
-  console.log("module continuations", continuations);
-  // TODO: EX
-  // TODO: Maybe move this to server side
-
-  // if number is >= 0, it means the postReq has been found,
-
-  // and shows us index of so we can remove it from the array
-  // console.log("postReq: ", postReq);
-  // if (postReq) {
-  //   return (
-  //     <li key={index}>
-  //       {postReq.name}
-  //       {alsoRequires.length && (
-  //         <span>
-  //           {" "}
-  //           - Also requires:{" "}
-  //           {alsoRequires.map((req: PreReq, i: number) => (
-  //             <span key={i}>{req.name}</span>
-  //           ))}
-  //         </span>
-  //       )}
-  //     </li>
-  //   );
-  // }
-  // return <>hello</>;
-
   return (
     <div>
       <p className="text-lg font-medium">Continue Learning</p>
