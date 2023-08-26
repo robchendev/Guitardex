@@ -23,13 +23,15 @@ const ModuleHeader = ({
             <p className="text-base">
               Required:{" "}
               {frontmatter.requirements.map((req: PreReq, index: number) => (
-                <Link
-                  key={index}
-                  href={"/t/" + req.id}
-                  className="text-base text-purple hover:bg-purple transition-none"
-                >
-                  {req.name}
-                </Link>
+                <span key={index}>
+                  {index > 0 && ", "}
+                  <Link
+                    href={"/t/" + req.id}
+                    className="text-base text-purple hover:bg-purple transition-none"
+                  >
+                    {req.name}
+                  </Link>
+                </span>
               ))}
               {!frontmatter.requirements.length && "None"}
             </p>

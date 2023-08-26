@@ -6,7 +6,7 @@ import ModuleHeader from "../../../components/ModulePage/ModuleHeader";
 import { Module } from "../../../types/dynamic/common";
 import { getAllIds, getModuleData } from "../../../lib/serverSideFunctions";
 
-const AudioProduction = ({ audioProduction }: { audioProduction: Module }) => {
+const AudioProduction = ({ moduleData }: { moduleData: Module }) => {
   const [glossary, setGlossary] = useState<GlossaryItem[]>([]);
   const initialGlossary: GlossaryItem[] = [];
 
@@ -24,8 +24,8 @@ const AudioProduction = ({ audioProduction }: { audioProduction: Module }) => {
   return (
     <Wrapper>
       <div>
-        <ModuleHeader frontmatter={audioProduction} library="a" />
-        <div>Demo: {audioProduction.demo}</div>
+        <ModuleHeader frontmatter={moduleData} library="a" />
+        <div>Demo: {moduleData.demo}</div>
         <div>
           <div>Glossary: </div>
           <ul>
@@ -37,7 +37,7 @@ const AudioProduction = ({ audioProduction }: { audioProduction: Module }) => {
           </ul>
         </div>
         <RenderMarkdown
-          contentMarkdown={audioProduction.contentMarkdown}
+          contentMarkdown={moduleData.contentMarkdown}
           addToGlossary={addToGlossary}
         />
       </div>
@@ -56,10 +56,10 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   // Fetch necessary data using params.id
-  const audioProduction = await getModuleData(params.id, "a");
+  const moduleData = await getModuleData(params.id, "a");
   return {
     props: {
-      audioProduction,
+      moduleData,
     },
   };
 }
