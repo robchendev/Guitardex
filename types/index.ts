@@ -1,3 +1,5 @@
+import { Library } from "./dynamic/common";
+
 export type ErrorMessage = {
   message: string;
 };
@@ -9,6 +11,6 @@ export type GlossaryItem = {
 
 export type Guitardex = {
   name: string;
-  techniques: number[];
-  audioProduction: number[];
+} & {
+  [K in Library]: number[];
 };

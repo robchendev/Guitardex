@@ -1,24 +1,19 @@
 import React, { useEffect, useState } from "react";
 import Wrapper from "../../../components/Wrapper";
-import {
-  getTechniqueContinuations,
-  getAllTechniqueIds,
-  getTechniqueData,
-} from "../../../lib/techniques";
 import { GlossaryItem } from "../../../types";
-import { Technique } from "../../../types/dynamic/techniques";
 import RenderMarkdown from "../../../components/ModulePage/RenderMarkdown";
 import ModuleHeader from "../../../components/ModulePage/ModuleHeader";
 import YoutubePlayer from "../../../components/ModulePage/YoutubePlayer";
 import Glossary from "../../../components/ModulePage/Glossary";
 import ContinueLearning from "../../../components/ModulePage/ContinueLearning";
-import { Continuation } from "../../../types/dynamic/common";
+import { Continuation, Module } from "../../../types/dynamic/common";
+import { getAllIds, getContinuations, getModuleData } from "../../../lib/serverSideFunctions";
 
 const Technique = ({
   technique,
   continuations,
 }: {
-  technique: Technique;
+  technique: Module;
   continuations: Continuation[];
 }) => {
   const [glossary, setGlossary] = useState<GlossaryItem[]>([]);
@@ -40,7 +35,7 @@ const Technique = ({
       <div>
         <ModuleHeader frontmatter={technique} library="t" />
         <Glossary glossary={glossary} />
-        <YoutubePlayer videoId={technique.demo} />
+        <YoutubePlayer videoId={technique.demo ?? ""} />
         <RenderMarkdown contentMarkdown={technique.contentMarkdown} addToGlossary={addToGlossary} />
         <ContinueLearning continuations={continuations} library="t" />
       </div>
@@ -50,7 +45,7 @@ const Technique = ({
 
 export async function getStaticPaths() {
   // Return a list of possible values for id
-  const paths = getAllTechniqueIds();
+  const paths = getAllIds("t");
   return {
     paths,
     fallback: false,
@@ -59,8 +54,8 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   // Fetch necessary data using params.id
-  const technique = await getTechniqueData(params.id);
-  const continuations: Continuation[] = await getTechniqueContinuations(params.id);
+  const technique = await getModuleData(params.id, "t");
+  const continuations: Continuation[] = await getContinuations(params.id, "t");
   return {
     props: {
       technique,

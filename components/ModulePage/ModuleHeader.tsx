@@ -1,9 +1,7 @@
 import { HStack } from "@chakra-ui/react";
 import Link from "next/link";
 import React from "react";
-import { AudioProductionFrontMatter } from "../../types/dynamic/audio";
-import { Library, PreReq } from "../../types/dynamic/common";
-import { TechniqueFrontMatter } from "../../types/dynamic/techniques";
+import { Library, ModuleFrontMatter, PreReq } from "../../types/dynamic/common";
 import Category from "../ModuleList/Category";
 import Difficulty from "../ModuleList/Difficulty";
 import LibraryTag from "../ModuleList/LibraryTag";
@@ -13,7 +11,7 @@ const ModuleHeader = ({
   frontmatter,
   library,
 }: {
-  frontmatter: AudioProductionFrontMatter | TechniqueFrontMatter;
+  frontmatter: ModuleFrontMatter;
   library: Library;
 }) => {
   return (

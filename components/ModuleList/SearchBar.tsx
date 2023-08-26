@@ -1,18 +1,14 @@
 import React, { useEffect } from "react";
-import { AudioProduction } from "../../types/dynamic/audio";
-import { Technique } from "../../types/dynamic/techniques";
 import { Input } from "@chakra-ui/react";
+import { Module } from "../../types/dynamic/common";
 
-const runFilter = (
-  list: Technique[] | AudioProduction[],
-  search: string
-): Technique[] | AudioProduction[] => {
+const runFilter = (list: Module[], search: string): Module[] => {
   if (search === "") {
     return list;
   }
-  const filter: Technique[] | AudioProduction[] = [];
+  const filter: Module[] = [];
   for (const item of list) {
-    let pendingItem: Technique | undefined;
+    let pendingItem: Module | undefined;
     if (
       item.name.toLowerCase().includes(search) ||
       item.category.toLowerCase().includes(search) ||
@@ -33,9 +29,9 @@ const SearchBar = ({
   setFilter,
   setSearch,
 }: {
-  list: Technique[] | AudioProduction[];
+  list: Module[];
   search: string;
-  setFilter: (newFilter: Technique[] | AudioProduction[]) => void;
+  setFilter: (newFilter: Module[]) => void;
   setSearch: (newString: string) => void;
 }) => {
   useEffect(() => {

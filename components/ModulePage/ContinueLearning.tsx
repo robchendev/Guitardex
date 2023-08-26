@@ -31,7 +31,7 @@ const ContinueLearning = ({
           ))}
         </ul>
       ) : (
-        <p>There is no continuation to this technique.</p>
+        <p>There is no continuation to this module.</p>
       )}
     </div>
   );

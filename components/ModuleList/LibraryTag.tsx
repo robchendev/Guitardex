@@ -8,6 +8,8 @@ const LibraryTag = ({ library }: { library: Library }) => {
       return <ColorTag className="bg-purple">technique</ColorTag>;
     case "a":
       return <ColorTag className="bg-purple">audio</ColorTag>;
+    default:
+      return <ColorTag className="bg-purple">unknown</ColorTag>;
   }
 };
 

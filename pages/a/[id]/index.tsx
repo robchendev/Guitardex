@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Wrapper from "../../../components/Wrapper";
 import { GlossaryItem } from "../../../types";
-import { AudioProduction } from "../../../types/dynamic/audio";
-import { getAllAudioProductionIds, getAudioProductionData } from "../../../lib/audioProduction";
 import RenderMarkdown from "../../../components/ModulePage/RenderMarkdown";
 import ModuleHeader from "../../../components/ModulePage/ModuleHeader";
+import { Module } from "../../../types/dynamic/common";
+import { getAllIds, getModuleData } from "../../../lib/serverSideFunctions";
 
-const AudioProduction = ({ audioProduction }: { audioProduction: AudioProduction }) => {
+const AudioProduction = ({ audioProduction }: { audioProduction: Module }) => {
   const [glossary, setGlossary] = useState<GlossaryItem[]>([]);
   const initialGlossary: GlossaryItem[] = [];
 
@@ -47,7 +47,7 @@ const AudioProduction = ({ audioProduction }: { audioProduction: AudioProduction
 
 export async function getStaticPaths() {
   // Return a list of possible values for id
-  const paths = getAllAudioProductionIds();
+  const paths = getAllIds("a");
   return {
     paths,
     fallback: false,
@@ -56,7 +56,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   // Fetch necessary data using params.id
-  const audioProduction = await getAudioProductionData(params.id);
+  const audioProduction = await getModuleData(params.id, "a");
   return {
     props: {
       audioProduction,

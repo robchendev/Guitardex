@@ -1,18 +1,14 @@
 import { HStack, Text } from "@chakra-ui/react";
 import Link from "next/link";
 import React from "react";
-import { AudioProductionFrontMatter } from "../../types/dynamic/audio";
+import { Library, ModuleFrontMatter } from "../../types/dynamic/common";
 import Category from "./Category";
 import Difficulty from "./Difficulty";
 import SaveButton from "./SaveButton";
 
-const AudioProductionItem = ({
-  audioProduction,
-}: {
-  audioProduction: AudioProductionFrontMatter;
-}) => {
+const ModuleItem = ({ module, library }: { module: ModuleFrontMatter; library: Library }) => {
   return (
-    <Link className="w-full hover:text-text-light group" href={"/a/" + audioProduction.id}>
+    <Link className="w-full hover:text-text-light group" href={`/${library}/` + module.id}>
       <HStack
         className={"bg-bg-light rounded-md duration-200 group-hover:ml-3"}
         justifyContent="space-between"
@@ -20,21 +16,21 @@ const AudioProductionItem = ({
       >
         <div className="px-3.5 py-2">
           <Text as="h1" noOfLines={1} className="font-medium">
-            {audioProduction.name}
+            {module.name}
           </Text>
           <div>
             <HStack spacing={1}>
-              <Difficulty value={audioProduction.difficulty} />
-              <Category value={audioProduction.category} />
+              <Difficulty value={module.difficulty} />
+              <Category value={module.category} />
             </HStack>
           </div>
         </div>
         <div>
-          <SaveButton id={audioProduction.id} library="a" isGhost />
+          <SaveButton id={module.id} library={library} isGhost />
         </div>
       </HStack>
     </Link>
   );
 };
 
-export default AudioProductionItem;
+export default ModuleItem;

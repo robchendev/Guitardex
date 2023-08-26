@@ -19,4 +19,18 @@ export type CategoryaudioProduction = "general" | "recording" | "mixing" | "mast
 export type CategoryTechnique = "basics" | "percussion" | "harmonics" | "utility" | "articulation";
 export type Category = CategoryaudioProduction | CategoryTechnique;
 
-export type Library = "t" | "a";
+export const libraries = ["t", "a"] as const;
+export type Library = (typeof libraries)[number];
+
+export type ModuleFrontMatter = {
+  name: string;
+  id: number;
+  requirements: PreReq[];
+  category: Category;
+  difficulty: Difficulty;
+  demo?: string;
+};
+
+export type Module = ModuleFrontMatter & {
+  contentMarkdown: string;
+};
