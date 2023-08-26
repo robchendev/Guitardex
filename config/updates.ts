@@ -7,7 +7,7 @@ export type Log = {
 
 export const changeLog: Log[] = [
   {
-    version: "2.3",
+    version: "2.0",
     title: "Audio Production Library Content",
     date: "??? ?, 2023",
     changes: [
@@ -15,7 +15,48 @@ export const changeLog: Log[] = [
     ],
   },
   {
-    version: "2.2",
+    version: "1.9",
+    title: "Audio Production Module Testing",
+    date: "??? ?, 2023",
+    changes: [
+      "Audio Production Library features tested by a select group of volunteer end-user testers in a sample Audio Production module.",
+    ],
+  },
+  {
+    version: "1.8",
+    title: "Optimization",
+    date: "??? ?, 2023",
+    changes: [
+      "Moved all bulky images to an external media storage.",
+      "Reduced flash of unstyled content caused by inefficient dynamically generated content.",
+    ],
+  },
+  {
+    version: "1.7",
+    title: "Re: Dark Mode",
+    date: "??? ?, 2023",
+    changes: ["Re-implemented dark mode with new colors."],
+  },
+  {
+    version: "1.6",
+    title: "Contact Form + Report Problem Form",
+    date: "??? ?, 2023",
+    changes: [
+      "Added a contact form page.",
+      "A link has been added to the bottom of each module for users to report errors via a partially-filled contact form.",
+    ],
+  },
+  {
+    version: "1.5",
+    title: "Multiple Libraries",
+    date: "August ??, 2023",
+    changes: [
+      "Saving functionality for multiple libraries (Techniques, Audio Production) added.",
+      "New dex linking URL usage for multiple libraries, backwards compatible with v1.0 (URL querie strings without t= and a= will default to techniques).",
+    ],
+  },
+  {
+    version: "1.4",
     title: "Audio Production Library List",
     date: "??? ?, 2023",
     changes: [
@@ -25,25 +66,26 @@ export const changeLog: Log[] = [
     ],
   },
   {
-    version: "2.1",
-    title: "Contact Form + Report Problem Form",
-    date: "??? ?, 2023",
+    version: "1.3",
+    title: "Module Continuation Upgrade",
+    date: "August ??, 2023",
     changes: [
-      "Added a contact form page.",
-      "A link has been added to the bottom of each module for users to report errors via a partially-filled contact form.",
+      "The 'Continue Learning' section in each module now also shows the links for the other techniques that the continuation requires.",
     ],
   },
   {
-    version: "2.0",
+    version: "1.2",
+    title: "Module Glossary",
+    date: "August ??, 2023",
+    changes: ["Terms and defintions will be scanned upon page load and shown in a glossary."],
+  },
+  {
+    version: "1.1",
     title: "Codebase Remake",
-    date: "August 30, 2023",
+    date: "August ??, 2023",
     changes: [
       "For easier maintainability, website stack has remade from JavaScript/React/Gatsby to TypeScript/React/NextJS/ChakraUI/TailwindCSS.",
-      "Saving functionality for multiple libraries (Techniques, Audio Production) added.",
-      "Terms and defintions will be scanned upon page load and shown in a glossary.",
-      "Boilerplate functionality for audio player for audio demonstration purposes.",
-      "New dex linking URL usage for multiple libraries, backwards compatible with v1 (URL querie strings without t= and a= will default to techniques).",
-      "The 'Continue Learning' section in each module now also shows the links for the other techniques that the continuation requires.",
+      "Removed dark mode (will be added back in a later update).",
     ],
   },
   {
