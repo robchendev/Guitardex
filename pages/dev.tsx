@@ -8,7 +8,6 @@ import { changeLog, Log } from "../config/updates";
 const Development: NextPage = () => {
   return (
     <Wrapper title="Development">
-      <div>Changelog</div>
       <VStack divider={<Divider />} align="stretch">
         {changeLog.map((log: Log, index: number) => (
           <div key={index} className="mb-5">

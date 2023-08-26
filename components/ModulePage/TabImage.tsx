@@ -11,7 +11,7 @@ const TabImage = ({ src = "" }: { src?: string }) => {
       // blurDataURL={props.src}
       width={1200}
       height={200}
-      className="w-full h-full tab-filter-light mt-4"
+      className="w-full h-full tab-filter-light mt-4 mb-2"
     />
   );
 };

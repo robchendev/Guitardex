@@ -45,7 +45,7 @@ export const mainCredits: Credit[] = [
   {
     name: "Eddie van der Meer",
     img: "/img/team/eddie-van-der-meer.jpg",
-    roles: "Content Advisor",
+    roles: "Content Advisor - Audio Production",
     links: [
       {
         icon: FaYoutube,
@@ -64,7 +64,7 @@ export const mainCredits: Credit[] = [
   {
     name: "Bob Ma",
     img: "/img/team/bob-ma.jpg",
-    roles: "Content Advisor",
+    roles: "Content Advisor - Techniques",
     links: [
       {
         icon: FaYoutube,
@@ -76,21 +76,22 @@ export const mainCredits: Credit[] = [
       },
     ],
   },
-  {
-    name: "WeiJun Syu",
-    img: "/img/team/weijun-syu.jpg",
-    roles: "Software Consultant",
-    links: [
-      {
-        icon: FaGithub,
-        url: "https://github.com/weijunsyu",
-      },
-      {
-        icon: FaGlobe,
-        url: "https://weijunsyu.com/",
-      },
-    ],
-  },
+  // Weijun requested we leave his section out for the time being
+  // {
+  //   name: "WeiJun Syu",
+  //   img: "/img/team/weijun-syu.jpg",
+  //   roles: "Software Consultant",
+  //   links: [
+  //     {
+  //       icon: FaGithub,
+  //       url: "https://github.com/weijunsyu",
+  //     },
+  //     {
+  //       icon: FaGlobe,
+  //       url: "https://weijunsyu.com/",
+  //     },
+  //   ],
+  // },
   {
     name: "Bryan Quan",
     img: "/img/team/bryan-quan.jpg",
