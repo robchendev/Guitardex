@@ -27,6 +27,7 @@ const Technique = ({
   };
 
   useEffect(() => {
+    initialGlossary.sort((a: GlossaryItem, b: GlossaryItem) => (a.term > b.term ? 1 : -1));
     setGlossary(initialGlossary);
   }, []);
 
