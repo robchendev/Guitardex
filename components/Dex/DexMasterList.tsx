@@ -205,19 +205,28 @@ const DexMasterList = () => {
     console.log(save);
   }, [save]);
 
+  const [isEditingName, setIsEditingName] = useState(false);
+
   // TODO: Refactor....
   return (
     <div>
-      <Input
-        onKeyUp={handleEnterKey}
-        autoComplete="off"
-        id="saveName"
-        type="text"
-        placeholder="Click to add a name..."
-        maxLength={24}
-        onInput={(e) => handleNameChange(e, save, setSave)}
-        value={save.name}
-      />
+      {/* For different className based on if the user is entering 
+      a new name, use focused: */}
+      <div className={`${isEditingName ? "bg-purple" : ""}`}>
+        <Input
+          onKeyUp={(e) => handleEnterKey(e)}
+          autoComplete="off"
+          id="saveName"
+          type="text"
+          placeholder="Click to add a name..."
+          variant="unstyled"
+          maxLength={24}
+          onFocus={() => setIsEditingName(true)}
+          onBlur={() => setIsEditingName(false)}
+          onInput={(e) => handleNameChange(e, save, setSave)}
+          value={save.name}
+        />
+      </div>
       <span>
         <span id="inputLimit"></span>
         <span>/24</span>
