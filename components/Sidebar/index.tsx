@@ -63,7 +63,7 @@ const Sidebar = () => {
           icon={colorMode === "light" ? FiMoon : FiSun}
           onClick={extendedToggleTheme}
         >
-          Toggle {colorMode === "light" ? "Dark" : "Light"}
+          {colorMode === "light" ? "Dark" : "Light"} Mode
         </Button>
         {/* <Button url="/dark" path={path} icon={FiMoon}>
           Dark Mode
