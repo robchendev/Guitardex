@@ -10,10 +10,10 @@ import { Continuation, Module } from "../../../types/dynamic/common";
 import { getAllIds, getContinuations, getModuleData } from "../../../lib/serverSideFunctions";
 
 const Technique = ({
-  technique,
+  moduleData,
   continuations,
 }: {
-  technique: Module;
+  moduleData: Module;
   continuations: Continuation[];
 }) => {
   const [glossary, setGlossary] = useState<GlossaryItem[]>([]);
@@ -29,15 +29,18 @@ const Technique = ({
   useEffect(() => {
     initialGlossary.sort((a: GlossaryItem, b: GlossaryItem) => (a.term > b.term ? 1 : -1));
     setGlossary(initialGlossary);
-  }, [technique]);
+  }, [moduleData]);
 
   return (
     <Wrapper>
       <div>
-        <ModuleHeader frontmatter={technique} library="t" />
+        <ModuleHeader frontmatter={moduleData} library="t" />
         <Glossary glossary={glossary} />
-        <YoutubePlayer videoId={technique.demo ?? ""} />
-        <RenderMarkdown contentMarkdown={technique.contentMarkdown} addToGlossary={addToGlossary} />
+        <YoutubePlayer videoId={moduleData.demo ?? ""} />
+        <RenderMarkdown
+          contentMarkdown={moduleData.contentMarkdown}
+          addToGlossary={addToGlossary}
+        />
         <ContinueLearning continuations={continuations} library="t" />
       </div>
     </Wrapper>
@@ -55,11 +58,11 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   // Fetch necessary data using params.id
-  const technique = await getModuleData(params.id, "t");
+  const moduleData = await getModuleData(params.id, "t");
   const continuations: Continuation[] = await getContinuations(params.id, "t");
   return {
     props: {
-      technique,
+      moduleData,
       continuations,
     },
   };

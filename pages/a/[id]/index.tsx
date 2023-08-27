@@ -20,7 +20,7 @@ const AudioProduction = ({ moduleData }: { moduleData: Module }) => {
   useEffect(() => {
     initialGlossary.sort((a: GlossaryItem, b: GlossaryItem) => (a.term < b.term ? 1 : -1));
     setGlossary(initialGlossary);
-  }, []);
+  }, [moduleData]);
 
   return (
     <Wrapper>
