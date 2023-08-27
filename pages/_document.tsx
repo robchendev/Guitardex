@@ -2,10 +2,20 @@ import { ColorModeScript } from "@chakra-ui/react";
 import { Html, Head, Main, NextScript } from "next/document";
 import theme from "../theme";
 
+const setInitialThemeScript = `
+  (function() {
+    const persistedThemeValue = localStorage.getItem('theme');
+    if (persistedThemeValue) {
+      document.documentElement.setAttribute('data-theme', persistedThemeValue);
+    }
+  })();
+`;
+
 export default function Document() {
   return (
     <Html>
       <Head>
+        <script dangerouslySetInnerHTML={{ __html: setInitialThemeScript }} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link

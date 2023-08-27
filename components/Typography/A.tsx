@@ -16,7 +16,7 @@ const A = ({
     return (
       <a
         href={href}
-        className={`text-base text-purple hover:bg-purple transition-none ${
+        className={`text-base text-link hover:bg-link hover:text-bg transition-none ${
           spanned && "inline"
         } ${className}`}
       >
@@ -27,7 +27,7 @@ const A = ({
   return (
     <Link
       href={href as string}
-      className={`text-base text-purple hover:bg-purple transition-none ${
+      className={`text-base text-link hover:bg-link hover:text-bg transition-none ${
         spanned && "inline"
       } ${className}`}
     >

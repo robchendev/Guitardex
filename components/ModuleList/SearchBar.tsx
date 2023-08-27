@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
-import { Input } from "@chakra-ui/react";
+import { Input, Icon, HStack } from "@chakra-ui/react";
 import { Module } from "../../types/dynamic/common";
+import { HiOutlineSearch } from "react-icons/hi";
 
 const runFilter = (list: Module[], search: string): Module[] => {
   if (search === "") {
@@ -40,12 +41,20 @@ const SearchBar = ({
   }, [search]);
 
   return (
-    <Input
-      className="mb-4"
-      placeholder="Search"
-      value={search}
-      onChange={(e) => setSearch(e.target.value)}
-    />
+    <div className="mb-4 rounded-md border-2 border-greyChecked bg-bg">
+      <HStack spacing={0}>
+        <Icon as={HiOutlineSearch} className="ml-3 text-lg" />
+        <Input
+          variant="unstyled"
+          py={2}
+          px={3}
+          border="none"
+          placeholder="Search"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+      </HStack>
+    </div>
   );
 };
 

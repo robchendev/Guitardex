@@ -8,9 +8,9 @@ import SaveButton from "./SaveButton";
 
 const ModuleItem = ({ module, library }: { module: ModuleFrontMatter; library: Library }) => {
   return (
-    <Link className="w-full hover:text-text-light group" href={`/${library}/` + module.id}>
+    <Link className="w-full hover:text-text group" href={`/${library}/` + module.id}>
       <HStack
-        className={"bg-bg-light rounded-md duration-200 group-hover:ml-3"}
+        className={"bg-bg rounded-md duration-200 group-hover:ml-3"}
         justifyContent="space-between"
         align="stretch"
       >

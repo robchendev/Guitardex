@@ -11,7 +11,7 @@ const ContinueLearning = ({
   library: Library;
 }) => {
   return (
-    <div className="bg-bg-light rounded-lg px-4 py-3 mt-4">
+    <div className="bg-bg rounded-lg px-4 py-3 mt-4">
       <p className="text-lg font-medium mb-2">Continue Learning...</p>
       <Divider />
       {continuations.length ? (

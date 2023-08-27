@@ -5,7 +5,7 @@ function capitalize(str: string): string {
 }
 
 const Category = ({ value }: { value: string }) => {
-  return <p className="text-ghost-light">{capitalize(value)}</p>;
+  return <p className="text-ghost">{capitalize(value)}</p>;
 };
 
 export default Category;

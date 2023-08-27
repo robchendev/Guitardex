@@ -18,9 +18,18 @@ import { changeLog } from "../../config/updates";
 const Sidebar = () => {
   const path = useRouter().pathname;
   const { colorMode, toggleColorMode } = useColorMode();
+  const extendedToggleTheme = () => {
+    // Toggle Chakra UI color mode
+    toggleColorMode();
+
+    // Additional logic for Tailwind or other styling
+    const nextMode = colorMode === "dark" ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", nextMode);
+    localStorage.setItem("theme", nextMode);
+  };
 
   return (
-    <div className="rounded-lg bg-bg-light py-4 px-5 w-full sticky top-16">
+    <div className="rounded-lg bg-bg py-4 px-5 w-full sticky top-16">
       <VStack alignItems="flex-start" spacing={2}>
         <Button url="/" path={path} icon={HiOutlineHome}>
           My Guitardex
@@ -52,7 +61,7 @@ const Sidebar = () => {
           url=""
           path=""
           icon={colorMode === "light" ? FiMoon : FiSun}
-          onClick={toggleColorMode}
+          onClick={extendedToggleTheme}
         >
           Toggle {colorMode === "light" ? "Dark" : "Light"}
         </Button>

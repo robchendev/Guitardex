@@ -6,7 +6,7 @@ import { Icon } from "@chakra-ui/react";
 
 const MainCredit = ({ credit }: { credit: Credit }) => {
   return (
-    <div className="bg-bg-light rounded-lg">
+    <div className="bg-bg rounded-lg">
       <HStack>
         <Image
           alt={credit.name}
@@ -20,7 +20,7 @@ const MainCredit = ({ credit }: { credit: Credit }) => {
           <div>{credit.roles}</div>
           <HStack className="mt-1.5">
             {credit.links.map((link: CreditLink, index: number) => (
-              <a key={index} href={link.url} className="text-text-light hover:text-purple">
+              <a key={index} href={link.url} className="text-text hover:text-purple">
                 <Icon as={link.icon} className="text-3xl" />
               </a>
             ))}

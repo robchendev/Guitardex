@@ -25,7 +25,7 @@ const GlossaryItem = ({
       <a
         data-tooltip-id="my-tooltip"
         data-tooltip-content={definition}
-        className="border-b-2 pb-px border-purple hover:text-text-light hover:bg-tooltip-light"
+        className="border-b-2 pb-px border-link hover:text-text hover:bg-tooltip"
       >
         {term}
       </a>

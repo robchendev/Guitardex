@@ -95,8 +95,8 @@ const SaveButton = ({
       <div
         className={`w-16 h-full flex justify-center items-center cursor-pointer group ${
           saved
-            ? "text-2xl hover:text-greyChecked-light text-purple"
-            : "text-3xl text-greyChecked-light hover:text-purple"
+            ? "text-2xl hover:text-greyChecked text-link"
+            : "text-3xl text-greyChecked hover:text-link"
         }`}
         onClick={onSave}
       >
@@ -106,10 +106,10 @@ const SaveButton = ({
   }
   return (
     <div
-      className={`w-14 h-14 flex justify-center items-center border-2 border-grey-light bg-white rounded-md cursor-pointer group ${
+      className={`w-14 h-14 flex justify-center items-center border-2 border-grey bg-bg2 rounded-md cursor-pointer group ${
         saved
-          ? "text-2xl hover:text-greyChecked-light text-purple"
-          : "text-3xl text-greyChecked-light hover:text-purple"
+          ? "text-2xl hover:text-greyChecked text-link"
+          : "text-3xl text-greyChecked hover:text-link"
       }`}
       onClick={onSave}
     >

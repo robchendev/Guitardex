@@ -23,7 +23,7 @@ const Button = ({
     return (
       <div
         onClick={onClick}
-        className="pb-1 hover:cursor-pointer w-full px-3 py-2 rounded-md border border-bg-light  hover:border-grey-light hover:text-text-light transition-none"
+        className="pb-1 hover:cursor-pointer w-full px-3 py-2 rounded-md border border-bg  hover:border-grey hover:text-text transition-none"
       >
         <Icon as={icon} className="text-2xl mb-[4px] mr-2" />
         {children}
@@ -37,7 +37,7 @@ const Button = ({
         className={`pb-1 hover:cursor-pointer w-full px-3 py-2 rounded-md border${
           isActive
             ? " border-purple  hover:border-purple bg-purple text-white"
-            : " border-bg-light  hover:border-grey-light hover:text-text-light transition-none"
+            : " border-bg  hover:border-grey hover:text-text transition-none"
         }`}
       >
         <Icon as={icon} className="text-2xl mb-[4px] mr-2" />
@@ -51,7 +51,7 @@ const Button = ({
       className={`pb-1 hover:cursor-pointer w-full px-3 py-2 rounded-md border${
         isActive
           ? " border-purple  hover:border-purple bg-purple text-white"
-          : " border-bg-light  hover:border-grey-light hover:text-text-light transition-none"
+          : " border-bg  hover:border-grey hover:text-text transition-none"
       }`}
     >
       <Icon as={icon} className="text-2xl mb-[4px] mr-2" />

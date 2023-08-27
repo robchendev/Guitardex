@@ -7,52 +7,18 @@ module.exports = {
       fredoka: ["Fredoka", "sans"],
     },
     colors: {
-      text: {
-        light: "#1E293B",
-        dark: "#E7E5E4",
-      },
-      bg: {
-        light: "#E7EDF3",
-        dark: "#1e1e1e",
-      },
-      bg2: {
-        light: "#FAFAFA",
-        dark: "#363636",
-      },
-      grey: {
-        light: "#BCC7D4",
-        dark: "#737373",
-        dark2: "#52525B",
-      },
-      greyChecked: {
-        light: "#9CA3AF",
-        dark: "#6B7280",
-      },
-      ghost: {
-        light: "#6B7280",
-        dark: "#9CA3AF",
-      },
-      bgAlpha: {
-        light: "rgba(255,255,255,.4)",
-        dark: "rgba(0,0,0,.4)",
-      },
+      text: "var(--text)",
+      bg: "var(--bg)",
+      bg2: "var(--bg2)",
+      grey: "var(--grey)",
+      greyChecked: "var(--greyChecked)",
+      ghost: "var(--ghost)",
+      bgAlpha: "var(--bgAlpha)",
+      link: "var(--link)",
+      linkHover: "var(--linkHover)",
+      tooltip: "var(--tooltip)",
+      tooltipText: "var(--tooltipText)",
       purple: "#7C3AED",
-      link: {
-        light: "#7C3AED",
-        dark: "#C4B5FD",
-      },
-      linkHover: {
-        light: "#fff",
-        dark: "rgb(45,45,45)",
-      },
-      tooltip: {
-        light: "rgba(139, 92, 246, 0.3)",
-        dark: "rgba(139, 92, 246, 0.5)",
-      },
-      tooltipText: {
-        light: "#F1F5F9",
-        dark: "rgb(45,45,45)",
-      },
       white: "#FAFAFA",
       whiteHard: "#fff",
       green: "#16A34A",

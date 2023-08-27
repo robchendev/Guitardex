@@ -14,7 +14,7 @@ body {
   padding: 0;
   margin: 0;
   height: 100%;
-  background: #fafafa !important;
+  background: var(--bg2, #fafafa) !important;
   font-family: "Fredoka", serif !important;
   font-weight: 400;
   letter-spacing: 0.4px;
@@ -54,30 +54,6 @@ a:hover {
   box-sizing: border-box;
 }
 
-.ttLight {
-  padding: 3px 5px !important;
-  line-height: 1.25em;
-  background-color: rgba(139, 92, 246, 0.3);
-  color: #f1f5f9;
-  opacity: 1 !important;
-  font-size: 1rem;
-  max-width: 13em;
-  text-align: center;
-  transition: none;
-}
-
-.ttDark {
-  padding: 3px 5px !important;
-  line-height: 1.25em;
-  background-color: rgba(139, 92, 246, 0.3);
-  color: #2d2d2d;
-  opacity: 1 !important;
-  font-size: 1rem;
-  max-width: 13em;
-  text-align: center;
-  transition: none;
-}
-
 input,
 select,
 textarea {
@@ -95,12 +71,8 @@ textarea {
   }
 } */
 
-.tab-filter-light {
-  filter: brightness(1.017);
-}
-
-.tab-filter-dark {
-  filter: invert(0.822) contrast(105%) brightness(115%);
+.tab-filter {
+  filter: var(--tabFilter, brightness(1.017));
 }
 
 /* Change Selection Text Color When Highlighting */
@@ -133,4 +105,36 @@ textarea {
   --yellow: #fed766;
   --red: #e84855;
   --white: #fff;
+}
+
+[data-theme="light"] {
+  --text: #1e293b;
+  --bg: #e7edf3;
+  --bg2: #fafafa;
+  --grey: #bcc7d4;
+  --greyChecked: #9ca3af;
+  --ghost: #6b7280;
+  --bgAlpha: rgba(255, 255, 255, 0.4);
+  --link: #7c3aed;
+  --linkHover: #fff;
+  --tooltip: rgba(139, 92, 246, 0.3);
+  --tooltipText: #f1f5f9;
+  --tabFilter: brightness(1.017);
+  /* Override other variables here */
+}
+
+[data-theme="dark"] {
+  --text-color: #e7e5e4;
+  --bg: #1e1e1e;
+  --bg2: #363636;
+  --grey: #52525b;
+  --greyChecked: #6b7280;
+  --ghost: #9ca3af;
+  --bgAlpha: rgba(0, 0, 0, 0.4);
+  --link: #c4b5fd;
+  --linkHover: rgb(45, 45, 45);
+  --tooltip: rgba(139, 92, 246, 0.5);
+  --tooltipText: rgb(45, 45, 45);
+  --tabFilter: invert(0.822) contrast(105%) brightness(115%);
+  /* Override other variables here */
 }

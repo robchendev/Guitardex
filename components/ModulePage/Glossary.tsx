@@ -14,10 +14,10 @@ const Glossary = ({ glossary }: { glossary: GlossaryItem[] }) => {
     <Accordion allowToggle className="rounded-lg mb-4">
       <AccordionItem
         borderRadius={8}
-        className="bg-bg-light hover:bg-bg-light  border-none"
+        className="bg-bg hover:bg-bg  border-none"
         isDisabled={!glossary.length}
       >
-        <AccordionButton className="bg-bg-light" borderRadius={8}>
+        <AccordionButton className="bg-bg" borderRadius={8}>
           <HiOutlineBookOpen className="mr-2" />
           Glossary [{glossary.length}]
           <AccordionIcon />
@@ -25,7 +25,7 @@ const Glossary = ({ glossary }: { glossary: GlossaryItem[] }) => {
         <AccordionPanel
           borderBottomRadius={8}
           pb={2.5}
-          className="bg-bg-light hover:bg-bg-light border-t-2 border-grey-light"
+          className="bg-bg hover:bg-bg border-t-2 border-grey"
         >
           {glossary.length ? (
             <ul>

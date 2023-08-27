@@ -4,7 +4,7 @@ import Divider from "./Sidebar/Divider";
 
 const ExternalCredit = () => {
   return (
-    <div className="bg-bg-light rounded-lg px-4 py-3 mt-4">
+    <div className="bg-bg rounded-lg px-4 py-3 mt-4">
       <p className="text-lg font-medium">Community Credits</p>
       <p className="mb-2">These people contributed to this project. Thank you everyone!</p>
       <Divider />

@@ -16,7 +16,7 @@ const ModuleHeader = ({
 }) => {
   return (
     <>
-      <div className="bg-bg-light px-4 py-2.5 rounded-lg mb-4">
+      <div className="bg-bg px-4 py-2.5 rounded-lg mb-4">
         <HStack justifyContent="space-between">
           <div>
             <h1 className="text-xl font-medium tracking-wider">{frontmatter.name}</h1>
@@ -27,7 +27,7 @@ const ModuleHeader = ({
                   {index > 0 && ", "}
                   <Link
                     href={"/t/" + req.id}
-                    className="text-base text-purple hover:bg-purple transition-none"
+                    className="text-link hover:bg-link hover:text-bg transition-none"
                   >
                     {req.name}
                   </Link>
