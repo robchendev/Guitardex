@@ -1,11 +1,12 @@
 import { NextPage } from "next";
 import React from "react";
+import DexMasterList from "../components/Dex/DexMasterList";
 import Wrapper from "../components/Wrapper";
 
 const Index: NextPage = () => {
   return (
-    <Wrapper title="Guitardex V2">
-      <div>TODO</div>
+    <Wrapper>
+      <DexMasterList />
     </Wrapper>
   );
 };

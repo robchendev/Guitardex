@@ -4,7 +4,7 @@ import { BiSave } from "react-icons/bi";
 import { libraries, Library } from "../../types/dynamic/common";
 import { Guitardex } from "../../types";
 
-const hasDupes = (array: number[]) => new Set(array).size !== array.length;
+export const hasDupes = (array: number[]) => new Set(array).size !== array.length;
 const SAVE_KEY = "save";
 
 function createInitialGuitardex(name: string): Guitardex {
