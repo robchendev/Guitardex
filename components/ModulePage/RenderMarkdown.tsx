@@ -23,6 +23,12 @@ const RenderMarkdown = ({
           switch (props.alt) {
             case "music":
               return <AudioPlayer src={props.src} />;
+            case "music2":
+              return (
+                <audio controls className="flex-1 outline-none md:mr-5">
+                  <source src={props.src} />
+                </audio>
+              );
             case "tab":
               return <TabImage src={props.src} />;
             default:
