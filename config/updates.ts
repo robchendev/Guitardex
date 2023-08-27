@@ -31,15 +31,8 @@ export const changeLog: Log[] = [
       "Reduced flash of unstyled content caused by inefficient dynamically generated content.",
     ],
   },
-
   {
     version: "1.7",
-    title: "Re: Dark Mode",
-    date: "??? ?, 2023",
-    changes: ["Re-implemented dark mode with new colors."],
-  },
-  {
-    version: "1.6",
     title: "Library Glossary",
     date: "??? ?, 2023",
     changes: [
@@ -47,7 +40,7 @@ export const changeLog: Log[] = [
     ],
   },
   {
-    version: "1.5",
+    version: "1.6",
     title: "Contact Form + Report Problem Form",
     date: "??? ?, 2023",
     changes: [
@@ -56,7 +49,7 @@ export const changeLog: Log[] = [
     ],
   },
   {
-    version: "1.4",
+    version: "1.5",
     title: "Audio Production Library List",
     date: "??? ?, 2023",
     changes: [
@@ -66,7 +59,7 @@ export const changeLog: Log[] = [
     ],
   },
   {
-    version: "1.3",
+    version: "1.4",
     title: "Multiple Libraries",
     date: "August ??, 2023",
     changes: [
@@ -75,9 +68,15 @@ export const changeLog: Log[] = [
     ],
   },
   {
+    version: "1.3",
+    title: "Re: Dark Mode",
+    date: "Aug 26, 2023",
+    changes: ["Re-implemented dark mode."],
+  },
+  {
     version: "1.2",
     title: "Module Glossary",
-    date: "August ??, 2023",
+    date: "August 24, 2023",
     changes: [
       "Terms and definitions will be scanned when building production packages server-side and shown in a glossary at the top of the module page.",
     ],
@@ -85,7 +84,7 @@ export const changeLog: Log[] = [
   {
     version: "1.1",
     title: "Codebase Remake",
-    date: "August ??, 2023",
+    date: "August 22, 2023",
     changes: [
       "For easier maintainability, website stack has remade from JavaScript/React/Gatsby to TypeScript/React/NextJS/ChakraUI/TailwindCSS.",
       "Removed dark mode (will be added back in a later update).",
