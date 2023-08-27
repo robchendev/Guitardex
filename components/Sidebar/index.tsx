@@ -1,4 +1,4 @@
-import { VStack } from "@chakra-ui/react";
+import { useColorMode, VStack } from "@chakra-ui/react";
 import React from "react";
 import Button from "./Button";
 import Divider from "./Divider";
@@ -17,6 +17,7 @@ import { changeLog } from "../../config/updates";
 
 const Sidebar = () => {
   const path = useRouter().pathname;
+  const { colorMode, toggleColorMode } = useColorMode();
 
   return (
     <div className="rounded-lg bg-bg-light py-4 px-5 w-full sticky top-16">
@@ -47,9 +48,17 @@ const Sidebar = () => {
           Donate
         </Button>
         <Divider />
-        <Button url="/dark" path={path} icon={FiMoon}>
-          Dark Mode
+        <Button
+          url=""
+          path=""
+          icon={colorMode === "light" ? FiMoon : FiSun}
+          onClick={toggleColorMode}
+        >
+          Toggle {colorMode === "light" ? "Dark" : "Light"}
         </Button>
+        {/* <Button url="/dark" path={path} icon={FiMoon}>
+          Dark Mode
+        </Button> */}
       </VStack>
     </div>
   );
