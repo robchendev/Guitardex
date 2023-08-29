@@ -19,6 +19,7 @@ module.exports = {
       tooltip: "var(--tooltip)",
       tooltipText: "var(--tooltipText)",
       purple: "#7C3AED",
+      purpleHover: "#6D28D9",
       white: "#FAFAFA",
       whiteHard: "#fff",
       green: "#16A34A",

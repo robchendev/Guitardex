@@ -1,4 +1,4 @@
-import { Input } from "@chakra-ui/react";
+import { HStack, Input, VStack } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { Guitardex } from "../../types";
@@ -8,6 +8,7 @@ import { createInitialGuitardex, libraryReadable } from "../../utils/guitardex";
 import { libraries, Library, ModuleFrontMatter, ModuleLists } from "../../types/dynamic/common";
 import DexItem from "./DexItem";
 import EmptySave from "./EmptySave";
+import H3 from "../Typography/H3";
 
 const SAVE_KEY = "save";
 
@@ -231,12 +232,19 @@ const DexMasterList = ({ moduleLists }: { moduleLists: ModuleLists }) => {
     <div>
       {/* For different className based on if the user is entering 
       a new name, use focused: */}
-      <div className={`${isEditingName ? "bg-purple" : ""}`}>
+      <div
+        className={`border-b-2 rounded-t-md rounded-b-none ${!isEditingName && "border-bg2 "}${
+          isEditingName || !save.name.length ? "bg-bg" : ""
+        } + " " + ${isEditingName && "border-greyChecked bg-bg"}`}
+      >
         <Input
           onKeyUp={(e) => handleEnterKey(e)}
           autoComplete="off"
           id="saveName"
           type="text"
+          fontWeight={500}
+          fontSize={22}
+          textAlign="center"
           placeholder="Click to add a name..."
           variant="unstyled"
           maxLength={24}
@@ -246,13 +254,20 @@ const DexMasterList = ({ moduleLists }: { moduleLists: ModuleLists }) => {
           value={save.name}
         />
       </div>
-      {/* <span>
-        <span>{save.name.length}</span>
-        <span>/24</span>
-      </span> */}
+      <HStack
+        justify="flex-end"
+        spacing={0}
+        className={`select-none ${isEditingName ? "text-greyChecked" : "text-bg2"}`}
+      >
+        <span>{save.name.length}/24</span>
+      </HStack>
       {libraries.map((library: Library, indexJ: number) => (
         <div key={indexJ}>
-          {save[library].length !== 0 && <div>{libraryReadable(library)}</div>}
+          {save[library].length !== 0 && (
+            <h2 className={`text-xl font-medium mb-2 ${indexJ > 0 && "mt-2"}`}>
+              {libraryReadable(library)}
+            </h2>
+          )}
           {save[library].length !== 0 && (
             <div>
               <DragDropContext onDragEnd={(e) => handleDexOrderChange(e, save, setSave, library)}>
@@ -304,13 +319,29 @@ const DexMasterList = ({ moduleLists }: { moduleLists: ModuleLists }) => {
       {libraries.reduce((acc, library) => acc + (save[library]?.length || 0), 0) === 0 ? (
         <EmptySave />
       ) : (
-        <div>
-          <input value={exportURL} className="w-full" disabled />
-          <button onClick={() => copyExportURL(exportURL, setCopyURLButton)}>
-            {copyURLButton}
-          </button>
-          <div onClick={() => clearSave(setSave)}>Delete all</div>
-          Deleting your browser cookies will also delete your Guitardex.
+        <div className="mt-4">
+          <HStack align="stretch" spacing={0}>
+            <input
+              value={exportURL}
+              className="w-full bg-bg pl-3 py-1.5 rounded-l-md text-ghost tracking-wide"
+              disabled
+            />
+            <button
+              className="w-44 bg-purple rounded-r-md hover:bg-purpleHover transition-colors duration-200 text-white"
+              onClick={() => copyExportURL(exportURL, setCopyURLButton)}
+            >
+              {copyURLButton}
+            </button>
+          </HStack>
+          <VStack className="mt-4">
+            <button
+              onClick={() => clearSave(setSave)}
+              className="w-32 px-3 py-1.5 bg-purple rounded-md hover:bg-purpleHover transition-colors duration-200 text-white"
+            >
+              Delete All
+            </button>
+            <p>Deleting your browser cookies will also delete your Guitardex.</p>
+          </VStack>
         </div>
       )}
     </div>
