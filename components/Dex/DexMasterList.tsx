@@ -7,6 +7,7 @@ import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import { createInitialGuitardex, libraryReadable } from "../../utils/guitardex";
 import { libraries, Library, ModuleFrontMatter, ModuleLists } from "../../types/dynamic/common";
 import DexItem from "./DexItem";
+import EmptySave from "./EmptySave";
 
 const SAVE_KEY = "save";
 
@@ -46,14 +47,17 @@ const decodeModule = (item: string, library: string, result: Guitardex): void =>
 
 const decodeAll = (moduleStr: string, result: Guitardex) => {
   // backwards compatible with V1
+
   if (!moduleStr.includes("=")) {
     const techniques = moduleStr.split(".");
     for (const technique of techniques) {
       decodeModule(technique, "t", result);
     }
+    return;
   }
   // V2
   const modules: string[] = moduleStr.split("&");
+
   for (const moduleLibrary of modules) {
     const moduleLibraryItems = moduleLibrary.split("=");
     if (moduleLibraryItems.length !== 2) {
@@ -72,7 +76,6 @@ const decode = (encodedStr: string): Guitardex => {
   let result: Guitardex;
   let decodedArr: string[] = [];
   let hasName = false;
-  console.log("Encoded str ", encodedStr);
   if (encodedStr.includes("_")) {
     hasName = true;
   }
@@ -103,7 +106,9 @@ const encode = (guitardex: Guitardex) => {
   }
   const libraryArr: string[] = [];
   for (const key of libraries as unknown as Library[]) {
-    libraryArr.push(`${key}=${guitardex[key].join(".")}`);
+    if (guitardex[key].length) {
+      libraryArr.push(`${key}=${guitardex[key].join(".")}`);
+    }
   }
   encodedStr += libraryArr.join("&");
   return encodedStr;
@@ -157,13 +162,16 @@ const handleDexOrderChange = (
 };
 
 const DexMasterList = ({ moduleLists }: { moduleLists: ModuleLists }) => {
-  const location = useRouter().pathname;
+  const router = useRouter();
+  const location = router.pathname;
+  // console.log(router.query);
   let hasUrl = false;
 
+  console.log(location);
   const importSave = (guitardex: Guitardex): Guitardex => {
     try {
       const importStr = window.location.search.replace("?", "");
-      window.history.replaceState({}, document.title, location);
+      router.replace(location);
       guitardex = decode(importStr);
       for (const key of libraries as unknown as Library[]) {
         if (hasDupes(guitardex[key])) {
@@ -299,7 +307,7 @@ const DexMasterList = ({ moduleLists }: { moduleLists: ModuleLists }) => {
               </DragDropContext>
             </div>
           ) : (
-            <div>There aren't any items</div>
+            <EmptySave library={library} />
           )}
         </div>
       ))}
