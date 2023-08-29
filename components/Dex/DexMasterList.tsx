@@ -7,7 +7,7 @@ import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import { HiOutlineTrash } from "react-icons/hi";
 import { MdDragIndicator } from "react-icons/md";
 import ModuleItem from "../ModuleList/ModuleItem";
-import { createInitialGuitardex } from "../../utils/guitardex";
+import { createInitialGuitardex, libraryReadable } from "../../utils/guitardex";
 import { libraries, Library } from "../../types/dynamic/common";
 
 const SAVE_KEY = "save";
@@ -144,22 +144,19 @@ const clearItem = (id, save: Guitardex, setSave: (dex: Guitardex) => void) => {
   setSave(newSave);
 };
 
-const handleNameChange = (
-  e: React.FormEvent<HTMLInputElement>,
+const handleDexOrderChange = (
+  result,
   save: Guitardex,
-  setSave: (dex: Guitardex) => void
+  setSave: (dex: Guitardex) => void,
+  library: Library
 ) => {
-  const newName = e.target.value.replace(/[-=~_%']/g, "");
-  const newSave = { name: newName, t: save.t, a: [] };
-  setSave(newSave);
-};
-
-const handleDexOrderChange = (result, save: Guitardex, setSave: (dex: Guitardex) => void) => {
-  if (!result.destination) return;
-  const items = Array.from(save.t);
+  if (!result.destination) {
+    return;
+  }
+  const items = Array.from(save[library]);
   const [reorderedItem] = items.splice(result.source.index, 1);
   items.splice(result.destination.index, 0, reorderedItem);
-  const newSave = { name: save.name, t: items, a: [] };
+  const newSave = { ...save, [library]: items };
   setSave(newSave);
 };
 
@@ -224,7 +221,7 @@ const DexMasterList = () => {
   }, []);
 
   useEffect(() => {
-    // localStorage.setItem(SAVE_KEY, JSON.stringify(save));
+    localStorage.setItem(SAVE_KEY, JSON.stringify(save));
     if (save.name.length > 24) save.name = shortenSaveName(save.name);
     setExportURL("https://gdex.cc/?" + encode(save));
   }, [save]);
@@ -246,7 +243,7 @@ const DexMasterList = () => {
           maxLength={24}
           onFocus={() => setIsEditingName(true)}
           onBlur={() => setIsEditingName(false)}
-          onInput={(e) => handleNameChange(e, save, setSave)}
+          onInput={(e) => setSave({ ...save, name: (e.target as HTMLInputElement).value })}
           value={save.name}
         />
       </div>
@@ -254,15 +251,18 @@ const DexMasterList = () => {
         <span>{save.name.length}</span>
         <span>/24</span>
       </span> */}
-      {save.t.length ? (
-        <div>
-          <DragDropContext onDragEnd={(e) => handleDexOrderChange(e, save, setSave)}>
-            <Droppable droppableId="techniques">
-              {(provided) => (
-                <ul {...provided.droppableProps} ref={provided.innerRef}>
-                  {save.t.map((id: number, index: number) => {
-                    if (id) {
-                      return (
+      {libraries.map((library: Library, indexJ: number) => (
+        <div key={indexJ}>
+          <div>{libraryReadable(library)}</div>
+          {save[library].length ? (
+            <div>
+              <DragDropContext onDragEnd={(e) => handleDexOrderChange(e, save, setSave, library)}>
+                <Droppable droppableId={`techniques-${indexJ}`} key={`droppable-${indexJ}`}>
+                  {(provided) => (
+                    <ul {...provided.droppableProps} ref={provided.innerRef} key={`ul-${indexJ}`}>
+                      {save[library].map((id: number, index: number) => (
+                        // react-beautiful-dnd has an issue where a unique key prop error shows on the console
+                        // https://github.com/atlassian/react-beautiful-dnd/issues/2084
                         <Draggable key={id} draggableId={id.toString()} index={index}>
                           {(provided) => (
                             <li
@@ -272,6 +272,7 @@ const DexMasterList = () => {
                               ref={provided.innerRef}
                             >
                               <div>
+                                {id}
                                 <MdDragIndicator />
                               </div>
                               <div>
@@ -291,19 +292,19 @@ const DexMasterList = () => {
                             </li>
                           )}
                         </Draggable>
-                      );
-                    }
-                    return <></>;
-                  })}
-                  {provided.placeholder}
-                </ul>
-              )}
-            </Droppable>
-          </DragDropContext>
+                      ))}
+
+                      {provided.placeholder}
+                    </ul>
+                  )}
+                </Droppable>
+              </DragDropContext>
+            </div>
+          ) : (
+            <div>There aren't any items</div>
+          )}
         </div>
-      ) : (
-        <div>There aren't any items</div>
-      )}
+      ))}
       <input value={exportURL} className="w-full" disabled />
       <button onClick={() => copyExportURL(exportURL, setCopyURLButton)}>{copyURLButton}</button>
       {save.t.length !== 0 && (

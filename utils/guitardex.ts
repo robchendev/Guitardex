@@ -8,3 +8,14 @@ export function createInitialGuitardex(name: string): Guitardex {
   }
   return initObj as Guitardex;
 }
+
+export const libraryReadable = (library: Library): string => {
+  switch (library) {
+    case "t":
+      return "Techniques";
+    case "a":
+      return "Audio Production";
+    default:
+      return "Unknown";
+  }
+};
