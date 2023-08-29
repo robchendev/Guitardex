@@ -1,10 +1,11 @@
-import { Flex, HStack, Text } from "@chakra-ui/react";
+import { HStack, Text } from "@chakra-ui/react";
 import Link from "next/link";
 import React from "react";
 import { MdDragIndicator } from "react-icons/md";
 import { Library, ModuleFrontMatter } from "../../types/dynamic/common";
 import Category from "../ModuleList/Category";
 import Difficulty from "../ModuleList/Difficulty";
+import LibraryTag, { LibraryTagMini } from "../ModuleList/LibraryTag";
 import DeleteButton from "./DeleteButton";
 
 const DexItem = ({
@@ -32,6 +33,7 @@ const DexItem = ({
           </Text>
           <div>
             <HStack spacing={1}>
+              {/* <LibraryTagMini library={library} /> */}
               <Difficulty value={module.difficulty} />
               <Category value={module.category} />
             </HStack>

@@ -13,4 +13,8 @@ const LibraryTag = ({ library }: { library: Library }) => {
   }
 };
 
+export const LibraryTagMini = ({ library }: { library: Library }) => {
+  return <ColorTag className="bg-purple">{library}</ColorTag>;
+};
+
 export default LibraryTag;
