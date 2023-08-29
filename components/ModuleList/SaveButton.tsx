@@ -3,17 +3,10 @@ import { ImCheckmark } from "react-icons/im";
 import { BiSave } from "react-icons/bi";
 import { libraries, Library } from "../../types/dynamic/common";
 import { Guitardex } from "../../types";
+import { createInitialGuitardex } from "../../utils/guitardex";
 
 export const hasDupes = (array: number[]) => new Set(array).size !== array.length;
 const SAVE_KEY = "save";
-
-function createInitialGuitardex(name: string): Guitardex {
-  const initObj: Partial<Guitardex> = { name };
-  for (const key of libraries as unknown as Library[]) {
-    initObj[key] = [];
-  }
-  return initObj as Guitardex;
-}
 
 const SaveButton = ({
   id,
@@ -25,7 +18,6 @@ const SaveButton = ({
   isGhost?: boolean;
 }) => {
   const [saved, setSaved] = useState(false);
-
   const initSave: Guitardex = createInitialGuitardex("My Guitardex");
   let save: Guitardex = initSave;
 

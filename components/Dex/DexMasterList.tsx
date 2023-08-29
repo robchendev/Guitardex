@@ -7,6 +7,8 @@ import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import { HiOutlineTrash } from "react-icons/hi";
 import { MdDragIndicator } from "react-icons/md";
 import ModuleItem from "../ModuleList/ModuleItem";
+import { createInitialGuitardex } from "../../utils/guitardex";
+import { libraries, Library } from "../../types/dynamic/common";
 
 const SAVE_KEY = "save";
 
@@ -24,71 +26,98 @@ const shortenSaveName = (saveNameToShorten: string) => {
   return newSaveName;
 };
 
-// hasDupes is exported from SaveButton
+const decodeName = (encodedStr: string): string => {
+  return encodedStr.replace("-", " ");
+};
 
-// TODO: To split into multiple dexes, use split on "&" and run the rest of this multiple times
-const decode = (stringToDecode: string) => {
-  let decoded: string[] = [];
-  // TODO: use createInitialGuitardex
-  let result: Guitardex = { name: "", t: [], a: [] };
-  if (stringToDecode.includes("_")) {
-    decoded = stringToDecode.split("_");
+const decodeModule = (item: string, library: string, result: Guitardex): void => {
+  if (isNaN(item as any)) {
+    return;
+  }
+  switch (library) {
+    case "t":
+      result.t.push(item as unknown as number);
+      break;
+    case "a":
+      result.a.push(item as unknown as number);
+      break;
+    default:
+      break;
+  }
+};
+
+const decodeAll = (moduleStr: string, result: Guitardex) => {
+  // backwards compatible with V1
+  if (!moduleStr.includes("=")) {
+    const techniques = moduleStr.split(".");
+    for (const technique of techniques) {
+      decodeModule(technique, "t", result);
+    }
+  }
+  // V2
+  const modules: string[] = moduleStr.split("&");
+  for (const moduleLibrary of modules) {
+    const moduleLibraryItems = moduleLibrary.split("=");
+    if (moduleLibraryItems.length !== 2) {
+      throw Error("Library should be in the format of x=y.y.y...");
+    }
+    const [library, itemStr] = moduleLibraryItems;
+    const items = itemStr.split(".");
+    for (const item of items) {
+      decodeModule(item, library, result);
+    }
+  }
+};
+
+//  /?name_t=x.x.x&a=y.y.y
+const decode = (encodedStr: string): Guitardex => {
+  let result: Guitardex;
+  let decodedArr: string[] = [];
+  let hasName = false;
+  if (encodedStr.includes("_")) {
+    hasName = true;
+  }
+  decodedArr = encodedStr.split("_");
+  if (decodedArr.length > 2) {
+    throw Error("There can only be 1 underscore in the URL");
+  }
+  if (decodedArr.length === 2) {
+    result = createInitialGuitardex(decodeName(decodedArr[0]));
+    decodeAll(decodedArr[1], result);
+  }
+  if (decodedArr.length === 1) {
+    if (hasName) {
+      result = createInitialGuitardex(decodeName(decodedArr[0]));
+    } else {
+      result = createInitialGuitardex("");
+      decodeAll(decodedArr[0], result);
+    }
   } else {
-    // Only Second half
-    decoded = [stringToDecode];
+    result = createInitialGuitardex("");
   }
-  // If saveName=1.2.3
-  if (decoded.length === 2) {
-    const decodedText = decoded[0].replace(/-/g, " ");
-    let decodedItems: number[] = [];
-    // check if 1.2.3 has number
-    if (!/\d/.test(decoded[1])) {
-      return { n: decodedText, e: decodedItems };
-    }
-    // If saveName=1.2.3 or saveName
-    else if (decoded[1] !== "") {
-      decodedItems = decoded[1].split(".").map(function (item) {
-        return parseInt(item, 10);
-      });
-    }
-    // If saveName= do nothing, since decodedItems is set to []
-    return { n: decodedText, e: decodedItems };
-  } else if (decoded.length === 1) {
-    const decodedText = "";
-    let decodedItems: number[] = [];
-    // if not an empty string
-    if (decoded[0] !== "") {
-      // If 2.4 (string has numbers)
-      if (/\d/.test(decoded[0])) {
-        decodedItems = decoded[0].split(".").map(function (item) {
-          return parseInt(item, 10);
-        });
-      }
-      // If "" (string has no numbers), or asdfg, the save will clear
-      else return false;
-    }
-    result = { name: decodedText, t: decodedItems, a: [] };
-  }
-  // Decoded array is >2 or 0 length
-  // TODO: ... this returning Guitardex | boolean is terrible, pls fix
-  else return false;
   return result;
 };
 
-const encode = (objectToEncode: Guitardex) => {
-  const encodedItems = objectToEncode.t.join(".");
-  if (objectToEncode.name === "") return encodedItems;
-  return objectToEncode.name.replace(/\s/g, "-") + "_" + encodedItems;
+const encode = (guitardex: Guitardex) => {
+  let encodedStr = "";
+  if (guitardex.name) {
+    const encodedName = guitardex.name.replace(/\s/g, "-") + "_";
+    encodedStr += encodedName;
+  }
+  const libraryArr: string[] = [];
+  for (const key of libraries as unknown as Library[]) {
+    libraryArr.push(`${key}=${guitardex[key].join(".")}`);
+  }
+  encodedStr += libraryArr.join("&");
+  return encodedStr;
 };
 
 // TODO: Use states for this
-const exportURL = () => {
-  navigator.clipboard.writeText(
-    "https://guitardex.com/?" + encode(JSON.parse(localStorage.getItem(SAVE_KEY) ?? ""))
-  );
-  (document.getElementById("copyURLButton") as HTMLInputElement).innerHTML = "Copied!";
+const copyExportURL = (exportURL: string, setCopyURLButton: (text: string) => void) => {
+  navigator.clipboard.writeText(exportURL);
+  setCopyURLButton("Copied!");
   setTimeout(() => {
-    (document.getElementById("copyURLButton") as HTMLInputElement).innerHTML = "Copy Link";
+    setCopyURLButton("Copy Link");
   }, 2 * 1000);
 };
 
@@ -135,78 +164,72 @@ const handleDexOrderChange = (result, save: Guitardex, setSave: (dex: Guitardex)
 };
 
 const DexMasterList = () => {
-  // TODO: Use createInitialGuitardex
-  let savedObj: Guitardex = {
-    name: "",
-    t: [],
-    a: [],
-  };
   const location = useRouter().pathname;
   let hasUrl = false;
-  if (typeof window !== "undefined") {
+
+  const importSave = (guitardex: Guitardex): Guitardex => {
     try {
-      let stringToImport = "";
-      // TODO: use createInitialGuitardex
-      let newSave: Guitardex = { name: "", t: [], a: [] };
-      if (window.location.search.includes("?")) {
-        stringToImport = window.location.search.replace("?", "");
-        newSave = decode(stringToImport);
-        window.history.replaceState({}, document.title, location);
-        // If save is NOT empty or does not exist
-        // This will work when save exists OR save is not empty
-        // TODO: Loop through and check all library saves
-        if (hasDupes(newSave.t)) throw new Error("Save has duplicate ID");
-        if (
-          localStorage.getItem(SAVE_KEY) !== null &&
-          localStorage.getItem(SAVE_KEY) !== '{"n":"","e":[]}'
-        ) {
-          if (window.confirm("This will replace your current save. Continue?")) {
-            savedObj = newSave;
-          } else {
-            savedObj = JSON.parse(localStorage.getItem(SAVE_KEY));
-          }
-        } else {
-          savedObj = newSave;
+      const importStr = window.location.search.replace("?", "");
+      window.history.replaceState({}, document.title, location);
+      guitardex = decode(importStr);
+      for (const key of libraries as unknown as Library[]) {
+        if (hasDupes(guitardex[key])) {
+          throw new Error("Save has duplicate ID");
         }
-        hasUrl = true;
       }
+      hasUrl = true;
     } catch (error) {
       alert("Invalid save profile detected. Save will not be loaded.\n" + error);
     }
-  }
-  if (typeof window !== "undefined" && localStorage.getItem(SAVE_KEY)) {
+    return guitardex;
+  };
+
+  const loadSave = (guitardex: Guitardex): Guitardex => {
     try {
-      const save = JSON.parse(localStorage.getItem(SAVE_KEY) ?? "");
-      if (hasDupes(save.t)) throw new Error("Save has duplicate ID");
-      if (
-        typeof save.name !== "string" &&
-        Object.prototype.toString.call(save.t) !== "[object Array]"
-      ) {
-        savedObj.name = "";
-        savedObj.t = [];
-      } else if (typeof save.n !== "string") savedObj.name = "";
-      else if (Object.prototype.toString.call(save.t) !== "[object Array]") {
-        savedObj.t = [];
-      } else if (!hasUrl) savedObj = JSON.parse(localStorage.getItem(SAVE_KEY) ?? ""); // PROBLEM
+      const localSave = localStorage.getItem(SAVE_KEY);
+      if (localSave) {
+        guitardex = JSON.parse(localSave ?? "");
+        for (const key of libraries as unknown as Library[]) {
+          if (hasDupes(guitardex[key])) {
+            throw new Error("Save has duplicate ID");
+          }
+        }
+        if (typeof guitardex.name !== "string") {
+          guitardex = createInitialGuitardex("");
+        } else if (typeof guitardex.name !== "string") {
+          guitardex.name = "";
+        } else if (!hasUrl) {
+          guitardex = JSON.parse(localSave ?? "");
+        }
+      }
     } catch (error) {
       alert("Invalid save profile detected. Clearing save.\n" + error);
     }
-  }
-  const [save, setSave] = useState(savedObj);
+    return guitardex;
+  };
+
+  const [save, setSave] = useState(createInitialGuitardex(""));
+  const [exportURL, setExportURL] = useState("https://gdex.cc/?");
+  const [copyURLButton, setCopyURLButton] = useState("Copy Link");
+
   useEffect(() => {
-    localStorage.setItem(SAVE_KEY, JSON.stringify(save));
+    let guitardex: Guitardex = createInitialGuitardex("");
+    if (window.location.search.includes("?")) {
+      guitardex = importSave(guitardex);
+    }
+    if (localStorage.getItem(SAVE_KEY)) {
+      guitardex = loadSave(guitardex);
+    }
+    setSave(guitardex);
+  }, []);
+
+  useEffect(() => {
+    // localStorage.setItem(SAVE_KEY, JSON.stringify(save));
     if (save.name.length > 24) save.name = shortenSaveName(save.name);
-    if ((document.getElementById("exportURL") as HTMLInputElement)?.value) {
-      document.getElementById("exportURL").value = "https://gdex.cc/?" + encode(save);
-    }
-    if ((document.getElementById("inputLimit") as HTMLInputElement)?.innerHTML) {
-      document.getElementById("inputLimit").innerHTML = save.name.length;
-    }
-    console.log(save);
+    setExportURL("https://gdex.cc/?" + encode(save));
   }, [save]);
 
   const [isEditingName, setIsEditingName] = useState(false);
-
   // TODO: Refactor....
   return (
     <div>
@@ -227,18 +250,18 @@ const DexMasterList = () => {
           value={save.name}
         />
       </div>
-      <span>
-        <span id="inputLimit"></span>
+      {/* <span>
+        <span>{save.name.length}</span>
         <span>/24</span>
-      </span>
+      </span> */}
       {save.t.length ? (
         <div>
-          <DragDropContext onDragEnd={handleDexOrderChange}>
+          <DragDropContext onDragEnd={(e) => handleDexOrderChange(e, save, setSave)}>
             <Droppable droppableId="techniques">
               {(provided) => (
                 <ul {...provided.droppableProps} ref={provided.innerRef}>
-                  {save.t?.map((id, index) => {
-                    if (id !== null) {
+                  {save.t.map((id: number, index: number) => {
+                    if (id) {
                       return (
                         <Draggable key={id} draggableId={id.toString()} index={index}>
                           {(provided) => (
@@ -281,13 +304,11 @@ const DexMasterList = () => {
       ) : (
         <div>There aren't any items</div>
       )}
-      <input id="exportURL" defaultValue={"https://gdex.cc/?" + encode(save)} disabled></input>
-      <button id="copyURLButton" onClick={exportURL}>
-        Copy Link
-      </button>
+      <input value={exportURL} className="w-full" disabled />
+      <button onClick={() => copyExportURL(exportURL, setCopyURLButton)}>{copyURLButton}</button>
       {save.t.length !== 0 && (
         <div>
-          <div onClick={() => clearSave(setSave)}>delete all</div>
+          <div onClick={() => clearSave(setSave)}>Delete all</div>
           Deleting your browser cookies will also delete your Guitardex.
         </div>
       )}
