@@ -130,10 +130,10 @@ export const mainCredits: Credit[] = [
 export const externalCredit: CreditExternal[] = [
   {
     name: "Sample",
-    contribution: "Found bug lore ipsum dolor cant eat bugs kek line line line mo",
+    contribution: "Stub information",
   },
   {
     name: "Sample",
-    contribution: "Found bug lore ipsum dolor cant eat bugs kek line line line m",
+    contribution: "Stub information",
   },
 ];

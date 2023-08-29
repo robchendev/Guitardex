@@ -62,7 +62,7 @@ export const changeLog: Log[] = [
   {
     version: "1.4",
     title: "Multiple Libraries",
-    date: "August ??, 2023",
+    date: "August 28, 2023",
     changes: [
       "Saving functionality for multiple libraries (Techniques, Audio Production) added.",
       "New dex linking URL usage for multiple libraries, backwards compatible with v1.0 (URL query strings without t= and a= will default to techniques).",
