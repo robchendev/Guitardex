@@ -8,7 +8,6 @@ import { createInitialGuitardex, libraryReadable } from "../../utils/guitardex";
 import { libraries, Library, ModuleFrontMatter, ModuleLists } from "../../types/dynamic/common";
 import DexItem from "./DexItem";
 import EmptySave from "./EmptySave";
-import H3 from "../Typography/H3";
 
 const SAVE_KEY = "save";
 
@@ -20,10 +19,8 @@ const handleEnterKey = (event: any) => {
 };
 
 // TODO: Use state for this
-const shortenSaveName = (saveNameToShorten: string) => {
-  const newSaveName = saveNameToShorten.substring(0, 24);
-  (document.getElementById("saveName") as HTMLInputElement).value = newSaveName;
-  return newSaveName;
+const shortenSaveName = (save: Guitardex, setSave: (save: Guitardex) => void) => {
+  setSave({ ...save, name: save.name.substring(0, 24) });
 };
 
 const decodeName = (encodedStr: string): string => {
@@ -129,11 +126,7 @@ const clearSave = (setSave: (dex: Guitardex) => void) => {
   }
 };
 
-// TODO: Use states for this...?
 const clearItem = (id, save: Guitardex, setSave: (dex: Guitardex) => void, library: Library) => {
-  // eslint-disable-next-line
-  // @ts-ignore
-  document.getElementById(id.toString()).style.display = "none";
   const temp = save[library];
   const index = temp.indexOf(id);
   if (index > -1) temp.splice(index, 1);
@@ -222,7 +215,9 @@ const DexMasterList = ({ moduleLists }: { moduleLists: ModuleLists }) => {
 
   useEffect(() => {
     localStorage.setItem(SAVE_KEY, JSON.stringify(save));
-    if (save.name.length > 24) save.name = shortenSaveName(save.name);
+    if (save.name.length > 24) {
+      shortenSaveName(save, setSave);
+    }
     setExportURL("https://gdex.cc/?" + encode(save));
   }, [save]);
 
@@ -243,7 +238,7 @@ const DexMasterList = ({ moduleLists }: { moduleLists: ModuleLists }) => {
           id="saveName"
           type="text"
           fontWeight={500}
-          fontSize={22}
+          fontSize="1.875rem"
           textAlign="center"
           placeholder="Click to add a name..."
           variant="unstyled"
@@ -340,7 +335,7 @@ const DexMasterList = ({ moduleLists }: { moduleLists: ModuleLists }) => {
             >
               Delete All
             </button>
-            <p>Deleting your browser cookies will also delete your Guitardex.</p>
+            {/* <p>Deleting your browser cookies will also delete your Guitardex.</p> */}
           </VStack>
         </div>
       )}

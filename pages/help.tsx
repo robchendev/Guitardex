@@ -40,7 +40,7 @@ const About = () => {
         <NI>
           Do any of the following:
           <ul>
-            <LI>Re-order your techniques by dragging and dropping them</LI>
+            <LI>Re-order your modules by dragging and dropping them</LI>
             <LI>Click the Guitardex's name to edit it</LI>
             <LI>Delete techniques using the trash bin buttons</LI>
           </ul>

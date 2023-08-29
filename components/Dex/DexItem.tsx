@@ -19,7 +19,7 @@ const DexItem = ({
 }) => {
   return (
     <Link className="w-full hover:text-text group relative" href={`/${library}/` + module.id}>
-      <div className="absolute h-full flex items-center z-10 -ml-1">
+      <div className="absolute h-full flex items-center z-10 -ml-1 text-xl">
         <MdDragIndicator />
       </div>
       <HStack
