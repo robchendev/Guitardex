@@ -12,7 +12,7 @@ const DexInfoItem = ({
   href: string;
 }) => {
   return (
-    <Link className="w-full hover:text-text group relative" href={href}>
+    <Link className="w-full hover:text-link group transition-none" href={href}>
       <HStack
         className={"bg-bg rounded-md duration-200 group-hover:ml-3 relative z-20 mb-1.5"}
         justifyContent="space-between"

@@ -26,7 +26,8 @@ const AudioProduction = ({ moduleData }: { moduleData: Module }) => {
     <Wrapper>
       <div>
         <ModuleHeader frontmatter={moduleData} library="a" />
-        <div>Demo: {moduleData.demo}</div>
+        <div>Coming soon</div>
+        {/* <div>Demo: {moduleData.demo}</div>
         <div>
           <div>Glossary: </div>
           <ul>
@@ -40,7 +41,7 @@ const AudioProduction = ({ moduleData }: { moduleData: Module }) => {
         <RenderMarkdown
           contentMarkdown={moduleData.contentMarkdown}
           addToGlossary={addToGlossary}
-        />
+        /> */}
       </div>
     </Wrapper>
   );
