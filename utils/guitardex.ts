@@ -1,5 +1,5 @@
 import { Guitardex } from "../types";
-import { libraries, Library } from "../types/dynamic/common";
+import { libraries, Library, ModuleLists } from "../types/dynamic/common";
 
 export function createInitialGuitardex(name: string): Guitardex {
   const initObj: Partial<Guitardex> = { name };
@@ -7,6 +7,14 @@ export function createInitialGuitardex(name: string): Guitardex {
     initObj[key] = [];
   }
   return initObj as Guitardex;
+}
+
+export function createInitialModuleList(): ModuleLists {
+  const initObj: Partial<ModuleLists> = {};
+  for (const key of libraries as unknown as Library[]) {
+    initObj[key] = [];
+  }
+  return initObj as ModuleLists;
 }
 
 export const libraryReadable = (library: Library): string => {

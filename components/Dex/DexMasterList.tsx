@@ -8,7 +8,7 @@ import { HiOutlineTrash } from "react-icons/hi";
 import { MdDragIndicator } from "react-icons/md";
 import ModuleItem from "../ModuleList/ModuleItem";
 import { createInitialGuitardex, libraryReadable } from "../../utils/guitardex";
-import { libraries, Library } from "../../types/dynamic/common";
+import { libraries, Library, ModuleFrontMatter, ModuleLists } from "../../types/dynamic/common";
 
 const SAVE_KEY = "save";
 
@@ -36,10 +36,10 @@ const decodeModule = (item: string, library: string, result: Guitardex): void =>
   }
   switch (library) {
     case "t":
-      result.t.push(item as unknown as number);
+      result.t.push(Number(item as unknown as number));
       break;
     case "a":
-      result.a.push(item as unknown as number);
+      result.a.push(Number(item as unknown as number));
       break;
     default:
       break;
@@ -123,22 +123,21 @@ const copyExportURL = (exportURL: string, setCopyURLButton: (text: string) => vo
 // TODO: See if can autogenerate the empty arrays based on libraries
 const clearSave = (setSave: (dex: Guitardex) => void) => {
   if (window.confirm("This will clear your guitardex. Click OK to continue.")) {
-    setSave({ name: "", t: [], a: [] });
+    setSave(createInitialGuitardex(""));
   }
 };
 
 // TODO: Use states for this...?
-const clearItem = (id, save: Guitardex, setSave: (dex: Guitardex) => void) => {
+const clearItem = (id, save: Guitardex, setSave: (dex: Guitardex) => void, library: Library) => {
   // eslint-disable-next-line
   // @ts-ignore
   document.getElementById(id.toString()).style.display = "none";
-  const temp = save.t;
+  const temp = save[library];
   const index = temp.indexOf(id);
   if (index > -1) temp.splice(index, 1);
   const newSave = {
-    name: save.name,
-    t: temp,
-    a: [],
+    ...save,
+    [library]: temp,
   };
   setSave(newSave);
 };
@@ -159,7 +158,7 @@ const handleDexOrderChange = (
   setSave(newSave);
 };
 
-const DexMasterList = () => {
+const DexMasterList = ({ moduleLists }: { moduleLists: ModuleLists }) => {
   const location = useRouter().pathname;
   let hasUrl = false;
 
@@ -229,6 +228,7 @@ const DexMasterList = () => {
 
   const [isEditingName, setIsEditingName] = useState(false);
   // TODO: Refactor....
+  console.log(moduleLists);
   return (
     <div>
       {/* For different className based on if the user is entering 
@@ -265,33 +265,40 @@ const DexMasterList = () => {
                         // react-beautiful-dnd has an issue where a unique key prop error shows on the console
                         // https://github.com/atlassian/react-beautiful-dnd/issues/2084
                         <Draggable key={id} draggableId={id.toString()} index={index}>
-                          {(provided) => (
-                            <li
-                              id={id.toString()}
-                              {...provided.draggableProps}
-                              {...provided.dragHandleProps}
-                              ref={provided.innerRef}
-                            >
-                              <div>
-                                {id}
-                                <MdDragIndicator />
-                              </div>
-                              <div>
-                                {/* TODO: Will need to pass allFrontMatter into here since ModuleItem
-                                 requires the module frontmatter. We can use the saved item ID to 
-                                 get something like module={moduleData[indexOfMatchingModule]}
-                                 Though, will most likely need to edit ModuleItem to include the flag
-                                 'isDex' to differentiate from the regular ModuleItem in library lists */}
-                                {/* <ModuleItem ={id}/> */}
-                                <HiOutlineTrash
-                                  onClick={(e) => {
-                                    clearItem(id, save, setSave);
-                                    e.preventDefault();
-                                  }}
-                                />
-                              </div>
-                            </li>
-                          )}
+                          {(provided) => {
+                            const found = moduleLists[library].find(
+                              // non strict inequality to compare string to number id
+                              (moduleListItem: ModuleFrontMatter) => moduleListItem.id == id
+                            );
+                            if (found) {
+                              return (
+                                <li
+                                  id={id.toString()}
+                                  {...provided.draggableProps}
+                                  {...provided.dragHandleProps}
+                                  ref={provided.innerRef}
+                                >
+                                  <div>
+                                    <MdDragIndicator />
+
+                                    <ModuleItem library={library} module={found} />
+                                    {/* TODO: Will need to pass moduleList into here since ModuleItem
+                                  requires the module frontmatter. We can use the saved item ID to 
+                                  get something like module={moduleData[indexOfMatchingModule]}
+                                  Though, will most likely need to edit ModuleItem to include the flag
+                                  'isDex' to differentiate from the regular ModuleItem in library lists */}
+                                    {/* <ModuleItem ={id}/> */}
+                                    <HiOutlineTrash
+                                      onClick={(e) => {
+                                        clearItem(id, save, setSave, library);
+                                        e.preventDefault();
+                                      }}
+                                    />
+                                  </div>
+                                </li>
+                              );
+                            }
+                          }}
                         </Draggable>
                       ))}
 
@@ -308,7 +315,7 @@ const DexMasterList = () => {
       ))}
       <input value={exportURL} className="w-full" disabled />
       <button onClick={() => copyExportURL(exportURL, setCopyURLButton)}>{copyURLButton}</button>
-      {save.t.length !== 0 && (
+      {libraries.reduce((acc, library) => acc + (save[library]?.length || 0), 0) > 0 && (
         <div>
           <div onClick={() => clearSave(setSave)}>Delete all</div>
           Deleting your browser cookies will also delete your Guitardex.

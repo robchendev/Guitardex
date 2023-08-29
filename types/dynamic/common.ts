@@ -34,3 +34,5 @@ export type ModuleFrontMatter = {
 export type Module = ModuleFrontMatter & {
   contentMarkdown: string;
 };
+
+export type ModuleLists = { [K in Library]: ModuleFrontMatter[] };
