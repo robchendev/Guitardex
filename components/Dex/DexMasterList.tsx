@@ -114,7 +114,6 @@ const encode = (guitardex: Guitardex) => {
   return encodedStr;
 };
 
-// TODO: Use states for this
 const copyExportURL = (exportURL: string, setCopyURLButton: (text: string) => void) => {
   navigator.clipboard.writeText(exportURL);
   setCopyURLButton("Copied!");
@@ -123,7 +122,6 @@ const copyExportURL = (exportURL: string, setCopyURLButton: (text: string) => vo
   }, 2 * 1000);
 };
 
-// TODO: See if can autogenerate the empty arrays based on libraries
 const clearSave = (setSave: (dex: Guitardex) => void) => {
   if (window.confirm("This will clear your guitardex. Click OK to continue.")) {
     setSave(createInitialGuitardex(""));
@@ -166,8 +164,6 @@ const DexMasterList = ({ moduleLists }: { moduleLists: ModuleLists }) => {
   const location = router.pathname;
   // console.log(router.query);
   let hasUrl = false;
-
-  console.log(location);
   const importSave = (guitardex: Guitardex): Guitardex => {
     try {
       const importStr = window.location.search.replace("?", "");
@@ -182,7 +178,6 @@ const DexMasterList = ({ moduleLists }: { moduleLists: ModuleLists }) => {
     } catch (error) {
       alert("Invalid save profile detected. Save will not be loaded.\n" + error);
     }
-    console.log(guitardex);
     return guitardex;
   };
 
@@ -217,10 +212,8 @@ const DexMasterList = ({ moduleLists }: { moduleLists: ModuleLists }) => {
   useEffect(() => {
     let guitardex: Guitardex = createInitialGuitardex("");
     if (window.location.search.includes("?")) {
-      console.log("import");
       guitardex = importSave(guitardex);
     } else if (localStorage.getItem(SAVE_KEY)) {
-      console.log("load");
       guitardex = loadSave(guitardex);
     }
     setSave(guitardex);
@@ -234,7 +227,6 @@ const DexMasterList = ({ moduleLists }: { moduleLists: ModuleLists }) => {
 
   const [isEditingName, setIsEditingName] = useState(false);
   // TODO: Refactor....
-  console.log(moduleLists);
   return (
     <div>
       {/* For different className based on if the user is entering 
