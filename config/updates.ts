@@ -16,10 +16,11 @@ export const changeLog: Log[] = [
   },
   {
     version: "1.9",
-    title: "Audio Production Module Test",
+    title: "Audio Production Module Features & Test",
     date: "??? ?, 2023",
     changes: [
-      "Features specific to the Audio Production Library are launched to a select group of volunteer users to test on a sample Audio Production module.",
+      "Audio waveform before/after comparison using WavesurferJS",
+      "The above features are launched to a select group of volunteer users to test on a sample Audio Production module.",
     ],
   },
   {

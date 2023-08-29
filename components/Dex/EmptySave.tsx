@@ -1,15 +1,22 @@
 import React from "react";
-import { Library } from "../../types/dynamic/common";
+import DexInfoItem from "./DexInfoItem";
 
-const EmptySave = ({ library }: { library: Library }) => {
-  switch (library) {
-    case "t":
-      return <div>No items in techniques</div>;
-    case "a":
-      return <div>No items in audio production</div>;
-    default:
-      return <div>No items in unknown</div>;
-  }
+const EmptySave = () => {
+  return (
+    <div>
+      <DexInfoItem
+        title="Learn fingerstyle techniques"
+        subtitle="Browse modules in the /t library"
+        href="/t"
+      />
+      <DexInfoItem
+        title="Learn fingerstyle audio production"
+        subtitle="Browse modules in the /a library"
+        href="/a"
+      />
+      <DexInfoItem title="New to Guitardex?" subtitle="Click here for help" href="/help" />
+    </div>
+  );
 };
 
 export default EmptySave;

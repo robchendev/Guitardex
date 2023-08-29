@@ -252,8 +252,8 @@ const DexMasterList = ({ moduleLists }: { moduleLists: ModuleLists }) => {
       </span> */}
       {libraries.map((library: Library, indexJ: number) => (
         <div key={indexJ}>
-          <div>{libraryReadable(library)}</div>
-          {save[library].length ? (
+          {save[library].length !== 0 && <div>{libraryReadable(library)}</div>}
+          {save[library].length !== 0 && (
             <div>
               <DragDropContext onDragEnd={(e) => handleDexOrderChange(e, save, setSave, library)}>
                 <Droppable droppableId={`techniques-${indexJ}`} key={`droppable-${indexJ}`}>
@@ -298,20 +298,21 @@ const DexMasterList = ({ moduleLists }: { moduleLists: ModuleLists }) => {
                 </Droppable>
               </DragDropContext>
             </div>
-          ) : (
-            <EmptySave library={library} />
           )}
         </div>
       ))}
-      <input value={exportURL} className="w-full" disabled />
-      <button onClick={() => copyExportURL(exportURL, setCopyURLButton)}>{copyURLButton}</button>
-      {libraries.reduce((acc, library) => acc + (save[library]?.length || 0), 0) > 0 && (
+      {libraries.reduce((acc, library) => acc + (save[library]?.length || 0), 0) === 0 ? (
+        <EmptySave />
+      ) : (
         <div>
+          <input value={exportURL} className="w-full" disabled />
+          <button onClick={() => copyExportURL(exportURL, setCopyURLButton)}>
+            {copyURLButton}
+          </button>
           <div onClick={() => clearSave(setSave)}>Delete all</div>
           Deleting your browser cookies will also delete your Guitardex.
         </div>
       )}
-      <div></div>DexMasterList
     </div>
   );
 };
