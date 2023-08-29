@@ -9,6 +9,7 @@ import { MdDragIndicator } from "react-icons/md";
 import ModuleItem from "../ModuleList/ModuleItem";
 import { createInitialGuitardex, libraryReadable } from "../../utils/guitardex";
 import { libraries, Library, ModuleFrontMatter, ModuleLists } from "../../types/dynamic/common";
+import DexItem from "./DexItem";
 
 const SAVE_KEY = "save";
 
@@ -277,24 +278,16 @@ const DexMasterList = ({ moduleLists }: { moduleLists: ModuleLists }) => {
                                   {...provided.draggableProps}
                                   {...provided.dragHandleProps}
                                   ref={provided.innerRef}
+                                  className="pb-1.5"
                                 >
-                                  <div>
-                                    <MdDragIndicator />
-
-                                    <ModuleItem library={library} module={found} />
-                                    {/* TODO: Will need to pass moduleList into here since ModuleItem
-                                  requires the module frontmatter. We can use the saved item ID to 
-                                  get something like module={moduleData[indexOfMatchingModule]}
-                                  Though, will most likely need to edit ModuleItem to include the flag
-                                  'isDex' to differentiate from the regular ModuleItem in library lists */}
-                                    {/* <ModuleItem ={id}/> */}
-                                    <HiOutlineTrash
-                                      onClick={(e) => {
-                                        clearItem(id, save, setSave, library);
-                                        e.preventDefault();
-                                      }}
-                                    />
-                                  </div>
+                                  <DexItem
+                                    library={library}
+                                    module={found}
+                                    onDelete={(e) => {
+                                      clearItem(id, save, setSave, library);
+                                      e.preventDefault();
+                                    }}
+                                  />
                                 </li>
                               );
                             }
