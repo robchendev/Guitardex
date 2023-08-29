@@ -74,18 +74,17 @@ const decode = (encodedStr: string): Guitardex => {
   let result: Guitardex;
   let decodedArr: string[] = [];
   let hasName = false;
+  console.log("Encoded str ", encodedStr);
   if (encodedStr.includes("_")) {
     hasName = true;
   }
   decodedArr = encodedStr.split("_");
   if (decodedArr.length > 2) {
     throw Error("There can only be 1 underscore in the URL");
-  }
-  if (decodedArr.length === 2) {
+  } else if (decodedArr.length === 2) {
     result = createInitialGuitardex(decodeName(decodedArr[0]));
     decodeAll(decodedArr[1], result);
-  }
-  if (decodedArr.length === 1) {
+  } else if (decodedArr.length === 1) {
     if (hasName) {
       result = createInitialGuitardex(decodeName(decodedArr[0]));
     } else {
@@ -178,6 +177,7 @@ const DexMasterList = () => {
     } catch (error) {
       alert("Invalid save profile detected. Save will not be loaded.\n" + error);
     }
+    console.log(guitardex);
     return guitardex;
   };
 
@@ -212,9 +212,10 @@ const DexMasterList = () => {
   useEffect(() => {
     let guitardex: Guitardex = createInitialGuitardex("");
     if (window.location.search.includes("?")) {
+      console.log("import");
       guitardex = importSave(guitardex);
-    }
-    if (localStorage.getItem(SAVE_KEY)) {
+    } else if (localStorage.getItem(SAVE_KEY)) {
+      console.log("load");
       guitardex = loadSave(guitardex);
     }
     setSave(guitardex);
