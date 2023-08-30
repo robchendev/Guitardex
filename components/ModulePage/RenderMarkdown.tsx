@@ -41,12 +41,11 @@ const RenderMarkdown = ({
             case "music":
               // return <AudioVisualizer src={props.src} isStereo />;
               return (
-                <AudioVisualizer src="/audio/a/crash.mp3" isStereo />
-                // <BeforeAfterAudioVisualizer
-                //   srcBefore="/audio/a/crash.mp3"
-                //   srcAfter="/audio/a/avid.mp3"
-                //   isStereo
-                // />
+                // <AudioVisualizer src="/audio/a/crash.mp3" isStereo />
+                <BeforeAfterAudioVisualizer
+                  srcBefore="/audio/a/avid.mp3"
+                  srcAfter="/audio/a/avid_but_with_bad_eq.mp3"
+                />
               );
             case "tab":
               return <TabImage src={props.src} />;

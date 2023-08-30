@@ -5,16 +5,10 @@ type Props = {
   srcBefore?: string;
   srcAfter?: string;
   defaultVolume?: number;
-  isStereo?: boolean;
 };
 
 // Keep in mind isStereo will be twice as much workload for the CPU
-const AudioWaveform: React.FC<Props> = ({
-  srcBefore = "",
-  srcAfter = "",
-  defaultVolume = 0.5,
-  isStereo = false,
-}) => {
+const AudioWaveform: React.FC<Props> = ({ srcBefore = "", srcAfter = "", defaultVolume = 0.5 }) => {
   const canvasRefBefore = useRef(null);
   const canvasRefAfter = useRef(null);
   const lineCanvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -90,12 +84,6 @@ const AudioWaveform: React.FC<Props> = ({
     if (audioElementAfter) audioElementAfter.volume = volume;
   }, [volume]);
 
-  const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // Step 2
-    const newVolume = parseFloat(e.target.value);
-    setVolume(newVolume);
-  };
-
   const drawCanvas = (canvasRef, audioBuffer) => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
@@ -105,9 +93,8 @@ const AudioWaveform: React.FC<Props> = ({
 
     ctx.fillStyle = "gray";
 
-    if (isStereo && audioBuffer.numberOfChannels > 1) {
+    if (audioBuffer.numberOfChannels > 1) {
       // Draw stereo waveforms
-
       const dataL = audioBuffer.getChannelData(0);
       const dataR = audioBuffer.getChannelData(1);
       const step = Math.ceil(dataL.length / canvas.width);
@@ -257,8 +244,15 @@ const AudioWaveform: React.FC<Props> = ({
     audio.currentTime = clickedTime;
   };
 
+  const audioSrcBefore = srcBefore.split("/");
+  const audioTitleBefore = audioSrcBefore[audioSrcBefore.length - 1];
+  const audioSrcAfter = srcAfter.split("/");
+  const audioTitleAfter = audioSrcAfter[audioSrcAfter.length - 1];
+
   return (
     <div>
+      <div>Currently playing: {isAfter ? audioTitleAfter : audioTitleBefore}</div>
+
       <div className="relative w-full">
         <canvas
           ref={canvasRefBefore}
