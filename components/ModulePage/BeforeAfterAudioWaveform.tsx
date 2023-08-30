@@ -65,7 +65,6 @@ const AudioWaveform: React.FC<Props> = ({ srcBefore = "", srcAfter = "", default
       const audio = new Audio(src);
 
       audio.addEventListener("timeupdate", () => {
-        console.log("in event listener timeupdate");
         setCurrentTime(audio.currentTime);
       });
 
@@ -160,7 +159,6 @@ const AudioWaveform: React.FC<Props> = ({ srcBefore = "", srcAfter = "", default
 
   const updateCurrentTime = () => {
     if (currentAudioElement !== null) {
-      console.log("in function updateCurrentTime");
       setCurrentTime((currentAudioElement as HTMLAudioElement).currentTime);
     }
 
@@ -232,7 +230,6 @@ const AudioWaveform: React.FC<Props> = ({ srcBefore = "", srcAfter = "", default
   const currentCanvasRef = isAfter ? canvasRefAfter : canvasRefBefore;
 
   const onCanvasClick = (e: React.MouseEvent<HTMLCanvasElement>) => {
-    console.log("Current audio element:", currentAudioElement); // Debug line
     if (!currentAudioElement || !currentCanvasRef.current) return;
 
     const canvas = currentCanvasRef.current as HTMLCanvasElement;
