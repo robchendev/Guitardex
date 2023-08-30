@@ -9,8 +9,12 @@ import TabImage from "./TabImage";
 
 import dynamic from "next/dynamic";
 
-const DynamicWaveformVisualizer = dynamic(
-  () => import("./AudioWaveform").then((module) => module.default),
+const AudioVisualizer = dynamic(() => import("./AudioWaveform").then((module) => module.default), {
+  ssr: false,
+});
+
+const BeforeAfterAudioVisualizer = dynamic(
+  () => import("./BeforeAfterAudioWaveform").then((module) => module.default),
   { ssr: false }
 );
 const RenderMarkdown = ({
@@ -35,7 +39,15 @@ const RenderMarkdown = ({
             //     </audio>
             //   );
             case "music":
-              return <DynamicWaveformVisualizer src={props.src} isStereo />;
+              // return <AudioVisualizer src={props.src} isStereo />;
+              return (
+                // <AudioVisualizer src="/audio/a/crash.mp3" isStereo />
+                <BeforeAfterAudioVisualizer
+                  srcBefore="/audio/a/crash.mp3"
+                  srcAfter="/audio/a/avid.mp3"
+                  isStereo
+                />
+              );
             case "tab":
               return <TabImage src={props.src} />;
             default:

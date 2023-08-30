@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { debounce } from "lodash";
 
 type Props = {
   src?: string;
@@ -14,6 +15,36 @@ const AudioWaveform: React.FC<Props> = ({ src = "", defaultVolume = 0.5, isStere
   const [audioElement, setAudioElement] = useState<HTMLAudioElement | null>(null);
   const [currentTime, setCurrentTime] = useState(0);
   const [volume, setVolume] = useState(defaultVolume);
+
+  // Resize canvases for responsiveness
+  const resizeCanvas = () => {
+    [canvasRef.current, lineCanvasRef.current].forEach((canvas) => {
+      if (canvas) {
+        // eslint-disable-next-line
+        const parentWidth = canvas.parentElement?.offsetWidth!;
+        canvas.width = parentWidth;
+        canvas.height = parentWidth / 2;
+        // You may also want to redraw the canvas after resizing
+        if (canvas === canvasRef.current) {
+          drawCanvas(canvasRef, audioBuffer);
+        }
+        if (canvas === lineCanvasRef.current) {
+          // Redraw the line, if applicable
+        }
+      }
+    });
+  };
+  const debouncedResizeCanvas = debounce(resizeCanvas, 500);
+
+  // Listen to window resize
+  useEffect(() => {
+    window.addEventListener("resize", debouncedResizeCanvas);
+    resizeCanvas(); // initial sizing
+
+    return () => {
+      window.removeEventListener("resize", debouncedResizeCanvas);
+    };
+  }, [audioBuffer]);
 
   // Seek audio playing position on waveform click
   const onCanvasClick = (e: React.MouseEvent<HTMLCanvasElement>) => {
@@ -63,17 +94,13 @@ const AudioWaveform: React.FC<Props> = ({ src = "", defaultVolume = 0.5, isStere
     setVolume(newVolume);
   };
 
-  // The useEffects for the waveform drawing and red cursor are separated
-  // to save on CPU workload
-
-  // UseEffect to draw the waveform ONCE when the audioBuffer changes
-  useEffect(() => {
+  const drawCanvas = (canvasRef, audioBuffer) => {
     const canvas = canvasRef.current;
-    const ctx = canvas?.getContext("2d");
-
+    const ctx = canvas.getContext("2d");
     if (!audioBuffer || !canvas || !ctx) return;
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+
     ctx.fillStyle = "gray";
 
     if (isStereo && audioBuffer.numberOfChannels > 1) {
@@ -103,6 +130,18 @@ const AudioWaveform: React.FC<Props> = ({ src = "", defaultVolume = 0.5, isStere
         ctx.fillRect(i, amp - max * amp, 1, Math.max(1, (max - min) * amp));
       }
     }
+  };
+
+  // The useEffects for the waveform drawing and red cursor are separated
+  // to save on CPU workload
+
+  // UseEffect to draw the waveform ONCE when the audioBuffer changes
+  useEffect(() => {
+    // When the canvas size changes, re-draw your canvas here.
+    // You'll need to re-draw whenever `resizeCanvas` changes the dimensions.
+    // This is where you'll call your drawCanvas function.
+    drawCanvas(canvasRef, audioBuffer);
+    //... existing drawing code
   }, [audioBuffer]);
 
   // UseEffect to update the red line when the currentTime changes
