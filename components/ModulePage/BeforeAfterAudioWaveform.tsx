@@ -71,6 +71,7 @@ const AudioWaveform: React.FC<Props> = ({
       const audio = new Audio(src);
 
       audio.addEventListener("timeupdate", () => {
+        console.log("in event listener timeupdate");
         setCurrentTime(audio.currentTime);
       });
 
@@ -147,7 +148,8 @@ const AudioWaveform: React.FC<Props> = ({
 
   // UseEffect to update the red line when the currentTime changes
   // const currentAudioBuffer = isAfter ? audioBufferAfter : audioBufferBefore;
-  useEffect(() => {
+
+  const drawCursor = () => {
     const lineCanvas = lineCanvasRef.current;
     const lineCtx = lineCanvas?.getContext("2d");
 
@@ -158,6 +160,11 @@ const AudioWaveform: React.FC<Props> = ({
       (currentTime / (currentAudioBuffer as AudioBuffer).duration) * lineCanvas.width;
     lineCtx.fillStyle = "red";
     lineCtx.fillRect(position, 0, 2, lineCanvas.height);
+    console.log("Drawing cursor at time:", currentTime);
+  };
+
+  useEffect(() => {
+    drawCursor();
   }, [currentTime, currentAudioBuffer]);
 
   // Animated smooth playback cursor
@@ -166,24 +173,39 @@ const AudioWaveform: React.FC<Props> = ({
 
   const updateCurrentTime = () => {
     if (currentAudioElement !== null) {
+      console.log("in function updateCurrentTime");
       setCurrentTime((currentAudioElement as HTMLAudioElement).currentTime);
     }
 
+    // Cancel any existing animation frame to prevent multiple loops
+    if (animationFrameRef.current !== null) {
+      cancelAnimationFrame(animationFrameRef.current);
+    }
+
+    // Request a new animation frame
     animationFrameRef.current = requestAnimationFrame(updateCurrentTime);
   };
 
   useEffect(() => {
     if (currentAudioElement) {
       currentAudioElement.addEventListener("play", () => {
+        // Cancel any existing animation frame to prevent multiple loops
+        if (animationFrameRef.current !== null) {
+          cancelAnimationFrame(animationFrameRef.current);
+        }
+
+        // Request a new animation frame
         animationFrameRef.current = requestAnimationFrame(updateCurrentTime);
       });
+
       currentAudioElement.addEventListener("pause", () => {
-        if (animationFrameRef.current) {
+        if (animationFrameRef.current !== null) {
           cancelAnimationFrame(animationFrameRef.current);
         }
       });
+
       currentAudioElement.addEventListener("ended", () => {
-        if (animationFrameRef.current) {
+        if (animationFrameRef.current !== null) {
           cancelAnimationFrame(animationFrameRef.current);
         }
       });
@@ -218,11 +240,8 @@ const AudioWaveform: React.FC<Props> = ({
       setShouldPlay(true);
     }
   }, [isAfter, audioElementBefore, audioElementAfter, audioBufferBefore, audioBufferAfter]);
+
   // update audio controls
-  // Current Audio element and canvas
-  // const currentAudioElement: HTMLAudioElement | null = isAfter
-  //   ? audioElementAfter
-  //   : audioElementBefore;
   const currentCanvasRef = isAfter ? canvasRefAfter : canvasRefBefore;
 
   const onCanvasClick = (e: React.MouseEvent<HTMLCanvasElement>) => {
@@ -237,11 +256,6 @@ const AudioWaveform: React.FC<Props> = ({
     const clickedTime = (x / rect.width) * audio.duration;
     audio.currentTime = clickedTime;
   };
-
-  // useEffect(() => {
-  //   setCurrentAudioElement(isAfter ? audioElementAfter : audioElementBefore);
-  //   setCurrentAudioBuffer(isAfter ? audioBufferAfter : audioBufferBefore);
-  // }, [isAfter, audioElementBefore, audioElementAfter, audioBufferBefore, audioBufferAfter]);
 
   return (
     <div>
@@ -285,17 +299,6 @@ const AudioWaveform: React.FC<Props> = ({
             }}
           >
             Pause
-          </button>
-          <button
-            onClick={() => {
-              if (currentAudioElement) {
-                const audio = currentAudioElement as HTMLAudioElement;
-                audio.pause();
-                audio.currentTime = 0;
-              }
-            }}
-          >
-            Stop
           </button>
           <label htmlFor="volume">Volume:</label>
           <input
