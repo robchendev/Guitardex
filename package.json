@@ -46,7 +46,8 @@
     "react-virtuoso": "^4.1.0",
     "remark": "^14.0.3",
     "remark-html": "^15.0.2",
-    "ts-node": "^10.9.1"
+    "ts-node": "^10.9.1",
+    "wavesurfer.js": "^7.1.5"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^12.3.0",

@@ -4,10 +4,15 @@ import A from "../Typography/A";
 import H3 from "../Typography/H3";
 import H4 from "../Typography/H4";
 import P from "../Typography/P";
-import AudioPlayer from "./AudioPlayer";
 import GlossaryItem from "./GlossaryItem";
 import TabImage from "./TabImage";
 
+import dynamic from "next/dynamic";
+
+const DynamicWaveformVisualizer = dynamic(
+  () => import("./AudioWaveform").then((module) => module.default),
+  { ssr: false }
+);
 const RenderMarkdown = ({
   contentMarkdown,
   addToGlossary,
@@ -21,14 +26,16 @@ const RenderMarkdown = ({
         img: (props) => {
           // This is hack to transform ![]() to anything we need
           switch (props.alt) {
+            // case "music":
+            //   return <AudioPlayer src={props.src} />;
+            // case "music2":
+            //   return (
+            //     <audio controls className="flex-1 outline-none md:mr-5">
+            //       <source src={props.src} />
+            //     </audio>
+            //   );
             case "music":
-              return <AudioPlayer src={props.src} />;
-            case "music2":
-              return (
-                <audio controls className="flex-1 outline-none md:mr-5">
-                  <source src={props.src} />
-                </audio>
-              );
+              return <DynamicWaveformVisualizer src={props.src} isStereo />;
             case "tab":
               return <TabImage src={props.src} />;
             default:

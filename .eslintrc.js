@@ -16,6 +16,7 @@ module.exports = {
   },
   rules: {
     "react/no-unescaped-entities": 0,
+    "@typescript-eslint/ban-ts-comment": "off",
     "react-hooks/exhaustive-deps": "off",
     "@typescript-eslint/no-explicit-any": 0,
     "@typescript-eslint/no-namespace": "off",
