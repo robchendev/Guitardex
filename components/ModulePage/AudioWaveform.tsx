@@ -2,30 +2,28 @@ import React, { useEffect, useRef, useState } from "react";
 
 type Props = {
   src?: string;
+  defaultVolume?: number;
   isStereo?: boolean;
 };
 
 // Keep in mind isStereo will be twice as much workload for the CPU
-const AudioWaveform: React.FC<Props> = ({ src = "", isStereo = false }) => {
+const AudioWaveform: React.FC<Props> = ({ src = "", defaultVolume = 0.5, isStereo = false }) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const lineCanvasRef = useRef<HTMLCanvasElement | null>(null);
   const [audioBuffer, setAudioBuffer] = useState<AudioBuffer | null>(null);
   const [audioElement, setAudioElement] = useState<HTMLAudioElement | null>(null);
   const [currentTime, setCurrentTime] = useState(0);
+  const [volume, setVolume] = useState(defaultVolume);
 
   // Seek audio playing position on waveform click
   const onCanvasClick = (e: React.MouseEvent<HTMLCanvasElement>) => {
-    if (!audioElement || !audioBuffer) return;
+    if (!audioBuffer || !audioElement) return;
 
-    // Get click position within the canvas
     const rect = e.currentTarget.getBoundingClientRect();
     const x = e.clientX - rect.left;
+    const clickedTime = (x / e.currentTarget.width) * audioBuffer.duration;
 
-    // Calculate the new time for the audio element
-    const newTime = (x / rect.width) * audioBuffer.duration;
-
-    // Update the audio element
-    audioElement.currentTime = newTime;
-    setCurrentTime(newTime);
+    audioElement.currentTime = clickedTime;
   };
 
   useEffect(() => {
@@ -53,15 +51,28 @@ const AudioWaveform: React.FC<Props> = ({ src = "", isStereo = false }) => {
     fetchData();
   }, []);
 
-  // Draw the waveform and highlight the current time position
+  useEffect(() => {
+    if (audioElement) {
+      audioElement.volume = volume; // Step 3
+    }
+  }, [volume]);
+
+  const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    // Step 2
+    const newVolume = parseFloat(e.target.value);
+    setVolume(newVolume);
+  };
+
+  // The useEffects for the waveform drawing and red cursor are separated
+  // to save on CPU workload
+
+  // UseEffect to draw the waveform ONCE when the audioBuffer changes
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas || !audioBuffer) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
+    const ctx = canvas?.getContext("2d");
 
-    // Your previous code for drawing the waveform
-    // Clear the canvas
+    if (!audioBuffer || !canvas || !ctx) return;
+
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = "gray";
 
@@ -92,11 +103,20 @@ const AudioWaveform: React.FC<Props> = ({ src = "", isStereo = false }) => {
         ctx.fillRect(i, amp - max * amp, 1, Math.max(1, (max - min) * amp));
       }
     }
-    // Highlight the current time position on the canvas
-    const position = (currentTime / audioBuffer.duration) * canvas.width;
-    ctx.fillStyle = "red";
-    ctx.fillRect(position, 0, 2, canvas.height);
-  }, [audioBuffer, currentTime]);
+  }, [audioBuffer]);
+
+  // UseEffect to update the red line when the currentTime changes
+  useEffect(() => {
+    const lineCanvas = lineCanvasRef.current;
+    const lineCtx = lineCanvas?.getContext("2d");
+
+    if (!audioBuffer || !lineCanvas || !lineCtx) return;
+
+    lineCtx.clearRect(0, 0, lineCanvas.width, lineCanvas.height);
+    const position = (currentTime / audioBuffer.duration) * lineCanvas.width;
+    lineCtx.fillStyle = "red";
+    lineCtx.fillRect(position, 0, 2, lineCanvas.height);
+  }, [currentTime]);
 
   // Animated smooth playback cursor
 
@@ -134,7 +154,15 @@ const AudioWaveform: React.FC<Props> = ({ src = "", isStereo = false }) => {
 
   return (
     <div>
-      <canvas ref={canvasRef} width={740} height={200} onClick={onCanvasClick}></canvas>
+      <div className="relative">
+        <canvas ref={canvasRef} width={740} height={200} onClick={onCanvasClick}></canvas>
+        <canvas
+          ref={lineCanvasRef}
+          style={{ position: "absolute", top: 0, left: 0, pointerEvents: "none" }}
+          width={700}
+          height={200}
+        ></canvas>
+      </div>
       {audioElement && (
         <div>
           <button onClick={() => audioElement.play()}>Play</button>
@@ -147,6 +175,18 @@ const AudioWaveform: React.FC<Props> = ({ src = "", isStereo = false }) => {
           >
             Stop
           </button>
+          <div>
+            <label htmlFor="volume">Volume:</label>
+            <input
+              id="volume"
+              type="range"
+              min="0"
+              max="1"
+              step="0.01"
+              value={volume}
+              onChange={handleVolumeChange} // Step 2
+            />
+          </div>
         </div>
       )}
     </div>
