@@ -17,6 +17,11 @@ const BeforeAfterAudioVisualizer = dynamic(
   () => import("./BeforeAfterAudioWaveform").then((module) => module.default),
   { ssr: false }
 );
+
+const BeforeAfterAudioVisualizer2 = dynamic(
+  () => import("./BeforeAfterAudioWaveform2").then((module) => module.default),
+  { ssr: false }
+);
 const RenderMarkdown = ({
   contentMarkdown,
   addToGlossary,
@@ -42,7 +47,7 @@ const RenderMarkdown = ({
               // return <AudioVisualizer src={props.src} isStereo />;
               return (
                 // <AudioVisualizer src="/audio/a/crash.mp3" isStereo />
-                <BeforeAfterAudioVisualizer
+                <BeforeAfterAudioVisualizer2
                   srcBefore="/audio/a/avid.mp3"
                   srcAfter="/audio/a/avid_but_with_bad_eq.mp3"
                 />
