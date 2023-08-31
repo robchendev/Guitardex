@@ -29,6 +29,7 @@ const RenderMarkdown = ({
   contentMarkdown: string;
   addToGlossary: (term: string, definition: string) => void;
 }) => {
+  console.log("========= RenderMarkdown rerender");
   return (
     <ReactMarkdown
       components={{

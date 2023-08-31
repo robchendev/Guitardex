@@ -22,7 +22,6 @@ const AudioWaveform: React.FC<Props> = ({ srcBefore = "", srcAfter = "", default
   const [currentAudioElement, setCurrentAudioElement] = useState<HTMLAudioElement | null>(null);
   const [currentAudioBuffer, setCurrentAudioBuffer] = useState<AudioBuffer | null>(null);
 
-  // Resize canvases for responsiveness
   const resizeCanvas = () => {
     [canvasRefBefore.current, canvasRefAfter.current, lineCanvasRef.current].forEach((canvas) => {
       if (canvas) {
@@ -30,15 +29,11 @@ const AudioWaveform: React.FC<Props> = ({ srcBefore = "", srcAfter = "", default
         const parentWidth = canvas.parentElement?.offsetWidth!;
         canvas.width = parentWidth;
         canvas.height = parentWidth / 2;
-        // You may also want to redraw the canvas after resizing
         if (canvas === canvasRefBefore.current) {
           drawCanvas(canvasRefBefore, audioBufferBefore);
         }
         if (canvas === canvasRefAfter.current) {
           drawCanvas(canvasRefAfter, audioBufferAfter);
-        }
-        if (canvas === lineCanvasRef.current) {
-          // Redraw the line, if applicable
         }
       }
     });
@@ -49,7 +44,6 @@ const AudioWaveform: React.FC<Props> = ({ srcBefore = "", srcAfter = "", default
   useEffect(() => {
     window.addEventListener("resize", debouncedResizeCanvas);
     resizeCanvas(); // initial sizing
-
     return () => {
       window.removeEventListener("resize", debouncedResizeCanvas);
     };
