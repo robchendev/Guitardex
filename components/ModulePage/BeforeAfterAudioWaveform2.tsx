@@ -1,12 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
+import { debounce } from "lodash";
 
 type Props = {
   srcBefore?: string;
   srcAfter?: string;
-  // defaultVolume?: number;
+  defaultVolume?: number;
 };
 
-const BeforeAfterAudioWaveform2 = ({ srcBefore = "", srcAfter = "" }) => {
+const BeforeAfterAudioWaveform2 = ({ srcBefore = "", srcAfter = "", defaultVolume = 0.5 }) => {
   // console.log("==================== MyComponent is re-rendering");
   const [audioContext, setAudioContext] = useState<AudioContext | null>(null);
   const [gainNodeBefore, setGainNodeBefore] = useState<GainNode | null>(null);
@@ -22,6 +23,7 @@ const BeforeAfterAudioWaveform2 = ({ srcBefore = "", srcAfter = "" }) => {
   const [bufferBefore, setBufferBefore] = useState<AudioBuffer | null>(null);
   const [bufferAfter, setBufferAfter] = useState<AudioBuffer | null>(null);
   const [isManualSeek, setIsManualSeek] = useState(false);
+  const [volume, setVolume] = useState(defaultVolume);
 
   const fetchAudioBuffer = async (audioContext, url) => {
     const response = await fetch(url);
@@ -49,7 +51,7 @@ const BeforeAfterAudioWaveform2 = ({ srcBefore = "", srcAfter = "" }) => {
         sourceAfter.loop = true;
         sourceAfter.connect(gainAfter).connect(ac.destination);
 
-        gainBefore.gain.setValueAtTime(0.5, ac.currentTime);
+        gainBefore.gain.setValueAtTime(volume, ac.currentTime);
         gainAfter.gain.setValueAtTime(0, ac.currentTime);
 
         sourceBefore.start();
@@ -106,7 +108,7 @@ const BeforeAfterAudioWaveform2 = ({ srcBefore = "", srcAfter = "" }) => {
       newSource = createAndStartBufferSource(audioContext, bufferAfter, gainNodeAfter, currentTime);
 
       gainNodeBefore.gain.setValueAtTime(0, audioContext.currentTime);
-      gainNodeAfter.gain.setValueAtTime(0.5, audioContext.currentTime);
+      gainNodeAfter.gain.setValueAtTime(volume, audioContext.currentTime);
 
       setSourceAfter(newSource);
     } else {
@@ -119,7 +121,7 @@ const BeforeAfterAudioWaveform2 = ({ srcBefore = "", srcAfter = "" }) => {
         currentTime
       );
 
-      gainNodeBefore.gain.setValueAtTime(0.5, audioContext.currentTime);
+      gainNodeBefore.gain.setValueAtTime(volume, audioContext.currentTime);
       gainNodeAfter.gain.setValueAtTime(0, audioContext.currentTime);
 
       setSourceBefore(newSource);
@@ -132,6 +134,33 @@ const BeforeAfterAudioWaveform2 = ({ srcBefore = "", srcAfter = "" }) => {
       startTime.current = audioContext.currentTime - currentTime;
     }
   };
+
+  const resizeCanvas = () => {
+    [canvasRefBefore.current, canvasRefAfter.current, lineCanvasRef.current].forEach((canvas) => {
+      if (canvas) {
+        // eslint-disable-next-line
+        const parentWidth = canvas.parentElement?.offsetWidth!;
+        canvas.width = parentWidth;
+        canvas.height = parentWidth / 2;
+        if (canvas === canvasRefBefore.current) {
+          drawCanvas(canvasRefBefore, bufferBefore);
+        }
+        if (canvas === canvasRefAfter.current) {
+          drawCanvas(canvasRefAfter, bufferAfter);
+        }
+      }
+    });
+  };
+  const debouncedResizeCanvas = debounce(resizeCanvas, 500);
+
+  // Listen to window resize
+  useEffect(() => {
+    window.addEventListener("resize", debouncedResizeCanvas);
+    resizeCanvas(); // initial sizing
+    return () => {
+      window.removeEventListener("resize", debouncedResizeCanvas);
+    };
+  }, [bufferBefore, bufferAfter]);
 
   const drawCanvas = (canvasRef, audioBuffer) => {
     const canvas = canvasRef.current;
@@ -335,6 +364,20 @@ const BeforeAfterAudioWaveform2 = ({ srcBefore = "", srcAfter = "" }) => {
     }
   };
 
+  // New function to handle volume change
+  const handleVolumeChange = (e) => {
+    const newVolume = parseFloat(e.target.value);
+    setVolume(newVolume);
+
+    if (gainNodeBefore && gainNodeAfter && audioContext) {
+      if (isBefore) {
+        gainNodeBefore.gain.setValueAtTime(newVolume, audioContext.currentTime);
+      } else {
+        gainNodeAfter.gain.setValueAtTime(newVolume, audioContext.currentTime);
+      }
+    }
+  };
+
   return (
     <div>
       <div className="relative w-full">
@@ -356,6 +399,15 @@ const BeforeAfterAudioWaveform2 = ({ srcBefore = "", srcAfter = "" }) => {
       <button onClick={switchAudio}>Switch Audio</button>
       <button onClick={playAudio}>Play</button>
       <button onClick={pauseAudio}>Pause</button>
+      <input
+        id="volume"
+        type="range"
+        min="0"
+        max="1"
+        step="0.01"
+        value={volume}
+        onChange={handleVolumeChange}
+      />
     </div>
   );
 };
