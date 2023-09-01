@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import { debounce } from "lodash";
-import { useRouter } from "next/router";
 
 type Props = {
   srcBefore?: string;
@@ -8,7 +7,11 @@ type Props = {
   defaultVolume?: number;
 };
 
-const BeforeAfterAudioWaveform2 = ({ srcBefore = "", srcAfter = "", defaultVolume = 0.5 }) => {
+const BeforeAfterAudioWaveform2 = ({
+  srcBefore = "",
+  srcAfter = "",
+  defaultVolume = 0.5,
+}: Props) => {
   const [audioContext, setAudioContext] = useState<AudioContext | null>(null);
   const [gainNodeBefore, setGainNodeBefore] = useState<GainNode | null>(null);
   const [gainNodeAfter, setGainNodeAfter] = useState<GainNode | null>(null);
@@ -24,7 +27,8 @@ const BeforeAfterAudioWaveform2 = ({ srcBefore = "", srcAfter = "", defaultVolum
   const [bufferAfter, setBufferAfter] = useState<AudioBuffer | null>(null);
   const [isManualSeek, setIsManualSeek] = useState(false);
   const [volume, setVolume] = useState(defaultVolume);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [cursorPosition, setCursorPosition] = useState(0);
+  const playerRef = useRef<HTMLDivElement>(null);
 
   const fetchAudioBuffer = async (audioContext, url) => {
     const response = await fetch(url);
@@ -98,7 +102,7 @@ const BeforeAfterAudioWaveform2 = ({ srcBefore = "", srcAfter = "", defaultVolum
         source.disconnect();
       }
     } catch (e) {
-      console.error("source hasn't started yet!");
+      console.error("Audio source not started, aborting stop/disconnect operation.");
     }
   };
 
@@ -206,26 +210,19 @@ const BeforeAfterAudioWaveform2 = ({ srcBefore = "", srcAfter = "", defaultVolum
   };
 
   const drawCursor = () => {
-    const lineCanvas = lineCanvasRef.current;
-    const lineCtx = lineCanvas?.getContext("2d");
-
-    if (!currentAudioBuffer || !lineCanvas || !lineCtx) return;
-
-    lineCtx.clearRect(0, 0, lineCanvas.width, lineCanvas.height);
-    const position =
-      (currentTime / (currentAudioBuffer as AudioBuffer).duration) * lineCanvas.width;
-    lineCtx.fillStyle = "red";
-    lineCtx.fillRect(position, 0, 2, lineCanvas.height);
+    if (!currentAudioBuffer) return;
+    const container = playerRef.current;
+    if (!container) return;
+    const containerWidth = container.offsetWidth;
+    const position = (currentTime / (currentAudioBuffer as AudioBuffer).duration) * containerWidth;
+    setCursorPosition(position);
   };
 
   const onCanvasClick = (e: React.MouseEvent<HTMLCanvasElement>) => {
     setIsManualSeek(true);
     if (!audioContext || !gainNodeBefore || !gainNodeAfter) return;
-
     const canvas = isBefore ? canvasRefBefore.current : canvasRefAfter.current;
-
     if (!canvas) return;
-
     const rect = canvas.getBoundingClientRect();
     const x = e.clientX - rect.left;
     let clickedTime;
@@ -392,7 +389,7 @@ const BeforeAfterAudioWaveform2 = ({ srcBefore = "", srcAfter = "", defaultVolum
 
   return (
     <div>
-      <div className="relative w-full">
+      <div className="relative w-full" ref={playerRef}>
         <canvas
           ref={canvasRefBefore}
           onClick={onCanvasClick}
@@ -403,10 +400,16 @@ const BeforeAfterAudioWaveform2 = ({ srcBefore = "", srcAfter = "", defaultVolum
           onClick={onCanvasClick}
           style={{ display: isBefore ? "none" : "block", width: "100%" }}
         ></canvas>
-        <canvas
-          ref={lineCanvasRef}
-          style={{ position: "absolute", top: 0, left: 0, pointerEvents: "none", width: "100%" }}
-        ></canvas>
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: `${cursorPosition}px`,
+            width: "2px",
+            height: "100%",
+            backgroundColor: "red",
+          }}
+        ></div>
       </div>
       <button onClick={switchAudio}>Switch Audio</button>
       <button onClick={playAudio}>Play</button>
