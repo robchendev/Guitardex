@@ -58,21 +58,15 @@ const BeforeAfterAudioWaveform2 = ({ srcBefore = "", srcAfter = "", defaultVolum
         gainBefore.gain.setValueAtTime(volume, ac.currentTime);
         gainAfter.gain.setValueAtTime(0, ac.currentTime);
 
-        // sourceBefore.start();
-        // sourceAfter.start();
-
         setGainNodeBefore(gainBefore);
         setGainNodeAfter(gainAfter);
         setSourceBefore(sourceBefore);
         setSourceAfter(sourceAfter);
-
-        console.log("source after buffer in init useEffect", sourceAfter.buffer);
       }
     );
 
     // cleanup
     return () => {
-      console.log("Navigating away from page", sourceBefore, sourceAfter, audioContext, ac);
       stopAndDisconnectSource(sourceBefore);
       stopAndDisconnectSource(sourceAfter);
       if (ac) {
@@ -86,14 +80,12 @@ const BeforeAfterAudioWaveform2 = ({ srcBefore = "", srcAfter = "", defaultVolum
     source.buffer = buffer;
     source.loop = true;
     source.connect(gainNode).connect(audioContext.destination);
-    console.log("createAndStartBufferSource, isPlaying: ", isPlaying);
     source.start(0, currentTime % buffer.duration);
     return source;
   };
 
   const stopAndDisconnectSource = (source) => {
     // DO NOT PUT A isPlaying check here! It doesn't update immediately and can cause audio quality problems!
-    console.log("trying to disconnect source, ", source);
     try {
       if (source) {
         source.stop();
@@ -218,7 +210,6 @@ const BeforeAfterAudioWaveform2 = ({ srcBefore = "", srcAfter = "", defaultVolum
       (currentTime / (currentAudioBuffer as AudioBuffer).duration) * lineCanvas.width;
     lineCtx.fillStyle = "red";
     lineCtx.fillRect(position, 0, 2, lineCanvas.height);
-    // console.log("Drawing cursor at time:", currentTime);
   };
 
   const onCanvasClick = (e: React.MouseEvent<HTMLCanvasElement>) => {
@@ -233,10 +224,7 @@ const BeforeAfterAudioWaveform2 = ({ srcBefore = "", srcAfter = "", defaultVolum
     const x = e.clientX - rect.left;
     let clickedTime;
 
-    console.log(sourceBefore, sourceAfter);
-
     if (isBefore) {
-      console.log("isbefore");
       if (bufferBefore) {
         clickedTime = (x / rect.width) * bufferBefore.duration;
       }
@@ -250,7 +238,6 @@ const BeforeAfterAudioWaveform2 = ({ srcBefore = "", srcAfter = "", defaultVolum
         setSourceBefore(newSourceBefore);
       }
     } else if (!isBefore) {
-      console.log("isafter");
       if (bufferAfter) {
         clickedTime = (x / rect.width) * bufferAfter.duration;
       }
@@ -266,7 +253,6 @@ const BeforeAfterAudioWaveform2 = ({ srcBefore = "", srcAfter = "", defaultVolum
     }
 
     if (clickedTime !== undefined) {
-      console.log("clickedTime", clickedTime);
       setCurrentTime(clickedTime);
       startTime.current = audioContext.currentTime - clickedTime;
     }
@@ -283,7 +269,6 @@ const BeforeAfterAudioWaveform2 = ({ srcBefore = "", srcAfter = "", defaultVolum
   }, [bufferBefore, bufferAfter]);
 
   useEffect(() => {
-    // console.log("Current time", currentTime);
     drawCursor();
   }, [currentTime, currentAudioBuffer]);
 
@@ -316,11 +301,9 @@ const BeforeAfterAudioWaveform2 = ({ srcBefore = "", srcAfter = "", defaultVolum
   };
 
   useEffect(() => {
-    console.log("isManualSeek inside useEffect:", isManualSeek);
     if (audioContext && !isManualSeek) {
       // Start the update loop when the audioContext is in "running" state
       if (audioContext.state === "running") {
-        console.log("Starting animation frame loop");
         // Cancel any existing animation frame to prevent multiple loops
         if (animationFrameRef.current !== null) {
           cancelAnimationFrame(animationFrameRef.current);
@@ -332,7 +315,6 @@ const BeforeAfterAudioWaveform2 = ({ srcBefore = "", srcAfter = "", defaultVolum
 
       // Stop the update loop when the audioContext is suspended (paused)
       if (audioContext.state === "suspended") {
-        console.log("Stopping animation frame loop");
         if (animationFrameRef.current !== null) {
           cancelAnimationFrame(animationFrameRef.current);
         }
@@ -346,13 +328,7 @@ const BeforeAfterAudioWaveform2 = ({ srcBefore = "", srcAfter = "", defaultVolum
     };
   }, [audioContext, audioContext?.state, isManualSeek]);
 
-  useEffect(() => {
-    console.log("Audio Context State Changed!", audioContext?.state);
-  }, [audioContext?.state]);
-
   const playAudio = () => {
-    console.log("playAudio");
-    console.log("audioContext.state", audioContext?.state);
     if (audioContext && audioContext.state === "suspended") {
       setIsPlaying(true);
 
@@ -380,7 +356,6 @@ const BeforeAfterAudioWaveform2 = ({ srcBefore = "", srcAfter = "", defaultVolum
   const pauseAudio = () => {
     if (audioContext && audioContext.state === "running") {
       setIsPlaying(false);
-
       audioContext.suspend().then(() => {
         try {
           if (sourceBefore) {
@@ -391,9 +366,8 @@ const BeforeAfterAudioWaveform2 = ({ srcBefore = "", srcAfter = "", defaultVolum
             sourceAfter.stop();
             sourceAfter.disconnect();
           }
-          console.log("Playback paused successfully");
         } catch (e) {
-          console.log("pauseAudio");
+          console.error(e);
         }
       });
     }

@@ -22,6 +22,25 @@ const BeforeAfterAudioVisualizer2 = dynamic(
   () => import("./BeforeAfterAudioWaveform2").then((module) => module.default),
   { ssr: false }
 );
+
+const RenderParagraph = (props) => {
+  const { children } = props;
+
+  if (
+    children &&
+    children[0] &&
+    children.length === 1 &&
+    children[0].props &&
+    children[0].props.src
+  ) {
+    // rendering media without p wrapper
+
+    return children;
+  }
+
+  return <p>{children}</p>;
+};
+
 const RenderMarkdown = ({
   contentMarkdown,
   addToGlossary,
@@ -29,7 +48,6 @@ const RenderMarkdown = ({
   contentMarkdown: string;
   addToGlossary: (term: string, definition: string) => void;
 }) => {
-  console.log("========= RenderMarkdown rerender");
   return (
     <ReactMarkdown
       components={{
