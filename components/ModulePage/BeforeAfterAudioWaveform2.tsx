@@ -33,6 +33,7 @@ const BeforeAfterAudioWaveform2 = ({ srcBefore = "", srcAfter = "", defaultVolum
   };
 
   useEffect(() => {
+    let isCancelled = false; // Cancellation token
     const ac = new AudioContext();
     if (ac?.state === "running") {
       ac?.suspend();
@@ -40,18 +41,20 @@ const BeforeAfterAudioWaveform2 = ({ srcBefore = "", srcAfter = "", defaultVolum
     setAudioContext(ac);
     Promise.all([fetchAudioBuffer(ac, srcBefore), fetchAudioBuffer(ac, srcAfter)]).then(
       ([fetchedBufferBefore, fetchedBufferAfter]) => {
+        if (isCancelled || ac.state === "closed") return; // Exit if the component is unmounted or the context is closed
+
         setBufferBefore(fetchedBufferBefore);
         setBufferAfter(fetchedBufferAfter);
 
         const gainBefore = ac.createGain();
         const sourceBefore = ac.createBufferSource();
-        sourceBefore.buffer = bufferBefore;
+        sourceBefore.buffer = fetchedBufferBefore; // use fetchedBufferBefore directly
         sourceBefore.loop = true;
         sourceBefore.connect(gainBefore).connect(ac.destination);
 
         const gainAfter = ac.createGain();
         const sourceAfter = ac.createBufferSource();
-        sourceAfter.buffer = bufferAfter;
+        sourceAfter.buffer = fetchedBufferAfter; // use fetchedBufferAfter directly
         sourceAfter.loop = true;
         sourceAfter.connect(gainAfter).connect(ac.destination);
 
@@ -65,8 +68,9 @@ const BeforeAfterAudioWaveform2 = ({ srcBefore = "", srcAfter = "", defaultVolum
       }
     );
 
-    // cleanup
+    // Cleanup
     return () => {
+      isCancelled = true; // Set the cancellation token
       stopAndDisconnectSource(sourceBefore);
       stopAndDisconnectSource(sourceAfter);
       if (ac) {
@@ -80,7 +84,9 @@ const BeforeAfterAudioWaveform2 = ({ srcBefore = "", srcAfter = "", defaultVolum
     source.buffer = buffer;
     source.loop = true;
     source.connect(gainNode).connect(audioContext.destination);
-    source.start(0, currentTime % buffer.duration);
+    if (audioContext.state === "running") {
+      source.start(0, currentTime % buffer.duration);
+    }
     return source;
   };
 
@@ -330,8 +336,6 @@ const BeforeAfterAudioWaveform2 = ({ srcBefore = "", srcAfter = "", defaultVolum
 
   const playAudio = () => {
     if (audioContext && audioContext.state === "suspended") {
-      setIsPlaying(true);
-
       audioContext.resume().then(() => {
         // Stop and disconnect any old source to prevent multiple from playing simultaneously
         stopAndDisconnectSource(isBefore ? sourceBefore : sourceAfter);
@@ -355,7 +359,6 @@ const BeforeAfterAudioWaveform2 = ({ srcBefore = "", srcAfter = "", defaultVolum
 
   const pauseAudio = () => {
     if (audioContext && audioContext.state === "running") {
-      setIsPlaying(false);
       audioContext.suspend().then(() => {
         try {
           if (sourceBefore) {
