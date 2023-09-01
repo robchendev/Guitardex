@@ -45,20 +45,22 @@ const BeforeAfterAudioWaveform2 = ({
     setAudioContext(ac);
     Promise.all([fetchAudioBuffer(ac, srcBefore), fetchAudioBuffer(ac, srcAfter)]).then(
       ([fetchedBufferBefore, fetchedBufferAfter]) => {
-        if (isCancelled || ac.state === "closed") return; // Exit if the component is unmounted or the context is closed
+        // Exit if the component is unmounted or the context is closed
+        if (isCancelled || ac.state === "closed") return;
 
         setBufferBefore(fetchedBufferBefore);
         setBufferAfter(fetchedBufferAfter);
 
+        // using fetchedBufferBefore/After directly since the states might not be set yet
         const gainBefore = ac.createGain();
         const sourceBefore = ac.createBufferSource();
-        sourceBefore.buffer = fetchedBufferBefore; // use fetchedBufferBefore directly
+        sourceBefore.buffer = fetchedBufferBefore;
         sourceBefore.loop = true;
         sourceBefore.connect(gainBefore).connect(ac.destination);
 
         const gainAfter = ac.createGain();
         const sourceAfter = ac.createBufferSource();
-        sourceAfter.buffer = fetchedBufferAfter; // use fetchedBufferAfter directly
+        sourceAfter.buffer = fetchedBufferAfter;
         sourceAfter.loop = true;
         sourceAfter.connect(gainAfter).connect(ac.destination);
 
@@ -74,7 +76,7 @@ const BeforeAfterAudioWaveform2 = ({
 
     // Cleanup
     return () => {
-      isCancelled = true; // Set the cancellation token
+      isCancelled = true;
       stopAndDisconnectSource(sourceBefore);
       stopAndDisconnectSource(sourceAfter);
       if (ac) {
@@ -98,11 +100,11 @@ const BeforeAfterAudioWaveform2 = ({
     // DO NOT PUT A isPlaying check here! It doesn't update immediately and can cause audio quality problems!
     try {
       if (source) {
-        source.stop();
+        attemptStop(source);
         source.disconnect();
       }
     } catch (e) {
-      console.error("Audio source not started, aborting stop/disconnect operation.");
+      console.error("aborting disconnect operation.");
     }
   };
 
@@ -209,6 +211,14 @@ const BeforeAfterAudioWaveform2 = ({
     }
   };
 
+  const attemptStop = (source: AudioBufferSourceNode) => {
+    try {
+      source.stop();
+    } catch (e) {
+      console.error("Couldn't stop source node because it hadn't been started.");
+    }
+  };
+
   const drawCursor = () => {
     if (!currentAudioBuffer) return;
     const container = playerRef.current;
@@ -232,7 +242,7 @@ const BeforeAfterAudioWaveform2 = ({
         clickedTime = (x / rect.width) * bufferBefore.duration;
       }
       if (sourceBefore && sourceBefore.buffer) {
-        sourceBefore.stop();
+        attemptStop(sourceBefore);
         const newSourceBefore = audioContext.createBufferSource();
         newSourceBefore.buffer = sourceBefore.buffer;
         newSourceBefore.loop = true;
@@ -245,7 +255,7 @@ const BeforeAfterAudioWaveform2 = ({
         clickedTime = (x / rect.width) * bufferAfter.duration;
       }
       if (sourceAfter && sourceAfter.buffer) {
-        sourceAfter.stop();
+        attemptStop(sourceAfter);
         const newSourceAfter = audioContext.createBufferSource();
         newSourceAfter.buffer = sourceAfter.buffer;
         newSourceAfter.loop = true;
@@ -359,11 +369,11 @@ const BeforeAfterAudioWaveform2 = ({
       audioContext.suspend().then(() => {
         try {
           if (sourceBefore) {
-            sourceBefore.stop();
+            attemptStop(sourceBefore);
             sourceBefore.disconnect();
           }
           if (sourceAfter) {
-            sourceAfter.stop();
+            attemptStop(sourceAfter);
             sourceAfter.disconnect();
           }
         } catch (e) {
