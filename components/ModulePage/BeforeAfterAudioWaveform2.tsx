@@ -140,8 +140,8 @@ const BeforeAfterAudioWaveform2 = ({ srcBefore = "", srcAfter = "", defaultVolum
       if (canvas) {
         // eslint-disable-next-line
         const parentWidth = canvas.parentElement?.offsetWidth!;
-        canvas.width = parentWidth;
-        canvas.height = parentWidth / 2;
+        canvas.width = parentWidth * window.devicePixelRatio;
+        canvas.height = (parentWidth / 2) * window.devicePixelRatio;
         if (canvas === canvasRefBefore.current) {
           drawCanvas(canvasRefBefore, bufferBefore);
         }
@@ -393,16 +393,16 @@ const BeforeAfterAudioWaveform2 = ({ srcBefore = "", srcAfter = "", defaultVolum
         <canvas
           ref={canvasRefBefore}
           onClick={onCanvasClick}
-          style={{ display: isBefore ? "block" : "none" }}
+          style={{ display: isBefore ? "block" : "none", width: "100%" }}
         ></canvas>
         <canvas
           ref={canvasRefAfter}
           onClick={onCanvasClick}
-          style={{ display: isBefore ? "none" : "block" }}
+          style={{ display: isBefore ? "none" : "block", width: "100%" }}
         ></canvas>
         <canvas
           ref={lineCanvasRef}
-          style={{ position: "absolute", top: 0, left: 0, pointerEvents: "none" }}
+          style={{ position: "absolute", top: 0, left: 0, pointerEvents: "none", width: "100%" }}
         ></canvas>
       </div>
       <button onClick={switchAudio}>Switch Audio</button>
