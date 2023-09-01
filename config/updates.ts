@@ -62,7 +62,7 @@ export const changeLog: Log[] = [
   //   ],
   // },
   {
-    version: "1.5",
+    version: "1.4",
     title: "Audio Comparison Feature",
     date: "September 1, 2023",
     changes: [
@@ -74,19 +74,13 @@ export const changeLog: Log[] = [
     ],
   },
   {
-    version: "1.4",
+    version: "1.3",
     title: "Multiple Libraries",
     date: "August 28, 2023",
     changes: [
       "Saving functionality for multiple libraries (Techniques, Audio Production) added.",
       "New dex linking URL usage for multiple libraries, backwards compatible with v1.0 (URL query strings without t= and a= will default to techniques).",
     ],
-  },
-  {
-    version: "1.3",
-    title: "Re: Dark Mode",
-    date: "Aug 26, 2023",
-    changes: ["Re-implemented dark mode."],
   },
   {
     version: "1.2",
@@ -102,7 +96,6 @@ export const changeLog: Log[] = [
     date: "August 22, 2023",
     changes: [
       "For easier maintainability, website stack has remade from JavaScript/React/Gatsby to TypeScript/React/NextJS/ChakraUI/TailwindCSS.",
-      "Removed dark mode (will be added back in a later update).",
     ],
   },
   {

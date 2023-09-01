@@ -16,7 +16,10 @@ import Link from "next/link";
 type ContactForm = {
   name?: string;
   email?: string;
-  topic?: "" | "Inquiry" | "Tab / Sheet Music" | "Business" | "Other";
+  topic?: "" | "General Inquiry" | "Content Request" | "Report Issue" | "Other";
+  subject?: string;
+  category?: string;
+  id?: string;
   message?: string;
   privacy?: boolean;
 };
@@ -52,12 +55,23 @@ const FormElement = ({ controlName, placeholder, onChange, value }: FormElementC
     case "topic":
       return (
         <Select placeholder="-- Select Topic --" onChange={onChange}>
-          <option value="Inquiry">Inquiry</option>
-          <option value="Tab / Sheet Music">Tab / Sheet Music</option>
-          <option value="Business">Business</option>
+          <option value="General Inquiry">Inquiry</option>
+          <option value="Content Request">Content Request</option>
+          <option value="Report Issue">Report Issue</option>
           <option value="Other">Other</option>
         </Select>
       );
+    case "subject":
+      return <Input placeholder={placeholder} onChange={onChange} />;
+    case "category":
+      return (
+        <Select placeholder="-- Select Module Library --" onChange={onChange}>
+          <option value="Techniques">Techniques</option>
+          <option value="Audio Production">Audio Production</option>
+        </Select>
+      );
+    case "id":
+      return <Input placeholder="Module ID" type="number" onChange={onChange} />;
     case "message":
       return (
         <Textarea h={36} placeholder={placeholder} onChange={onChange} value={value as string} />
@@ -98,6 +112,33 @@ const FormItem = ({ errors, control, controlName, rules, errorDef }: FormItemCon
   </FormControl>
 );
 
+// //  /?name_t=x.x.x&a=y.y.y
+// const decode = (encodedStr: string): Guitardex => {
+//   let result: Guitardex;
+//   let decodedArr: string[] = [];
+//   let hasName = false;
+//   if (encodedStr.includes("_")) {
+//     hasName = true;
+//   }
+//   decodedArr = encodedStr.split("_");
+//   if (decodedArr.length > 2) {
+//     throw Error("There can only be 1 underscore in the URL");
+//   } else if (decodedArr.length === 2) {
+//     result = createInitialGuitardex(decodeName(decodedArr[0]));
+//     decodeAll(decodedArr[1], result);
+//   } else if (decodedArr.length === 1) {
+//     if (hasName) {
+//       result = createInitialGuitardex(decodeName(decodedArr[0]));
+//     } else {
+//       result = createInitialGuitardex("");
+//       decodeAll(decodedArr[0], result);
+//     }
+//   } else {
+//     result = createInitialGuitardex("");
+//   }
+//   return result;
+// };
+
 const Contact = () => {
   const {
     handleSubmit,
@@ -105,6 +146,7 @@ const Contact = () => {
     formState: { errors, defaultValues },
     getValues,
     reset,
+    watch,
   } = useForm<ContactForm>({
     defaultValues: {
       name: "",
@@ -117,6 +159,27 @@ const Contact = () => {
   const [failure, setFailure] = useState(false);
   const [isSending, setIsSending] = useState(false);
 
+  // const router = useRouter();
+  // const location = router.pathname;
+  // // console.log(router.query);
+  // let hasUrl = false;
+  // const importSave = (guitardex: Guitardex): Guitardex => {
+  //   try {
+  //     const importStr = window.location.search.replace("?", "");
+  //     router.replace(location);
+  //     guitardex = decode(importStr);
+  //     for (const key of libraries as unknown as Library[]) {
+  //       if (hasDupes(guitardex[key])) {
+  //         throw new Error("Save has duplicate ID");
+  //       }
+  //     }
+  //     hasUrl = true;
+  //   } catch (error) {
+  //     alert("Invalid save profile detected. Save will not be loaded.\n" + error);
+  //   }
+  //   return guitardex;
+  // };
+
   const onSubmit = async (data: ContactForm) => {
     setIsSending(true);
     const res = await fetch("/api/sendgrid", {
@@ -124,6 +187,9 @@ const Contact = () => {
         email: data.email,
         name: data.name,
         topic: data.topic,
+        subject: data.subject,
+        category: data.category,
+        id: data.id,
         message: data.message,
       }),
       headers: {
@@ -146,6 +212,8 @@ const Contact = () => {
   if (Object.keys(errors).length !== 0) {
     console.log("Errors: ", errors);
   }
+
+  const watchTopic = watch("topic");
 
   return (
     <Wrapper title="Contact Us">
@@ -192,16 +260,49 @@ const Contact = () => {
               errorDef={[{ type: "selectedNone", msg: "Please select a topic." }]}
             />
 
+            {/* Done: Subject */}
+            <FormItem
+              errors={errors.subject}
+              control={control}
+              controlName="subject"
+              rules={{ required: true }}
+              errorDef={[{ type: "required", msg: "Subject is required." }]}
+            />
+
+            {/* Done: Category (appears if Topic is "Report Issue" */}
+            {watchTopic === "Report Issue" && (
+              <FormItem
+                errors={errors.category}
+                control={control}
+                controlName="category"
+                rules={{ required: true }}
+                errorDef={[{ type: "required", msg: "Library is required." }]}
+              />
+            )}
+
+            {/* Done: ID (appears if Topic is "Report Issue" */}
+            {watchTopic === "Report Issue" && (
+              <FormItem
+                errors={errors.id}
+                control={control}
+                controlName="id"
+                rules={{ required: true }}
+                errorDef={[
+                  { type: "required", msg: "Module ID is required. (eg. /t/12 ID is 12)" },
+                ]}
+              />
+            )}
+
             {/* Done: Message textarea */}
             <FormItem
               errors={errors.message}
               control={control}
               controlName="message"
               rules={{ required: true }}
-              errorDef={[{ type: "required", msg: "This is required" }]}
+              errorDef={[{ type: "required", msg: "Message is required" }]}
             />
 
-            {/* TODO: Privacy checkbox */}
+            {/* Done: Privacy checkbox */}
             <FormItem
               errors={errors.privacy}
               control={control}

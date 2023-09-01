@@ -11,6 +11,7 @@ import {
   HiOutlineDatabase,
   HiOutlineCurrencyDollar,
   HiOutlineAdjustments,
+  HiOutlineMail,
 } from "react-icons/hi";
 import { FiMoon, FiSun } from "react-icons/fi";
 import { changeLog } from "../../config/updates";
@@ -55,6 +56,9 @@ const Sidebar = () => {
         </Button>
         <Button url="/nope" path={path} icon={HiOutlineCurrencyDollar} isExternal>
           Donate
+        </Button>
+        <Button url="/contact" path={path} icon={HiOutlineMail}>
+          Contact
         </Button>
         <Divider />
         <Button
