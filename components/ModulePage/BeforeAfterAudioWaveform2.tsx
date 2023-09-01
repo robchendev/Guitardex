@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { debounce } from "lodash";
+import { useRouter } from "next/router";
 
 type Props = {
   srcBefore?: string;
@@ -8,7 +9,6 @@ type Props = {
 };
 
 const BeforeAfterAudioWaveform2 = ({ srcBefore = "", srcAfter = "", defaultVolume = 0.5 }) => {
-  // console.log("==================== MyComponent is re-rendering");
   const [audioContext, setAudioContext] = useState<AudioContext | null>(null);
   const [gainNodeBefore, setGainNodeBefore] = useState<GainNode | null>(null);
   const [gainNodeAfter, setGainNodeAfter] = useState<GainNode | null>(null);
@@ -24,6 +24,7 @@ const BeforeAfterAudioWaveform2 = ({ srcBefore = "", srcAfter = "", defaultVolum
   const [bufferAfter, setBufferAfter] = useState<AudioBuffer | null>(null);
   const [isManualSeek, setIsManualSeek] = useState(false);
   const [volume, setVolume] = useState(defaultVolume);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   const fetchAudioBuffer = async (audioContext, url) => {
     const response = await fetch(url);
@@ -33,6 +34,9 @@ const BeforeAfterAudioWaveform2 = ({ srcBefore = "", srcAfter = "", defaultVolum
 
   useEffect(() => {
     const ac = new AudioContext();
+    if (ac?.state === "running") {
+      ac?.suspend();
+    }
     setAudioContext(ac);
     Promise.all([fetchAudioBuffer(ac, srcBefore), fetchAudioBuffer(ac, srcAfter)]).then(
       ([fetchedBufferBefore, fetchedBufferAfter]) => {
@@ -54,28 +58,25 @@ const BeforeAfterAudioWaveform2 = ({ srcBefore = "", srcAfter = "", defaultVolum
         gainBefore.gain.setValueAtTime(volume, ac.currentTime);
         gainAfter.gain.setValueAtTime(0, ac.currentTime);
 
-        sourceBefore.start();
-        sourceAfter.start();
+        // sourceBefore.start();
+        // sourceAfter.start();
 
         setGainNodeBefore(gainBefore);
         setGainNodeAfter(gainAfter);
         setSourceBefore(sourceBefore);
         setSourceAfter(sourceAfter);
+
+        console.log("source after buffer in init useEffect", sourceAfter.buffer);
       }
     );
 
     // cleanup
     return () => {
-      if (sourceBefore) {
-        sourceBefore.stop(0);
-        sourceBefore.disconnect();
-      }
-      if (sourceAfter) {
-        sourceAfter.stop(0);
-        sourceAfter.disconnect();
-      }
-      if (audioContext) {
-        audioContext.close();
+      console.log("Navigating away from page", sourceBefore, sourceAfter, audioContext, ac);
+      stopAndDisconnectSource(sourceBefore);
+      stopAndDisconnectSource(sourceAfter);
+      if (ac) {
+        ac.close();
       }
     };
   }, []);
@@ -85,14 +86,21 @@ const BeforeAfterAudioWaveform2 = ({ srcBefore = "", srcAfter = "", defaultVolum
     source.buffer = buffer;
     source.loop = true;
     source.connect(gainNode).connect(audioContext.destination);
+    console.log("createAndStartBufferSource, isPlaying: ", isPlaying);
     source.start(0, currentTime % buffer.duration);
     return source;
   };
 
   const stopAndDisconnectSource = (source) => {
-    if (source) {
-      source.stop();
-      source.disconnect();
+    // DO NOT PUT A isPlaying check here! It doesn't update immediately and can cause audio quality problems!
+    console.log("trying to disconnect source, ", source);
+    try {
+      if (source) {
+        source.stop();
+        source.disconnect();
+      }
+    } catch (e) {
+      console.error("source hasn't started yet!");
     }
   };
 
@@ -225,27 +233,40 @@ const BeforeAfterAudioWaveform2 = ({ srcBefore = "", srcAfter = "", defaultVolum
     const x = e.clientX - rect.left;
     let clickedTime;
 
-    if (isBefore && sourceBefore && sourceBefore.buffer) {
-      clickedTime = (x / rect.width) * sourceBefore.buffer.duration;
-      sourceBefore.stop();
-      const newSourceBefore = audioContext.createBufferSource();
-      newSourceBefore.buffer = sourceBefore.buffer;
-      newSourceBefore.loop = true;
-      newSourceBefore.connect(gainNodeBefore).connect(audioContext.destination);
-      newSourceBefore.start(0, clickedTime % sourceBefore.buffer.duration);
-      setSourceBefore(newSourceBefore);
-    } else if (!isBefore && sourceAfter && sourceAfter.buffer) {
-      clickedTime = (x / rect.width) * sourceAfter.buffer.duration;
-      sourceAfter.stop();
-      const newSourceAfter = audioContext.createBufferSource();
-      newSourceAfter.buffer = sourceAfter.buffer;
-      newSourceAfter.loop = true;
-      newSourceAfter.connect(gainNodeAfter).connect(audioContext.destination);
-      newSourceAfter.start(0, clickedTime % sourceAfter.buffer.duration);
-      setSourceAfter(newSourceAfter);
+    console.log(sourceBefore, sourceAfter);
+
+    if (isBefore) {
+      console.log("isbefore");
+      if (bufferBefore) {
+        clickedTime = (x / rect.width) * bufferBefore.duration;
+      }
+      if (sourceBefore && sourceBefore.buffer) {
+        sourceBefore.stop();
+        const newSourceBefore = audioContext.createBufferSource();
+        newSourceBefore.buffer = sourceBefore.buffer;
+        newSourceBefore.loop = true;
+        newSourceBefore.connect(gainNodeBefore).connect(audioContext.destination);
+        newSourceBefore.start(0, clickedTime % sourceBefore.buffer.duration);
+        setSourceBefore(newSourceBefore);
+      }
+    } else if (!isBefore) {
+      console.log("isafter");
+      if (bufferAfter) {
+        clickedTime = (x / rect.width) * bufferAfter.duration;
+      }
+      if (sourceAfter && sourceAfter.buffer) {
+        sourceAfter.stop();
+        const newSourceAfter = audioContext.createBufferSource();
+        newSourceAfter.buffer = sourceAfter.buffer;
+        newSourceAfter.loop = true;
+        newSourceAfter.connect(gainNodeAfter).connect(audioContext.destination);
+        newSourceAfter.start(0, clickedTime % sourceAfter.buffer.duration);
+        setSourceAfter(newSourceAfter);
+      }
     }
 
     if (clickedTime !== undefined) {
+      console.log("clickedTime", clickedTime);
       setCurrentTime(clickedTime);
       startTime.current = audioContext.currentTime - clickedTime;
     }
@@ -325,8 +346,16 @@ const BeforeAfterAudioWaveform2 = ({ srcBefore = "", srcAfter = "", defaultVolum
     };
   }, [audioContext, audioContext?.state, isManualSeek]);
 
+  useEffect(() => {
+    console.log("Audio Context State Changed!", audioContext?.state);
+  }, [audioContext?.state]);
+
   const playAudio = () => {
+    console.log("playAudio");
+    console.log("audioContext.state", audioContext?.state);
     if (audioContext && audioContext.state === "suspended") {
+      setIsPlaying(true);
+
       audioContext.resume().then(() => {
         // Stop and disconnect any old source to prevent multiple from playing simultaneously
         stopAndDisconnectSource(isBefore ? sourceBefore : sourceAfter);
@@ -350,16 +379,22 @@ const BeforeAfterAudioWaveform2 = ({ srcBefore = "", srcAfter = "", defaultVolum
 
   const pauseAudio = () => {
     if (audioContext && audioContext.state === "running") {
+      setIsPlaying(false);
+
       audioContext.suspend().then(() => {
-        if (sourceBefore) {
-          sourceBefore.stop();
-          sourceBefore.disconnect();
+        try {
+          if (sourceBefore) {
+            sourceBefore.stop();
+            sourceBefore.disconnect();
+          }
+          if (sourceAfter) {
+            sourceAfter.stop();
+            sourceAfter.disconnect();
+          }
+          console.log("Playback paused successfully");
+        } catch (e) {
+          console.log("pauseAudio");
         }
-        if (sourceAfter) {
-          sourceAfter.stop();
-          sourceAfter.disconnect();
-        }
-        console.log("Playback paused successfully");
       });
     }
   };
