@@ -350,15 +350,16 @@ const BeforeAfterAudioWaveform2 = ({
     if (audioContext && audioContext.state === "suspended") {
       audioContext.resume().then(() => {
         // Check if device is IOS
-        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !(window as any).MSStream;
+        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
         if (isIOS) {
           const hasConfirmedAudio = localStorage.getItem("hasConfirmedAudio");
           const confirmedAudioTime = localStorage.getItem("confirmedAudioTime");
-          // Check if stored value is expired (7 days)
+          // Check if stored value is expired (3 days)
           const isExpired = confirmedAudioTime
-            ? Date.now() - Number(confirmedAudioTime) > 7 * 24 * 60 * 60 * 1000
+            ? Date.now() - Number(confirmedAudioTime) > 3 * 24 * 60 * 60 * 1000
             : true;
-          if ((isExpired || !hasConfirmedAudio) && audioContext.state === "suspended") {
+          console.log(isExpired, hasConfirmedAudio, confirmedAudioTime);
+          if (isExpired || !hasConfirmedAudio) {
             const headphoneAlert = window.confirm(
               "Your iOS device requires silent mode to be turned off in order to play audio. Please turn off silent mode or wear headphones."
             );
