@@ -129,10 +129,10 @@ export function unmute(context, allowBackgroundPlayback, forceIOSBehavior) {
       if (context.state !== "running" && context.state !== "closed") {
         // do nothing if the context was closed to avoid errors... can't check for the suspended state because of apple's crappy interrupted implementation
         // Can only resume after a media playback (input) event has occurred
-        // if (hasMediaPlaybackEventOccurred) {
-        //   var p = context.resume();
-        //   if (p) p.then(noop, noop).catch(noop);
-        // }
+        if (hasMediaPlaybackEventOccurred) {
+          var p = context.resume();
+          if (p) p.then(noop, noop).catch(noop);
+        }
       }
     } else {
       // Want to be suspended, so try suspending
