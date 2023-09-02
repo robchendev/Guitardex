@@ -358,10 +358,9 @@ const BeforeAfterAudioWaveform2 = ({
           const isExpired = confirmedAudioTime
             ? Date.now() - Number(confirmedAudioTime) > 3 * 24 * 60 * 60 * 1000
             : true;
-          console.log(isExpired, hasConfirmedAudio, confirmedAudioTime);
           if (isExpired || !hasConfirmedAudio) {
             const headphoneAlert = window.confirm(
-              "Your iOS device requires silent mode to be turned off in order to play audio. Please turn off silent mode or wear headphones."
+              "iOS devices require Silent Mode to be turned off to play this audio. To circumvent this restriction, you can also wear headphones. Upon clicking 'OK', this popup will not appear for 3 days."
             );
             if (headphoneAlert) {
               // Set the confirmed status and the current time
