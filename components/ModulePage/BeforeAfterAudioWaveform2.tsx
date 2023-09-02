@@ -349,11 +349,26 @@ const BeforeAfterAudioWaveform2 = ({
   const playAudio = () => {
     if (audioContext && audioContext.state === "suspended") {
       audioContext.resume().then(() => {
-        // Unlock iPhone audio
-        const oscillator = audioContext.createOscillator();
-        oscillator.connect(audioContext.destination);
-        oscillator.start();
-        oscillator.stop();
+        // Check if device is IOS
+        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !(window as any).MSStream;
+        if (isIOS) {
+          const hasConfirmedAudio = localStorage.getItem("hasConfirmedAudio");
+          const confirmedAudioTime = localStorage.getItem("confirmedAudioTime");
+          // Check if stored value is expired (7 days)
+          const isExpired = confirmedAudioTime
+            ? Date.now() - Number(confirmedAudioTime) > 7 * 24 * 60 * 60 * 1000
+            : true;
+          if ((isExpired || !hasConfirmedAudio) && audioContext.state === "suspended") {
+            const headphoneAlert = window.confirm(
+              "Your iOS device requires silent mode to be turned off in order to play audio. Please turn off silent mode or wear headphones."
+            );
+            if (headphoneAlert) {
+              // Set the confirmed status and the current time
+              localStorage.setItem("hasConfirmedAudio", "true");
+              localStorage.setItem("confirmedAudioTime", String(Date.now()));
+            }
+          }
+        }
 
         // Stop and disconnect any old source to prevent multiple from playing simultaneously
         stopAndDisconnectSource(isBefore ? sourceBefore : sourceAfter);
