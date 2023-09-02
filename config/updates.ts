@@ -96,7 +96,7 @@ export const changeLog: Log[] = [
     title: "Module Glossary",
     date: "August 24, 2023",
     changes: [
-      "Terms and definitions will be scanned when building production packages server-side and shown in a glossary at the top of the module page.",
+      "Terms and definitions will be scanned when loading the page and shown in a glossary at the top of the module page.",
     ],
   },
   {
