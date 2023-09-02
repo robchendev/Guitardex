@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { debounce } from "lodash";
+import { unmute } from "../../utils/unmute";
 
 type Props = {
   srcBefore?: string;
@@ -42,6 +43,7 @@ const BeforeAfterAudioWaveform2 = ({
     if (ac?.state === "running") {
       ac?.suspend();
     }
+    unmute(ac, false, false);
     setAudioContext(ac);
     Promise.all([fetchAudioBuffer(ac, srcBefore), fetchAudioBuffer(ac, srcAfter)]).then(
       ([fetchedBufferBefore, fetchedBufferAfter]) => {
