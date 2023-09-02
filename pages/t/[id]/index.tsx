@@ -41,7 +41,12 @@ const Technique = ({
           contentMarkdown={moduleData.contentMarkdown}
           addToGlossary={addToGlossary}
         />
-        <ContinueLearning continuations={continuations} library="t" />
+        <ContinueLearning
+          continuations={continuations}
+          library="t"
+          id={moduleData.id}
+          name={moduleData.name}
+        />
       </div>
     </Wrapper>
   );

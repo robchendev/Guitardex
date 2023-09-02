@@ -6,9 +6,13 @@ import A from "../Typography/A";
 const ContinueLearning = ({
   continuations,
   library,
+  name,
+  id,
 }: {
   continuations: Continuation[];
   library: Library;
+  name: string;
+  id: number;
 }) => {
   return (
     <div className="bg-bg rounded-lg px-4 py-3 mt-4">
@@ -35,6 +39,17 @@ const ContinueLearning = ({
       ) : (
         <p className="mt-2">There is no continuation to this module.</p>
       )}
+      <p className="text-lg font-medium mt-4 mb-2">Report Issues</p>
+      <Divider />
+      <p className="mt-2">
+        See an problem with this page's contents? Please{" "}
+        <A
+          href={`/contact?t=Report_Issue&s=Issue_with_${name
+            ?.replaceAll(" ", "_")
+            .replaceAll("/", "+")}&l=${library}&id=${id}`}
+          text="let us know!"
+        />
+      </p>
     </div>
   );
 };
