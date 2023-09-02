@@ -7,16 +7,20 @@ import {
   Textarea,
   Checkbox,
 } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Controller, RegisterOptions, useForm } from "react-hook-form";
 import Wrapper from "../components/Wrapper";
 import { FieldError, Control } from "react-hook-form";
 import Link from "next/link";
+import { Library } from "../types/dynamic/common";
+import { useRouter } from "next/router";
+
+type Topic = "" | "General Inquiry" | "Content Request" | "Report Issue" | "Other";
 
 type ContactForm = {
   name?: string;
   email?: string;
-  topic?: "" | "General Inquiry" | "Content Request" | "Report Issue" | "Other";
+  topic?: Topic;
   subject?: string;
   category?: string;
   id?: string;
@@ -38,6 +42,8 @@ type FormItemConfig = {
     "setValueAs" | "disabled" | "valueAsNumber" | "valueAsDate"
   >;
   errorDef: ErrorConfig[];
+  register: (name: string, RegisterOptions?) => { onChange; onBlur; name; ref };
+  title?: string;
 };
 
 type FormElementConfig = {
@@ -48,13 +54,14 @@ type FormElementConfig = {
 };
 
 const FormElement = ({ controlName, placeholder, onChange, value }: FormElementConfig) => {
+  console.log(controlName, value);
   switch (controlName) {
     case "name":
     case "email":
       return <Input placeholder={placeholder} onChange={onChange} />;
     case "topic":
       return (
-        <Select placeholder="-- Select Topic --" onChange={onChange}>
+        <Select placeholder="-- Select Topic --" onChange={onChange} value={value as string}>
           <option value="General Inquiry">Inquiry</option>
           <option value="Content Request">Content Request</option>
           <option value="Report Issue">Report Issue</option>
@@ -62,16 +69,22 @@ const FormElement = ({ controlName, placeholder, onChange, value }: FormElementC
         </Select>
       );
     case "subject":
-      return <Input placeholder={placeholder} onChange={onChange} />;
+      return <Input placeholder={placeholder} onChange={onChange} value={value as string} />;
     case "category":
       return (
-        <Select placeholder="-- Select Module Library --" onChange={onChange}>
-          <option value="Techniques">Techniques</option>
-          <option value="Audio Production">Audio Production</option>
+        <Select
+          placeholder="-- Select Module Library --"
+          onChange={onChange}
+          value={value as string}
+        >
+          <option value="t">Techniques</option>
+          <option value="a">Audio Production</option>
         </Select>
       );
     case "id":
-      return <Input placeholder="Module ID" type="number" onChange={onChange} />;
+      return (
+        <Input placeholder="Module ID" type="number" onChange={onChange} value={value as string} />
+      );
     case "message":
       return (
         <Textarea h={36} placeholder={placeholder} onChange={onChange} value={value as string} />
@@ -90,19 +103,31 @@ const FormElement = ({ controlName, placeholder, onChange, value }: FormElementC
   }
 };
 
-const FormItem = ({ errors, control, controlName, rules, errorDef }: FormItemConfig) => (
+const FormItem = ({
+  errors,
+  control,
+  controlName,
+  rules,
+  errorDef,
+  register,
+  title,
+}: FormItemConfig) => (
   <FormControl isInvalid={!!errors}>
     <Controller
       control={control}
-      name={controlName}
       rules={rules}
+      {...register(controlName)}
+      name={controlName}
       render={({ field: { onChange, value } }) => (
-        <FormElement
-          controlName={controlName}
-          placeholder={controlName.slice(0, 1).toUpperCase() + controlName.slice(1)}
-          onChange={onChange}
-          value={value}
-        />
+        <>
+          {title && <span>{title}</span>}
+          <FormElement
+            controlName={controlName}
+            placeholder={controlName.slice(0, 1).toUpperCase() + controlName.slice(1)}
+            onChange={onChange}
+            value={value}
+          />
+        </>
       )}
     />
     {errorDef.map(
@@ -112,32 +137,73 @@ const FormItem = ({ errors, control, controlName, rules, errorDef }: FormItemCon
   </FormControl>
 );
 
-// //  /?name_t=x.x.x&a=y.y.y
-// const decode = (encodedStr: string): Guitardex => {
-//   let result: Guitardex;
-//   let decodedArr: string[] = [];
-//   let hasName = false;
-//   if (encodedStr.includes("_")) {
-//     hasName = true;
-//   }
-//   decodedArr = encodedStr.split("_");
-//   if (decodedArr.length > 2) {
-//     throw Error("There can only be 1 underscore in the URL");
-//   } else if (decodedArr.length === 2) {
-//     result = createInitialGuitardex(decodeName(decodedArr[0]));
-//     decodeAll(decodedArr[1], result);
-//   } else if (decodedArr.length === 1) {
-//     if (hasName) {
-//       result = createInitialGuitardex(decodeName(decodedArr[0]));
-//     } else {
-//       result = createInitialGuitardex("");
-//       decodeAll(decodedArr[0], result);
-//     }
-//   } else {
-//     result = createInitialGuitardex("");
-//   }
-//   return result;
-// };
+//  /?name_t=x.x.x&a=y.y.y
+const decode = (encodedStr: string): ContactOptions => {
+  const result: ContactOptions = {
+    topic: "",
+    subject: "",
+    library: "",
+    id: "",
+  };
+  let decodedArr: string[] = [];
+  decodedArr = encodedStr.split("&");
+  console.log(decodedArr);
+  for (const decoded of decodedArr) {
+    const values = decoded.split("=");
+    if (values.length === 2) {
+      const control = values[0];
+      const spacedString = values[1].replaceAll("_", " ");
+      console.log(control, spacedString);
+      switch (control) {
+        case "t":
+          if (
+            spacedString === "General Inquiry" ||
+            spacedString === "Content Request" ||
+            spacedString === "Report Issue" ||
+            spacedString === "Other"
+          )
+            result.topic = spacedString;
+          break;
+        case "s":
+          result.subject = spacedString;
+          break;
+        case "l":
+          if (spacedString === "t" || spacedString === "a") {
+            result.library = spacedString;
+          }
+          break;
+        case "id":
+          result.id = spacedString;
+          break;
+      }
+    } else {
+      console.error("query parameter is wrong format, should be x=y");
+    }
+  }
+  // if (decodedArr.length > 2) {
+  //   throw Error("There can only be 1 underscore in the URL");
+  // } else if (decodedArr.length === 2) {
+  //   result = createInitialGuitardex(decodeName(decodedArr[0]));
+  //   decodeAll(decodedArr[1], result);
+  // } else if (decodedArr.length === 1) {
+  //   if (hasName) {
+  //     result = createInitialGuitardex(decodeName(decodedArr[0]));
+  //   } else {
+  //     result = createInitialGuitardex("");
+  //     decodeAll(decodedArr[0], result);
+  //   }
+  // } else {
+  //   result = createInitialGuitardex("");
+  // }
+  return result;
+};
+
+type ContactOptions = {
+  topic: Topic;
+  subject: string;
+  library: Library | "";
+  id: string;
+};
 
 const Contact = () => {
   const {
@@ -145,8 +211,10 @@ const Contact = () => {
     control,
     formState: { errors, defaultValues },
     getValues,
+    setValue,
     reset,
     watch,
+    register,
   } = useForm<ContactForm>({
     defaultValues: {
       name: "",
@@ -159,26 +227,52 @@ const Contact = () => {
   const [failure, setFailure] = useState(false);
   const [isSending, setIsSending] = useState(false);
 
-  // const router = useRouter();
-  // const location = router.pathname;
-  // // console.log(router.query);
-  // let hasUrl = false;
-  // const importSave = (guitardex: Guitardex): Guitardex => {
-  //   try {
-  //     const importStr = window.location.search.replace("?", "");
-  //     router.replace(location);
-  //     guitardex = decode(importStr);
-  //     for (const key of libraries as unknown as Library[]) {
-  //       if (hasDupes(guitardex[key])) {
-  //         throw new Error("Save has duplicate ID");
-  //       }
-  //     }
-  //     hasUrl = true;
-  //   } catch (error) {
-  //     alert("Invalid save profile detected. Save will not be loaded.\n" + error);
-  //   }
-  //   return guitardex;
-  // };
+  const router = useRouter();
+  const location = router.pathname;
+  let hasUrl = false;
+
+  const importOptions = (options: ContactOptions) => {
+    try {
+      const importStr = window.location.search.replace("?", "");
+      router.replace(location);
+      options = decode(importStr);
+      hasUrl = true; // TODO: What this for?
+    } catch (error) {
+      console.error("ran into an issue trying to import contact options");
+    }
+    return options;
+  };
+
+  useEffect(() => {
+    let options: ContactOptions = {
+      topic: "",
+      subject: "",
+      library: "",
+      id: "",
+    };
+    if (window.location.search.includes("?")) {
+      options = importOptions(options);
+    }
+    if (options) {
+      console.log(1);
+      if (options.topic) {
+        console.log(2, options.topic);
+        setValue("topic", options.topic);
+      }
+      if (options.subject) {
+        console.log(3);
+        setValue("subject", options.subject);
+      }
+      if (options.library) {
+        console.log(4);
+        setValue("category", options.library);
+      }
+      if (options.id) {
+        console.log(5);
+        setValue("id", options.id);
+      }
+    }
+  }, []);
 
   const onSubmit = async (data: ContactForm) => {
     setIsSending(true);
@@ -224,11 +318,13 @@ const Contact = () => {
           method="POST"
           data-netlify="true"
         >
-          <VStack className="w-full lg:w-8/12" spacing={4}>
+          <VStack className="w-full lg:w-8/12" spacing={2}>
             {/* DONE: Name */}
             <FormItem
               errors={errors.name}
               control={control}
+              register={register}
+              title="Name"
               controlName="name"
               rules={{ required: true, pattern: /^[a-zA-Z ]*$/g }}
               errorDef={[
@@ -241,6 +337,8 @@ const Contact = () => {
             <FormItem
               errors={errors.email}
               control={control}
+              register={register}
+              title="Email"
               controlName="email"
               rules={{ required: true, pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g }}
               errorDef={[
@@ -253,6 +351,8 @@ const Contact = () => {
             <FormItem
               errors={errors.topic}
               control={control}
+              register={register}
+              title="Topic"
               controlName="topic"
               rules={{
                 validate: { selectedNone: () => getValues("topic") !== defaultValues?.topic },
@@ -264,6 +364,8 @@ const Contact = () => {
             <FormItem
               errors={errors.subject}
               control={control}
+              register={register}
+              title="Subject"
               controlName="subject"
               rules={{ required: true }}
               errorDef={[{ type: "required", msg: "Subject is required." }]}
@@ -274,6 +376,8 @@ const Contact = () => {
               <FormItem
                 errors={errors.category}
                 control={control}
+                register={register}
+                title="Module Library"
                 controlName="category"
                 rules={{ required: true }}
                 errorDef={[{ type: "required", msg: "Library is required." }]}
@@ -285,6 +389,8 @@ const Contact = () => {
               <FormItem
                 errors={errors.id}
                 control={control}
+                register={register}
+                title="Module ID"
                 controlName="id"
                 rules={{ required: true }}
                 errorDef={[
@@ -297,6 +403,8 @@ const Contact = () => {
             <FormItem
               errors={errors.message}
               control={control}
+              register={register}
+              title="Message"
               controlName="message"
               rules={{ required: true }}
               errorDef={[{ type: "required", msg: "Message is required" }]}
@@ -306,6 +414,7 @@ const Contact = () => {
             <FormItem
               errors={errors.privacy}
               control={control}
+              register={register}
               controlName="privacy"
               rules={{ required: true }}
               errorDef={[{ type: "required", msg: "This is required" }]}
