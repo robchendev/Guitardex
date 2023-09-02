@@ -40,24 +40,23 @@ export const changeLog: Log[] = [
   //     "??? modules added into the Audio Production library: ? General, ? Recording, ? Mixing, ? Mastering.",
   //   ],
   // },
-  // {
-  //   version: "1.7",
-  //   title: "Audio Production Module Features & Test",
-  //   date: "??? ?, 2023",
-  //   changes: [
-  //     "The new features of v1.1 - v1.6 are launched to a select group of desktop volunteer users to test.",
-  //   ],
-  // },
-  // {
-  //   version: "1.6",
-  //   title: "Audio Production Library List",
-  //   date: "??? ?, 2023",
-  //   changes: [
-  //     "Added Audio Production library page, populated with a list of planned modules.",
-  //     "Although this library is not released yet, users can see a list of the modules in Audio Production and save it to their Guitardex for future access.",
-  //     "Added survey link to the Audio Production library page for users to request specific topics not yet shown in the list of planned modules.",
-  //   ],
-  // },
+  {
+    version: "1.7",
+    title: "Audio Production Module Features & Test",
+    date: "September 1, 2023",
+    changes: [
+      "The new features of v1.1 - v1.6 are launched to a select group of desktop volunteer users to test.",
+    ],
+  },
+  {
+    version: "1.6",
+    title: "Audio Production Library List",
+    date: "September 1, 2023",
+    changes: [
+      "Added Audio Production library page, populated with an incomplete list of planned modules.",
+      // "Although this library is not released yet, users can see a list of the modules in Audio Production and save it to their Guitardex for future access.",
+    ],
+  },
 
   {
     version: "1.5",
