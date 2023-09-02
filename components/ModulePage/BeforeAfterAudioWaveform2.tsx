@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import { debounce } from "lodash";
-import { unmute } from "../../utils/unmute";
 
 type Props = {
   srcBefore?: string;
@@ -43,19 +42,12 @@ const BeforeAfterAudioWaveform2 = ({
     if (ac?.state === "running") {
       ac?.suspend();
     }
-    unmute(ac, false, false);
 
     setAudioContext(ac);
     Promise.all([fetchAudioBuffer(ac, srcBefore), fetchAudioBuffer(ac, srcAfter)]).then(
       ([fetchedBufferBefore, fetchedBufferAfter]) => {
         // Exit if the component is unmounted or the context is closed
         if (isCancelled || ac.state === "closed") return;
-
-        // Attempt to unlock iphone silent mode audio
-        // const oscillator = ac?.createOscillator();
-        // oscillator.connect(ac?.destination);
-        // oscillator.start();
-        // oscillator.stop();
 
         setBufferBefore(fetchedBufferBefore);
         setBufferAfter(fetchedBufferAfter);
@@ -357,6 +349,12 @@ const BeforeAfterAudioWaveform2 = ({
   const playAudio = () => {
     if (audioContext && audioContext.state === "suspended") {
       audioContext.resume().then(() => {
+        // Unlock iPhone audio
+        const oscillator = audioContext.createOscillator();
+        oscillator.connect(audioContext.destination);
+        oscillator.start();
+        oscillator.stop();
+
         // Stop and disconnect any old source to prevent multiple from playing simultaneously
         stopAndDisconnectSource(isBefore ? sourceBefore : sourceAfter);
 
