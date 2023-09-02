@@ -403,6 +403,12 @@ const BeforeAfterAudioWaveform2 = ({
 
   return (
     <div>
+      <div className="font-medium">
+        Now playing:{" "}
+        {isBefore
+          ? srcBefore.split("/").pop()?.toUpperCase()
+          : srcAfter.split("/").pop()?.toUpperCase()}
+      </div>
       <div className="relative w-full" ref={playerRef}>
         <canvas
           ref={canvasRefBefore}
@@ -429,7 +435,7 @@ const BeforeAfterAudioWaveform2 = ({
         className="px-3 py-2 border border-text rounded-md hover:bg-greyChecked hover:text-white"
         onClick={switchAudio}
       >
-        Switch Audio
+        Bypass: {isBefore ? "ON" : "OFF"}
       </button>
       <button
         className="px-3 py-2 border border-text rounded-md hover:bg-greyChecked hover:text-white"

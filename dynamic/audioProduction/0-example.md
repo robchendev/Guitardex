@@ -6,7 +6,7 @@ difficulty: easy
 requirements: []
 ---
 
-This page is intended to test the before and after of a **bad EQ effect** applied to my [fingerstyle cover of Avid](https://www.youtube.com/watch?v=CuYhAiwoeDw).
+This page is intended to test the before and after of a **bad EQ effect** applied to my [fingerstyle cover of Avid](https://www.youtube.com/watch?v=CuYhAiwoeDw). That is, when Bypass is "ON", better sounding audio should be playing.
 
 The appearance of this feature is currently very barebones, and will improve upon official release.
 
