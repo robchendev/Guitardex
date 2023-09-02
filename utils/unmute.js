@@ -136,11 +136,12 @@ export function unmute(context, allowBackgroundPlayback, forceIOSBehavior) {
       }
     } else {
       // Want to be suspended, so try suspending
-      if (context.state === "running") {
-        var p = context.suspend();
-        if (p) p.then(noop, noop).catch(noop);
-      }
-    }
+    // Already do this in BeforeAfterAudioWaveform2.tsx
+      //   if (context.state === "running") {
+    //     var p = context.suspend();
+    //     if (p) p.then(noop, noop).catch(noop);
+    //   }
+    // }
   }
   /**
    * Handles context statechange events.

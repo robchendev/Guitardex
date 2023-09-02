@@ -43,7 +43,7 @@ const BeforeAfterAudioWaveform2 = ({
     if (ac?.state === "running") {
       ac?.suspend();
     }
-    // unmute(ac, false, false);
+    unmute(ac, false, false);
 
     setAudioContext(ac);
     Promise.all([fetchAudioBuffer(ac, srcBefore), fetchAudioBuffer(ac, srcAfter)]).then(
@@ -52,10 +52,10 @@ const BeforeAfterAudioWaveform2 = ({
         if (isCancelled || ac.state === "closed") return;
 
         // Attempt to unlock iphone silent mode audio
-        const oscillator = ac?.createOscillator();
-        oscillator.connect(ac?.destination);
-        oscillator.start();
-        oscillator.stop();
+        // const oscillator = ac?.createOscillator();
+        // oscillator.connect(ac?.destination);
+        // oscillator.start();
+        // oscillator.stop();
 
         setBufferBefore(fetchedBufferBefore);
         setBufferAfter(fetchedBufferAfter);
