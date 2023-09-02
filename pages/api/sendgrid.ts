@@ -8,7 +8,7 @@ async function sendEmail(req, res) {
     await sendgrid.send({
       to: "management@eddievdmeer.com", // Your email where you'll receive emails
       from: "management@eddievdmeer.com", // your website email address here
-      subject: `[Guitardex: ${req.body.topic}] ${req.body.subject}`,
+      subject: `[Guitardex: ${req.body.topic}] ${req.body.subject ?? ""}`,
       html: `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
       <html lang="en">
         <head>
@@ -17,7 +17,7 @@ async function sendEmail(req, res) {
           <meta name="description" content="Guitardex Contact Form">
         </head>
         <body>
-          <p>${req.body.name} (${req.body.email})</p>
+          <p>Email: ${req.body.email}</p>
           <p>Library: ${req.body.category ?? "None"}</p>
           <p>Module ID: ${req.body.id ?? "None"}</p>
           <p>Message:</p>

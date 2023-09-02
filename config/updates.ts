@@ -7,25 +7,24 @@ export type Log = {
 
 export const changeLog: Log[] = [
   // {
-  //   version: "2.0",
-  //   title: "Audio Production Library Content",
+  //   version: "2.3",
+  //   title: "Optimization: Pre-build Audio Buffers",
   //   date: "??? ?, 2023",
   //   changes: [
-  //     "??? modules added into the Audio Production library: ? General, ? Recording, ? Mixing, ? Mastering.",
+  //     "Build audio buffers server-side to reduce the load on the client-side when loading Audio Production modules.",
   //   ],
   // },
   // {
-  //   version: "1.9",
-  //   title: "Audio Production Module Features & Test",
+  //   version: "2.2",
+  //   title: "Optimization: Library Glossary",
   //   date: "??? ?, 2023",
   //   changes: [
-  //     "Audio waveform before/after comparison using WavesurferJS",
-  //     "The above features are launched to a select group of volunteer users to test on a sample Audio Production module.",
+  //     "Terms and definitions in every module within a library will be scanned when building production packages server-side and shown in a glossary at the top of the library list.",
   //   ],
   // },
   // {
-  //   version: "1.8",
-  //   title: "Optimization",
+  //   version: "2.1",
+  //   title: "Optimization: Large Media Storage",
   //   date: "??? ?, 2023",
   //   changes: [
   //     "Build audio buffers at build time to serve immediately on client-side.",
@@ -34,25 +33,23 @@ export const changeLog: Log[] = [
   //   ],
   // },
   // {
-  //   version: "1.7",
-  //   title: "Library Glossary",
+  //   version: "2.0",
+  //   title: "Audio Production Library Content",
   //   date: "??? ?, 2023",
   //   changes: [
-  //     "Terms and definitions in every module within a library will be scanned when building production packages server-side and shown in a glossary at the top of the library list.",
+  //     "??? modules added into the Audio Production library: ? General, ? Recording, ? Mixing, ? Mastering.",
+  //   ],
+  // },
+  // {
+  //   version: "1.7",
+  //   title: "Audio Production Module Features & Test",
+  //   date: "??? ?, 2023",
+  //   changes: [
+  //     "The new features of v1.1 - v1.6 are launched to a select group of desktop volunteer users to test.",
   //   ],
   // },
   // {
   //   version: "1.6",
-  //   title: "Contact Form + Report Problem Form",
-  //   date: "??? ?, 2023",
-  //   changes: [
-  //     "Added a contact form page.",
-  //     "A link has been added to the bottom of each module for users to report errors via a partially-filled contact form.",
-  //   ],
-  // },
-
-  // {
-  //   version: "1.5",
   //   title: "Audio Production Library List",
   //   date: "??? ?, 2023",
   //   changes: [
@@ -61,10 +58,23 @@ export const changeLog: Log[] = [
   //     "Added survey link to the Audio Production library page for users to request specific topics not yet shown in the list of planned modules.",
   //   ],
   // },
+
+  {
+    version: "1.5",
+    title: "Contact Form",
+    date: "September 1, 2023",
+    changes: [
+      "Added contact form page with Email, Topic, Subject and Message as the default required fields.",
+      'When on topic "Content Request", Email, Module Library and Message are required.',
+      'When on topic "Report Issue", Email, Module Library, Module ID and Message are required.',
+      "Added a report issue link on the bottom of each module page that autofills the contact form's Topic, Module Library and Module ID fields.",
+      "Added a content request link at the top of each library page that autofills the contact form's Topic and Module Library fields.",
+    ],
+  },
   {
     version: "1.4",
     title: "Audio Comparison Feature",
-    date: "September 1, 2023",
+    date: "August 31, 2023",
     changes: [
       "Added an audio comparison feature that demonstrates the before and after of an applied effect using sound for auditory representation and waveform for visual representation.",
       "Added generic controls such as play, pause and volume.",

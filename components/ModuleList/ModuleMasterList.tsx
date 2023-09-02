@@ -1,6 +1,7 @@
 import { VStack } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { Library, Module, ModuleFrontMatter } from "../../types/dynamic/common";
+import A from "../Typography/A";
 import Wrapper from "../Wrapper";
 import ModuleItem from "./ModuleItem";
 import SearchBar from "./SearchBar";
@@ -18,6 +19,10 @@ const ModuleMasterList = ({
   const [filter, setFilter] = useState(moduleList);
   return (
     <Wrapper title={title}>
+      <p className="mt-2 mb-2 text-center">
+        Want a tutorial module for something not on this list?{" "}
+        <A href={`/contact?t=Content_Request&l=${library}`} text="Submit a request" /> for it!
+      </p>
       <SearchBar
         list={moduleList}
         search={search}

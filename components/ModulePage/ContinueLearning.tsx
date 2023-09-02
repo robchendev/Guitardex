@@ -47,8 +47,9 @@ const ContinueLearning = ({
           href={`/contact?t=Report_Issue&s=Issue_with_${name
             ?.replaceAll(" ", "_")
             .replaceAll("/", "+")}&l=${library}&id=${id}`}
-          text="let us know!"
+          text="let us know"
         />
+        !
       </p>
     </div>
   );

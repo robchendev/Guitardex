@@ -3,10 +3,17 @@ import Wrapper from "../../../components/Wrapper";
 import { GlossaryItem } from "../../../types";
 import RenderMarkdown from "../../../components/ModulePage/RenderMarkdown";
 import ModuleHeader from "../../../components/ModulePage/ModuleHeader";
-import { Module } from "../../../types/dynamic/common";
-import { getAllIds, getModuleData } from "../../../lib/serverSideFunctions";
+import { Continuation, Module } from "../../../types/dynamic/common";
+import { getAllIds, getContinuations, getModuleData } from "../../../lib/serverSideFunctions";
+import ContinueLearning from "../../../components/ModulePage/ContinueLearning";
 
-const AudioProduction = ({ moduleData }: { moduleData: Module }) => {
+const AudioProduction = ({
+  moduleData,
+  continuations,
+}: {
+  moduleData: Module;
+  continuations: Continuation[];
+}) => {
   const [glossary, setGlossary] = useState<GlossaryItem[]>([]);
   const initialGlossary: GlossaryItem[] = [];
 
@@ -42,6 +49,12 @@ const AudioProduction = ({ moduleData }: { moduleData: Module }) => {
           contentMarkdown={moduleData.contentMarkdown}
           addToGlossary={addToGlossary}
         />
+        <ContinueLearning
+          continuations={continuations}
+          library="a"
+          id={moduleData.id}
+          name={moduleData.name}
+        />
       </div>
     </Wrapper>
   );
@@ -59,9 +72,11 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   // Fetch necessary data using params.id
   const moduleData = await getModuleData(params.id, "a");
+  const continuations: Continuation[] = await getContinuations(params.id, "a");
   return {
     props: {
       moduleData,
+      continuations,
     },
   };
 }

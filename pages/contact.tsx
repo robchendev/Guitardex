@@ -217,7 +217,6 @@ const Contact = () => {
     register,
   } = useForm<ContactForm>({
     defaultValues: {
-      name: "",
       email: "",
       topic: "",
       message: "",
@@ -229,14 +228,12 @@ const Contact = () => {
 
   const router = useRouter();
   const location = router.pathname;
-  let hasUrl = false;
 
   const importOptions = (options: ContactOptions) => {
     try {
       const importStr = window.location.search.replace("?", "");
       router.replace(location);
       options = decode(importStr);
-      hasUrl = true; // TODO: What this for?
     } catch (error) {
       console.error("ran into an issue trying to import contact options");
     }
@@ -254,21 +251,16 @@ const Contact = () => {
       options = importOptions(options);
     }
     if (options) {
-      console.log(1);
       if (options.topic) {
-        console.log(2, options.topic);
         setValue("topic", options.topic);
       }
       if (options.subject) {
-        console.log(3);
         setValue("subject", options.subject);
       }
       if (options.library) {
-        console.log(4);
         setValue("category", options.library);
       }
       if (options.id) {
-        console.log(5);
         setValue("id", options.id);
       }
     }
@@ -279,7 +271,6 @@ const Contact = () => {
     const res = await fetch("/api/sendgrid", {
       body: JSON.stringify({
         email: data.email,
-        name: data.name,
         topic: data.topic,
         subject: data.subject,
         category: data.category,
@@ -320,7 +311,7 @@ const Contact = () => {
         >
           <VStack className="w-full lg:w-8/12" spacing={2}>
             {/* DONE: Name */}
-            <FormItem
+            {/* <FormItem
               errors={errors.name}
               control={control}
               register={register}
@@ -331,7 +322,7 @@ const Contact = () => {
                 { type: "required", msg: "Name is required" },
                 { type: "pattern", msg: "Name must only contain letters and spaces" },
               ]}
-            />
+            /> */}
 
             {/* DONE: Email */}
             <FormItem
@@ -361,18 +352,20 @@ const Contact = () => {
             />
 
             {/* Done: Subject */}
-            <FormItem
-              errors={errors.subject}
-              control={control}
-              register={register}
-              title="Subject"
-              controlName="subject"
-              rules={{ required: true }}
-              errorDef={[{ type: "required", msg: "Subject is required." }]}
-            />
+            {watchTopic !== "Report Issue" && watchTopic !== "Content Request" && (
+              <FormItem
+                errors={errors.subject}
+                control={control}
+                register={register}
+                title="Subject"
+                controlName="subject"
+                rules={{ required: true }}
+                errorDef={[{ type: "required", msg: "Subject is required." }]}
+              />
+            )}
 
             {/* Done: Category (appears if Topic is "Report Issue" */}
-            {watchTopic === "Report Issue" && (
+            {(watchTopic === "Report Issue" || watchTopic === "Content Request") && (
               <FormItem
                 errors={errors.category}
                 control={control}
