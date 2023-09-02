@@ -6,6 +6,7 @@ import ModuleHeader from "../../../components/ModulePage/ModuleHeader";
 import { Continuation, Module } from "../../../types/dynamic/common";
 import { getAllIds, getContinuations, getModuleData } from "../../../lib/serverSideFunctions";
 import ContinueLearning from "../../../components/ModulePage/ContinueLearning";
+import Glossary from "../../../components/ModulePage/Glossary";
 
 const AudioProduction = ({
   moduleData,
@@ -34,17 +35,8 @@ const AudioProduction = ({
       <div>
         <ModuleHeader frontmatter={moduleData} library="a" />
         {/* <div>Coming soon</div> */}
-        <div>Demo: {moduleData.demo}</div>
-        <div>
-          <div>Glossary: </div>
-          <ul>
-            {glossary.map((item: GlossaryItem, index: number) => (
-              <li key={index}>
-                {item.term}: {item.definition}
-              </li>
-            ))}
-          </ul>
-        </div>
+        {/* <div>Demo: {moduleData.demo}</div> */}
+        <Glossary glossary={glossary} />
         <RenderMarkdown
           contentMarkdown={moduleData.contentMarkdown}
           addToGlossary={addToGlossary}

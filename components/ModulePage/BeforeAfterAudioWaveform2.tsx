@@ -91,7 +91,11 @@ const BeforeAfterAudioWaveform2 = ({
     source.loop = true;
     source.connect(gainNode).connect(audioContext.destination);
     if (audioContext.state === "running") {
-      source.start(0, currentTime % buffer.duration);
+      try {
+        source.start(0, currentTime % buffer.duration);
+      } catch (e) {
+        console.error("error at createAndStartBufferSource", e);
+      }
     }
     return source;
   };
@@ -421,9 +425,19 @@ const BeforeAfterAudioWaveform2 = ({
           }}
         ></div>
       </div>
-      <button onClick={switchAudio}>Switch Audio</button>
-      <button onClick={playAudio}>Play</button>
-      <button onClick={pauseAudio}>Pause</button>
+      <button
+        className="px-3 py-2 border border-text rounded-md hover:bg-greyChecked hover:text-white"
+        onClick={switchAudio}
+      >
+        Switch Audio
+      </button>
+      <button
+        className="px-3 py-2 border border-text rounded-md hover:bg-greyChecked hover:text-white"
+        onClick={audioContext?.state === "running" ? pauseAudio : playAudio}
+      >
+        {audioContext?.state === "running" ? "Pause" : "Play"}
+      </button>
+      <span>Volume:</span>
       <input
         id="volume"
         type="range"
