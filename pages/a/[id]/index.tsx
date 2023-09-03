@@ -4,43 +4,32 @@ import { GlossaryItem } from "../../../types";
 import RenderMarkdown from "../../../components/ModulePage/RenderMarkdown";
 import ModuleHeader from "../../../components/ModulePage/ModuleHeader";
 import { Continuation, Module } from "../../../types/dynamic/common";
-import { getAllIds, getContinuations, getModuleData } from "../../../lib/serverSideFunctions";
+import {
+  getAllIds,
+  getContinuations,
+  getGlossaryItems,
+  getModuleData,
+} from "../../../lib/serverSideFunctions";
 import ContinueLearning from "../../../components/ModulePage/ContinueLearning";
 import Glossary from "../../../components/ModulePage/Glossary";
 
 const AudioProduction = ({
   moduleData,
   continuations,
+  glossaryItems,
 }: {
   moduleData: Module;
   continuations: Continuation[];
+  glossaryItems: GlossaryItem[];
 }) => {
-  const [glossary, setGlossary] = useState<GlossaryItem[]>([]);
-  const initialGlossary: GlossaryItem[] = [];
-
-  // add in glossary only if there isn't a duplicate
-  const addToGlossary = (term: string, definition: string) => {
-    if (!initialGlossary.some((item: GlossaryItem) => item.term === term)) {
-      initialGlossary.push({ term, definition });
-    }
-  };
-
-  useEffect(() => {
-    initialGlossary.sort((a: GlossaryItem, b: GlossaryItem) => (a.term < b.term ? 1 : -1));
-    setGlossary(initialGlossary);
-  }, [moduleData]);
-
   return (
     <Wrapper>
       <div>
         <ModuleHeader frontmatter={moduleData} library="a" />
         {/* <div>Coming soon</div> */}
         {/* <div>Demo: {moduleData.demo}</div> */}
-        <Glossary glossary={glossary} />
-        <RenderMarkdown
-          contentMarkdown={moduleData.contentMarkdown}
-          addToGlossary={addToGlossary}
-        />
+        <Glossary glossary={glossaryItems} />
+        <RenderMarkdown contentMarkdown={moduleData.contentMarkdown} />
         <ContinueLearning
           continuations={continuations}
           library="a"
@@ -64,11 +53,14 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   // Fetch necessary data using params.id
   const moduleData = await getModuleData(params.id, "a");
+  const glossaryItems: GlossaryItem[] = await getGlossaryItems(moduleData.contentMarkdown);
+
   const continuations: Continuation[] = await getContinuations(params.id, "a");
   return {
     props: {
       moduleData,
       continuations,
+      glossaryItems,
     },
   };
 }
