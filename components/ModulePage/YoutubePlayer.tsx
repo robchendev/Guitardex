@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 export const LiteYoutubeEmbed = dynamic<ILiteYouTubeEmbedProps>(
   () => import("react-lite-yt-embed").then((module) => module.LiteYoutubeEmbed),
@@ -24,8 +24,24 @@ export interface ILiteYouTubeEmbedProps {
 }
 
 const YoutubePlayer = ({ videoId }: { videoId: string }) => {
+  const [minHeight, setMinHeight] = useState<number>(420);
+
+  useEffect(() => {
+    const container = document.getElementById("youtube-embed-container");
+    const width = container?.offsetWidth || 0;
+    const minHeight = (width * 9) / 16;
+
+    setMinHeight(Math.round(minHeight));
+  }, []);
+
   return (
-    <div className="w-full [&>div]:rounded-lg min-h-[420px]">
+    <div
+      className="w-full [&>div]:rounded-lg"
+      style={{
+        minHeight: minHeight > 0 ? `${minHeight}px` : "",
+      }}
+      id="youtube-embed-container"
+    >
       <LiteYoutubeEmbed
         id={videoId}
         isMobile={true}
