@@ -30,10 +30,16 @@ const BeforeAfterAudioWaveform2 = ({
   const [cursorPosition, setCursorPosition] = useState(0);
   const playerRef = useRef<HTMLDivElement>(null);
 
-  const fetchAudioBuffer = async (audioContext, url) => {
-    const response = await fetch(url);
-    const arrayBuffer = await response.arrayBuffer();
-    return audioContext.decodeAudioData(arrayBuffer);
+  const fetchAudioBuffer = async (audioContext: AudioContext, url: string) => {
+    const response: Response = await fetch(url);
+    const arrayBuffer: ArrayBuffer = await response.arrayBuffer();
+    const decodedAudioData = await audioContext.decodeAudioData(arrayBuffer);
+    // Might be a firefox bug, decodeAudioData forces audioContext.state to running.
+    // Created a bug report here: https://bugzilla.mozilla.org/show_bug.cgi?id=1851345
+    if (audioContext.state === "running") {
+      audioContext.suspend();
+    }
+    return decodedAudioData;
   };
 
   useEffect(() => {
