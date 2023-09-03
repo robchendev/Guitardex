@@ -25,7 +25,7 @@ export interface ILiteYouTubeEmbedProps {
 
 const YoutubePlayer = ({ videoId }: { videoId: string }) => {
   return (
-    <div className="w-full [&>div]:rounded-lg">
+    <div className="w-full [&>div]:rounded-lg min-h-[420px]">
       <LiteYoutubeEmbed
         id={videoId}
         isMobile={true}
