@@ -1,17 +1,10 @@
 import React from "react";
 import { Tooltip } from "react-tooltip";
 
-const GlossaryItem = ({
-  item = "",
-  addToGlossary,
-}: {
-  item: string;
-  addToGlossary: (term: string, definition: string) => void;
-}) => {
+const GlossaryItem = ({ item = "" }: { item: string }) => {
   const [t, d] = item.split("|");
   const term = t.trim();
   const definition = d.trim();
-  addToGlossary(term, definition);
   return (
     <span>
       <Tooltip

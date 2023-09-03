@@ -10,6 +10,8 @@ import {
   PreReq,
   PreReqExpanded,
 } from "../types/dynamic/common";
+import { GlossaryItem } from "../types";
+import { getCodeBlocksFromMarkdown } from "../utils/markdownUtils";
 
 const directory = {
   t: path.join(process.cwd(), "dynamic/techniques"),
@@ -101,4 +103,22 @@ export async function getContinuations(id: string, library: Library) {
     }
   }
   return continuations;
+}
+
+export async function getGlossaryItems(markdown: string): Promise<GlossaryItem[]> {
+  const codeItems = getCodeBlocksFromMarkdown(markdown);
+  // the Set assures there are no duplicates
+  const result: GlossaryItem[] = Array.from(new Set(codeItems))
+    ?.map((item) => {
+      const [t, d] = item.split("|");
+      const term = t.trim();
+      const definition = d.trim();
+
+      return {
+        term,
+        definition,
+      };
+    })
+    .sort((a: GlossaryItem, b: GlossaryItem) => (a.term > b.term ? 1 : -1));
+  return result;
 }

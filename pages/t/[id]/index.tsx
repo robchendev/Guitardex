@@ -7,40 +7,29 @@ import YoutubePlayer from "../../../components/ModulePage/YoutubePlayer";
 import Glossary from "../../../components/ModulePage/Glossary";
 import ContinueLearning from "../../../components/ModulePage/ContinueLearning";
 import { Continuation, Module } from "../../../types/dynamic/common";
-import { getAllIds, getContinuations, getModuleData } from "../../../lib/serverSideFunctions";
+import {
+  getAllIds,
+  getContinuations,
+  getGlossaryItems,
+  getModuleData,
+} from "../../../lib/serverSideFunctions";
 
 const Technique = ({
   moduleData,
   continuations,
+  glossaryItems,
 }: {
   moduleData: Module;
   continuations: Continuation[];
+  glossaryItems: GlossaryItem[];
 }) => {
-  const [glossary, setGlossary] = useState<GlossaryItem[]>([]);
-  const initialGlossary: GlossaryItem[] = [];
-
-  // add in glossary only if there isn't a duplicate
-  const addToGlossary = (term: string, definition: string) => {
-    if (!initialGlossary.some((item: GlossaryItem) => item.term === term)) {
-      initialGlossary.push({ term, definition });
-    }
-  };
-
-  useEffect(() => {
-    initialGlossary.sort((a: GlossaryItem, b: GlossaryItem) => (a.term > b.term ? 1 : -1));
-    setGlossary(initialGlossary);
-  }, [moduleData]);
-
   return (
     <Wrapper>
       <div>
         <ModuleHeader frontmatter={moduleData} library="t" />
-        <Glossary glossary={glossary} />
+        <Glossary glossary={glossaryItems} />
         <YoutubePlayer videoId={moduleData.demo ?? ""} />
-        <RenderMarkdown
-          contentMarkdown={moduleData.contentMarkdown}
-          addToGlossary={addToGlossary}
-        />
+        <RenderMarkdown contentMarkdown={moduleData.contentMarkdown} />
         <ContinueLearning
           continuations={continuations}
           library="t"
@@ -65,10 +54,12 @@ export async function getStaticProps({ params }) {
   // Fetch necessary data using params.id
   const moduleData = await getModuleData(params.id, "t");
   const continuations: Continuation[] = await getContinuations(params.id, "t");
+  const glossaryItems: GlossaryItem[] = await getGlossaryItems(moduleData.contentMarkdown);
   return {
     props: {
       moduleData,
       continuations,
+      glossaryItems,
     },
   };
 }
