@@ -29,6 +29,8 @@ const BeforeAfterAudioWaveform2 = ({
   const [volume, setVolume] = useState(defaultVolume);
   const [cursorPosition, setCursorPosition] = useState(0);
   const playerRef = useRef<HTMLDivElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
   const fetchAudioBuffer = async (audioContext, url) => {
     const response: Response = await fetch(url);
     const arrayBuffer: ArrayBuffer = await response.arrayBuffer();
@@ -49,7 +51,6 @@ const BeforeAfterAudioWaveform2 = ({
     }
     Promise.all([fetchAudioBuffer(ac, srcBefore), fetchAudioBuffer(ac, srcAfter)]).then(
       ([fetchedBufferBefore, fetchedBufferAfter]) => {
-        console.log("After fetchAudioBuffer return", ac.state);
         if (isCancelled || ac.state === "closed") return;
         setBufferBefore(fetchedBufferBefore);
         setBufferAfter(fetchedBufferAfter);
@@ -83,7 +84,6 @@ const BeforeAfterAudioWaveform2 = ({
       stopAndDisconnectSource(sourceBefore);
       stopAndDisconnectSource(sourceAfter);
       if (ac) {
-        console.log(ac.state);
         if (ac.state === "running") {
           ac.suspend();
         }
@@ -232,7 +232,6 @@ const BeforeAfterAudioWaveform2 = ({
         clickedTime = (x / rect.width) * bufferBefore.duration;
       }
       if (sourceBefore && sourceBefore.buffer) {
-        attemptStop(sourceBefore);
         const newSourceBefore = audioContext.createBufferSource();
         newSourceBefore.buffer = sourceBefore.buffer;
         newSourceBefore.loop = true;
@@ -240,6 +239,7 @@ const BeforeAfterAudioWaveform2 = ({
         if (audioContext.state === "running") {
           newSourceBefore.start(0, clickedTime % sourceBefore.buffer.duration);
         }
+        attemptStop(sourceBefore);
         setSourceBefore(newSourceBefore);
       }
     } else if (!isBefore) {
@@ -247,7 +247,6 @@ const BeforeAfterAudioWaveform2 = ({
         clickedTime = (x / rect.width) * bufferAfter.duration;
       }
       if (sourceAfter && sourceAfter.buffer) {
-        attemptStop(sourceAfter);
         const newSourceAfter = audioContext.createBufferSource();
         newSourceAfter.buffer = sourceAfter.buffer;
         newSourceAfter.loop = true;
@@ -255,6 +254,7 @@ const BeforeAfterAudioWaveform2 = ({
         if (audioContext.state === "running") {
           newSourceAfter.start(0, clickedTime % sourceAfter.buffer.duration);
         }
+        attemptStop(sourceAfter);
         setSourceAfter(newSourceAfter);
       }
     }
@@ -304,7 +304,6 @@ const BeforeAfterAudioWaveform2 = ({
   };
   useEffect(() => {
     if (audioContext && !isManualSeek) {
-      console.log(isManualSeek, audioContext);
       if (audioContext.state === "running") {
         if (animationFrameRef.current !== null) {
           cancelAnimationFrame(animationFrameRef.current);
@@ -327,6 +326,9 @@ const BeforeAfterAudioWaveform2 = ({
   const playAudio = () => {
     if (audioContext && audioContext.state === "suspended") {
       audioContext.resume().then(() => {
+        // sometimes onCanvasClick then pauseAudio immediately afterwords can
+        // bork the audioContext.state, so use this to keep track of pause/play button
+        setIsPlaying(true);
         // Check if device is IOS
         const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
         if (isIOS) {
@@ -364,14 +366,15 @@ const BeforeAfterAudioWaveform2 = ({
   const pauseAudio = () => {
     if (audioContext && audioContext.state === "running") {
       audioContext.suspend().then(() => {
+        // sometimes onCanvasClick then pauseAudio immediately afterwords can
+        // bork the audioContext.state, so use this to keep track of pause/play button
+        setIsPlaying(false);
         try {
           if (sourceBefore) {
-            attemptStop(sourceBefore);
-            sourceBefore.disconnect();
+            stopAndDisconnectSource(sourceBefore);
           }
           if (sourceAfter) {
-            attemptStop(sourceAfter);
-            sourceAfter.disconnect();
+            stopAndDisconnectSource(sourceAfter);
           }
         } catch (e) {
           console.error(e);
@@ -432,9 +435,9 @@ const BeforeAfterAudioWaveform2 = ({
       </button>
       <button
         className="px-3 py-2 border border-text rounded-md hover:bg-greyChecked hover:text-white"
-        onClick={audioContext?.state === "running" ? pauseAudio : playAudio}
+        onClick={isPlaying ? pauseAudio : playAudio}
       >
-        {audioContext?.state === "running" ? "Pause" : "Play"}
+        {isPlaying ? "Pause" : "Play"}
       </button>
       <span>Volume:</span>
       <input
