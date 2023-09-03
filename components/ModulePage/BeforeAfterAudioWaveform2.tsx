@@ -29,51 +29,39 @@ const BeforeAfterAudioWaveform2 = ({
   const [volume, setVolume] = useState(defaultVolume);
   const [cursorPosition, setCursorPosition] = useState(0);
   const playerRef = useRef<HTMLDivElement>(null);
-
-  const fetchAudioBuffer = async (audioContext: AudioContext, url: string) => {
+  const fetchAudioBuffer = async (audioContext, url) => {
     const response: Response = await fetch(url);
     const arrayBuffer: ArrayBuffer = await response.arrayBuffer();
-    const decodedAudioData = await audioContext.decodeAudioData(arrayBuffer);
+    const decodedAudioData = await (audioContext as AudioContext).decodeAudioData(arrayBuffer);
     // Might be a firefox bug, decodeAudioData forces audioContext.state to running.
     // Created a bug report here: https://bugzilla.mozilla.org/show_bug.cgi?id=1851345
     if (audioContext.state === "running") {
-      audioContext.suspend();
+      await audioContext.suspend();
     }
     return decodedAudioData;
   };
-
   useEffect(() => {
     let isCancelled = false; // Cancellation token
     const ac = new AudioContext();
-    if (ac?.state === "running") {
-      ac?.suspend();
-    }
-
     setAudioContext(ac);
     Promise.all([fetchAudioBuffer(ac, srcBefore), fetchAudioBuffer(ac, srcAfter)]).then(
       ([fetchedBufferBefore, fetchedBufferAfter]) => {
-        // Exit if the component is unmounted or the context is closed
+        console.log("After fetchAudioBuffer return", ac.state);
         if (isCancelled || ac.state === "closed") return;
-
         setBufferBefore(fetchedBufferBefore);
         setBufferAfter(fetchedBufferAfter);
-
-        // using fetchedBufferBefore/After directly since the states might not be set yet
         const gainBefore = ac.createGain();
         const sourceBefore = ac.createBufferSource();
         sourceBefore.buffer = fetchedBufferBefore;
         sourceBefore.loop = true;
         sourceBefore.connect(gainBefore).connect(ac.destination);
-
         const gainAfter = ac.createGain();
         const sourceAfter = ac.createBufferSource();
         sourceAfter.buffer = fetchedBufferAfter;
         sourceAfter.loop = true;
         sourceAfter.connect(gainAfter).connect(ac.destination);
-
         gainBefore.gain.setValueAtTime(volume, ac.currentTime);
         gainAfter.gain.setValueAtTime(0, ac.currentTime);
-
         setGainNodeBefore(gainBefore);
         setGainNodeAfter(gainAfter);
         setSourceBefore(sourceBefore);
@@ -91,7 +79,6 @@ const BeforeAfterAudioWaveform2 = ({
       }
     };
   }, []);
-
   const createAndStartBufferSource = (audioContext, buffer, gainNode, currentTime) => {
     const source = audioContext.createBufferSource();
     source.buffer = buffer;
@@ -106,9 +93,7 @@ const BeforeAfterAudioWaveform2 = ({
     }
     return source;
   };
-
   const stopAndDisconnectSource = (source) => {
-    // DO NOT PUT A isPlaying check here! It doesn't update immediately and can cause audio quality problems!
     try {
       if (source) {
         attemptStop(source);
@@ -118,46 +103,34 @@ const BeforeAfterAudioWaveform2 = ({
       console.error("aborting disconnect operation.");
     }
   };
-
   const switchAudio = () => {
     if (!audioContext || !bufferBefore || !bufferAfter || !gainNodeBefore || !gainNodeAfter) {
       return;
     }
-
     let newSource;
     if (isBefore) {
       stopAndDisconnectSource(sourceBefore);
-
       newSource = createAndStartBufferSource(audioContext, bufferAfter, gainNodeAfter, currentTime);
-
       gainNodeBefore.gain.setValueAtTime(0, audioContext.currentTime);
       gainNodeAfter.gain.setValueAtTime(volume, audioContext.currentTime);
-
       setSourceAfter(newSource);
     } else {
       stopAndDisconnectSource(sourceAfter);
-
       newSource = createAndStartBufferSource(
         audioContext,
         bufferBefore,
         gainNodeBefore,
         currentTime
       );
-
       gainNodeBefore.gain.setValueAtTime(volume, audioContext.currentTime);
       gainNodeAfter.gain.setValueAtTime(0, audioContext.currentTime);
-
       setSourceBefore(newSource);
     }
-
     setIsBefore(!isBefore);
-
-    // Update startTime when we switch the audio source
     if (audioContext) {
       startTime.current = audioContext.currentTime - currentTime;
     }
   };
-
   const resizeCanvas = () => {
     [canvasRefBefore.current, canvasRefAfter.current, lineCanvasRef.current].forEach((canvas) => {
       if (canvas) {
@@ -175,8 +148,6 @@ const BeforeAfterAudioWaveform2 = ({
     });
   };
   const debouncedResizeCanvas = debounce(resizeCanvas, 500);
-
-  // Listen to window resize
   useEffect(() => {
     window.addEventListener("resize", debouncedResizeCanvas);
     resizeCanvas(); // initial sizing
@@ -184,18 +155,13 @@ const BeforeAfterAudioWaveform2 = ({
       window.removeEventListener("resize", debouncedResizeCanvas);
     };
   }, [bufferBefore, bufferAfter]);
-
   const drawCanvas = (canvasRef, audioBuffer) => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
     if (!audioBuffer || !canvas || !ctx) return;
-
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-
     ctx.fillStyle = "gray";
-
     if (audioBuffer.numberOfChannels > 1) {
-      // Draw stereo waveforms
       const dataL = audioBuffer.getChannelData(0);
       const dataR = audioBuffer.getChannelData(1);
       const step = Math.ceil(dataL.length / canvas.width);
@@ -304,54 +270,41 @@ const BeforeAfterAudioWaveform2 = ({
     if (audioContext && currentAudioBuffer) {
       const duration = currentAudioBuffer.duration;
       let newTime = audioContext.currentTime - startTime.current;
-
       // Wrap around if we reached the end of the audio
       if (newTime >= duration) {
         newTime = newTime % duration;
         // Optionally, reset the audio context time and start time to keep them small
         startTime.current = audioContext.currentTime - newTime;
       }
-
       setCurrentTime(newTime);
     }
-
     // Cancel any existing animation frame to prevent multiple loops
     if (animationFrameRef.current !== null) {
       cancelAnimationFrame(animationFrameRef.current);
     }
-
     // Request a new animation frame
     animationFrameRef.current = requestAnimationFrame(updateCurrentTime);
   };
-
   useEffect(() => {
     if (audioContext && !isManualSeek) {
-      // Start the update loop when the audioContext is in "running" state
       if (audioContext.state === "running") {
-        // Cancel any existing animation frame to prevent multiple loops
         if (animationFrameRef.current !== null) {
           cancelAnimationFrame(animationFrameRef.current);
         }
-
-        // Request a new animation frame
         animationFrameRef.current = requestAnimationFrame(updateCurrentTime);
       }
-
-      // Stop the update loop when the audioContext is suspended (paused)
       if (audioContext.state === "suspended") {
         if (animationFrameRef.current !== null) {
           cancelAnimationFrame(animationFrameRef.current);
         }
       }
     }
-
     return () => {
       if (animationFrameRef.current) {
         cancelAnimationFrame(animationFrameRef.current);
       }
     };
   }, [audioContext, audioContext?.state, isManualSeek]);
-
   const playAudio = () => {
     if (audioContext && audioContext.state === "suspended") {
       audioContext.resume().then(() => {
@@ -369,24 +322,18 @@ const BeforeAfterAudioWaveform2 = ({
               "iOS devices require Silent Mode to be turned off to play this audio. To circumvent this restriction, you can also wear headphones. Upon clicking 'OK', this popup will not appear for 3 days."
             );
             if (headphoneAlert) {
-              // Set the confirmed status and the current time
               localStorage.setItem("hasConfirmedAudio", "true");
               localStorage.setItem("confirmedAudioTime", String(Date.now()));
             }
           }
         }
-
-        // Stop and disconnect any old source to prevent multiple from playing simultaneously
         stopAndDisconnectSource(isBefore ? sourceBefore : sourceAfter);
-
-        // Create and start a new source
         const newSource = createAndStartBufferSource(
           audioContext,
           isBefore ? bufferBefore : bufferAfter,
           isBefore ? gainNodeBefore : gainNodeAfter,
           currentTime
         );
-
         if (isBefore) {
           setSourceBefore(newSource);
         } else {
@@ -395,7 +342,6 @@ const BeforeAfterAudioWaveform2 = ({
       });
     }
   };
-
   const pauseAudio = () => {
     if (audioContext && audioContext.state === "running") {
       audioContext.suspend().then(() => {
