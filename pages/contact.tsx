@@ -6,6 +6,7 @@ import {
   VStack,
   Textarea,
   Checkbox,
+  Button,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { Controller, RegisterOptions, useForm } from "react-hook-form";
@@ -294,6 +295,13 @@ const Contact = () => {
     reset();
   };
 
+  const resetFormState = () => {
+    setIsSending(false);
+    setSuccess(false);
+    setFailure(false);
+    reset();
+  };
+
   if (Object.keys(errors).length !== 0) {
     console.log("Errors: ", errors);
   }
@@ -412,19 +420,31 @@ const Contact = () => {
               rules={{ required: true }}
               errorDef={[{ type: "required", msg: "This is required" }]}
             />
-            <button
-              className={`px-4 py-2.5 rounded-md bg-carmine-soft ${
+            <Button
+              className={`px-4 py-2.5 rounded-md bg-carmine-soft bg-purple ${
                 !isSending && "hover:bg-carmine-hard transition ease-in duration-300"
               }`}
               onClick={handleSubmit(onSubmit)}
               disabled={isSending}
             >
               {isSending ? "Submitting..." : "Submit"}
-            </button>
+            </Button>
           </VStack>
         </form>
       )}
-      {success && <p className="text-gold text-center">Your email has successfully been sent.</p>}
+      {success && (
+        <div className="flex items-center flex-col">
+          <p className="text-gold text-center mb-4">Your email has successfully been sent.</p>
+
+          <Button
+            className={"px-4 py-2.5 rounded-md bg-carmine-soft bg-purple"}
+            onClick={() => resetFormState()}
+            disabled={isSending}
+          >
+            Send a new form
+          </Button>
+        </div>
+      )}
       {failure && (
         <p className="text-carmine-soft text-center mt-4">
           An error blocked the submission. If the error persists, contact us with your message at
