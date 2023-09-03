@@ -18,12 +18,12 @@ const DexItem = ({
   onDelete: (e) => void;
 }) => {
   return (
-    <Link className="w-full hover:text-text group relative" href={`/${library}/` + module.id}>
-      <div className="absolute h-full flex items-center z-10 -ml-1 text-xl">
-        <MdDragIndicator />
-      </div>
+    <Link
+      className="w-full hover:text-text group relative hover:cursor-grab"
+      href={`/${library}/` + module.id}
+    >
       <HStack
-        className={"bg-bg rounded-md duration-200 group-hover:ml-3 relative z-20"}
+        className={"bg-bg rounded-md duration-200 group-hover:ml-3 relative z-2"}
         justifyContent="space-between"
         align="stretch"
       >

@@ -44,6 +44,9 @@ const BeforeAfterAudioWaveform2 = ({
     let isCancelled = false; // Cancellation token
     const ac = new AudioContext();
     setAudioContext(ac);
+    if (ac.state === "running") {
+      ac.suspend();
+    }
     Promise.all([fetchAudioBuffer(ac, srcBefore), fetchAudioBuffer(ac, srcAfter)]).then(
       ([fetchedBufferBefore, fetchedBufferAfter]) => {
         console.log("After fetchAudioBuffer return", ac.state);
@@ -66,15 +69,24 @@ const BeforeAfterAudioWaveform2 = ({
         setGainNodeAfter(gainAfter);
         setSourceBefore(sourceBefore);
         setSourceAfter(sourceAfter);
+        if (ac.state === "running") {
+          ac.suspend();
+        }
       }
     );
-
+    if (ac.state === "running") {
+      ac.suspend();
+    }
     // Cleanup
     return () => {
       isCancelled = true;
       stopAndDisconnectSource(sourceBefore);
       stopAndDisconnectSource(sourceAfter);
       if (ac) {
+        console.log(ac.state);
+        if (ac.state === "running") {
+          ac.suspend();
+        }
         ac.close();
       }
     };
@@ -126,6 +138,7 @@ const BeforeAfterAudioWaveform2 = ({
       gainNodeAfter.gain.setValueAtTime(0, audioContext.currentTime);
       setSourceBefore(newSource);
     }
+
     setIsBefore(!isBefore);
     if (audioContext) {
       startTime.current = audioContext.currentTime - currentTime;
@@ -224,7 +237,9 @@ const BeforeAfterAudioWaveform2 = ({
         newSourceBefore.buffer = sourceBefore.buffer;
         newSourceBefore.loop = true;
         newSourceBefore.connect(gainNodeBefore).connect(audioContext.destination);
-        newSourceBefore.start(0, clickedTime % sourceBefore.buffer.duration);
+        if (audioContext.state === "running") {
+          newSourceBefore.start(0, clickedTime % sourceBefore.buffer.duration);
+        }
         setSourceBefore(newSourceBefore);
       }
     } else if (!isBefore) {
@@ -237,7 +252,9 @@ const BeforeAfterAudioWaveform2 = ({
         newSourceAfter.buffer = sourceAfter.buffer;
         newSourceAfter.loop = true;
         newSourceAfter.connect(gainNodeAfter).connect(audioContext.destination);
-        newSourceAfter.start(0, clickedTime % sourceAfter.buffer.duration);
+        if (audioContext.state === "running") {
+          newSourceAfter.start(0, clickedTime % sourceAfter.buffer.duration);
+        }
         setSourceAfter(newSourceAfter);
       }
     }
@@ -287,6 +304,7 @@ const BeforeAfterAudioWaveform2 = ({
   };
   useEffect(() => {
     if (audioContext && !isManualSeek) {
+      console.log(isManualSeek, audioContext);
       if (audioContext.state === "running") {
         if (animationFrameRef.current !== null) {
           cancelAnimationFrame(animationFrameRef.current);
@@ -305,6 +323,7 @@ const BeforeAfterAudioWaveform2 = ({
       }
     };
   }, [audioContext, audioContext?.state, isManualSeek]);
+
   const playAudio = () => {
     if (audioContext && audioContext.state === "suspended") {
       audioContext.resume().then(() => {
