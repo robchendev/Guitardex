@@ -168,10 +168,21 @@ const BeforeAfterAudioWaveform2 = ({
       window.removeEventListener("resize", debouncedResizeCanvas);
     };
   }, [bufferBefore, bufferAfter]);
-  const drawCanvas = (canvasRef, audioBuffer) => {
+
+  const drawCanvas = async (canvasRef, audioBuffer) => {
+    if (!audioBuffer) return;
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
-    if (!audioBuffer || !canvas || !ctx) return;
+    if (!canvas || !ctx) return;
+
+    // Show a loading state
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.font = "60px Fredoka";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillText("Loading...", canvas.width / 2, canvas.height / 2);
+    await new Promise((resolve) => setTimeout(resolve, 500)); // simulate delay
+
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = "gray";
     if (audioBuffer.numberOfChannels > 1) {
@@ -199,6 +210,7 @@ const BeforeAfterAudioWaveform2 = ({
         ctx.fillRect(i, amp - max * amp, 1, Math.max(1, (max - min) * amp));
       }
     }
+    // Remove the loading state by clearing the canvas again
   };
 
   const attemptStop = (source: AudioBufferSourceNode) => {
@@ -271,8 +283,10 @@ const BeforeAfterAudioWaveform2 = ({
   }, [isBefore, bufferBefore, bufferAfter]);
 
   useEffect(() => {
-    drawCanvas(canvasRefBefore, bufferBefore);
-    drawCanvas(canvasRefAfter, bufferAfter);
+    async () => {
+      await drawCanvas(canvasRefBefore, bufferBefore);
+      await drawCanvas(canvasRefAfter, bufferAfter);
+    };
   }, [bufferBefore, bufferAfter]);
 
   useEffect(() => {
