@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Wrapper from "../../../components/Wrapper";
 import { GlossaryItem } from "../../../types";
 import RenderMarkdown from "../../../components/ModulePage/RenderMarkdown";
