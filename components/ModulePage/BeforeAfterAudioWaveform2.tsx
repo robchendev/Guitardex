@@ -438,6 +438,7 @@ const BeforeAfterAudioWaveform2 = ({
             width: "2px",
             height: "100%",
             backgroundColor: "red",
+            display: currentTime !== 0 ? "block" : "none",
           }}
         ></div>
       </div>
