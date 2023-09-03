@@ -1,5 +1,5 @@
 import { IconType } from "react-icons";
-import { FaYoutube, FaGithub, FaSpotify, FaGlobe } from "react-icons/fa";
+import { FaYoutube, FaGithub, FaSpotify, FaGlobe, FaLinkedinIn } from "react-icons/fa";
 
 export type CreditLink = {
   icon: IconType;
@@ -125,6 +125,22 @@ export const mainCredits: Credit[] = [
   //     },
   //   ],
   // },
+
+  {
+    name: "Borislav Doychinov",
+    roles: "Developer",
+    img: "/img/team/borislav.jpg",
+    links: [
+      {
+        icon: FaGithub,
+        url: "https://github.com/Shiroh1ge",
+      },
+      {
+        icon: FaLinkedinIn,
+        url: "https://www.linkedin.com/in/bdoichinov/",
+      },
+    ],
+  },
 ];
 
 export const externalCredit: CreditExternal[] = [
