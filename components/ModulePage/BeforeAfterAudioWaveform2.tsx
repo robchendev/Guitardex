@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { debounce } from "lodash";
+import Divider from "../Sidebar/Divider";
+import AudioMeter from "./AudioMeter";
 
 type Props = {
   srcBefore?: string;
@@ -176,6 +178,7 @@ const BeforeAfterAudioWaveform2 = ({
     if (!canvas || !ctx) return;
 
     // Show a loading state
+    ctx.fillStyle = "#6b7280";
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.font = "60px Fredoka";
     ctx.textAlign = "center";
@@ -184,7 +187,7 @@ const BeforeAfterAudioWaveform2 = ({
     await new Promise((resolve) => setTimeout(resolve, 500)); // simulate delay
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = "gray";
+    ctx.fillStyle = "#7C3AED";
     if (audioBuffer.numberOfChannels > 1) {
       const dataL = audioBuffer.getChannelData(0);
       const dataR = audioBuffer.getChannelData(1);
@@ -412,59 +415,72 @@ const BeforeAfterAudioWaveform2 = ({
   };
 
   return (
-    <div>
+    <>
       <div className="font-medium">
         Now playing:{" "}
         {isBefore
           ? srcBefore.split("/").pop()?.toUpperCase()
           : srcAfter.split("/").pop()?.toUpperCase()}
       </div>
-      <div className="relative w-full" ref={playerRef}>
-        <canvas
-          ref={canvasRefBefore}
-          onClick={onCanvasClick}
-          style={{ display: isBefore ? "block" : "none", width: "100%" }}
-        ></canvas>
-        <canvas
-          ref={canvasRefAfter}
-          onClick={onCanvasClick}
-          style={{ display: isBefore ? "none" : "block", width: "100%" }}
-        ></canvas>
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            left: `${cursorPosition}px`,
-            width: "2px",
-            height: "100%",
-            backgroundColor: "red",
-            display: currentTime !== 0 ? "block" : "none",
-          }}
-        ></div>
+      <div className="rounded-xl px-4 py-3 bg-bg">
+        <div className="relative w-full mb-3" ref={playerRef}>
+          <canvas
+            ref={canvasRefBefore}
+            onClick={onCanvasClick}
+            style={{ display: isBefore ? "block" : "none", width: "100%" }}
+          ></canvas>
+          <canvas
+            ref={canvasRefAfter}
+            onClick={onCanvasClick}
+            style={{ display: isBefore ? "none" : "block", width: "100%" }}
+          ></canvas>
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              left: `${cursorPosition}px`,
+              width: "3px",
+              height: "100%",
+              border: "1px solid black",
+              backgroundColor: "#e7edf3",
+              display: currentTime !== 0 ? "block" : "none",
+            }}
+          ></div>
+        </div>
+        <Divider />
+        {/* {sourceBefore && sourceAfter && audioContext && gainNodeBefore && gainNodeAfter && (
+          <AudioMeter
+            audioContext={audioContext}
+            source={isBefore ? sourceBefore : sourceAfter}
+            gain={isBefore ? gainNodeBefore : gainNodeAfter}
+          />
+        )} */}
+        <div className="mt-3">
+          <button
+            className="px-3 py-2 border border-text rounded-md hover:bg-greyChecked hover:text-white"
+            onClick={switchAudio}
+          >
+            Bypass: {isBefore ? "ON" : "OFF"}
+          </button>
+          <button
+            className="px-3 py-2 border border-text rounded-md hover:bg-greyChecked hover:text-white"
+            onClick={isPlaying ? pauseAudio : playAudio}
+          >
+            {isPlaying ? "Pause" : "Play"}
+          </button>
+          <span>Volume:</span>
+          <input
+            id="volume"
+            type="range"
+            min="0"
+            max="1"
+            step="0.01"
+            value={volume}
+            onChange={handleVolumeChange}
+          />
+        </div>
       </div>
-      <button
-        className="px-3 py-2 border border-text rounded-md hover:bg-greyChecked hover:text-white"
-        onClick={switchAudio}
-      >
-        Bypass: {isBefore ? "ON" : "OFF"}
-      </button>
-      <button
-        className="px-3 py-2 border border-text rounded-md hover:bg-greyChecked hover:text-white"
-        onClick={isPlaying ? pauseAudio : playAudio}
-      >
-        {isPlaying ? "Pause" : "Play"}
-      </button>
-      <span>Volume:</span>
-      <input
-        id="volume"
-        type="range"
-        min="0"
-        max="1"
-        step="0.01"
-        value={volume}
-        onChange={handleVolumeChange}
-      />
-    </div>
+    </>
   );
 };
 

@@ -1,6 +1,7 @@
 import { AppProps } from "next/app";
 import { Chakra } from "../utils/Chakra";
 import "../styles/globals.css";
+import "../styles/audioMeters.css";
 import "@fontsource/kanit";
 import "@fontsource/raleway/700.css";
 

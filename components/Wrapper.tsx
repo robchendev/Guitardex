@@ -5,8 +5,8 @@ import Sidebar from "./Sidebar";
 
 const Wrapper = ({ children, title }: { children: React.ReactNode; title?: string }) => {
   return (
-    <div className="h-full my-16 bg-bg2">
-      <div className="h-full max-w-[1100px] m-auto my-0 px-8">
+    <div className="h-full my-16 bg-bg2 pb-16">
+      <div className="h-full max-w-[1100px] m-auto my-0 px-8 ">
         <Flex className="justify-between">
           <div className="w-1/4">
             <Sidebar />
