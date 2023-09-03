@@ -16,3 +16,5 @@ yarn-error.log
 # Don't want huge audio files being pushed to github
 # public/audio/a/*
 # public/audio/t/*
+
+.idea

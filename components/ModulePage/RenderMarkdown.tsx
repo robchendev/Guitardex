@@ -41,13 +41,7 @@ const RenderParagraph = (props) => {
   return <p>{children}</p>;
 };
 
-const RenderMarkdown = ({
-  contentMarkdown,
-  addToGlossary,
-}: {
-  contentMarkdown: string;
-  addToGlossary: (term: string, definition: string) => void;
-}) => {
+const RenderMarkdown = ({ contentMarkdown }: { contentMarkdown: string }) => {
   return (
     <ReactMarkdown
       components={{
@@ -77,9 +71,9 @@ const RenderMarkdown = ({
               return <div>"{props.alt}" not implemented!</div>;
           }
         },
-        code: (props) => (
-          <GlossaryItem item={props.children[0] as string} addToGlossary={addToGlossary} />
-        ),
+        code: (props) => {
+          return <GlossaryItem item={props.children[0] as string} />;
+        },
         h3: (props) => <H3 text={props.children} />,
         h4: (props) => <H4 text={props.children} />,
         p: (props) => <P text={props.children} />,
