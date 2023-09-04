@@ -20,7 +20,7 @@ body {
 }
 
 body {
-  overflow-y: overlay !important;
+  overflow-y: scroll !important;
 }
 
 ::-webkit-scrollbar {
