@@ -226,11 +226,10 @@ const BeforeAfterAudioWaveform2 = ({
         for (let i = 0; i < canvas.width; i++) {
           const min = Math.min(...data.slice(i * step, (i + 1) * step));
           const max = Math.max(...data.slice(i * step, (i + 1) * step));
-          ctx.fillRect(i, offset - max * amp, 1, (max - min) * amp);
 
           ctx.fillStyle = "#7C3AED";
           if (isSilent(data, i * step, (i + 1) * step)) {
-            ctx.fillRect(i, offset - 1, 1, 3); // Draw 2px line for silence
+            ctx.fillRect(i, offset - 1, 1, 2); // Draw 2px line for silence
           } else {
             ctx.fillRect(i, offset - max * amp, 1, (max - min) * amp);
           }
@@ -244,11 +243,10 @@ const BeforeAfterAudioWaveform2 = ({
       for (let i = 0; i < canvas.width; i++) {
         const min = Math.min(...data.slice(i * step, (i + 1) * step));
         const max = Math.max(...data.slice(i * step, (i + 1) * step));
-        ctx.fillRect(i, amp - max * amp, 1, Math.max(1, (max - min) * amp));
 
         ctx.fillStyle = "#7C3AED";
         if (isSilent(data, i * step, (i + 1) * step)) {
-          ctx.fillRect(i, amp - 1, 1, 3); // Draw 2px line for silence
+          ctx.fillRect(i, amp - 1, 1, 2); // Draw 2px line for silence
         } else {
           ctx.fillRect(i, amp - max * amp, 1, (max - min) * amp);
         }
