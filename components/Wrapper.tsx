@@ -1,5 +1,5 @@
 import { Flex } from "@chakra-ui/react";
-import React from "react";
+import React, { useEffect } from "react";
 import PageTitle from "./PageTitle";
 import Sidebar from "./Sidebar";
 
