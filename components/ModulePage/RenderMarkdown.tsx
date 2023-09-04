@@ -69,6 +69,7 @@ const RenderMarkdown = ({
                 <BeforeAfterAudioVisualizer2
                   srcBefore="/audio/a/avid.mp3"
                   srcAfter="/audio/a/avid_but_with_bad_eq.mp3"
+                  defaultVolume={1}
                 />
               );
             case "tab":

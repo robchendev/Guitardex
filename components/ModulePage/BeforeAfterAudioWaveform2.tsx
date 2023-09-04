@@ -2,6 +2,21 @@ import React, { useEffect, useRef, useState } from "react";
 import { debounce } from "lodash";
 import Divider from "../Sidebar/Divider";
 import AudioMeter from "./AudioMeter";
+import { FaPause, FaPlay, FaPowerOff } from "react-icons/fa";
+import {
+  BiSolidVolume,
+  BiSolidVolumeFull,
+  BiSolidVolumeLow,
+  BiSolidVolumeMute,
+} from "react-icons/bi";
+import {
+  HStack,
+  Input,
+  Slider,
+  SliderFilledTrack,
+  SliderThumb,
+  SliderTrack,
+} from "@chakra-ui/react";
 
 type Props = {
   srcBefore?: string;
@@ -32,6 +47,8 @@ const BeforeAfterAudioWaveform2 = ({
   const [cursorPosition, setCursorPosition] = useState(0);
   const playerRef = useRef<HTMLDivElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [durationBefore, setDurationBefore] = useState(0);
+  const [durationAfter, setDurationAfter] = useState(0);
 
   const fetchAudioBuffer = async (audioContext, url) => {
     const response: Response = await fetch(url);
@@ -68,6 +85,8 @@ const BeforeAfterAudioWaveform2 = ({
         sourceAfter.connect(gainAfter).connect(ac.destination);
         gainBefore.gain.setValueAtTime(volume, ac.currentTime);
         gainAfter.gain.setValueAtTime(0, ac.currentTime);
+        setDurationBefore(sourceBefore.buffer.duration);
+        setDurationAfter(sourceAfter.buffer.duration);
         setGainNodeBefore(gainBefore);
         setGainNodeAfter(gainAfter);
         setSourceBefore(sourceBefore);
@@ -401,8 +420,8 @@ const BeforeAfterAudioWaveform2 = ({
   };
 
   // New function to handle volume change
-  const handleVolumeChange = (e) => {
-    const newVolume = parseFloat(e.target.value);
+  const handleVolumeChange = (newVolume: number) => {
+    console.log(newVolume);
     setVolume(newVolume);
 
     if (gainNodeBefore && gainNodeAfter && audioContext) {
@@ -414,14 +433,30 @@ const BeforeAfterAudioWaveform2 = ({
     }
   };
 
+  const VolumeIcon = ({ volumeLevel }: { volumeLevel: number }) => {
+    if (volumeLevel > 0.5) {
+      return <BiSolidVolumeFull />;
+    } else if (volumeLevel > 0) {
+      return <BiSolidVolumeLow />;
+    } else {
+      return <BiSolidVolume />;
+    }
+  };
+
+  const formatTime = (time: number) => {
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    return `${minutes}:${String(seconds).padStart(2, "0")}`;
+  };
+
   return (
     <>
-      <div className="font-medium">
+      {/* <div className="font-medium">
         Now playing:{" "}
         {isBefore
           ? srcBefore.split("/").pop()?.toUpperCase()
           : srcAfter.split("/").pop()?.toUpperCase()}
-      </div>
+      </div> */}
       <div className="rounded-xl px-4 py-3 bg-bg">
         <div className="relative w-full mb-3" ref={playerRef}>
           <canvas
@@ -445,7 +480,20 @@ const BeforeAfterAudioWaveform2 = ({
               backgroundColor: "#e7edf3",
               display: currentTime !== 0 ? "block" : "none",
             }}
-          ></div>
+          />
+          <div
+            className="text-ghost text-xl"
+            style={{
+              position: "absolute",
+              bottom: 0,
+              left: 0,
+              // width: "3px",
+              // height: "100%",
+              display: isBefore ? "block" : "none",
+            }}
+          >
+            Bypassing FX
+          </div>
         </div>
         <Divider />
         {/* {sourceBefore && sourceAfter && audioContext && gainNodeBefore && gainNodeAfter && (
@@ -456,28 +504,50 @@ const BeforeAfterAudioWaveform2 = ({
           />
         )} */}
         <div className="mt-3">
-          <button
-            className="px-3 py-2 border border-text rounded-md hover:bg-greyChecked hover:text-white"
-            onClick={switchAudio}
-          >
-            Bypass: {isBefore ? "ON" : "OFF"}
-          </button>
-          <button
-            className="px-3 py-2 border border-text rounded-md hover:bg-greyChecked hover:text-white"
-            onClick={isPlaying ? pauseAudio : playAudio}
-          >
-            {isPlaying ? "Pause" : "Play"}
-          </button>
-          <span>Volume:</span>
-          <input
-            id="volume"
-            type="range"
-            min="0"
-            max="1"
-            step="0.01"
-            value={volume}
-            onChange={handleVolumeChange}
-          />
+          <HStack>
+            <button
+              className={`px-3 py-2 h-10 rounded-md font-medium ${
+                isBefore ? "border-grey bg-grey text-ghost" : "border-purple bg-purple text-white"
+              }`}
+              onClick={switchAudio}
+            >
+              <HStack>
+                <FaPowerOff />
+                <div className="leading-4">FX</div>
+              </HStack>
+            </button>
+            <button
+              className="px-3 py-2 h-10 border-2 border-grey bg-bg2 rounded-md text-text"
+              onClick={isPlaying ? pauseAudio : playAudio}
+            >
+              {isPlaying ? <FaPause /> : <FaPlay />}
+            </button>
+            <HStack className="text-xl px-3 py-2 pr-5 h-10 rounded-md bg-bg2 border-grey border-2 w-40 max-w-full">
+              <div>
+                <VolumeIcon volumeLevel={volume} />
+              </div>
+              <Slider
+                defaultValue={volume}
+                min={0}
+                max={1}
+                step={0.01}
+                onChange={(val) => handleVolumeChange(val)}
+                size="lg"
+              >
+                <SliderTrack>
+                  <SliderFilledTrack height={20} bgColor="#7c3aed" />
+                </SliderTrack>
+                <SliderThumb bgColor="#7c3aed" />
+              </Slider>
+            </HStack>
+            <HStack spacing={0}>
+              <div className="w-9">{formatTime(currentTime)}</div>
+              <div className="text-center">/</div>
+              <div className="w-9 text-right">
+                {formatTime((isBefore ? durationBefore : durationAfter) - 1)}
+              </div>
+            </HStack>
+          </HStack>
         </div>
       </div>
     </>
