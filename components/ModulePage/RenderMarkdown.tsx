@@ -62,16 +62,19 @@ const RenderMarkdown = ({
             //       <source src={props.src} />
             //     </audio>
             //   );
-            case "music":
+            case "comparison":
               // return <AudioVisualizer src={props.src} isStereo />;
+              const src = props.src?.split("&") ?? ["", ""];
               return (
                 // <AudioVisualizer src="/audio/a/crash.mp3" isStereo />
                 <BeforeAfterAudioVisualizer2
-                  srcBefore="/audio/a/avid.mp3"
-                  srcAfter="/audio/a/avid_but_with_bad_eq.mp3"
+                  srcBefore={src[0]}
+                  srcAfter={src[1]}
                   defaultVolume={1}
                 />
               );
+            case "music":
+              return <AudioVisualizer src={props.src} isStereo />;
             case "tab":
               return <TabImage src={props.src} />;
             default:

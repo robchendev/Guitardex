@@ -171,7 +171,7 @@ const BeforeAfterAudioWaveform2 = ({
         // eslint-disable-next-line
         const parentWidth = canvas.parentElement?.offsetWidth!;
         canvas.width = parentWidth * window.devicePixelRatio;
-        canvas.height = (parentWidth / 2) * window.devicePixelRatio;
+        canvas.height = (parentWidth / 2.5) * window.devicePixelRatio;
         if (canvas === canvasRefBefore.current) {
           drawCanvas(canvasRefBefore, bufferBefore);
         }
@@ -535,7 +535,7 @@ const BeforeAfterAudioWaveform2 = ({
                 size="lg"
               >
                 <SliderTrack>
-                  <SliderFilledTrack height={20} bgColor="#7c3aed" />
+                  <SliderFilledTrack bgColor="#7c3aed" />
                 </SliderTrack>
                 <SliderThumb bgColor="#7c3aed" />
               </Slider>

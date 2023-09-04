@@ -193,6 +193,7 @@ const AudioWaveform: React.FC<Props> = ({ src = "", defaultVolume = 0.5, isStere
 
   return (
     <div>
+      NEED IMPLEMENTATION AFTER REFACTORING THE COMPARISON
       <div className="relative">
         <canvas ref={canvasRef} width={740} height={200} onClick={onCanvasClick}></canvas>
         <canvas
