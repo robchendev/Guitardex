@@ -6,9 +6,6 @@
 
 // Apply custom default colors
 
-html {
-  overflow-y: scroll !important;
-}
 html,
 body {
   padding: 0;
