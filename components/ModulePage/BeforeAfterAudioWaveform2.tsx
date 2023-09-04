@@ -190,6 +190,14 @@ const BeforeAfterAudioWaveform2 = ({
     };
   }, [bufferBefore, bufferAfter]);
 
+  function isSilent(data, startIndex, endIndex, threshold = 0.01) {
+    for (let i = startIndex; i < endIndex; i++) {
+      if (Math.abs(data[i]) > threshold) {
+        return false;
+      }
+    }
+    return true;
+  }
   const drawCanvas = async (canvasRef, audioBuffer) => {
     if (!audioBuffer) return;
     const canvas = canvasRef.current;
@@ -219,6 +227,13 @@ const BeforeAfterAudioWaveform2 = ({
           const min = Math.min(...data.slice(i * step, (i + 1) * step));
           const max = Math.max(...data.slice(i * step, (i + 1) * step));
           ctx.fillRect(i, offset - max * amp, 1, (max - min) * amp);
+
+          ctx.fillStyle = "#7C3AED";
+          if (isSilent(data, i * step, (i + 1) * step)) {
+            ctx.fillRect(i, offset - 1, 1, 3); // Draw 2px line for silence
+          } else {
+            ctx.fillRect(i, offset - max * amp, 1, (max - min) * amp);
+          }
         }
       });
     } else {
@@ -230,6 +245,13 @@ const BeforeAfterAudioWaveform2 = ({
         const min = Math.min(...data.slice(i * step, (i + 1) * step));
         const max = Math.max(...data.slice(i * step, (i + 1) * step));
         ctx.fillRect(i, amp - max * amp, 1, Math.max(1, (max - min) * amp));
+
+        ctx.fillStyle = "#7C3AED";
+        if (isSilent(data, i * step, (i + 1) * step)) {
+          ctx.fillRect(i, amp - 1, 1, 3); // Draw 2px line for silence
+        } else {
+          ctx.fillRect(i, amp - max * amp, 1, (max - min) * amp);
+        }
       }
     }
     // Remove the loading state by clearing the canvas again
