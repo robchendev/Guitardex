@@ -564,7 +564,7 @@ const BeforeAfterAudioWaveform2 = ({
               <div className="w-9">{formatTime(currentTime)}</div>
               <div className="text-center">/</div>
               <div className="w-9 text-right">
-                {formatTime((isBefore ? durationBefore : durationAfter) - 1)}
+                {formatTime(isBefore ? durationBefore : durationAfter)}
               </div>
             </HStack>
           </HStack>
