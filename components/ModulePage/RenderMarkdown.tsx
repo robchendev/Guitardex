@@ -13,33 +13,10 @@ const AudioVisualizer = dynamic(() => import("./AudioWaveform").then((module) =>
   ssr: false,
 });
 
-const BeforeAfterAudioVisualizer = dynamic(
-  () => import("./BeforeAfterAudioWaveform").then((module) => module.default),
+const AudioComparison = dynamic(
+  () => import("./AudioComparison/AudioComparison").then((module) => module.default),
   { ssr: false }
 );
-
-const BeforeAfterAudioVisualizer2 = dynamic(
-  () => import("./BeforeAfterAudioWaveform2").then((module) => module.default),
-  { ssr: false }
-);
-
-const RenderParagraph = (props) => {
-  const { children } = props;
-
-  if (
-    children &&
-    children[0] &&
-    children.length === 1 &&
-    children[0].props &&
-    children[0].props.src
-  ) {
-    // rendering media without p wrapper
-
-    return children;
-  }
-
-  return <p>{children}</p>;
-};
 
 const RenderMarkdown = ({ contentMarkdown }: { contentMarkdown: string }) => {
   return (
@@ -61,11 +38,7 @@ const RenderMarkdown = ({ contentMarkdown }: { contentMarkdown: string }) => {
               const src = props.src?.split("&") ?? ["", ""];
               return (
                 // <AudioVisualizer src="/audio/a/crash.mp3" isStereo />
-                <BeforeAfterAudioVisualizer2
-                  srcBefore={src[0]}
-                  srcAfter={src[1]}
-                  defaultVolume={1}
-                />
+                <AudioComparison srcBefore={src[0]} srcAfter={src[1]} defaultVolume={1} />
               );
             case "music":
               return <AudioVisualizer src={props.src} isStereo />;
