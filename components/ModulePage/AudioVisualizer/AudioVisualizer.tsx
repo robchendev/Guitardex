@@ -170,21 +170,28 @@ const AudioVisualizer = ({ src = "", defaultVolume = 0.5 }: Props) => {
           >
             {isPlaying ? <FaPause /> : <FaPlay />}
           </button>
-          <HStack className="text-xl px-3 py-2 pr-5 h-10 rounded-md bg-bg2 border-grey border-2 w-40 max-w-full">
+          <HStack
+            className="text-xl pr-5 h-10 rounded-md bg-bg2 border-grey border-2 w-40 max-w-full"
+            spacing={0}
+          >
             <VolumeIcon volumeLevel={volume} />
-            <Slider
-              defaultValue={volume}
-              min={0}
-              max={1}
-              step={0.01}
-              onChange={(value) => handleVolumeChange(value, setVolume, gainNode, audioContext)}
-              size="lg"
-            >
-              <SliderTrack>
-                <SliderFilledTrack bgColor="#7c3aed" />
-              </SliderTrack>
-              <SliderThumb bgColor="#7c3aed" />
-            </Slider>
+            <div className="w-full py-2">
+              <Slider
+                defaultValue={volume}
+                min={0}
+                max={1}
+                step={0.01}
+                onChange={(value) => handleVolumeChange(value, setVolume, gainNode, audioContext)}
+                size="lg"
+                paddingLeft={0}
+                marginLeft={0}
+              >
+                <SliderTrack>
+                  <SliderFilledTrack bgColor="#7c3aed" />
+                </SliderTrack>
+                <SliderThumb bgColor="#7c3aed" />
+              </Slider>
+            </div>
           </HStack>
           <HStack spacing={0}>
             <div className="w-9">{formatTime(currentTime)}</div>
