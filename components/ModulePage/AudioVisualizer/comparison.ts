@@ -85,7 +85,6 @@ export const canvasSeek = (
   } else if (!isBefore) {
     if (bufferAfter) {
       clickedTime = (x / rect.width) * bufferAfter.duration;
-      console.log("Clicked Time:", clickedTime);
       // Handle case when clickedTime = -0.008452452110551333
       if (clickedTime < 0 || isNaN(clickedTime)) {
         clickedTime = 0;
