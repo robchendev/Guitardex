@@ -10,10 +10,11 @@ export const handleVolumeChange = (
   newVolume: number,
   setVolume: (value: number) => void,
   gainNode: GainNode | null,
-  audioContext: AudioContext | null
+  audioContext: AudioContext | null,
+  muted: boolean
 ) => {
   setVolume(newVolume);
-  if (gainNode && audioContext) {
+  if (gainNode && audioContext && !muted) {
     gainNode.gain.setValueAtTime(newVolume, audioContext.currentTime);
   } else {
     if (!gainNode) {
@@ -21,6 +22,21 @@ export const handleVolumeChange = (
     }
     if (!audioContext) {
       console.error("audioContext is null");
+    }
+  }
+};
+
+export const handleToggleMute = (
+  shouldMute: boolean,
+  currentVolume: number,
+  audioContext: AudioContext | null,
+  gainNode: GainNode | null
+) => {
+  if (audioContext && gainNode) {
+    if (shouldMute) {
+      gainNode?.gain.setValueAtTime(0, audioContext?.currentTime);
+    } else {
+      gainNode?.gain.setValueAtTime(currentVolume, audioContext?.currentTime);
     }
   }
 };
