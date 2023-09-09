@@ -22,6 +22,79 @@ export const audioContextSuspend = (ac: AudioContext) => {
   }
 };
 
+export const attemptStop = (source: AudioBufferSourceNode) => {
+  try {
+    source.stop();
+  } catch (e) {
+    console.error("Couldn't stop source node because it hadn't been started.");
+  }
+};
+
+export const stopAndDisconnectSource = (source: AudioBufferSourceNode | null) => {
+  try {
+    if (source) {
+      attemptStop(source);
+      source.disconnect();
+    }
+  } catch (e) {
+    console.error("aborting disconnect operation.");
+  }
+};
+
+export const createAndStartBufferSource = (
+  audioContext: AudioContext,
+  buffer: AudioBuffer | null,
+  gainNode: GainNode | null,
+  currentTime: number
+) => {
+  const source = audioContext.createBufferSource();
+  source.buffer = buffer;
+  source.loop = true;
+  source.connect(gainNode as GainNode).connect(audioContext.destination);
+  if (audioContext.state === "running") {
+    try {
+      source.start(0, currentTime % (buffer as AudioBuffer).duration ?? 1);
+    } catch (e) {
+      console.error("error at createAndStartBufferSource", e);
+    }
+  }
+  return source;
+};
+
+export const updateCurrentTime = (
+  audioContext: AudioContext,
+  currentAudioBuffer: AudioBuffer | null,
+  startTime: React.MutableRefObject<number>,
+  animationFrameRef: React.MutableRefObject<number | null>,
+  setCurrentTime: (value: number) => void
+) => {
+  if (audioContext && currentAudioBuffer) {
+    const duration = currentAudioBuffer.duration;
+    let newTime = audioContext.currentTime - startTime.current;
+    // Wrap around if we reached the end of the audio
+    if (newTime >= duration) {
+      newTime = newTime % duration;
+      // Optionally, reset the audio context time and start time to keep them small
+      startTime.current = audioContext.currentTime - newTime;
+    }
+    setCurrentTime(newTime);
+  }
+  // Cancel any existing animation frame to prevent multiple loops
+  if (animationFrameRef.current !== null) {
+    cancelAnimationFrame(animationFrameRef.current);
+  }
+  // Request a new animation frame
+  animationFrameRef.current = requestAnimationFrame(() =>
+    updateCurrentTime(
+      audioContext,
+      currentAudioBuffer,
+      startTime,
+      animationFrameRef,
+      setCurrentTime
+    )
+  );
+};
+
 export const drawCursor = (
   currentAudioBuffer: AudioBuffer | null,
   playerRef: React.RefObject<HTMLDivElement>,
@@ -110,4 +183,29 @@ export const isSilent = (data, startIndex, endIndex, threshold = 0.01) => {
     }
   }
   return true;
+};
+
+export const animationSafeguard = (
+  audioContext: AudioContext | null,
+  isManualSeek: boolean,
+  animationFrameRef: React.MutableRefObject<number | null>,
+  buffer: AudioBuffer | null,
+  startTime: React.MutableRefObject<number>,
+  setCurrentTime: (value: number) => void
+) => {
+  if (audioContext && !isManualSeek) {
+    if (audioContext.state === "running") {
+      if (animationFrameRef.current !== null) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
+      animationFrameRef.current = requestAnimationFrame(() =>
+        updateCurrentTime(audioContext, buffer, startTime, animationFrameRef, setCurrentTime)
+      );
+    }
+    if (audioContext.state === "suspended") {
+      if (animationFrameRef.current !== null) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
+    }
+  }
 };

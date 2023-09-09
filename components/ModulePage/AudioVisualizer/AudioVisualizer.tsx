@@ -5,22 +5,21 @@ import { FaPause, FaPlay } from "react-icons/fa";
 import { HStack, Slider, SliderFilledTrack, SliderThumb, SliderTrack } from "@chakra-ui/react";
 import VolumeIcon from "./VolumeIcon";
 import {
-  animationSafeguard,
   canvasSeek,
   handleVolumeChange,
   listenAndResize,
   pauseAudio,
   playAudio,
-  stopAndDisconnectSource,
-  switchAudio,
 } from "./visualizer";
 import {
+  animationSafeguard,
   animationStop,
   audioContextSuspend,
   drawCanvas,
   drawCursor,
   fetchAudioBuffer,
   formatTime,
+  stopAndDisconnectSource,
 } from "./common";
 
 type Props = {
