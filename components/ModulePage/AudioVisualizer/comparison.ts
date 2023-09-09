@@ -63,6 +63,10 @@ export const canvasSeek = (
   if (isBefore) {
     if (bufferBefore) {
       clickedTime = (x / rect.width) * bufferBefore.duration;
+      if (clickedTime < 0) {
+        console.error("Clicked time is " + clickedTime + ", resetting to 0");
+        clickedTime = 0;
+      }
     }
     if (sourceBefore && sourceBefore.buffer) {
       const newSourceBefore = audioContext.createBufferSource();
@@ -204,15 +208,11 @@ export const pauseAudio = (
       // sometimes onCanvasClick then pauseAudio immediately afterwords can
       // bork the audioContext.state, so use this to keep track of pause/play button
       setIsPlaying(false);
-      try {
-        if (sourceBefore) {
-          stopAndDisconnectSource(sourceBefore);
-        }
-        if (sourceAfter) {
-          stopAndDisconnectSource(sourceAfter);
-        }
-      } catch (e) {
-        console.error(e);
+      if (sourceBefore) {
+        stopAndDisconnectSource(sourceBefore);
+      }
+      if (sourceAfter) {
+        stopAndDisconnectSource(sourceAfter);
       }
     });
   }

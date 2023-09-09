@@ -126,8 +126,29 @@ const AudioVisualizer = ({ src = "", defaultVolume = 0.5 }: Props) => {
     );
   };
 
+  useEffect(() => {
+    function handleSpaceBar(event) {
+      if (event.code === "Space") {
+        event.preventDefault();
+        if (canvasRef.current && canvasRef.current.contains(document.activeElement)) {
+          handlePlayPause();
+        }
+      }
+    }
+
+    if (canvasRef.current) {
+      canvasRef.current.addEventListener("keydown", handleSpaceBar);
+    }
+
+    return () => {
+      if (canvasRef.current) {
+        canvasRef.current.removeEventListener("keydown", handleSpaceBar);
+      }
+    };
+  }, [handlePlayPause, canvasRef]);
+
   return (
-    <div className="rounded-xl px-4 py-3 bg-bg mb-4 last:mb-0">
+    <div className="rounded-xl border-2 border-bg px-3 py-2 bg-bg mb-4 last:mb-0 group focus-within:border-purple">
       {/* <div className="font-medium">
         Now playing:{" "}
         {isBefore
@@ -139,6 +160,8 @@ const AudioVisualizer = ({ src = "", defaultVolume = 0.5 }: Props) => {
           ref={canvasRef}
           onClick={handleCanvasClick}
           style={{ display: "block", width: "100%" }}
+          className="focus:outline-none"
+          tabIndex={-1}
         ></canvas>
 
         <div

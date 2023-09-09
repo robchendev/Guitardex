@@ -192,10 +192,48 @@ const AudioComparison = ({ srcBefore = "", srcAfter = "", defaultVolume = 0.5 }:
       startTime,
       isBefore
     );
+    if (isBefore) {
+      canvasRefBefore.current?.focus();
+    } else {
+      canvasRefAfter.current?.focus();
+    }
   };
 
+  useEffect(() => {
+    function handleSpaceBar(event) {
+      if (event.code === "Space") {
+        event.preventDefault();
+        if (isBefore) {
+          if (canvasRefBefore.current && canvasRefBefore.current.contains(document.activeElement)) {
+            handlePlayPause();
+          }
+        } else {
+          if (canvasRefAfter.current && canvasRefAfter.current.contains(document.activeElement)) {
+            handlePlayPause();
+          }
+        }
+      }
+    }
+
+    if (canvasRefBefore.current) {
+      canvasRefBefore.current.addEventListener("keydown", handleSpaceBar);
+    }
+    if (canvasRefAfter.current) {
+      canvasRefAfter.current.addEventListener("keydown", handleSpaceBar);
+    }
+
+    return () => {
+      if (canvasRefBefore.current) {
+        canvasRefBefore.current.removeEventListener("keydown", handleSpaceBar);
+      }
+      if (canvasRefAfter.current) {
+        canvasRefAfter.current.removeEventListener("keydown", handleSpaceBar);
+      }
+    };
+  }, [handlePlayPause, canvasRefBefore, canvasRefBefore]);
+
   return (
-    <div className="rounded-xl px-4 py-3 bg-bg mb-4 last:mb-0">
+    <div className="rounded-xl border-2 border-bg px-3 py-2 bg-bg mb-4 last:mb-0 group focus-within:border-purple">
       {/* <div className="font-medium">
         Now playing:{" "}
         {isBefore
@@ -207,11 +245,15 @@ const AudioComparison = ({ srcBefore = "", srcAfter = "", defaultVolume = 0.5 }:
           ref={canvasRefBefore}
           onClick={handleCanvasClick}
           style={{ display: isBefore ? "block" : "none", width: "100%" }}
+          className="focus:outline-none"
+          tabIndex={-1}
         ></canvas>
         <canvas
           ref={canvasRefAfter}
           onClick={handleCanvasClick}
           style={{ display: isBefore ? "none" : "block", width: "100%" }}
+          className="focus:outline-none"
+          tabIndex={-1}
         ></canvas>
         <div
           style={{
