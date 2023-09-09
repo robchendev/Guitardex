@@ -8,7 +8,7 @@ requirements: []
 
 ### About
 
-These featured audio waveform visualizers are made for the upcoming Audio Production modules, to assist in demonstrating the implementation of certain effects through both audio and visual representation. Please try them out, and if you encounter any issues, please [report it](http://localhost:3001/contact?t=Report_Issue&l=a&id=0). Include steps to reproduce the bug, browser name, browser version, and your operating system if possible.
+These featured audio waveform visualizers are made for the upcoming Audio Production modules, to assist in demonstrating the implementation of certain effects through both audio and visual representation. Please try them out, and if you encounter any issues, please [report it](/contact?t=Report_Issue&l=a&id=0). Include steps to reproduce the bug, browser name, browser version, and your operating system if possible.
 
 ### Audio Comparison Visualizer
 
