@@ -200,9 +200,13 @@ const AudioComparison = ({ srcBefore = "", srcAfter = "", defaultVolume = 0.5 }:
   };
 
   useEffect(() => {
-    function handleSpaceBar(event) {
+    function handleSpaceDown(event) {
       if (event.code === "Space") {
         event.preventDefault();
+      }
+    }
+    function handleSpaceUp(event) {
+      if (event.code === "Space") {
         if (isBefore) {
           if (canvasRefBefore.current && canvasRefBefore.current.contains(document.activeElement)) {
             handlePlayPause();
@@ -214,20 +218,22 @@ const AudioComparison = ({ srcBefore = "", srcAfter = "", defaultVolume = 0.5 }:
         }
       }
     }
-
     if (canvasRefBefore.current) {
-      canvasRefBefore.current.addEventListener("keydown", handleSpaceBar);
+      canvasRefBefore.current.addEventListener("keydown", handleSpaceDown);
+      canvasRefBefore.current.addEventListener("keyup", handleSpaceUp);
     }
     if (canvasRefAfter.current) {
-      canvasRefAfter.current.addEventListener("keydown", handleSpaceBar);
+      canvasRefAfter.current.addEventListener("keydown", handleSpaceDown);
+      canvasRefAfter.current.addEventListener("keyup", handleSpaceUp);
     }
-
     return () => {
       if (canvasRefBefore.current) {
-        canvasRefBefore.current.removeEventListener("keydown", handleSpaceBar);
+        canvasRefBefore.current.removeEventListener("keydown", handleSpaceDown);
+        canvasRefBefore.current.removeEventListener("keyup", handleSpaceUp);
       }
       if (canvasRefAfter.current) {
-        canvasRefAfter.current.removeEventListener("keydown", handleSpaceBar);
+        canvasRefAfter.current.removeEventListener("keydown", handleSpaceDown);
+        canvasRefAfter.current.removeEventListener("keyup", handleSpaceUp);
       }
     };
   }, [handlePlayPause, canvasRefBefore, canvasRefBefore]);

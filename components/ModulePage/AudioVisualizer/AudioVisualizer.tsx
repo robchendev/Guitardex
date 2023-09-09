@@ -127,22 +127,26 @@ const AudioVisualizer = ({ src = "", defaultVolume = 0.5 }: Props) => {
   };
 
   useEffect(() => {
-    function handleSpaceBar(event) {
+    function handleSpaceDown(event) {
       if (event.code === "Space") {
         event.preventDefault();
+      }
+    }
+    function handleSpaceUp(event) {
+      if (event.code === "Space") {
         if (canvasRef.current && canvasRef.current.contains(document.activeElement)) {
           handlePlayPause();
         }
       }
     }
-
     if (canvasRef.current) {
-      canvasRef.current.addEventListener("keydown", handleSpaceBar);
+      canvasRef.current.addEventListener("keydown", handleSpaceDown);
+      canvasRef.current.addEventListener("keyup", handleSpaceUp);
     }
-
     return () => {
       if (canvasRef.current) {
-        canvasRef.current.removeEventListener("keydown", handleSpaceBar);
+        canvasRef.current.removeEventListener("keydown", handleSpaceDown);
+        canvasRef.current.removeEventListener("keyup", handleSpaceUp);
       }
     };
   }, [handlePlayPause, canvasRef]);
