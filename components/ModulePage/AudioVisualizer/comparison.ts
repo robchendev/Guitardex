@@ -63,9 +63,12 @@ export const canvasSeek = (
   if (isBefore) {
     if (bufferBefore) {
       clickedTime = (x / rect.width) * bufferBefore.duration;
-      if (clickedTime < 0) {
-        console.error("Clicked time is " + clickedTime + ", resetting to 0");
+      // Handle case when clickedTime = -0.008452452110551333
+      if (clickedTime < 0 || isNaN(clickedTime)) {
         clickedTime = 0;
+      }
+      if (Math.abs(clickedTime) < 1e-5 && bufferBefore.duration > 0) {
+        clickedTime = 1e-5; // a very small offset to avoid the edge case
       }
     }
     if (sourceBefore && sourceBefore.buffer) {
@@ -82,6 +85,14 @@ export const canvasSeek = (
   } else if (!isBefore) {
     if (bufferAfter) {
       clickedTime = (x / rect.width) * bufferAfter.duration;
+      console.log("Clicked Time:", clickedTime);
+      // Handle case when clickedTime = -0.008452452110551333
+      if (clickedTime < 0 || isNaN(clickedTime)) {
+        clickedTime = 0;
+      }
+      if (Math.abs(clickedTime) < 1e-5 && bufferAfter.duration > 0) {
+        clickedTime = 1e-5; // a very small offset to avoid the edge case
+      }
     }
     if (sourceAfter && sourceAfter.buffer) {
       const newSourceAfter = audioContext.createBufferSource();
