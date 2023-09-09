@@ -9,12 +9,15 @@ import TabImage from "./TabImage";
 
 import dynamic from "next/dynamic";
 
-const AudioVisualizer = dynamic(() => import("./AudioWaveform").then((module) => module.default), {
-  ssr: false,
-});
+const AudioVisualizer = dynamic(
+  () => import("./AudioVisualizer/AudioVisualizer").then((module) => module.default),
+  {
+    ssr: false,
+  }
+);
 
 const AudioComparison = dynamic(
-  () => import("./AudioComparison/AudioComparison").then((module) => module.default),
+  () => import("./AudioVisualizer/AudioComparison").then((module) => module.default),
   { ssr: false }
 );
 
@@ -25,23 +28,11 @@ const RenderMarkdown = ({ contentMarkdown }: { contentMarkdown: string }) => {
         img: (props) => {
           // This is hack to transform ![]() to anything we need
           switch (props.alt) {
-            // case "music":
-            //   return <AudioPlayer src={props.src} />;
-            // case "music2":
-            //   return (
-            //     <audio controls className="flex-1 outline-none md:mr-5">
-            //       <source src={props.src} />
-            //     </audio>
-            //   );
             case "comparison":
-              // return <AudioVisualizer src={props.src} isStereo />;
               const src = props.src?.split("&") ?? ["", ""];
-              return (
-                // <AudioVisualizer src="/audio/a/crash.mp3" isStereo />
-                <AudioComparison srcBefore={src[0]} srcAfter={src[1]} defaultVolume={1} />
-              );
-            case "music":
-              return <AudioVisualizer src={props.src} isStereo />;
+              return <AudioComparison srcBefore={src[0]} srcAfter={src[1]} defaultVolume={1} />;
+            case "visualizer":
+              return <AudioVisualizer src={props.src} defaultVolume={1} />;
             case "tab":
               return <TabImage src={props.src} />;
             default:
@@ -55,7 +46,9 @@ const RenderMarkdown = ({ contentMarkdown }: { contentMarkdown: string }) => {
         h4: (props) => <H4 text={props.children} />,
         p: (props) => <P text={props.children} />,
         a: (props) => <A text={props.children} href={props.href} />,
-        li: (props) => <li className="list-disc ml-4 mb-2">{props.children}</li>,
+        ul: (props) => <ul className="list-disc mb-4">{props.children}</ul>,
+        ol: (props) => <ol className="list-decimal mb-4">{props.children}</ol>,
+        li: (props) => <li className="ml-4 mb-0.5">{props.children}</li>,
       }}
     >
       {contentMarkdown}

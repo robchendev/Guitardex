@@ -6,19 +6,21 @@ import { HStack, Slider, SliderFilledTrack, SliderThumb, SliderTrack } from "@ch
 import VolumeIcon from "./VolumeIcon";
 import {
   animationSafeguard,
-  animationStop,
-  audioContextSuspend,
   canvasSeek,
-  drawCanvas,
-  drawCursor,
-  fetchAudioBuffer,
-  formatTime,
   handleVolumeChange,
   listenAndResize,
   pauseAudio,
   playAudio,
   stopAndDisconnectSource,
   switchAudio,
+} from "./comparison";
+import {
+  animationStop,
+  audioContextSuspend,
+  drawCanvas,
+  drawCursor,
+  fetchAudioBuffer,
+  formatTime,
 } from "./common";
 
 type Props = {
@@ -27,6 +29,7 @@ type Props = {
   defaultVolume?: number;
 };
 
+// Assumes both audio files are the same length
 const AudioComparison = ({ srcBefore = "", srcAfter = "", defaultVolume = 0.5 }: Props) => {
   const [audioContext, setAudioContext] = useState<AudioContext | null>(null);
   const [gainNodeBefore, setGainNodeBefore] = useState<GainNode | null>(null);
@@ -38,7 +41,6 @@ const AudioComparison = ({ srcBefore = "", srcAfter = "", defaultVolume = 0.5 }:
   const [currentTime, setCurrentTime] = useState(0);
   const canvasRefBefore = useRef<HTMLCanvasElement>(null);
   const canvasRefAfter = useRef<HTMLCanvasElement>(null);
-  const lineCanvasRef = useRef<HTMLCanvasElement>(null);
   const [bufferBefore, setBufferBefore] = useState<AudioBuffer | null>(null);
   const [bufferAfter, setBufferAfter] = useState<AudioBuffer | null>(null);
   const [isManualSeek, setIsManualSeek] = useState(false);
@@ -100,7 +102,7 @@ const AudioComparison = ({ srcBefore = "", srcAfter = "", defaultVolume = 0.5 }:
   }, []);
 
   useEffect(() => {
-    listenAndResize(canvasRefBefore, canvasRefAfter, lineCanvasRef, bufferBefore, bufferAfter);
+    listenAndResize(canvasRefBefore, canvasRefAfter, bufferBefore, bufferAfter);
     async () => {
       await drawCanvas(canvasRefBefore, bufferBefore);
       await drawCanvas(canvasRefAfter, bufferAfter);
@@ -193,7 +195,7 @@ const AudioComparison = ({ srcBefore = "", srcAfter = "", defaultVolume = 0.5 }:
   };
 
   return (
-    <div className="rounded-xl px-4 py-3 bg-bg">
+    <div className="rounded-xl px-4 py-3 bg-bg mb-4 last:mb-0">
       {/* <div className="font-medium">
         Now playing:{" "}
         {isBefore
