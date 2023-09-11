@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Divider from "../../Sidebar/Divider";
 // import AudioMeter from "../AudioMeter";
-import { FaPause, FaPlay, FaPowerOff } from "react-icons/fa";
 import { HStack, Slider, SliderFilledTrack, SliderThumb, SliderTrack } from "@chakra-ui/react";
 import VolumeIcon from "./VolumeIcon";
 import {
@@ -25,6 +24,9 @@ import {
 import WaveformCanvas from "./WaveformCanvas";
 import PlaybackCursor from "./PlaybackCursor";
 import BypassNotice from "./BypassNotice";
+import ToggleFX from "./ToggleFX";
+import PlayPauseButton from "./PlayPauseButton";
+import AudioMeter from "../AudioMeter";
 
 type Props = {
   srcBefore?: string;
@@ -265,31 +267,16 @@ const AudioComparison = ({ srcBefore = "", srcAfter = "", defaultVolume = 0.5 }:
       </div>
       <Divider />
       {/* {sourceBefore && sourceAfter && audioContext && gainNodeBefore && gainNodeAfter && (
-          <AudioMeter
-            audioContext={audioContext}
-            source={isBefore ? sourceBefore : sourceAfter}
-            gain={isBefore ? gainNodeBefore : gainNodeAfter}
-          />
-        )} */}
+        <AudioMeter
+          audioContext={audioContext}
+          source={isBefore ? sourceBefore : sourceAfter}
+          gain={isBefore ? gainNodeBefore : gainNodeAfter}
+        />
+      )} */}
       <div className="mt-3">
         <HStack>
-          <button
-            className={`px-3 py-2 h-10 rounded-md font-medium ${
-              isBefore ? "border-grey bg-grey text-ghost" : "border-purple bg-purple text-white"
-            }`}
-            onClick={handleSwitchAudio}
-          >
-            <HStack>
-              <FaPowerOff />
-              <div className="leading-4">FX</div>
-            </HStack>
-          </button>
-          <button
-            className="px-3 py-2 h-10 border-2 border-grey bg-bg2 rounded-md text-text"
-            onClick={handlePlayPause}
-          >
-            {isPlaying ? <FaPause /> : <FaPlay />}
-          </button>
+          <ToggleFX isOn={!isBefore} onClick={handleSwitchAudio} />
+          <PlayPauseButton onClick={handlePlayPause} isPlaying={isPlaying} />
           <HStack
             className="text-xl pr-5 h-10 rounded-md bg-bg2 border-grey border-2 w-40 max-w-full"
             spacing={0}

@@ -70,6 +70,8 @@ const AudioMeter: React.FC<Props> = ({ audioContext, source, gain }) => {
       ctx.fillText("0", width - 10, height / 2);
       ctx.fillText("-20", ((-20 + 60) / 60) * width + 5, height / 2);
       ctx.fillText("-60", 10, height / 2);
+
+      // TODO: Smoothing using EMA
     };
 
     draw();

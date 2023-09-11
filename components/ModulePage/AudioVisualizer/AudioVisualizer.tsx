@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Divider from "../../Sidebar/Divider";
 // import AudioMeter from "../AudioMeter";
-import { FaPause, FaPlay } from "react-icons/fa";
 import { HStack, Slider, SliderFilledTrack, SliderThumb, SliderTrack } from "@chakra-ui/react";
 import VolumeIcon from "./VolumeIcon";
 import {
@@ -23,6 +22,7 @@ import {
 } from "./common";
 import PlaybackCursor from "./PlaybackCursor";
 import WaveformCanvas from "./WaveformCanvas";
+import PlayPauseButton from "./PlayPauseButton";
 
 type Props = {
   src?: string;
@@ -175,12 +175,7 @@ const AudioVisualizer = ({ src = "", defaultVolume = 0.5 }: Props) => {
         )} */}
       <div className="mt-3">
         <HStack>
-          <button
-            className="px-3 py-2 h-10 border-2 border-grey bg-bg2 rounded-md text-text"
-            onClick={handlePlayPause}
-          >
-            {isPlaying ? <FaPause /> : <FaPlay />}
-          </button>
+          <PlayPauseButton onClick={handlePlayPause} isPlaying={isPlaying} />
           <HStack
             className="text-xl pr-5 h-10 rounded-md bg-bg2 border-grey border-2 w-40 max-w-full"
             spacing={0}
