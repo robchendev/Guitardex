@@ -21,6 +21,8 @@ import {
   formatTime,
   stopAndDisconnectSource,
 } from "./common";
+import PlaybackCursor from "./PlaybackCursor";
+import WaveformCanvas from "./WaveformCanvas";
 
 type Props = {
   src?: string;
@@ -160,26 +162,8 @@ const AudioVisualizer = ({ src = "", defaultVolume = 0.5 }: Props) => {
           : srcAfter.split("/").pop()?.toUpperCase()}
       </div> */}
       <div className="relative w-full mb-3" ref={playerRef}>
-        <canvas
-          ref={canvasRef}
-          onClick={handleCanvasClick}
-          style={{ display: "block", width: "100%" }}
-          className="focus:outline-none"
-          tabIndex={-1}
-        ></canvas>
-
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            left: `${cursorPosition}px`,
-            width: "3px",
-            height: "100%",
-            border: "1px solid black",
-            backgroundColor: "#e7edf3",
-            display: currentTime !== 0 ? "block" : "none",
-          }}
-        />
+        <WaveformCanvas canvasRef={canvasRef} handleCanvasClick={handleCanvasClick} />
+        <PlaybackCursor cursorPosition={cursorPosition} currentTime={currentTime} />
       </div>
       <Divider />
       {/* {sourceBefore && sourceAfter && audioContext && gainNodeBefore && gainNodeAfter && (

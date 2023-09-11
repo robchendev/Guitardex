@@ -22,6 +22,9 @@ import {
   formatTime,
   stopAndDisconnectSource,
 } from "./common";
+import WaveformCanvas from "./WaveformCanvas";
+import PlaybackCursor from "./PlaybackCursor";
+import BypassNotice from "./BypassNotice";
 
 type Props = {
   srcBefore?: string;
@@ -247,43 +250,18 @@ const AudioComparison = ({ srcBefore = "", srcAfter = "", defaultVolume = 0.5 }:
           : srcAfter.split("/").pop()?.toUpperCase()}
       </div> */}
       <div className="relative w-full mb-3" ref={playerRef}>
-        <canvas
-          ref={canvasRefBefore}
-          onClick={handleCanvasClick}
-          style={{ display: isBefore ? "block" : "none", width: "100%" }}
-          className="focus:outline-none"
-          tabIndex={-1}
-        ></canvas>
-        <canvas
-          ref={canvasRefAfter}
-          onClick={handleCanvasClick}
-          style={{ display: isBefore ? "none" : "block", width: "100%" }}
-          className="focus:outline-none"
-          tabIndex={-1}
-        ></canvas>
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            left: `${cursorPosition}px`,
-            width: "3px",
-            height: "100%",
-            border: "1px solid black",
-            backgroundColor: "#e7edf3",
-            display: currentTime !== 0 ? "block" : "none",
-          }}
+        <WaveformCanvas
+          canvasRef={canvasRefBefore}
+          handleCanvasClick={handleCanvasClick}
+          isCurrent={isBefore}
         />
-        <div
-          className="text-ghost text-xl"
-          style={{
-            position: "absolute",
-            bottom: 0,
-            left: 0,
-            display: isBefore ? "block" : "none",
-          }}
-        >
-          Bypassing FX
-        </div>
+        <WaveformCanvas
+          canvasRef={canvasRefAfter}
+          handleCanvasClick={handleCanvasClick}
+          isCurrent={!isBefore}
+        />
+        <PlaybackCursor cursorPosition={cursorPosition} currentTime={currentTime} />
+        <BypassNotice isShown={isBefore} />
       </div>
       <Divider />
       {/* {sourceBefore && sourceAfter && audioContext && gainNodeBefore && gainNodeAfter && (
