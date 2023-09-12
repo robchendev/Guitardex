@@ -141,6 +141,17 @@ export const mainCredits: Credit[] = [
       },
     ],
   },
+  // {
+  //   name: "Anonymous Benevolent Contributor", // You know who you are, helped me the most on this project but ask to not be named smh
+  //   roles: "Developer",
+  //   img: "",
+  //   links: [
+  //     {
+  //       icon: FaYoutube,
+  //       url: "https://youtu.be/dQw4w9WgXcQ", // Rickroll here
+  //     },
+  //   ],
+  // },
 ];
 
 export const externalCredit: CreditExternal[] = [
