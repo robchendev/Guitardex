@@ -262,7 +262,7 @@ const AudioComparison = ({ srcBefore = "", srcAfter = "", defaultVolume = 0.5 }:
           handleCanvasClick={handleCanvasClick}
           isCurrent={!isBefore}
         />
-        <PlaybackCursor cursorPosition={cursorPosition} currentTime={currentTime} />
+        <PlaybackCursor cursorPosition={cursorPosition} />
         <BypassNotice isShown={isBefore} />
       </div>
       <Divider />

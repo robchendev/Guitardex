@@ -1,12 +1,6 @@
 import React from "react";
 
-const PlaybackCursor = ({
-  cursorPosition,
-  currentTime,
-}: {
-  cursorPosition: number;
-  currentTime: number;
-}) => {
+const PlaybackCursor = ({ cursorPosition }: { cursorPosition: number }) => {
   return (
     <div
       style={{
@@ -17,7 +11,7 @@ const PlaybackCursor = ({
         height: "100%",
         border: "1px solid black",
         backgroundColor: "#e7edf3",
-        display: currentTime !== 0 ? "block" : "none",
+        display: cursorPosition !== 0 ? "block" : "none",
       }}
     />
   );

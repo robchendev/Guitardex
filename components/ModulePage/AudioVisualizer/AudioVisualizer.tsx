@@ -163,7 +163,7 @@ const AudioVisualizer = ({ src = "", defaultVolume = 0.5 }: Props) => {
       </div> */}
       <div className="relative w-full mb-3" ref={playerRef}>
         <WaveformCanvas canvasRef={canvasRef} handleCanvasClick={handleCanvasClick} />
-        <PlaybackCursor cursorPosition={cursorPosition} currentTime={currentTime} />
+        <PlaybackCursor cursorPosition={cursorPosition} />
       </div>
       <Divider />
       {/* {sourceBefore && sourceAfter && audioContext && gainNodeBefore && gainNodeAfter && (
