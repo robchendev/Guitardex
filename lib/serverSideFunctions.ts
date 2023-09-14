@@ -108,17 +108,21 @@ export async function getContinuations(id: string, library: Library) {
 export async function getGlossaryItems(markdown: string): Promise<GlossaryItem[]> {
   const codeItems = getCodeBlocksFromMarkdown(markdown);
   // the Set assures there are no duplicates
-  const result: GlossaryItem[] = Array.from(new Set(codeItems))
+  const result: (GlossaryItem | undefined)[] = Array.from(new Set(codeItems))
     ?.map((item) => {
-      const [t, d] = item.split("|");
-      const term = t.trim();
-      const definition = d.trim();
+      if (item.includes("|")) {
+        const [t, d] = item.split("|");
+        const term = t.trim();
+        const definition = d.trim();
 
-      return {
-        term,
-        definition,
-      };
+        return {
+          term,
+          definition,
+        };
+      }
+      return undefined;
     })
     .sort((a: GlossaryItem, b: GlossaryItem) => (a.term > b.term ? 1 : -1));
-  return result;
+  const resultSortedNoUndefined = result.filter((x): x is GlossaryItem => x !== undefined);
+  return resultSortedNoUndefined;
 }

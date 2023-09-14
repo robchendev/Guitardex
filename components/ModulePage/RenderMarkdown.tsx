@@ -59,7 +59,19 @@ const RenderMarkdown = ({ contentMarkdown }: { contentMarkdown: string }) => {
           }
         },
         code: (props) => {
-          return <GlossaryItem item={props.children[0] as string} />;
+          const codeItem = props.children[0] as string;
+          if (codeItem.includes("|")) {
+            const [t, d] = codeItem.split("|");
+            const term = t.trim();
+            const definition = d.trim();
+            if (!term || !definition) return <></>;
+            return <GlossaryItem term={term} definition={definition} />;
+          }
+          return (
+            <a className="text-red border-b-2 pb-px border-red hover:text-red">
+              invalid term/definition
+            </a>
+          );
         },
         h3: (props) => <H3 text={props.children} />,
         h4: (props) => <H4 text={props.children} />,

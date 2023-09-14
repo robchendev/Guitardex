@@ -26,11 +26,10 @@ Initiated with the FX turned off, users can:
 #### Comparison: Stereo + Stereo
 
 ![comparison](/audio/a/neverGonna.mp3&/audio/a/neverGonnaCompressYou.mp3)
-![comparisonAfter](/audio/a/neverGonna.mp3&/audio/a/neverGonnaCompressYou.mp3)
 
-#### Comparison: Mono + Stereo
+#### Comparison: Mono + Stereo, starting with FX ON
 
-![comparison](/audio/a/avidMono.mp3&/audio/a/avid.mp3)
+![comparisonAfter](/audio/a/avidMono.mp3&/audio/a/avid.mp3)
 
 ### Audio Singular Visualizer
 
