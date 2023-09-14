@@ -27,10 +27,29 @@ const RenderMarkdown = ({ contentMarkdown }: { contentMarkdown: string }) => {
       components={{
         img: (props) => {
           // This is hack to transform ![]() to anything we need
+          let src: string[];
           switch (props.alt) {
             case "comparison":
-              const src = props.src?.split("&") ?? ["", ""];
-              return <AudioComparison srcBefore={src[0]} srcAfter={src[1]} defaultVolume={1} />;
+            case "comparisonBefore":
+              src = props.src?.split("&") ?? ["", ""];
+              return (
+                <AudioComparison
+                  srcBefore={src[0]}
+                  srcAfter={src[1]}
+                  defaultVolume={1}
+                  defaultTrack="before"
+                />
+              );
+            case "comparisonAfter":
+              src = props.src?.split("&") ?? ["", ""];
+              return (
+                <AudioComparison
+                  srcBefore={src[0]}
+                  srcAfter={src[1]}
+                  defaultVolume={1}
+                  defaultTrack="after"
+                />
+              );
             case "visualizer":
               return <AudioVisualizer src={props.src} defaultVolume={1} />;
             case "tab":

@@ -32,16 +32,22 @@ type Props = {
   srcBefore?: string;
   srcAfter?: string;
   defaultVolume?: number;
+  defaultTrack?: "before" | "after";
 };
 
 // Assumes both audio files are the same length
-const AudioComparison = ({ srcBefore = "", srcAfter = "", defaultVolume = 0.5 }: Props) => {
+const AudioComparison = ({
+  srcBefore = "",
+  srcAfter = "",
+  defaultVolume = 0.5,
+  defaultTrack = "before",
+}: Props) => {
   const [audioContext, setAudioContext] = useState<AudioContext | null>(null);
   const [gainNodeBefore, setGainNodeBefore] = useState<GainNode | null>(null);
   const [gainNodeAfter, setGainNodeAfter] = useState<GainNode | null>(null);
   const [sourceBefore, setSourceBefore] = useState<AudioBufferSourceNode | null>(null);
   const [sourceAfter, setSourceAfter] = useState<AudioBufferSourceNode | null>(null);
-  const [isBefore, setIsBefore] = useState(false);
+  const [isBefore, setIsBefore] = useState(defaultTrack === "before" ? true : false);
   const [currentAudioBuffer, setCurrentAudioBuffer] = useState<AudioBuffer | null>(null);
   const [currentTime, setCurrentTime] = useState(0);
   const canvasRefBefore = useRef<HTMLCanvasElement>(null);
@@ -128,7 +134,6 @@ const AudioComparison = ({ srcBefore = "", srcAfter = "", defaultVolume = 0.5 }:
 
   useEffect(() => {
     setCurrentAudioBuffer(isBefore ? bufferBefore : bufferAfter);
-    console.log(bufferBefore, bufferAfter);
   }, [isBefore, bufferBefore, bufferAfter]);
 
   useEffect(() => {

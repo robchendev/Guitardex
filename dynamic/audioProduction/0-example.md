@@ -26,7 +26,7 @@ Initiated with the FX turned off, users can:
 #### Comparison: Stereo + Stereo
 
 ![comparison](/audio/a/neverGonna.mp3&/audio/a/neverGonnaCompressYou.mp3)
-![comparison](/audio/a/neverGonna.mp3&/audio/a/neverGonnaCompressYou.mp3)
+![comparisonAfter](/audio/a/neverGonna.mp3&/audio/a/neverGonnaCompressYou.mp3)
 
 #### Comparison: Mono + Stereo
 
