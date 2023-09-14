@@ -16,13 +16,13 @@ import {
   audioContextSuspend,
   drawCanvas,
   drawCursor,
-  fetchAudioBuffer,
   formatTime,
   stopAndDisconnectSource,
 } from "./common";
 import PlaybackCursor from "./PlaybackCursor";
 import WaveformCanvas from "./WaveformCanvas";
 import PlayPauseButton from "./PlayPauseButton";
+import { getAudioFromCache } from "./audioCache";
 
 type Props = {
   src?: string;
@@ -48,18 +48,18 @@ const AudioVisualizer = ({ src = "", defaultVolume = 0.5 }: Props) => {
     const ac = new AudioContext();
     setAudioContext(ac);
     audioContextSuspend(ac);
-    Promise.all([fetchAudioBuffer(ac, src)]).then(([fetchedBuffer]) => {
+    Promise.all([getAudioFromCache(ac, src)]).then(([cachedBuffer]) => {
       if (isCancelled || ac.state === "closed") return;
 
       // Setup Before Audio
       const gainCurr = ac.createGain();
       const sourceCurr = ac.createBufferSource();
-      sourceCurr.buffer = fetchedBuffer;
+      sourceCurr.buffer = cachedBuffer;
       sourceCurr.loop = true;
       sourceCurr.connect(gainCurr).connect(ac.destination);
       gainCurr.gain.setValueAtTime(volume, ac.currentTime);
-      setBuffer(fetchedBuffer);
-      setDuration(sourceCurr.buffer.duration);
+      setBuffer(cachedBuffer);
+      setDuration(sourceCurr.buffer?.duration ?? 0);
       setGainNode(gainCurr);
       setSource(sourceCurr);
 

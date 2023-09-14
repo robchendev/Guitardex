@@ -17,7 +17,6 @@ import {
   audioContextSuspend,
   drawCanvas,
   drawCursor,
-  fetchAudioBuffer,
   formatTime,
   stopAndDisconnectSource,
 } from "./common";
@@ -27,6 +26,7 @@ import BypassNotice from "./BypassNotice";
 import ToggleFX from "./ToggleFX";
 import PlayPauseButton from "./PlayPauseButton";
 import AudioMeter from "../AudioMeter";
+import { getAudioFromCache } from "./audioCache";
 
 type Props = {
   srcBefore?: string;
@@ -61,37 +61,40 @@ const AudioComparison = ({ srcBefore = "", srcAfter = "", defaultVolume = 0.5 }:
     const ac = new AudioContext();
     setAudioContext(ac);
     audioContextSuspend(ac);
-    Promise.all([fetchAudioBuffer(ac, srcBefore), fetchAudioBuffer(ac, srcAfter)]).then(
-      ([fetchedBufferBefore, fetchedBufferAfter]) => {
+
+    Promise.all([getAudioFromCache(ac, srcBefore), getAudioFromCache(ac, srcAfter)])
+      .then(([cachedBufferBefore, cachedBufferAfter]) => {
         if (isCancelled || ac.state === "closed") return;
 
         // Setup Before Audio
         const gainBefore = ac.createGain();
         const sourceBefore = ac.createBufferSource();
-        sourceBefore.buffer = fetchedBufferBefore;
+        sourceBefore.buffer = cachedBufferBefore;
         sourceBefore.loop = true;
         sourceBefore.connect(gainBefore).connect(ac.destination);
         gainBefore.gain.setValueAtTime(volume, ac.currentTime);
-        setBufferBefore(fetchedBufferBefore);
-        setDurationBefore(sourceBefore.buffer.duration);
+        setBufferBefore(cachedBufferBefore);
+        setDurationBefore(sourceBefore.buffer?.duration ?? 0);
         setGainNodeBefore(gainBefore);
         setSourceBefore(sourceBefore);
 
         // Setup After Audio
         const gainAfter = ac.createGain();
         const sourceAfter = ac.createBufferSource();
-        sourceAfter.buffer = fetchedBufferAfter;
+        sourceAfter.buffer = cachedBufferAfter;
         sourceAfter.loop = true;
         sourceAfter.connect(gainAfter).connect(ac.destination);
         gainAfter.gain.setValueAtTime(0, ac.currentTime);
-        setBufferAfter(fetchedBufferAfter);
-        setDurationAfter(sourceAfter.buffer.duration);
+        setBufferAfter(cachedBufferAfter);
+        setDurationAfter(sourceAfter.buffer?.duration ?? 0);
         setGainNodeAfter(gainAfter);
         setSourceAfter(sourceAfter);
 
         audioContextSuspend(ac);
-      }
-    );
+      })
+      .catch((error) => {
+        console.error("An error occurred:", error);
+      });
     audioContextSuspend(ac);
 
     // Cleanup on unmount
