@@ -41,7 +41,7 @@ const AudioComparison = ({ srcBefore = "", srcAfter = "", defaultVolume = 0.5 }:
   const [gainNodeAfter, setGainNodeAfter] = useState<GainNode | null>(null);
   const [sourceBefore, setSourceBefore] = useState<AudioBufferSourceNode | null>(null);
   const [sourceAfter, setSourceAfter] = useState<AudioBufferSourceNode | null>(null);
-  const [isBefore, setIsBefore] = useState(true);
+  const [isBefore, setIsBefore] = useState(false);
   const [currentAudioBuffer, setCurrentAudioBuffer] = useState<AudioBuffer | null>(null);
   const [currentTime, setCurrentTime] = useState(0);
   const canvasRefBefore = useRef<HTMLCanvasElement>(null);
@@ -90,6 +90,15 @@ const AudioComparison = ({ srcBefore = "", srcAfter = "", defaultVolume = 0.5 }:
         setGainNodeAfter(gainAfter);
         setSourceAfter(sourceAfter);
 
+        // Set initial gain values based on isBefore
+        if (isBefore) {
+          gainBefore.gain.setValueAtTime(volume, ac.currentTime);
+          gainAfter.gain.setValueAtTime(0, ac.currentTime);
+        } else {
+          gainAfter.gain.setValueAtTime(volume, ac.currentTime);
+          gainBefore.gain.setValueAtTime(0, ac.currentTime);
+        }
+
         audioContextSuspend(ac);
       })
       .catch((error) => {
@@ -119,6 +128,7 @@ const AudioComparison = ({ srcBefore = "", srcAfter = "", defaultVolume = 0.5 }:
 
   useEffect(() => {
     setCurrentAudioBuffer(isBefore ? bufferBefore : bufferAfter);
+    console.log(bufferBefore, bufferAfter);
   }, [isBefore, bufferBefore, bufferAfter]);
 
   useEffect(() => {
