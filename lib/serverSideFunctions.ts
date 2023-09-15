@@ -12,6 +12,7 @@ import {
 } from "../types/dynamic/common";
 import { GlossaryItem } from "../types";
 import { getCodeBlocksFromMarkdown } from "../utils/markdownUtils";
+import { audioProductionOrder } from "../config/audioProductionOrder";
 
 const directory = {
   t: path.join(process.cwd(), "dynamic/techniques"),
@@ -32,6 +33,11 @@ export const filterAndSort = (moduleList: ModuleFrontMatter[], category: Categor
   moduleList
     .filter((moduleItem: Module) => moduleItem.category === category)
     .sort((a: Module, b: Module) => (a.name > b.name ? 1 : -1));
+
+export const orderAudioProductionModuleList = (moduleList: ModuleFrontMatter[]) =>
+  moduleList.sort(
+    (a, b) => audioProductionOrder.indexOf(a.id) - audioProductionOrder.indexOf(b.id)
+  );
 
 export function getAllIds(library: Library) {
   const fileNames = fs.readdirSync(directory[library]);
