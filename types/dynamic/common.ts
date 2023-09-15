@@ -15,7 +15,7 @@ export type Continuation = PreReq & {
 
 export type Difficulty = "easy" | "med" | "hard";
 
-export type CategoryaudioProduction = "general" | "recording" | "mixing" | "mastering";
+export type CategoryaudioProduction = "general" | "recording" | "mixing" | "mastering" | "demo";
 export type CategoryTechnique = "basics" | "percussion" | "harmonics" | "utility" | "articulation";
 export type Category = CategoryaudioProduction | CategoryTechnique;
 

@@ -82,6 +82,28 @@ textarea {
   padding: 0px;
 }
 
+// disabling stripes
+.relative {
+  position: relative;
+}
+
+.diagonal-stripes {
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.05) 9px,
+    rgba(0, 0, 0, 0.05) 9px,
+    rgba(0, 0, 0, 0.05) 18px
+  );
+  pointer-events: none; /* Make sure clicks pass through */
+}
+
 /* variables */
 :root {
   /* sizes */
