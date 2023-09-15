@@ -2,6 +2,7 @@ import { HStack, Text } from "@chakra-ui/react";
 import Link from "next/link";
 import React from "react";
 import { MdDragIndicator } from "react-icons/md";
+import { disableAudioProductionModules } from "../../config/disabled";
 import { Library, ModuleFrontMatter } from "../../types/dynamic/common";
 import Category from "../ModuleList/Category";
 import Difficulty from "../ModuleList/Difficulty";
@@ -42,7 +43,7 @@ const DexItem = ({
     </HStack>
   );
   // Disable certain modules
-  if (library === "a" && module.category !== "demo") {
+  if (disableAudioProductionModules && library === "a" && module.category !== "demo") {
     return (
       <div className="relative w-full opacity-50 hover:cursor-grab">
         <div className="diagonal-stripes z-10" />

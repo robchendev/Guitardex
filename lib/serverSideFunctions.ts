@@ -13,6 +13,7 @@ import {
 import { GlossaryItem } from "../types";
 import { getCodeBlocksFromMarkdown } from "../utils/markdownUtils";
 import { audioProductionOrder } from "../config/audioProductionOrder";
+import { disableAudioProductionModules } from "../config/disabled";
 
 const directory = {
   t: path.join(process.cwd(), "dynamic/techniques"),

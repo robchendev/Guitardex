@@ -1,6 +1,7 @@
 import { HStack, Text } from "@chakra-ui/react";
 import Link from "next/link";
 import React from "react";
+import { disableAudioProductionModules } from "../../config/disabled";
 import { Library, ModuleFrontMatter } from "../../types/dynamic/common";
 import Category from "./Category";
 import Difficulty from "./Difficulty";
@@ -30,7 +31,7 @@ const ModuleItem = ({ module, library }: { module: ModuleFrontMatter; library: L
     </HStack>
   );
   // Disable certain modules
-  if (library === "a" && module.category !== "demo") {
+  if (disableAudioProductionModules && library === "a" && module.category !== "demo") {
     return (
       <div className="relative w-full opacity-50">
         <div className="diagonal-stripes" />
