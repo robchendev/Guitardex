@@ -15,7 +15,7 @@ import { getCodeBlocksFromMarkdown } from "../utils/markdownUtils";
 
 const directory = {
   t: path.join(process.cwd(), "dynamic/techniques"),
-  a: path.join(process.cwd(), "dynamic/audioProduction"),
+  a: path.join(process.cwd(), "dynamic/audioProduction2"),
 };
 
 export function mapIdToFilename(shortId: string, library: Library): string {

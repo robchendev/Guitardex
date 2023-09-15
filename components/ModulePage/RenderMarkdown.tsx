@@ -8,6 +8,7 @@ import GlossaryItem from "./GlossaryItem";
 import TabImage from "./TabImage";
 
 import dynamic from "next/dynamic";
+import InvalidGlossaryItem from "./InvalidGlossaryItem";
 
 const AudioVisualizer = dynamic(
   () => import("./AudioVisualizer/AudioVisualizer").then((module) => module.default),
@@ -67,11 +68,7 @@ const RenderMarkdown = ({ contentMarkdown }: { contentMarkdown: string }) => {
             if (!term || !definition) return <></>;
             return <GlossaryItem term={term} definition={definition} />;
           }
-          return (
-            <a className="text-red border-b-2 pb-px border-red hover:text-red">
-              invalid term/definition
-            </a>
-          );
+          return <InvalidGlossaryItem />;
         },
         h3: (props) => <H3 text={props.children} />,
         h4: (props) => <H4 text={props.children} />,
