@@ -38,7 +38,7 @@ const ModuleHeader = ({
               {!frontmatter.requirements.length && "None"}
             </p>
             <HStack spacing={1}>
-              <Difficulty value={frontmatter.difficulty} />
+              {frontmatter.difficulty && <Difficulty value={frontmatter.difficulty} />}
               <LibraryTag library={library} />
               <Category value={frontmatter.category} />
             </HStack>
