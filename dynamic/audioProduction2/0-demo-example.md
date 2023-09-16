@@ -2,7 +2,6 @@
 id: 0
 name: Library Features
 category: demo
-difficulty: easy
 requirements: []
 ---
 

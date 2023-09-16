@@ -80,6 +80,7 @@ export const changeLog: Log[] = [
       "Added seek control on waveform click with a cursor indicating current playback position.",
       "Added bypass button to switch between before and after audio.",
       "All audio files used through this feature will be uploaded 192kbps, 44.1kHz, and 16-bit.",
+      "A single-source audio visualizer is also added.",
     ],
   },
   {

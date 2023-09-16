@@ -1,7 +1,6 @@
 ---
-id: 42
-name: Room"
+id: 36
+name: Mic Configuration
 category: recording
-difficulty: easy
 requirements: []
 ---

@@ -1,7 +1,6 @@
 ---
-id: 5
-name: Basics"
+id: 101
+name: Wrist Thump Enhancement
 category: mixing
-difficulty: med
 requirements: []
 ---

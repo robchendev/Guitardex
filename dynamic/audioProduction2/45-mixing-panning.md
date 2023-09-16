@@ -1,7 +1,6 @@
 ---
-id: 5
-name: Basics"
+id: 45
+name: Panning
 category: mixing
-difficulty: med
 requirements: []
 ---

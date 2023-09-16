@@ -1,7 +1,6 @@
 ---
-id: 5
-name: Basics"
+id: 41
+name: Noise Reduction
 category: mixing
-difficulty: med
 requirements: []
 ---

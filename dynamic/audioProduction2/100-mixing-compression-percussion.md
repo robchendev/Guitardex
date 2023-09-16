@@ -1,7 +1,6 @@
 ---
-id: 5
-name: Basics"
+id: 100
+name: "Compression: Percussion"
 category: mixing
-difficulty: med
 requirements: []
 ---

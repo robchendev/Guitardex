@@ -1,7 +1,6 @@
 ---
-id: 5
-name: Basics"
+id: 43
+name: Phase Alignment
 category: mixing
-difficulty: med
 requirements: []
 ---

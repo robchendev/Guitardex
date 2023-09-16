@@ -1,11 +1,10 @@
 export type PreReq = {
   name: string;
   id: number;
+  category?: string;
 };
 
-export type PreReqExpanded = {
-  name: string;
-  id: number;
+export type PreReqExpanded = PreReq & {
   requirements: PreReq[];
 };
 
@@ -15,7 +14,13 @@ export type Continuation = PreReq & {
 
 export type Difficulty = "easy" | "med" | "hard";
 
-export type CategoryaudioProduction = "general" | "recording" | "mixing" | "mastering" | "demo";
+export type CategoryaudioProduction =
+  | "general"
+  | "concepts"
+  | "recording"
+  | "mixing"
+  | "mastering"
+  | "demo";
 export type CategoryTechnique = "basics" | "percussion" | "harmonics" | "utility" | "articulation";
 export type Category = CategoryaudioProduction | CategoryTechnique;
 
@@ -27,7 +32,7 @@ export type ModuleFrontMatter = {
   id: number;
   requirements: PreReq[];
   category: Category;
-  difficulty: Difficulty;
+  difficulty?: Difficulty;
   demo?: string;
 };
 

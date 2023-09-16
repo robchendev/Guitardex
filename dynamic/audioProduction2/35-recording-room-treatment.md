@@ -1,7 +1,6 @@
 ---
-id: 42
-name: Room"
+id: 35
+name: Room Treatment
 category: recording
-difficulty: easy
 requirements: []
 ---

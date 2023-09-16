@@ -1,6 +1,6 @@
 ---
 id: 41
-name: "Recording: Mic positioning"
+name: Mic positioning"
 category: recording
 difficulty: med
 requirements: []

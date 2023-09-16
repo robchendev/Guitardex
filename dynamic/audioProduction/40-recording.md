@@ -1,6 +1,6 @@
 ---
 id: 40
-name: "Recording: Basics"
+name: Basics"
 category: recording
 difficulty: easy
 requirements: []

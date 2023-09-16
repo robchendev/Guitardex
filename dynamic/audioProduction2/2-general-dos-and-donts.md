@@ -2,7 +2,6 @@
 id: 2
 name: Do(s) and Don't(s)
 category: general
-difficulty: easy
 requirements: []
 ---
 

@@ -1,7 +1,6 @@
 ---
-id: 42
-name: Room"
+id: 38
+name: Project File Setup
 category: recording
-difficulty: easy
 requirements: []
 ---

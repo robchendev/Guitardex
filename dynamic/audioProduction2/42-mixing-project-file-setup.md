@@ -1,7 +1,6 @@
 ---
-id: 5
-name: Basics"
+id: 42
+name: Project File Setup
 category: mixing
-difficulty: med
 requirements: []
 ---

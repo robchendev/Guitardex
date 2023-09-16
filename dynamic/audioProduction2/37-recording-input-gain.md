@@ -1,7 +1,6 @@
 ---
-id: 42
-name: Room"
+id: 37
+name: Input Gain
 category: recording
-difficulty: easy
 requirements: []
 ---

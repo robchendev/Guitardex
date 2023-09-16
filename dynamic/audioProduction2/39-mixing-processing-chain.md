@@ -1,7 +1,6 @@
 ---
-id: 5
-name: Basics"
+id: 39
+name: Processing Chain
 category: mixing
-difficulty: med
 requirements: []
 ---

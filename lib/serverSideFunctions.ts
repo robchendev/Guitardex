@@ -13,7 +13,6 @@ import {
 import { GlossaryItem } from "../types";
 import { getCodeBlocksFromMarkdown } from "../utils/markdownUtils";
 import { audioProductionOrder } from "../config/audioProductionOrder";
-import { disableAudioProductionModules } from "../config/disabled";
 
 const directory = {
   t: path.join(process.cwd(), "dynamic/techniques"),
@@ -84,6 +83,7 @@ export async function getContinuations(id: string, library: Library) {
     name: frontmatter.name,
     id: frontmatter.id,
     requirements: frontmatter.requirements,
+    category: frontmatter.category,
   }));
   const mappedId = mapIdToFilename(id, library);
   if (!mappedId) {

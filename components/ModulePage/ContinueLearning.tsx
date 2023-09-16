@@ -2,6 +2,7 @@ import React from "react";
 import { Continuation, Library, PreReq } from "../../types/dynamic/common";
 import Divider from "../Sidebar/Divider";
 import A from "../Typography/A";
+import { capitalize } from "../ModuleList/Category";
 
 const ContinueLearning = ({
   continuations,
@@ -28,7 +29,18 @@ const ContinueLearning = ({
                   {" "}
                   (Also requires:{" "}
                   {continuation.alsoRequires.map((req: PreReq, i: number) => (
-                    <A key={i} href={`/${library}/${req.id}`} text={req.name} />
+                    <span key={i}>
+                      {i > 0 && ", "}
+                      <A
+                        key={i}
+                        href={`/${library}/${req.id}`}
+                        text={
+                          library === "a" && req.category && req.category !== "general"
+                            ? `${capitalize(req.category)}: ${req.name}`
+                            : req.name
+                        }
+                      />
+                    </span>
                   ))}
                   )
                 </>

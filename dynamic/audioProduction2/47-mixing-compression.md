@@ -1,7 +1,6 @@
 ---
-id: 5
-name: Basics"
+id: 47
+name: Compression
 category: mixing
-difficulty: med
 requirements: []
 ---

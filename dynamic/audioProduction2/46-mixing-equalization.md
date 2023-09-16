@@ -1,7 +1,6 @@
 ---
-id: 5
-name: Basics"
+id: 46
+name: Equalization
 category: mixing
-difficulty: med
 requirements: []
 ---

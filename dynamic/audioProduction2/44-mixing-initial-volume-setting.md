@@ -1,7 +1,6 @@
 ---
-id: 5
-name: Basics"
+id: 44
+name: Initial Volume Setting
 category: mixing
-difficulty: med
 requirements: []
 ---

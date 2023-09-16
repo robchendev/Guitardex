@@ -20,7 +20,7 @@ const ModuleItem = ({ module, library }: { module: ModuleFrontMatter; library: L
         </Text>
         <div>
           <HStack spacing={1}>
-            <Difficulty value={module.difficulty} />
+            {module.difficulty && <Difficulty value={module.difficulty} />}
             <Category value={module.category} />
           </HStack>
         </div>

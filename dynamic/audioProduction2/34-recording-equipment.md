@@ -1,7 +1,6 @@
 ---
-id: 42
-name: Room"
+id: 34
+name: Equipment
 category: recording
-difficulty: easy
 requirements: []
 ---
