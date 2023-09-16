@@ -332,10 +332,12 @@ const AudioComparison = ({ srcBefore = "", srcAfter = "", defaultVolume = 0.5 }:
             <div className="w-full py-2">
               <Slider
                 defaultValue={volume}
+                value={muted ? 0 : volume}
                 min={0}
                 max={1}
                 step={0.01}
-                onChange={(value) =>
+                onChange={(value) => {
+                  setMuted(false);
                   handleVolumeChange(
                     value,
                     setVolume,
@@ -344,8 +346,8 @@ const AudioComparison = ({ srcBefore = "", srcAfter = "", defaultVolume = 0.5 }:
                     audioContext,
                     isBefore,
                     muted
-                  )
-                }
+                  );
+                }}
                 size="lg"
                 paddingLeft={0}
                 marginLeft={0}
