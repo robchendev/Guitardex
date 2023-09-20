@@ -11,34 +11,6 @@ export const audioProductionOrder: number[] = [
   6, // Ethics and Morality
   7, // Legality
 
-  // CONCEPT
-  8, // Recording, Mixing, Mastering
-  9, // Stereo, Mono
-  10, // Phase
-  11, // Threshold, Attack, Release
-  12, // Signal Level Measurements
-  13, // Audio Specifications
-  14, // Frequency
-  15, // Frequency Bands
-  16, // Equalization
-  17, // Saturation
-  18, // Compression
-  19, // Pre-fader, Post-fader
-  20, // Stereo Image
-  21, // Input Sources
-  22, // Digital Audio Workstation
-  23, // Audio Routing
-  24, // Send / Return Tracks
-  25, // Harmonics
-  26, // Effect Bypass
-  27, // Plugins
-  28, // Lookahead
-  29, // Reverb
-  30, // Mix Console
-  31, // Sync-to-Tempo
-  32, // Mid / Side Processing
-  33, // Room Acoustics
-
   // RECORDING
   34, // Equipment
   35, // Room Treatment
@@ -75,4 +47,32 @@ export const audioProductionOrder: number[] = [
   61, // DC Offset
   62, // Dithering
   63, // Master Delivery
+
+  // CONCEPT
+  8, // Recording, Mixing, Mastering
+  9, // Stereo, Mono
+  10, // Phase
+  11, // Threshold, Attack, Release
+  12, // Signal Level Measurements
+  13, // Audio Specifications
+  14, // Frequency
+  15, // Frequency Bands
+  16, // Equalization
+  17, // Saturation
+  18, // Compression
+  19, // Pre-fader, Post-fader
+  20, // Stereo Image
+  21, // Input Sources
+  22, // Digital Audio Workstation
+  23, // Audio Routing
+  24, // Send / Return Tracks
+  25, // Harmonics
+  26, // Effect Bypass
+  27, // Plugins
+  28, // Lookahead
+  29, // Reverb
+  30, // Mix Console
+  31, // Sync-to-Tempo
+  32, // Mid / Side Processing
+  33, // Room Acoustics
 ];
