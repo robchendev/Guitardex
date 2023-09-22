@@ -4,7 +4,7 @@
   "description": "Eddie van der Meer Website",
   "version": "0.1.0",
   "scripts": {
-    "dev": "next dev -p 3001",
+    "dev": "next dev -p 3003",
     "build": "next build",
     "start": "next start",
     "format": "eslint --fix \"**/*.{js,jsx,ts,tsx,json,md}\""
