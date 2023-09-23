@@ -13,7 +13,7 @@ const Wrapper = ({ children, title }: { children: React.ReactNode; title?: strin
     <div className="h-full bg-bg2 lg:my-0 lg:p-24">
       {/* STICKY HEADER FOR MOBILE*/}
       <div className={"w-full h-16 bg-bg2 lg:!hidden justify-between fixed top-0 "}>
-        <div className="flex align-center items-center z-[10001]">
+        <div className="flex align-center items-center z-[10000000000000000000000000001] bg-bg2">
           {/* duplicated button */}
           <button className="">
             <div className="w-10 h-10 bg-[transparent] m-2 "></div>
