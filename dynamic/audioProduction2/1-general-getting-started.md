@@ -18,9 +18,15 @@ Unlike the Techniques library, this library's modules are listed in a specific o
 
 You can approach this library in several ways. Depending on your previous experience, you may not need to go over everything in order.
 
-There are 5 categories in this library: General, Recording, Mixing, Mastering, Concepts. To get started, you should read over every module in the General category, then proceed to the Recording, Mixing, or Mastering categories. If you're an absolute beginner, I recommend reading in the order of Recording -> Mixing -> Mastering.
+There are 5 categories in this library: **General**, **Recording**, **Mixing**, **Mastering**, **Concepts**. To get started, you should read over every module in the General category, then proceed to the Recording, Mixing, or Mastering categories. If you're an absolute beginner, I recommend reading in the order of Recording -> Mixing -> Mastering.
 
 The **Concept** modules aren't listed in any specific order. They will be linked and referred to in relevant modules if the knowledge is needed to help explain something.
+
+[[[TODO: Have a list of links]]]
+
+- Beginner; I want to learn everything (link)
+- Beginner; I just want to know the bare minimum (link)
+- Intermediate; I already know the basics, I want to learn how to do it specifically for fingerstyle. (link)
 
 ### Addition of new modules
 
