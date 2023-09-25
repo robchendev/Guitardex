@@ -19,6 +19,7 @@ const IncompatibilityNotice = () => {
   useEffect(() => {
     const testedIncompatibilities = { ...incompatibilities };
     if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+      console.log("is no");
       testedIncompatibilities.isIOS = true;
     }
     setIncompatibility(testedIncompatibilities);
@@ -26,13 +27,14 @@ const IncompatibilityNotice = () => {
 
   return (
     <div>
-      {Object.values(incompatibilities).some((val) => val === true) && <div>Not working?</div>}
-      <button onClick={onOpen}>
-        <HStack spacing={1} className="text-purple hover:text-purpleHover">
-          <HiOutlineExclamationCircle size={18} />
-          <span className="">Not working?</span>
-        </HStack>
-      </button>
+      {Object.values(incompatibilities).some((val) => val === true) && (
+        <button onClick={onOpen}>
+          <HStack spacing={1} className="text-purple hover:text-purpleHover">
+            <HiOutlineExclamationCircle size={18} />
+            <span className="">Not working?</span>
+          </HStack>
+        </button>
+      )}
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
