@@ -32,15 +32,17 @@ When listening on high volume, you build up [ear fatigue](102) quickly, which wi
 
 Not only is this inconvenient, it's also dangerous as your ears become less sensitive to increases in volume and you eventually reach a dangerous volume level that can cause permanent damage. Once your mix starts sounding as mentioned above, stop and take at least a 15 minute break. ...
 
-Remember the bulk of your listening audience will not be listening on such a high volume. Your goal should be to mix your audio so that it sounds good at an average listening level. If you can get your audio to sound good when being played quietly, it will sound good when played loudly.
+Remember the bulk of your listening audience will not be listening on such a high volume. Your goal should be to mix your audio so that it sounds good at an average listening level. If you can get your audio to sound good when being played quietly, it will sound good when being played loudly.
 
 ### Mistake: Randomly changing settings
 
-Some beginners have the mindset of "If I just add this plugin in here and mess with the dials at random it'll sound somewhat better than what I had before".
+Be careful with the mindset of "If I just add this plugin in here and mess with the dials at random it'll sound somewhat better than what I had before".
+
+It's a good idea to experiment to build upon your understanding of what the plugin does and gain some experience using the effect. But simply adding a plugin into the processing chain can have negative effects just as much as it has positive effects if you adjust the settings without understanding what they do.
 
 ### Mistake: Not changing any settings
 
-If you just add the effect from your plugin library into your processing chain, chances are that effect will do nothing.
+If you just add the effect from your plugin library into your processing chain, chances are that effect will do nothing. Some effects wouldn't change anything in your audio based if a single setting hasn't been changed, such as Mix %, decay, threshold, ratio, etc.
 
 ### Mistake: Trying too many things at once
 
