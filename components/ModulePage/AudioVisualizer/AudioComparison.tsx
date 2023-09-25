@@ -27,6 +27,7 @@ import ToggleFX from "./ToggleFX";
 import PlayPauseButton from "./PlayPauseButton";
 import AudioMeter from "../AudioMeter";
 import { getAudioFromCache } from "./audioCache";
+import IncompatibilityNotice from "./IncompatibilityNotice";
 
 type Props = {
   srcBefore?: string;
@@ -262,79 +263,83 @@ const AudioComparison = ({
   }, [handlePlayPause, canvasRefBefore, canvasRefBefore]);
 
   return (
-    <div className="rounded-xl border-2 border-bg px-3 py-2 bg-bg mb-4 last:mb-0 group focus-within:border-purple">
-      {/* <div className="font-medium">
+    <div>
+      <IncompatibilityNotice />
+
+      <div className="rounded-xl border-2 border-bg px-3 py-2 bg-bg mb-4 last:mb-0 group focus-within:border-purple">
+        {/* <div className="font-medium">
         Now playing:{" "}
         {isBefore
           ? srcBefore.split("/").pop()?.toUpperCase()
           : srcAfter.split("/").pop()?.toUpperCase()}
       </div> */}
-      <div className="relative w-full mb-3" ref={playerRef}>
-        <WaveformCanvas
-          canvasRef={canvasRefBefore}
-          handleCanvasClick={handleCanvasClick}
-          isCurrent={isBefore}
-        />
-        <WaveformCanvas
-          canvasRef={canvasRefAfter}
-          handleCanvasClick={handleCanvasClick}
-          isCurrent={!isBefore}
-        />
-        <PlaybackCursor cursorPosition={cursorPosition} />
-        <BypassNotice isShown={isBefore} />
-      </div>
-      <Divider />
-      {/* {sourceBefore && sourceAfter && audioContext && gainNodeBefore && gainNodeAfter && (
+        <div className="relative w-full mb-3" ref={playerRef}>
+          <WaveformCanvas
+            canvasRef={canvasRefBefore}
+            handleCanvasClick={handleCanvasClick}
+            isCurrent={isBefore}
+          />
+          <WaveformCanvas
+            canvasRef={canvasRefAfter}
+            handleCanvasClick={handleCanvasClick}
+            isCurrent={!isBefore}
+          />
+          <PlaybackCursor cursorPosition={cursorPosition} />
+          <BypassNotice isShown={isBefore} />
+        </div>
+        <Divider />
+        {/* {sourceBefore && sourceAfter && audioContext && gainNodeBefore && gainNodeAfter && (
         <AudioMeter
           audioContext={audioContext}
           source={isBefore ? sourceBefore : sourceAfter}
           gain={isBefore ? gainNodeBefore : gainNodeAfter}
         />
       )} */}
-      <div className="mt-3">
-        <HStack>
-          <ToggleFX isOn={!isBefore} onClick={handleSwitchAudio} />
-          <PlayPauseButton onClick={handlePlayPause} isPlaying={isPlaying} />
-          <HStack
-            className="text-xl pr-5 h-10 rounded-md bg-bg2 border-grey border-2 w-40 max-w-full"
-            spacing={0}
-          >
-            <VolumeIcon volumeLevel={volume} />
-            <div className="w-full py-2">
-              <Slider
-                defaultValue={volume}
-                min={0}
-                max={1}
-                step={0.01}
-                onChange={(value) =>
-                  handleVolumeChange(
-                    value,
-                    setVolume,
-                    gainNodeBefore,
-                    gainNodeAfter,
-                    audioContext,
-                    isBefore
-                  )
-                }
-                size="lg"
-                paddingLeft={0}
-                marginLeft={0}
-              >
-                <SliderTrack>
-                  <SliderFilledTrack bgColor="#7c3aed" />
-                </SliderTrack>
-                <SliderThumb bgColor="#7c3aed" />
-              </Slider>
-            </div>
+        <div className="mt-3">
+          <HStack>
+            <ToggleFX isOn={!isBefore} onClick={handleSwitchAudio} />
+            <PlayPauseButton onClick={handlePlayPause} isPlaying={isPlaying} />
+            <HStack
+              className="text-xl pr-5 h-10 rounded-md bg-bg2 border-grey border-2 w-40 max-w-full"
+              spacing={0}
+            >
+              <VolumeIcon volumeLevel={volume} />
+              <div className="w-full py-2">
+                <Slider
+                  defaultValue={volume}
+                  min={0}
+                  max={1}
+                  step={0.01}
+                  onChange={(value) =>
+                    handleVolumeChange(
+                      value,
+                      setVolume,
+                      gainNodeBefore,
+                      gainNodeAfter,
+                      audioContext,
+                      isBefore
+                    )
+                  }
+                  size="lg"
+                  paddingLeft={0}
+                  marginLeft={0}
+                >
+                  <SliderTrack>
+                    <SliderFilledTrack bgColor="#7c3aed" />
+                  </SliderTrack>
+                  <SliderThumb bgColor="#7c3aed" />
+                </Slider>
+              </div>
+            </HStack>
+            <HStack spacing={0}>
+              <div className="w-9">{formatTime(currentTime)}</div>
+              <div className="text-center">/</div>
+              <div className="w-9 text-right">
+                {formatTime(isBefore ? durationBefore : durationAfter)}
+              </div>
+            </HStack>
           </HStack>
-          <HStack spacing={0}>
-            <div className="w-9">{formatTime(currentTime)}</div>
-            <div className="text-center">/</div>
-            <div className="w-9 text-right">
-              {formatTime(isBefore ? durationBefore : durationAfter)}
-            </div>
-          </HStack>
-        </HStack>
+        </div>
       </div>
     </div>
   );
