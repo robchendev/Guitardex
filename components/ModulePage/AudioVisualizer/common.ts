@@ -4,18 +4,6 @@ export const formatTime = (time: number) => {
   return `${minutes}:${String(seconds).padStart(2, "0")}`;
 };
 
-export const fetchAudioBuffer = async (audioContext: AudioContext, url: string) => {
-  const response: Response = await fetch(url);
-  const arrayBuffer: ArrayBuffer = await response.arrayBuffer();
-  const decodedAudioData = await (audioContext as AudioContext).decodeAudioData(arrayBuffer);
-  // Might be a firefox bug, decodeAudioData forces audioContext.state to running.
-  // Created a bug report here: https://bugzilla.mozilla.org/show_bug.cgi?id=1851345
-  if (audioContext.state === "running") {
-    await audioContext.suspend();
-  }
-  return decodedAudioData;
-};
-
 export const audioContextSuspend = (ac: AudioContext) => {
   if (ac.state === "running") {
     ac.suspend();

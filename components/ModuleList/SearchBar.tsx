@@ -13,7 +13,7 @@ const runFilter = (list: Module[], search: string): Module[] => {
     if (
       item.name.toLowerCase().includes(search) ||
       item.category.toLowerCase().includes(search) ||
-      item.difficulty.includes(search)
+      item.difficulty?.includes(search)
     ) {
       filter.push(item);
     }

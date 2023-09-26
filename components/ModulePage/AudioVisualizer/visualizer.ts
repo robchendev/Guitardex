@@ -63,6 +63,13 @@ export const canvasSeek = (
 
   if (buffer) {
     clickedTime = (x / rect.width) * buffer.duration;
+    // Handle case when clickedTime = -0.008452452110551333
+    if (clickedTime < 0 || isNaN(clickedTime)) {
+      clickedTime = 0;
+    }
+    if (Math.abs(clickedTime) < 1e-5 && buffer.duration > 0) {
+      clickedTime = 1e-5; // a very small offset to avoid the edge case
+    }
   }
   if (source && source.buffer) {
     const newSourceBefore = audioContext.createBufferSource();

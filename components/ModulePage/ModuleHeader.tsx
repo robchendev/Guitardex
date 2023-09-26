@@ -2,7 +2,7 @@ import { HStack } from "@chakra-ui/react";
 import Link from "next/link";
 import React from "react";
 import { Library, ModuleFrontMatter, PreReq } from "../../types/dynamic/common";
-import Category from "../ModuleList/Category";
+import Category, { capitalize } from "../ModuleList/Category";
 import Difficulty from "../ModuleList/Difficulty";
 import LibraryTag from "../ModuleList/LibraryTag";
 import SaveButton from "../ModuleList/SaveButton";
@@ -20,23 +20,25 @@ const ModuleHeader = ({
         <HStack justifyContent="space-between">
           <div>
             <h1 className="text-xl font-medium tracking-wider">{frontmatter.name}</h1>
-            <p className="text-base">
+            <p className="text-base mb-1">
               Required:{" "}
               {frontmatter.requirements.map((req: PreReq, index: number) => (
                 <span key={index}>
                   {index > 0 && ", "}
                   <Link
-                    href={"/t/" + req.id}
+                    href={`/${library}/` + req.id}
                     className="text-link hover:bg-link hover:text-bg transition-none"
                   >
-                    {req.name}
+                    {library === "a" && req.category && req.category !== "general"
+                      ? `${capitalize(req.category)}: ${req.name}`
+                      : req.name}
                   </Link>
                 </span>
               ))}
               {!frontmatter.requirements.length && "None"}
             </p>
             <HStack spacing={1}>
-              <Difficulty value={frontmatter.difficulty} />
+              {frontmatter.difficulty && <Difficulty value={frontmatter.difficulty} />}
               <LibraryTag library={library} />
               <Category value={frontmatter.category} />
             </HStack>

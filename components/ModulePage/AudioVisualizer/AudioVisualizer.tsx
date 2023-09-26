@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Divider from "../../Sidebar/Divider";
 // import AudioMeter from "../AudioMeter";
-import { FaPause, FaPlay } from "react-icons/fa";
 import { HStack, Slider, SliderFilledTrack, SliderThumb, SliderTrack } from "@chakra-ui/react";
 import VolumeIcon from "./VolumeIcon";
 import {
@@ -18,10 +17,13 @@ import {
   audioContextSuspend,
   drawCanvas,
   drawCursor,
-  fetchAudioBuffer,
   formatTime,
   stopAndDisconnectSource,
 } from "./common";
+import PlaybackCursor from "./PlaybackCursor";
+import WaveformCanvas from "./WaveformCanvas";
+import PlayPauseButton from "./PlayPauseButton";
+import { getAudioFromCache } from "./audioCache";
 
 type Props = {
   src?: string;
@@ -48,18 +50,18 @@ const AudioVisualizer = ({ src = "", defaultVolume = 0.5 }: Props) => {
     const ac = new AudioContext();
     setAudioContext(ac);
     audioContextSuspend(ac);
-    Promise.all([fetchAudioBuffer(ac, src)]).then(([fetchedBuffer]) => {
+    Promise.all([getAudioFromCache(ac, src)]).then(([cachedBuffer]) => {
       if (isCancelled || ac.state === "closed") return;
 
       // Setup Before Audio
       const gainCurr = ac.createGain();
       const sourceCurr = ac.createBufferSource();
-      sourceCurr.buffer = fetchedBuffer;
+      sourceCurr.buffer = cachedBuffer;
       sourceCurr.loop = true;
       sourceCurr.connect(gainCurr).connect(ac.destination);
       gainCurr.gain.setValueAtTime(volume, ac.currentTime);
-      setBuffer(fetchedBuffer);
-      setDuration(sourceCurr.buffer.duration);
+      setBuffer(cachedBuffer);
+      setDuration(sourceCurr.buffer?.duration ?? 0);
       setGainNode(gainCurr);
       setSource(sourceCurr);
 
@@ -170,26 +172,8 @@ const AudioVisualizer = ({ src = "", defaultVolume = 0.5 }: Props) => {
           : srcAfter.split("/").pop()?.toUpperCase()}
       </div> */}
       <div className="relative w-full mb-3" ref={playerRef}>
-        <canvas
-          ref={canvasRef}
-          onClick={handleCanvasClick}
-          style={{ display: "block", width: "100%" }}
-          className="focus:outline-none"
-          tabIndex={-1}
-        ></canvas>
-
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            left: `${cursorPosition}px`,
-            width: "3px",
-            height: "100%",
-            border: "1px solid black",
-            backgroundColor: "#e7edf3",
-            display: currentTime !== 0 ? "block" : "none",
-          }}
-        />
+        <WaveformCanvas canvasRef={canvasRef} handleCanvasClick={handleCanvasClick} />
+        <PlaybackCursor cursorPosition={cursorPosition} />
       </div>
       <Divider />
       {/* {sourceBefore && sourceAfter && audioContext && gainNodeBefore && gainNodeAfter && (
@@ -201,12 +185,7 @@ const AudioVisualizer = ({ src = "", defaultVolume = 0.5 }: Props) => {
         )} */}
       <div className="mt-3">
         <HStack>
-          <button
-            className="px-3 py-2 h-10 border-2 border-grey bg-bg2 rounded-md text-text"
-            onClick={handlePlayPause}
-          >
-            {isPlaying ? <FaPause /> : <FaPlay />}
-          </button>
+          <PlayPauseButton onClick={handlePlayPause} isPlaying={isPlaying} />
           <HStack
             className="text-xl pr-5 h-10 rounded-md bg-bg2 border-grey border-2 w-40 max-w-full"
             spacing={0}

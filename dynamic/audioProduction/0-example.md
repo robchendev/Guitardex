@@ -27,9 +27,9 @@ Initiated with the FX turned off, users can:
 
 ![comparison](/audio/a/neverGonna.mp3&/audio/a/neverGonnaCompressYou.mp3)
 
-#### Comparison: Mono + Stereo
+#### Comparison: Mono + Stereo, starting with FX ON
 
-![comparison](/audio/a/avidMono.mp3&/audio/a/Avid.mp3)
+![comparisonAfter](/audio/a/avidMono.mp3&/audio/a/avid.mp3)
 
 ### Audio Singular Visualizer
 
@@ -42,3 +42,11 @@ Used for visualizing audio waveforms that aren't being compared.
 #### Visualizer: Mono
 
 ![visualizer](/audio/a/avidMono.mp3)
+
+#### Issue: iOS Devices
+
+On iOS devices, the audio will not play at all due to Apple's implementation of Web Audio API in iOS Silent Mode. Somehow, HTML5 Audio works fine, but Web Audio API doesn't. No one knows why this was implemented this way, but due to this limitation iOS users will get a prompt that reminds them to turn off Silent Mode or to wear headphones before listening to the visualizers.
+
+#### Issue: Bluetooth Audio Devices
+
+Some bluetooth audio devices (especially the airpod) delaying the playback to make the latency seem invisible when matching up with the screen. This causes a minor delay before resuming audio that was paused. This also somehow causes the left ear to pause playback shortly after the right ear instead of pausing them both simultaneously. More testing is needed, but so far this current is confirmed to be the case on 2nd generation Airpod Pros.

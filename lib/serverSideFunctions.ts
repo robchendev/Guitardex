@@ -12,10 +12,11 @@ import {
 } from "../types/dynamic/common";
 import { GlossaryItem } from "../types";
 import { getCodeBlocksFromMarkdown } from "../utils/markdownUtils";
+import { audioProductionOrder } from "../config/audioProductionOrder";
 
 const directory = {
   t: path.join(process.cwd(), "dynamic/techniques"),
-  a: path.join(process.cwd(), "dynamic/audioProduction"),
+  a: path.join(process.cwd(), "dynamic/audioProduction2"),
 };
 
 export function mapIdToFilename(shortId: string, library: Library): string {
@@ -32,6 +33,11 @@ export const filterAndSort = (moduleList: ModuleFrontMatter[], category: Categor
   moduleList
     .filter((moduleItem: Module) => moduleItem.category === category)
     .sort((a: Module, b: Module) => (a.name > b.name ? 1 : -1));
+
+export const orderAudioProductionModuleList = (moduleList: ModuleFrontMatter[]) =>
+  moduleList.sort(
+    (a, b) => audioProductionOrder.indexOf(a.id) - audioProductionOrder.indexOf(b.id)
+  );
 
 export function getAllIds(library: Library) {
   const fileNames = fs.readdirSync(directory[library]);
@@ -77,6 +83,7 @@ export async function getContinuations(id: string, library: Library) {
     name: frontmatter.name,
     id: frontmatter.id,
     requirements: frontmatter.requirements,
+    category: frontmatter.category,
   }));
   const mappedId = mapIdToFilename(id, library);
   if (!mappedId) {
@@ -108,17 +115,21 @@ export async function getContinuations(id: string, library: Library) {
 export async function getGlossaryItems(markdown: string): Promise<GlossaryItem[]> {
   const codeItems = getCodeBlocksFromMarkdown(markdown);
   // the Set assures there are no duplicates
-  const result: GlossaryItem[] = Array.from(new Set(codeItems))
+  const result: (GlossaryItem | undefined)[] = Array.from(new Set(codeItems))
     ?.map((item) => {
-      const [t, d] = item.split("|");
-      const term = t.trim();
-      const definition = d.trim();
+      if (item.includes("|")) {
+        const [t, d] = item.split("|");
+        const term = t.trim();
+        const definition = d.trim();
 
-      return {
-        term,
-        definition,
-      };
+        return {
+          term,
+          definition,
+        };
+      }
+      return undefined;
     })
     .sort((a: GlossaryItem, b: GlossaryItem) => (a.term > b.term ? 1 : -1));
-  return result;
+  const resultSortedNoUndefined = result.filter((x): x is GlossaryItem => x !== undefined);
+  return resultSortedNoUndefined;
 }

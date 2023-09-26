@@ -24,7 +24,7 @@ const shortenSaveName = (save: Guitardex, setSave: (save: Guitardex) => void) =>
 };
 
 const decodeName = (encodedStr: string): string => {
-  return encodedStr.replace("-", " ");
+  return encodedStr.replaceAll("-", " ");
 };
 
 const decodeModule = (item: string, library: string, result: Guitardex): void => {

@@ -12,6 +12,7 @@ import {
 } from "../../../lib/serverSideFunctions";
 import ContinueLearning from "../../../components/ModulePage/ContinueLearning";
 import Glossary from "../../../components/ModulePage/Glossary";
+import { disableAudioProductionModules } from "../../../config/disabled";
 
 const AudioProduction = ({
   moduleData,
@@ -28,14 +29,20 @@ const AudioProduction = ({
         <ModuleHeader frontmatter={moduleData} library="a" />
         {/* <div>Coming soon</div> */}
         {/* <div>Demo: {moduleData.demo}</div> */}
-        <Glossary glossary={glossaryItems} />
-        <RenderMarkdown contentMarkdown={moduleData.contentMarkdown} />
-        <ContinueLearning
-          continuations={continuations}
-          library="a"
-          id={moduleData.id}
-          name={moduleData.name}
-        />
+        {disableAudioProductionModules && moduleData.category !== "demo" ? (
+          <div>This module is not ready, it will be released at a later date.</div>
+        ) : (
+          <>
+            <Glossary glossary={glossaryItems} />
+            <RenderMarkdown contentMarkdown={moduleData.contentMarkdown} />
+            <ContinueLearning
+              continuations={continuations}
+              library="a"
+              id={moduleData.id}
+              name={moduleData.name}
+            />
+          </>
+        )}
       </div>
     </Wrapper>
   );

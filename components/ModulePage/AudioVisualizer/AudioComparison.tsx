@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import Divider from "../../Sidebar/Divider";
 // import AudioMeter from "../AudioMeter";
-import { FaPause, FaPlay, FaPowerOff } from "react-icons/fa";
 import { HStack, Slider, SliderFilledTrack, SliderThumb, SliderTrack } from "@chakra-ui/react";
 import VolumeIcon from "./VolumeIcon";
 import {
@@ -19,25 +18,38 @@ import {
   audioContextSuspend,
   drawCanvas,
   drawCursor,
-  fetchAudioBuffer,
   formatTime,
   stopAndDisconnectSource,
 } from "./common";
+import WaveformCanvas from "./WaveformCanvas";
+import PlaybackCursor from "./PlaybackCursor";
+import BypassNotice from "./BypassNotice";
+import ToggleFX from "./ToggleFX";
+import PlayPauseButton from "./PlayPauseButton";
+import AudioMeter from "../AudioMeter";
+import { getAudioFromCache } from "./audioCache";
+import IncompatibilityNotice from "./IncompatibilityNotice";
 
 type Props = {
   srcBefore?: string;
   srcAfter?: string;
   defaultVolume?: number;
+  defaultTrack?: "before" | "after";
 };
 
 // Assumes both audio files are the same length
-const AudioComparison = ({ srcBefore = "", srcAfter = "", defaultVolume = 0.5 }: Props) => {
+const AudioComparison = ({
+  srcBefore = "",
+  srcAfter = "",
+  defaultVolume = 0.5,
+  defaultTrack = "before",
+}: Props) => {
   const [audioContext, setAudioContext] = useState<AudioContext | null>(null);
   const [gainNodeBefore, setGainNodeBefore] = useState<GainNode | null>(null);
   const [gainNodeAfter, setGainNodeAfter] = useState<GainNode | null>(null);
   const [sourceBefore, setSourceBefore] = useState<AudioBufferSourceNode | null>(null);
   const [sourceAfter, setSourceAfter] = useState<AudioBufferSourceNode | null>(null);
-  const [isBefore, setIsBefore] = useState(true);
+  const [isBefore, setIsBefore] = useState(defaultTrack === "before" ? true : false);
   const [currentAudioBuffer, setCurrentAudioBuffer] = useState<AudioBuffer | null>(null);
   const [currentTime, setCurrentTime] = useState(0);
   const canvasRefBefore = useRef<HTMLCanvasElement>(null);
@@ -60,37 +72,49 @@ const AudioComparison = ({ srcBefore = "", srcAfter = "", defaultVolume = 0.5 }:
     const ac = new AudioContext();
     setAudioContext(ac);
     audioContextSuspend(ac);
-    Promise.all([fetchAudioBuffer(ac, srcBefore), fetchAudioBuffer(ac, srcAfter)]).then(
-      ([fetchedBufferBefore, fetchedBufferAfter]) => {
+
+    Promise.all([getAudioFromCache(ac, srcBefore), getAudioFromCache(ac, srcAfter)])
+      .then(([cachedBufferBefore, cachedBufferAfter]) => {
         if (isCancelled || ac.state === "closed") return;
 
         // Setup Before Audio
         const gainBefore = ac.createGain();
         const sourceBefore = ac.createBufferSource();
-        sourceBefore.buffer = fetchedBufferBefore;
+        sourceBefore.buffer = cachedBufferBefore;
         sourceBefore.loop = true;
         sourceBefore.connect(gainBefore).connect(ac.destination);
         gainBefore.gain.setValueAtTime(volume, ac.currentTime);
-        setBufferBefore(fetchedBufferBefore);
-        setDurationBefore(sourceBefore.buffer.duration);
+        setBufferBefore(cachedBufferBefore);
+        setDurationBefore(sourceBefore.buffer?.duration ?? 0);
         setGainNodeBefore(gainBefore);
         setSourceBefore(sourceBefore);
 
         // Setup After Audio
         const gainAfter = ac.createGain();
         const sourceAfter = ac.createBufferSource();
-        sourceAfter.buffer = fetchedBufferAfter;
+        sourceAfter.buffer = cachedBufferAfter;
         sourceAfter.loop = true;
         sourceAfter.connect(gainAfter).connect(ac.destination);
         gainAfter.gain.setValueAtTime(0, ac.currentTime);
-        setBufferAfter(fetchedBufferAfter);
-        setDurationAfter(sourceAfter.buffer.duration);
+        setBufferAfter(cachedBufferAfter);
+        setDurationAfter(sourceAfter.buffer?.duration ?? 0);
         setGainNodeAfter(gainAfter);
         setSourceAfter(sourceAfter);
 
+        // Set initial gain values based on isBefore
+        if (isBefore) {
+          gainBefore.gain.setValueAtTime(volume, ac.currentTime);
+          gainAfter.gain.setValueAtTime(0, ac.currentTime);
+        } else {
+          gainAfter.gain.setValueAtTime(volume, ac.currentTime);
+          gainBefore.gain.setValueAtTime(0, ac.currentTime);
+        }
+
         audioContextSuspend(ac);
-      }
-    );
+      })
+      .catch((error) => {
+        console.error("An error occurred:", error);
+      });
     audioContextSuspend(ac);
 
     // Cleanup on unmount
@@ -251,122 +275,87 @@ const AudioComparison = ({ srcBefore = "", srcAfter = "", defaultVolume = 0.5 }:
   }, [muted, handleToggleMute]);
 
   return (
-    <div className="rounded-xl border-2 border-bg px-3 py-2 bg-bg mb-4 last:mb-0 group focus-within:border-purple">
-      {/* <div className="font-medium">
+    <div>
+      <IncompatibilityNotice />
+
+      <div className="rounded-xl border-2 border-bg px-3 py-2 bg-bg mb-4 last:mb-0 group focus-within:border-purple">
+        {/* <div className="font-medium">
         Now playing:{" "}
         {isBefore
           ? srcBefore.split("/").pop()?.toUpperCase()
           : srcAfter.split("/").pop()?.toUpperCase()}
       </div> */}
-      <div className="relative w-full mb-3" ref={playerRef}>
-        <canvas
-          ref={canvasRefBefore}
-          onClick={handleCanvasClick}
-          style={{ display: isBefore ? "block" : "none", width: "100%" }}
-          className="focus:outline-none"
-          tabIndex={-1}
-        ></canvas>
-        <canvas
-          ref={canvasRefAfter}
-          onClick={handleCanvasClick}
-          style={{ display: isBefore ? "none" : "block", width: "100%" }}
-          className="focus:outline-none"
-          tabIndex={-1}
-        ></canvas>
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            left: `${cursorPosition}px`,
-            width: "3px",
-            height: "100%",
-            border: "1px solid black",
-            backgroundColor: "#e7edf3",
-            display: currentTime !== 0 ? "block" : "none",
-          }}
-        />
-        <div
-          className="text-ghost text-xl"
-          style={{
-            position: "absolute",
-            bottom: 0,
-            left: 0,
-            display: isBefore ? "block" : "none",
-          }}
-        >
-          Bypassing FX
-        </div>
-      </div>
-      <Divider />
-      {/* {sourceBefore && sourceAfter && audioContext && gainNodeBefore && gainNodeAfter && (
-          <AudioMeter
-            audioContext={audioContext}
-            source={isBefore ? sourceBefore : sourceAfter}
-            gain={isBefore ? gainNodeBefore : gainNodeAfter}
+        <div className="relative w-full mb-3" ref={playerRef}>
+          <WaveformCanvas
+            canvasRef={canvasRefBefore}
+            handleCanvasClick={handleCanvasClick}
+            isCurrent={isBefore}
           />
-        )} */}
-      <div className="mt-3">
-        <HStack>
-          <button
-            className={`px-3 py-2 h-10 rounded-md font-medium ${
-              isBefore ? "border-grey bg-grey text-ghost" : "border-purple bg-purple text-white"
-            }`}
-            onClick={handleSwitchAudio}
-          >
-            <HStack>
-              <FaPowerOff />
-              <div className="leading-4">FX</div>
+          <WaveformCanvas
+            canvasRef={canvasRefAfter}
+            handleCanvasClick={handleCanvasClick}
+            isCurrent={!isBefore}
+          />
+          <PlaybackCursor cursorPosition={cursorPosition} />
+          <BypassNotice isShown={isBefore} />
+        </div>
+        <Divider />
+        {/* {sourceBefore && sourceAfter && audioContext && gainNodeBefore && gainNodeAfter && (
+        <AudioMeter
+          audioContext={audioContext}
+          source={isBefore ? sourceBefore : sourceAfter}
+          gain={isBefore ? gainNodeBefore : gainNodeAfter}
+        />
+      )} */}
+        <div className="mt-3">
+          <HStack>
+            <ToggleFX isOn={!isBefore} onClick={handleSwitchAudio} />
+            <PlayPauseButton onClick={handlePlayPause} isPlaying={isPlaying} />
+
+            <HStack
+              className="text-xl pr-5 h-10 rounded-md bg-bg2 border-grey border-2 w-40 max-w-full"
+              spacing={0}
+            >
+              <VolumeIcon volumeLevel={volume} muted={muted} onClick={onMuteToggled} />
+              <div className="w-full py-2">
+                <Slider
+                  defaultValue={volume}
+                  value={muted ? 0 : volume}
+                  min={0}
+                  max={1}
+                  step={0.01}
+                  onChange={(value) => {
+                    setMuted(false);
+                    handleVolumeChange(
+                      value,
+                      setVolume,
+                      gainNodeBefore,
+                      gainNodeAfter,
+                      audioContext,
+                      isBefore,
+                      muted
+                    );
+                  }}
+                  size="lg"
+                  paddingLeft={0}
+                  marginLeft={0}
+                >
+                  <SliderTrack>
+                    <SliderFilledTrack bgColor="#7c3aed" />
+                  </SliderTrack>
+                  <SliderThumb bgColor="#7c3aed" />
+                </Slider>
+              </div>
             </HStack>
-          </button>
-          <button
-            className="px-3 py-2 h-10 border-2 border-grey bg-bg2 rounded-md text-text"
-            onClick={handlePlayPause}
-          >
-            {isPlaying ? <FaPause /> : <FaPlay />}
-          </button>
-          <HStack
-            className="text-xl pr-5 h-10 rounded-md bg-bg2 border-grey border-2 w-40 max-w-full"
-            spacing={0}
-          >
-            <VolumeIcon volumeLevel={volume} muted={muted} onClick={onMuteToggled} />
-            <div className="w-full py-2">
-              <Slider
-                defaultValue={volume}
-                value={muted ? 0 : volume}
-                min={0}
-                max={1}
-                step={0.01}
-                onChange={(value) => {
-                  setMuted(false);
-                  handleVolumeChange(
-                    value,
-                    setVolume,
-                    gainNodeBefore,
-                    gainNodeAfter,
-                    audioContext,
-                    isBefore,
-                    muted
-                  );
-                }}
-                size="lg"
-                paddingLeft={0}
-                marginLeft={0}
-              >
-                <SliderTrack>
-                  <SliderFilledTrack bgColor="#7c3aed" />
-                </SliderTrack>
-                <SliderThumb bgColor="#7c3aed" />
-              </Slider>
-            </div>
+            <HStack spacing={0}>
+              <div className="w-9">{formatTime(currentTime)}</div>
+              <div className="text-center">/</div>
+              <div className="w-9 text-right">
+                {formatTime(isBefore ? durationBefore : durationAfter)}
+              </div>
+            </HStack>
           </HStack>
-          <HStack spacing={0}>
-            <div className="w-9">{formatTime(currentTime)}</div>
-            <div className="text-center">/</div>
-            <div className="w-9 text-right">
-              {formatTime(isBefore ? durationBefore : durationAfter)}
-            </div>
-          </HStack>
-        </HStack>
+        </div>
       </div>
     </div>
   );
