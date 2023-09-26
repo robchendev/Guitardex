@@ -55,7 +55,6 @@ type FormElementConfig = {
 };
 
 const FormElement = ({ controlName, placeholder, onChange, value }: FormElementConfig) => {
-  console.log(controlName, value);
   switch (controlName) {
     case "name":
     case "email":
@@ -148,13 +147,11 @@ const decode = (encodedStr: string): ContactOptions => {
   };
   let decodedArr: string[] = [];
   decodedArr = encodedStr.split("&");
-  console.log(decodedArr);
   for (const decoded of decodedArr) {
     const values = decoded.split("=");
     if (values.length === 2) {
       const control = values[0];
       const spacedString = values[1].replaceAll("_", " ");
-      console.log(control, spacedString);
       switch (control) {
         case "t":
           if (
@@ -303,7 +300,7 @@ const Contact = () => {
   };
 
   if (Object.keys(errors).length !== 0) {
-    console.log("Errors: ", errors);
+    console.error("Errors: ", errors);
   }
 
   const watchTopic = watch("topic");

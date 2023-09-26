@@ -19,7 +19,6 @@ const IncompatibilityNotice = () => {
   useEffect(() => {
     const testedIncompatibilities = { ...incompatibilities };
     if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
-      console.log("is no");
       testedIncompatibilities.isIOS = true;
     }
     setIncompatibility(testedIncompatibilities);
@@ -35,7 +34,6 @@ const IncompatibilityNotice = () => {
           </HStack>
         </button>
       )}
-
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>

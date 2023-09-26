@@ -7,7 +7,7 @@
 // Apply custom default colors
 
 html {
-  overflow: scroll;
+  overflow: none !important;
 }
 html,
 body {
@@ -17,6 +17,7 @@ body {
 
 body {
   height: 100%;
+  overflow-y: scroll !important;
   background-color: var(--bg2) !important;
 }
 

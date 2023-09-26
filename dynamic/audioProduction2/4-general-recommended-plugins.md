@@ -1,6 +1,6 @@
 ---
 id: 4
-name: Recommended Paid Plugins
+name: Recommended Plugins
 category: general
 requirements: [{ id: 3, name: "Audio Production Software" }]
 ---

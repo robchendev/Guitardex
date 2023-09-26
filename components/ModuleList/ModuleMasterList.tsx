@@ -20,7 +20,7 @@ const ModuleMasterList = ({
   return (
     <Wrapper title={title}>
       <p className="mt-2 mb-2 text-center">
-        Want a tutorial module for something not on this list?{" "}
+        Want a tutorial that's not on this list?{" "}
         <A href={`/contact?t=Content_Request&l=${library}`} text="Submit a request" /> for it!
       </p>
       <SearchBar
