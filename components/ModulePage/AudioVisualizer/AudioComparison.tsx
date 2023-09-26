@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import Divider from "../../Sidebar/Divider";
 // import AudioMeter from "../AudioMeter";
 import { HStack, Slider, SliderFilledTrack, SliderThumb, SliderTrack } from "@chakra-ui/react";
@@ -10,6 +10,7 @@ import {
   pauseAudio,
   playAudio,
   switchAudio,
+  handleToggleMute,
 } from "./comparison";
 import {
   animationSafeguard,
@@ -57,11 +58,14 @@ const AudioComparison = ({
   const [bufferAfter, setBufferAfter] = useState<AudioBuffer | null>(null);
   const [isManualSeek, setIsManualSeek] = useState(false);
   const [volume, setVolume] = useState(defaultVolume);
+  // used to save the last volume value before muting
+  const [previousVolume, setPreviousVolume] = useState(defaultVolume);
   const [cursorPosition, setCursorPosition] = useState(0);
   const playerRef = useRef<HTMLDivElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [durationBefore, setDurationBefore] = useState(0);
   const [durationAfter, setDurationAfter] = useState(0);
+  const [muted, setMuted] = useState<boolean>(false);
 
   useEffect(() => {
     let isCancelled = false;
@@ -262,6 +266,14 @@ const AudioComparison = ({
     };
   }, [handlePlayPause, canvasRefBefore, canvasRefBefore]);
 
+  const onMuteToggled = () => {
+    setMuted(!muted);
+  };
+
+  useEffect(() => {
+    handleToggleMute(muted, volume, audioContext, gainNodeBefore, gainNodeAfter);
+  }, [muted, handleToggleMute]);
+
   return (
     <div>
       <IncompatibilityNotice />
@@ -299,27 +311,31 @@ const AudioComparison = ({
           <HStack>
             <ToggleFX isOn={!isBefore} onClick={handleSwitchAudio} />
             <PlayPauseButton onClick={handlePlayPause} isPlaying={isPlaying} />
+
             <HStack
               className="text-xl pr-5 h-10 rounded-md bg-bg2 border-grey border-2 w-40 max-w-full"
               spacing={0}
             >
-              <VolumeIcon volumeLevel={volume} />
+              <VolumeIcon volumeLevel={volume} muted={muted} onClick={onMuteToggled} />
               <div className="w-full py-2">
                 <Slider
                   defaultValue={volume}
+                  value={muted ? 0 : volume}
                   min={0}
                   max={1}
                   step={0.01}
-                  onChange={(value) =>
+                  onChange={(value) => {
+                    setMuted(false);
                     handleVolumeChange(
                       value,
                       setVolume,
                       gainNodeBefore,
                       gainNodeAfter,
                       audioContext,
-                      isBefore
-                    )
-                  }
+                      isBefore,
+                      muted
+                    );
+                  }}
                   size="lg"
                   paddingLeft={0}
                   marginLeft={0}

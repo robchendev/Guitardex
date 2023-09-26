@@ -5,6 +5,7 @@ import { HStack, Slider, SliderFilledTrack, SliderThumb, SliderTrack } from "@ch
 import VolumeIcon from "./VolumeIcon";
 import {
   canvasSeek,
+  handleToggleMute,
   handleVolumeChange,
   listenAndResize,
   pauseAudio,
@@ -42,6 +43,7 @@ const AudioVisualizer = ({ src = "", defaultVolume = 0.5 }: Props) => {
   const playerRef = useRef<HTMLDivElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [duration, setDuration] = useState(0);
+  const [muted, setMuted] = useState<boolean>(false);
 
   useEffect(() => {
     let isCancelled = false;
@@ -153,6 +155,14 @@ const AudioVisualizer = ({ src = "", defaultVolume = 0.5 }: Props) => {
     };
   }, [handlePlayPause, canvasRef]);
 
+  const onMuteToggled = () => {
+    setMuted(!muted);
+  };
+
+  useEffect(() => {
+    handleToggleMute(muted, volume, audioContext, gainNode);
+  }, [muted, handleToggleMute]);
+
   return (
     <div className="rounded-xl border-2 border-bg px-3 py-2 bg-bg mb-4 last:mb-0 group focus-within:border-purple">
       {/* <div className="font-medium">
@@ -180,14 +190,16 @@ const AudioVisualizer = ({ src = "", defaultVolume = 0.5 }: Props) => {
             className="text-xl pr-5 h-10 rounded-md bg-bg2 border-grey border-2 w-40 max-w-full"
             spacing={0}
           >
-            <VolumeIcon volumeLevel={volume} />
+            <VolumeIcon volumeLevel={volume} muted={muted} onClick={onMuteToggled} />
             <div className="w-full py-2">
               <Slider
                 defaultValue={volume}
                 min={0}
                 max={1}
                 step={0.01}
-                onChange={(value) => handleVolumeChange(value, setVolume, gainNode, audioContext)}
+                onChange={(value) =>
+                  handleVolumeChange(value, setVolume, gainNode, audioContext, muted)
+                }
                 size="lg"
                 paddingLeft={0}
                 marginLeft={0}
