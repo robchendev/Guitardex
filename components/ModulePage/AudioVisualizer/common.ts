@@ -97,6 +97,18 @@ export const drawCursor = (
   setCursorPosition(position);
 };
 
+function findMinMax(data: Float32Array, start: number, end: number) {
+  let min = Infinity;
+  let max = -Infinity;
+
+  for (let i = start; i < end; i++) {
+    if (data[i] < min) min = data[i];
+    if (data[i] > max) max = data[i];
+  }
+
+  return { min, max };
+}
+
 export const drawCanvas = async (
   canvasRef: React.RefObject<HTMLCanvasElement>,
   audioBuffer: AudioBuffer | null
@@ -124,11 +136,10 @@ export const drawCanvas = async (
     const step = Math.ceil(dataL.length / canvas.width);
     const amp = canvas.height / 4; // Reduce amplitude to half to fit both channels
 
-    [dataL, dataR].forEach((data, index) => {
+    [dataL, dataR].forEach((data: Float32Array, index: number) => {
       const offset = index === 0 ? amp : amp * 3;
       for (let i = 0; i < canvas.width; i++) {
-        const min = Math.min(...data.slice(i * step, (i + 1) * step));
-        const max = Math.max(...data.slice(i * step, (i + 1) * step));
+        const { min, max } = findMinMax(data, i * step, (i + 1) * step);
 
         ctx.fillStyle = "#7C3AED";
         if (isSilent(data, i * step, (i + 1) * step)) {
@@ -144,8 +155,7 @@ export const drawCanvas = async (
     const step = Math.ceil(data.length / canvas.width);
     const amp = canvas.height / 2;
     for (let i = 0; i < canvas.width; i++) {
-      const min = Math.min(...data.slice(i * step, (i + 1) * step));
-      const max = Math.max(...data.slice(i * step, (i + 1) * step));
+      const { min, max } = findMinMax(data, i * step, (i + 1) * step);
 
       ctx.fillStyle = "#7C3AED";
       if (isSilent(data, i * step, (i + 1) * step)) {
