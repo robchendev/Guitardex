@@ -2,7 +2,7 @@ import React from "react";
 
 const P = ({
   text,
-  className,
+  className = "",
   spanned = false,
 }: {
   text: React.ReactNode;

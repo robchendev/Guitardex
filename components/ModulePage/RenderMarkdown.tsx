@@ -77,6 +77,9 @@ const RenderMarkdown = ({ contentMarkdown }: { contentMarkdown: string }) => {
         ul: (props) => <ul className="list-disc mb-4">{props.children}</ul>,
         ol: (props) => <ol className="list-decimal mb-4">{props.children}</ol>,
         li: (props) => <li className="ml-4 mb-0.5">{props.children}</li>,
+        strong: (props) => (
+          <strong className="font-medium underline underline-offset-2">{props.children}</strong>
+        ),
       }}
     >
       {contentMarkdown}

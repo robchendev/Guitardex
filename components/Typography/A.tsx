@@ -4,7 +4,7 @@ import React from "react";
 const A = ({
   text,
   href,
-  className,
+  className = "",
   spanned = false,
 }: {
   text: React.ReactNode;

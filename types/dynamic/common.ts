@@ -27,6 +27,12 @@ export type Category = CategoryaudioProduction | CategoryTechnique;
 export const libraries = ["t", "a"] as const;
 export type Library = (typeof libraries)[number];
 
+export const slugs = ["blogs"] as const;
+export type Slugs = (typeof slugs)[number];
+
+type CombineTuples<T extends readonly any[], U extends readonly any[]> = [...T, ...U];
+export type AllSlugs = CombineTuples<typeof libraries, typeof slugs>[number];
+
 export type ModuleFrontMatter = {
   name: string;
   id: number;
