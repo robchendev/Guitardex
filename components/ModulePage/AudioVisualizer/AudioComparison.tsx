@@ -325,7 +325,7 @@ const AudioComparison = ({
                 className="text-xl pr-5 h-10 rounded-md bg-bg2 border-grey border-2 w-56 lg:w-40 max-w-full"
                 spacing={0}
               >
-                <VolumeIcon volumeLevel={volume} />
+                <VolumeIcon volumeLevel={volume} muted={muted} onClick={onMuteToggled} />
                 <div className="w-full py-2">
                   <Slider
                     defaultValue={volume}
@@ -339,7 +339,8 @@ const AudioComparison = ({
                         gainNodeBefore,
                         gainNodeAfter,
                         audioContext,
-                        isBefore
+                        isBefore,
+                        muted
                       )
                     }
                     size="lg"
