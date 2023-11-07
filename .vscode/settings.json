@@ -40,6 +40,5 @@
         }
       ]
     }
-  },
-  "workbench.colorTheme": "Electron vue darker"
+  }
 }
