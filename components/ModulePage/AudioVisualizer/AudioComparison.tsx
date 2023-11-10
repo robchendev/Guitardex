@@ -329,6 +329,7 @@ const AudioComparison = ({
                 <div className="w-full py-2">
                   <Slider
                     defaultValue={volume}
+                    value={muted ? 0 : volume}
                     min={0}
                     max={1}
                     step={0.01}

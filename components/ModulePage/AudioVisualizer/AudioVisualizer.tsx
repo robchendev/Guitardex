@@ -2,12 +2,12 @@ import React, { useEffect, useRef, useState } from "react";
 import Divider from "../../Sidebar/Divider";
 // import AudioMeter from "../AudioMeter";
 import {
-  HStack,
+  Stack,
   Slider,
   SliderFilledTrack,
   SliderThumb,
   SliderTrack,
-  Stack,
+  HStack,
 } from "@chakra-ui/react";
 import VolumeIcon from "./VolumeIcon";
 import {
@@ -194,8 +194,6 @@ const AudioVisualizer = ({ src = "", defaultVolume = 0.5 }: Props) => {
         <Stack direction={["column", "row"]}>
           <div>
             <PlayPauseButton onClick={handlePlayPause} isPlaying={isPlaying} />
-          </div>
-          <HStack>
             <HStack
               className="text-xl pr-5 h-10 rounded-md bg-bg2 border-grey border-2 w-56 lg:w-40 max-w-full"
               spacing={0}
@@ -226,7 +224,7 @@ const AudioVisualizer = ({ src = "", defaultVolume = 0.5 }: Props) => {
               <div className="text-center">/</div>
               <div className="w-9 text-right">{formatTime(duration)}</div>
             </HStack>
-          </HStack>
+          </div>
         </Stack>
       </div>
     </div>

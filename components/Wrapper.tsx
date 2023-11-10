@@ -8,7 +8,6 @@ import { FaTimes } from "react-icons/fa";
 const Wrapper = ({ children, title }: { children: React.ReactNode; title?: string }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef(null);
-
   return (
     <div className="h-full bg-bg2 lg:my-0 lg:hp-24">
       {/* STICKY HEADER F©OR MOBILE*/}
