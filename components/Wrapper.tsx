@@ -1,5 +1,5 @@
 import { Drawer, DrawerContent, DrawerOverlay, Flex, Icon, useDisclosure } from "@chakra-ui/react";
-import React, { useEffect } from "react";
+import React from "react";
 import PageTitle, { PageTitleMobile } from "./PageTitle";
 import Sidebar from "./Sidebar";
 import { FiAlignJustify } from "react-icons/fi";
