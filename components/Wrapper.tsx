@@ -9,7 +9,7 @@ const Wrapper = ({ children, title }: { children: React.ReactNode; title?: strin
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef(null);
   return (
-    <div className="h-full bg-bg2 lg:my-0 lg:hp-24">
+    <div className="h-full bg-bg2 lg:my-0 lg:hp-24 font-fredoka font-normal tracking-[0.4px]">
       {/* STICKY HEADER F©OR MOBILE*/}
       <div className={"w-full h-16 bg-bg2 lg:!hidden justify-between fixed top-0 "}>
         <div className="flex align-center items-center bg-bg2">

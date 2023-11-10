@@ -6,7 +6,7 @@ const PageTitle = ({ title }: { title: string }) => {
 
 export const PageTitleMobile = ({ title }: { title: string }) => {
   return (
-    <h1 className="font-medium font-weight:900 text-3xl text-center mx-auto block lg:hidden">
+    <h1 className="font-medium font-serif font-weight:900 text-3xl text-center mx-auto block lg:hidden">
       {title}
     </h1>
   );
