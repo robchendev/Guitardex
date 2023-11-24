@@ -23,4 +23,4 @@ The thumb slap strum becomes more complicated when you only want to play notes o
 
 In order to target the strings you need, you will need to control your finger movements to prevent hitting the wrong strings. You can also deaden the strings you're not playing by `muting | stopping the strings from ringing` them, which is usually a lot easier.
 
-For a consistent method of targeting specific strings that doesn't require muting strings, consider using a [thumb slap pluck](4).
+For a consistent method of targeting specific strings that doesn't require muting strings, consider using a [thumb slap pluck](3).

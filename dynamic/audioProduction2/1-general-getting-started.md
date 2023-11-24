@@ -12,6 +12,14 @@ This library is created as a comprehensive guide to audio production for fingers
 - Talk about not audio engr
 - ...
 
+I am not a trained audio engineer, nor do I have any certificates in this field. This audio production library is put together with a combination of my own side research, experience, and peer review with others who have experience within this field.
+
+At the time of writing this, there are not many comprehensive guides on the audio production process for fingerstyle guitar music. At one end of the spectrum for currently existing guides are many short guides that musicians put up to showcase their process in mixing without explaining their thought processes, causing confusion and [common beginner mistakes](2). The other end of the spectrum are the extremely long guides that teaches you more than you want to know.
+
+.... This library aims to be a compromise between the short and long guides. I understand not everyone wants to spend time to learn everything about audio production especially if they do not know where to start.
+
+If you are experienced with audio production already and are confident with your own audio, these audio production guides may not help you. You can still browse them to see if there's anything new you can learn.
+
 ### Recommended approach
 
 Unlike the Techniques library, this library's modules are listed in a specific order.
