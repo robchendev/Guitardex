@@ -30,7 +30,7 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="lg:rounded-lg lg:bg-bg lg:py-4 lg:px-5 w-full lg:sticky lg:top-16 lg:block ">
+    <div className="lg:rounded-lg lg:bg-bg lg:py-4 lg:px-5 w-full lg:sticky lg:block ">
       <VStack alignItems="flex-start" spacing={2}>
         <Button url="/" path={path} icon={HiOutlineHome}>
           My Guitardex
