@@ -2,8 +2,9 @@ import React, { Suspense } from "react";
 import PageTitle, { PageTitleMobile } from "./PageTitle";
 import Sidebar from "./Sidebar";
 import { FiAlignJustify } from "react-icons/fi";
-import WrapperDrawer from "./WrapperDrawer";
 import { Icon, useDisclosure, Flex } from "@chakra-ui/react";
+
+const WrapperDrawer = React.lazy(() => import("./WrapperDrawer"));
 
 const Wrapper = ({ children, title }: { children: React.ReactNode; title?: string }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
