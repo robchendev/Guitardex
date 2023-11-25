@@ -13,16 +13,16 @@ const Wrapper = ({ children, title }: { children: React.ReactNode; title?: strin
   const btnRef = React.useRef(null);
   return (
     <div className="h-full bg-bg2 lg:py-16 lg:pb-16 lg:hp-24 font-fredoka font-normal tracking-[0.4px]">
-      {/* <div className=" flex justify-end w-full h-16 lg:!hidden lg:h-0 lg:w-0 fixed top-0">
+      <div className=" flex justify-end w-full h-16 lg:!hidden lg:h-0 lg:w-0 fixed top-0">
         <div className="w-[10px] h-[10px] m-4" />
         <PageTitleMobile title={title ?? "GuitarDex"} />
         <button ref={btnRef} className="w-10 h-10 m-4 " onClick={onOpen}>
           <Icon w={10} h={10} as={FiAlignJustify} />
         </button>
         <PageTitle title={title ?? "Guitardex"}></PageTitle>
-      </div> */}
+      </div>
 
-      {/* <WrapperDrawer isOpen={isOpen} btnRef={btnRef} onClose={onClose} /> */}
+      <WrapperDrawer isOpen={isOpen} btnRef={btnRef} onClose={onClose} />
 
       <div className="h-full max-w-[1100px] m-auto my-0 px-8">
         <Flex className="justify-between">
