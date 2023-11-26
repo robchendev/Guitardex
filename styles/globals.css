@@ -17,7 +17,6 @@ body {
 
 body {
   height: 100%;
-  overflow: scroll; /* Might need to remove this if it causes problems */
   background-color: var(--bg2) !important;
 }
 
