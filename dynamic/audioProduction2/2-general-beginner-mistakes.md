@@ -5,7 +5,7 @@ category: general
 requirements: []
 ---
 
-### Mistake: Copying other's settings
+### Copying other's settings
 
 A common beginner mistake is copying settings from a video tutorial instead of spending time to understand what each adjustment to the audio does and figure out what is good.
 
@@ -26,7 +26,7 @@ If you have an understanding of what each adjustment to your audio does, you can
 
 On first impressions, you may think that the copied settings sound good enough for your project, but there are a lot more you can do to it yourself to make it better.
 
-### Mistake: Listening on high volume
+### Listening on high volume
 
 When listening on high volume, you build up [ear fatigue](102) quickly, which will cause your mix to sound worse and worse to you. Bad sounds are harder to identify and good sounds don't sound as good. Everything starts sounding like it is being played through a speaker underwater, and your eardrums become increasingly uncomfortable.
 
@@ -34,17 +34,17 @@ Not only is this inconvenient, it's also dangerous as your ears become less sens
 
 Remember the bulk of your listening audience will not be listening on such a high volume. Your goal should be to mix your audio so that it sounds good at an average listening level. If you can get your audio to sound good when being played quietly, it will sound good when being played loudly.
 
-### Mistake: Randomly changing settings
+### Randomly changing settings
 
 Be careful with the mindset of "If I just add this plugin in here and mess with the dials at random it'll sound somewhat better than what I had before".
 
 It's a good idea to experiment to build upon your understanding of what the plugin does and gain some experience using the effect. But simply adding a plugin into the processing chain can have negative effects just as much as it has positive effects if you adjust the settings without understanding what they do.
 
-### Mistake: Not changing any settings
+### Not changing any settings
 
 If you just add the effect from your plugin library into your processing chain, chances are that effect will do nothing. Some effects wouldn't change anything in your audio based if a single setting hasn't been changed, such as Mix %, decay, threshold, ratio, etc.
 
-### Mistake: Trying too many things at once
+### Trying too many things at once
 
 A good reason for using a [DAW](22) is to have the ability to go back to previous edits and change your settings whenever you want.
 

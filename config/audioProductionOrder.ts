@@ -6,8 +6,7 @@ export const audioProductionOrder: number[] = [
   1, // Getting Started
   2, // Beginner Mistakes
   3, // Audio Production Software
-  4, // Recommended Paid Plugins
-  5, // Recommended Free Plugins
+  4, // Recommended Plugins
   6, // Ethics and Morality
   7, // Legality
 
@@ -75,5 +74,5 @@ export const audioProductionOrder: number[] = [
   31, // Sync-to-Tempo
   32, // Mid / Side Processing
   33, // Room Acoustics
-  10, // Ear Fatigue
+  102, // Ear Fatigue
 ];

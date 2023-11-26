@@ -1,6 +1,6 @@
 ---
 id: 4
-name: Recommended Paid Plugins
+name: Recommended Plugins
 category: general
 requirements: [{ id: 3, name: "Audio Production Software" }]
 ---
@@ -41,6 +41,7 @@ I am not affiliated with any of the companies that sell these plugins.
 #### Analyzers
 
 - Youlean Loudness Meter (free)
+- Fabfilter Pro L
 
 ### The Plugins This Curriculum Will Use
 
