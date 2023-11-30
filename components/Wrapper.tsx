@@ -1,11 +1,17 @@
 import { Flex } from "@chakra-ui/react";
 import React, { useEffect } from "react";
+import { Helmet } from "react-helmet";
 import PageTitle from "./PageTitle";
 import Sidebar from "./Sidebar";
 
 const Wrapper = ({ children, title }: { children: React.ReactNode; title?: string }) => {
   return (
     <div className="h-full py-16 bg-bg2 pb-16 font-fredoka font-normal tracking-[0.4px]">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <link rel="canonical" href="http://guitardex.com" />
+        <title>{title}</title>
+      </Helmet>
       <div className="h-full max-w-[1100px] m-auto my-0 px-8 ">
         <Flex className="justify-between">
           <div className="w-1/4">
