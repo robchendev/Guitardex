@@ -191,11 +191,11 @@ const AudioVisualizer = ({ src = "", defaultVolume = 0.5 }: Props) => {
           />
         )} */}
       <div className="mt-3">
-        <Stack direction={["column", "row"]}>
-          <div>
+        <Stack direction={{ base: "column", lg: "row" }}>
+          <HStack>
             <PlayPauseButton onClick={handlePlayPause} isPlaying={isPlaying} />
             <HStack
-              className="text-xl pr-5 h-10 rounded-md bg-bg2 border-grey border-2 w-56 lg:w-40 max-w-full"
+              className="text-xl pr-5 h-10 rounded-md bg-bg2 border-grey border-2 w-full lg:w-40"
               spacing={0}
             >
               <VolumeIcon volumeLevel={volume} muted={muted} onClick={onMuteToggled} />
@@ -219,7 +219,9 @@ const AudioVisualizer = ({ src = "", defaultVolume = 0.5 }: Props) => {
                 </Slider>
               </div>
             </HStack>
-            <HStack spacing={0}>
+          </HStack>
+          <div className="flex items-center">
+            <HStack spacing={0} justifyContent="center" w="full">
               <div className="w-9">{formatTime(currentTime)}</div>
               <div className="text-center">/</div>
               <div className="w-9 text-right">{formatTime(duration)}</div>
