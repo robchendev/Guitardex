@@ -21,7 +21,9 @@ body {
 }
 
 @media (min-width: 1024px) {
-  overflow: scroll;
+  body {
+    overflow: scroll;
+  }
 }
 
 ::-webkit-scrollbar {
