@@ -24,7 +24,7 @@ const Wrapper = ({ children, title }: { children: React.ReactNode; title?: strin
         </button>
       </HStack>
       <WrapperDrawer isOpen={isOpen} btnRef={btnRef} onClose={onClose} />
-      <div className="h-full max-w-[1100px] m-auto px-8">
+      <div className="h-full max-w-[1100px] m-auto px-4 lg:px-8">
         <Flex className="justify-between">
           <div className="hidden lg:block lg:w-1/4 ">
             <Sidebar />
