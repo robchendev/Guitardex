@@ -1,7 +1,7 @@
 import React, { Suspense, lazy } from "react";
 import PageTitle, { PageTitleMobile } from "./PageTitle";
 import Sidebar from "./Sidebar";
-import { FiAlignJustify } from "react-icons/fi";
+import { GiHamburgerMenu } from "react-icons/gi";
 import { Icon, useDisclosure, Flex, HStack } from "@chakra-ui/react";
 import dynamic from "next/dynamic";
 const WrapperDrawer = dynamic(() => import("./WrapperDrawer"), {
@@ -20,7 +20,7 @@ const Wrapper = ({ children, title }: { children: React.ReactNode; title?: strin
         <div className="w-12 h-12" />
         <PageTitleMobile title={title ?? "GuitarDex"} />
         <button ref={btnRef} className="w-12 h-12 m-4 " onClick={onOpen}>
-          <Icon w={8} h={8} as={FiAlignJustify} />
+          <Icon w={8} h={8} as={GiHamburgerMenu} />
         </button>
       </HStack>
       <WrapperDrawer isOpen={isOpen} btnRef={btnRef} onClose={onClose} />

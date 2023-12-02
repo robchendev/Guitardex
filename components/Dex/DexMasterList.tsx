@@ -238,7 +238,7 @@ const DexMasterList = ({ moduleLists }: { moduleLists: ModuleLists }) => {
           id="saveName"
           type="text"
           fontWeight={500}
-          fontSize="1.875rem"
+          fontSize="1.6rem"
           textAlign="center"
           placeholder="Click to add a name..."
           variant="unstyled"
