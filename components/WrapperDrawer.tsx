@@ -1,5 +1,12 @@
 import React from "react";
-import { Drawer, DrawerContent, DrawerOverlay, Icon } from "@chakra-ui/react";
+import {
+  Drawer,
+  DrawerBody,
+  DrawerCloseButton,
+  DrawerContent,
+  DrawerOverlay,
+  Icon,
+} from "@chakra-ui/react";
 import { FaTimes } from "react-icons/fa";
 import Sidebar from "./Sidebar";
 
@@ -16,17 +23,14 @@ const WrapperDrawer: React.FC<WrapperDrawerProps> = ({ isOpen, btnRef, onClose }
     onClose={onClose}
     finalFocusRef={btnRef}
     autoFocus={false}
+    // bg="linear-gradient(70deg, #444 0%, #212121 45%, #171717 100%)"
   >
     <DrawerOverlay />
     <DrawerContent>
-      <div className="w-full h-full bg-bg2 overflow-y-auto">
-        <div className="flex justify-end w-full">
-          <button ref={btnRef} className="ml-auto" onClick={onClose}>
-            <Icon w={10} h={10} as={FaTimes} />
-          </button>
-        </div>
+      <DrawerCloseButton color="black" boxSize={10} size="4xl" mt={1} />
+      <DrawerBody className="bg-bg" padding={0}>
         <Sidebar />
-      </div>
+      </DrawerBody>
     </DrawerContent>
   </Drawer>
 );
