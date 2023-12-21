@@ -27,8 +27,8 @@ const WrapperDrawer: React.FC<WrapperDrawerProps> = ({ isOpen, btnRef, onClose }
   >
     <DrawerOverlay />
     <DrawerContent>
-      <DrawerCloseButton color="black" boxSize={10} size="4xl" mt={1} />
-      <DrawerBody className="bg-bg" padding={0}>
+      <DrawerCloseButton color="grey" boxSize={10} size="4xl" mt={1} zIndex={2} />
+      <DrawerBody className="bg-bg">
         <Sidebar />
       </DrawerBody>
     </DrawerContent>
