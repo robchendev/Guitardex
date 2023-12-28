@@ -24,7 +24,7 @@ const Wrapper = ({ children, title }: { children: React.ReactNode; title?: strin
         className="bg-bg2 fixed w-full z-[999] border-b border-text lg:relative lg:!hidden"
       >
         <div className="w-12 h-12" />
-        <PageTitleMobile title={title ?? "GuitarDex"} />
+        <PageTitleMobile title={title ?? "Guitardex"} />
         <button ref={btnRef} className="w-12 h-12 m-4 " onClick={onOpen}>
           <Icon w={8} h={8} as={GiHamburgerMenu} />
         </button>
