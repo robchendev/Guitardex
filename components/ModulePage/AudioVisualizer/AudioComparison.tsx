@@ -307,13 +307,13 @@ const AudioComparison = ({
           <BypassNotice isShown={isBefore} />
         </div>
         <Divider />
-        {sourceBefore && sourceAfter && audioContext && gainNodeBefore && gainNodeAfter && (
+        {/* {sourceBefore && sourceAfter && audioContext && gainNodeBefore && gainNodeAfter && (
           <AudioMeter
             audioContext={audioContext}
             source={isBefore ? sourceBefore : sourceAfter}
             gain={isBefore ? gainNodeBefore : gainNodeAfter}
           />
-        )}
+        )} */}
         <div className="mt-3 flex flex-wrap flex-col lg:flex-row">
           <Stack direction={{ base: "column", lg: "row" }}>
             <HStack spacing={2}>

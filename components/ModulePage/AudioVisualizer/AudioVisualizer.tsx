@@ -2,12 +2,12 @@ import React, { useEffect, useRef, useState } from "react";
 import Divider from "../../Sidebar/Divider";
 // import AudioMeter from "../AudioMeter";
 import {
-  Stack,
+  HStack,
   Slider,
   SliderFilledTrack,
   SliderThumb,
   SliderTrack,
-  HStack,
+  Stack,
 } from "@chakra-ui/react";
 import VolumeIcon from "./VolumeIcon";
 import {
@@ -177,7 +177,7 @@ const AudioVisualizer = ({ src = "", defaultVolume = 0.5 }: Props) => {
         {isBefore
           ? srcBefore.split("/").pop()?.toUpperCase()
           : srcAfter.split("/").pop()?.toUpperCase()}
-        </div> */}
+      </div> */}
       <div className="relative w-full mb-3" ref={playerRef}>
         <WaveformCanvas canvasRef={canvasRef} handleCanvasClick={handleCanvasClick} />
         <PlaybackCursor cursorPosition={cursorPosition} />
