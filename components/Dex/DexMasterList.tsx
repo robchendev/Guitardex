@@ -200,7 +200,7 @@ const DexMasterList = ({ moduleLists }: { moduleLists: ModuleLists }) => {
   };
 
   const [save, setSave] = useState(createInitialGuitardex(""));
-  const [exportURL, setExportURL] = useState("https://gdex.cc/?");
+  const [exportURL, setExportURL] = useState("https://guitardex.com/?");
   const [copyURLButton, setCopyURLButton] = useState("Copy Link");
 
   useEffect(() => {
@@ -218,7 +218,7 @@ const DexMasterList = ({ moduleLists }: { moduleLists: ModuleLists }) => {
     if (save.name.length > 24) {
       shortenSaveName(save, setSave);
     }
-    setExportURL("https://gdex.cc/?" + encode(save));
+    setExportURL("https://guitardex.com/?" + encode(save));
   }, [save]);
 
   const [isEditingName, setIsEditingName] = useState(false);

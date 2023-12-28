@@ -63,7 +63,7 @@ const About = () => {
           Go to the link someone else sent you (ex:{" "}
           <A
             href="/?Common-Techniques_16.14.22.17.1.2.4.5.6.7.10.11.12"
-            text="gdex.cc/?Common-Techniques_16.14.22.17.1.2.4.5.6.7.10.11.12"
+            text="guitardex.com/?Common-Techniques_16.14.22.17.1.2.4.5.6.7.10.11.12"
           />
           )
         </NI>
