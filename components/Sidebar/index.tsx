@@ -54,9 +54,9 @@ const Sidebar = () => {
         <Button url="/dev" path={path} icon={HiOutlineDatabase}>
           Updates (v{changeLog[0].version})
         </Button>
-        <Button url="/nope" path={path} icon={HiOutlineCurrencyDollar} isExternal>
+        {/* <Button url="/nope" path={path} icon={HiOutlineCurrencyDollar} isExternal>
           Donate
-        </Button>
+        </Button> */}
         <Button url="/contact" path={path} icon={HiOutlineMail}>
           Contact
         </Button>
