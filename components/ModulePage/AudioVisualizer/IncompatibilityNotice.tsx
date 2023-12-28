@@ -19,7 +19,7 @@ const IncompatibilityNotice = () => {
   useEffect(() => {
     const testedIncompatibilities = { ...incompatibilities };
     if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
-      console.log("is no");
+      // console.log("is no");
       testedIncompatibilities.isIOS = true;
     }
     setIncompatibility(testedIncompatibilities);

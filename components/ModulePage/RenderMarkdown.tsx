@@ -90,7 +90,6 @@ const RenderMarkdown = ({ contentMarkdown }: { contentMarkdown: string }) => {
               const [a, b] = insightItem.split("|");
               const title = a.trim();
               const text = b.trim();
-              console.log(title, text);
               if (!title || !text) return <InvalidRenderMarkdownItem />;
               return <InsightItem title={title} text={text} />;
             }

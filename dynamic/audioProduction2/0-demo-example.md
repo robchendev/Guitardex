@@ -48,4 +48,12 @@ On iOS devices, the audio will not play at all due to Apple's implementation of 
 
 #### Issue: Bluetooth Audio Devices
 
-Some bluetooth audio devices (especially the airpod) delaying the playback to make the latency seem invisible when matching up with the screen. This causes a minor delay before resuming audio that was paused. This also somehow causes the left ear to pause playback shortly after the right ear instead of pausing them both simultaneously. More testing is needed, but so far this current is confirmed to be the case on 2nd generation Airpod Pros.
+Some bluetooth audio devices (especially the airpod) delaying the playback to make the latency seem invisible when matching up with the screen. This causes a minor delay before resuming audio that was paused. This also somehow causes the left ear to pause playback shortly after the right ear instead of pausing them both simultaneously. This is not a priority fix since bluetooth headphones will always have some sort of latency due to their wireless nature.
+
+### Insight blocks
+
+Sometimes, there will be a insight block in between the written instructional text. This is extra information, usually in the form of an opinion or tip. Here is an example:
+
+> Opinion: Background synths | I dont think you should use background synths with guitar audio, purely because the reason for using it is usually to make up for the lack of color in your playing. It makes the presentation of the guitar recording dishonest. If you do this, please let your audience know that you are using background synths.
+
+Reading it is optional, but it may provide additional insight to the subject.

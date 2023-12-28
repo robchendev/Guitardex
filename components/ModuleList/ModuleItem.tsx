@@ -31,12 +31,7 @@ const ModuleItem = ({ module, library }: { module: ModuleFrontMatter; library: L
     </HStack>
   );
   // Disable certain modules
-  if (
-    disableAudioProductionModules &&
-    library === "a" &&
-    module.category !== "demo" &&
-    module.category !== "general"
-  ) {
+  if (disableAudioProductionModules && library === "a" && module.category !== "demo") {
     return (
       <div className="relative w-full opacity-50">
         <div className="diagonal-stripes" />
