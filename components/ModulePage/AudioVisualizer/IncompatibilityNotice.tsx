@@ -46,8 +46,9 @@ const IncompatibilityNotice = () => {
           <ModalBody mb={3} className="font-fredoka">
             {incompatibilities.isIOS && (
               <div>
-                iOS devices require Silent Mode to be turned off to play this audio. To circumvent
-                this restriction, you can also wear headphones.
+                iOS devices require Silent Mode to be turned off to play this audio. Turn off Silent
+                Mode, then refresh this page. To circumvent this restriction, you can also wear
+                headphones.
               </div>
             )}
           </ModalBody>

@@ -193,24 +193,24 @@ export const playAudio = (
       // bork the audioContext.state, so use this to keep track of pause/play button
       setIsPlaying(true);
       // Check if device is IOS
-      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-      if (isIOS) {
-        const hasConfirmedAudio = localStorage.getItem("hasConfirmedAudio");
-        const confirmedAudioTime = localStorage.getItem("confirmedAudioTime");
-        // Check if stored value is expired (3 days)
-        const isExpired = confirmedAudioTime
-          ? Date.now() - Number(confirmedAudioTime) > 3 * 24 * 60 * 60 * 1000
-          : true;
-        if (isExpired || !hasConfirmedAudio) {
-          const headphoneAlert = window.confirm(
-            "iOS devices require Silent Mode to be turned off to play this audio. To circumvent this restriction, you can also wear headphones. Upon clicking 'OK', this popup will not appear for 3 days."
-          );
-          if (headphoneAlert) {
-            localStorage.setItem("hasConfirmedAudio", "true");
-            localStorage.setItem("confirmedAudioTime", String(Date.now()));
-          }
-        }
-      }
+      // const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+      // if (isIOS) {
+      //   const hasConfirmedAudio = localStorage.getItem("hasConfirmedAudio");
+      //   const confirmedAudioTime = localStorage.getItem("confirmedAudioTime");
+      //   // Check if stored value is expired (3 days)
+      //   const isExpired = confirmedAudioTime
+      //     ? Date.now() - Number(confirmedAudioTime) > 3 * 24 * 60 * 60 * 1000
+      //     : true;
+      //   if (isExpired || !hasConfirmedAudio) {
+      //     const headphoneAlert = window.confirm(
+      //       "iOS devices require Silent Mode to be turned off to play this audio. To circumvent this restriction, you can also wear headphones. Upon clicking 'OK', this popup will not appear for 3 days."
+      //     );
+      //     if (headphoneAlert) {
+      //       localStorage.setItem("hasConfirmedAudio", "true");
+      //       localStorage.setItem("confirmedAudioTime", String(Date.now()));
+      //     }
+      //   }
+      // }
       stopAndDisconnectSource(isBefore ? sourceBefore : sourceAfter);
       const newSource = createAndStartBufferSource(
         audioContext,
