@@ -8,7 +8,8 @@ import GlossaryItem from "./GlossaryItem";
 import TabImage from "./TabImage";
 
 import dynamic from "next/dynamic";
-import InvalidGlossaryItem from "./InvalidGlossaryItem";
+import InvalidRenderMarkdownItem from "./InvalidRenderMarkdownItem";
+import InsightItem from "./InsightItem";
 
 const AudioVisualizer = dynamic(
   () => import("./AudioVisualizer/AudioVisualizer").then((module) => module.default),
@@ -68,7 +69,7 @@ const RenderMarkdown = ({ contentMarkdown }: { contentMarkdown: string }) => {
             if (!term || !definition) return <></>;
             return <GlossaryItem term={term} definition={definition} />;
           }
-          return <InvalidGlossaryItem />;
+          return <InvalidRenderMarkdownItem />;
         },
         h3: (props) => <H3 text={props.children} />,
         h4: (props) => <H4 text={props.children} />,
@@ -77,6 +78,25 @@ const RenderMarkdown = ({ contentMarkdown }: { contentMarkdown: string }) => {
         ul: (props) => <ul className="list-disc mb-4">{props.children}</ul>,
         ol: (props) => <ol className="list-decimal mb-4">{props.children}</ol>,
         li: (props) => <li className="ml-4 mb-0.5">{props.children}</li>,
+        blockquote: (props) => {
+          if (
+            props.children[1] &&
+            typeof props.children[1] === "object" &&
+            "props" in props.children[1] &&
+            props.children[1].props.children.length === 1
+          ) {
+            const insightItem = props.children[1].props.children[0] as string;
+            if (insightItem.includes("|")) {
+              const [a, b] = insightItem.split("|");
+              const title = a.trim();
+              const text = b.trim();
+              console.log(title, text);
+              if (!title || !text) return <InvalidRenderMarkdownItem />;
+              return <InsightItem title={title} text={text} />;
+            }
+          }
+          return <InvalidRenderMarkdownItem />;
+        },
         strong: (props) => (
           <strong className="font-medium underline underline-offset-2">{props.children}</strong>
         ),
