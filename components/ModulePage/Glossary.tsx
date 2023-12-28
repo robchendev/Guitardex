@@ -20,7 +20,7 @@ const Glossary = ({ glossary }: { glossary: GlossaryItem[] }) => {
         <AccordionButton className="bg-bg" borderRadius={8}>
           <HiOutlineBookOpen className="mr-2" />
           Glossary [{glossary.length}]
-          <AccordionIcon />
+          <AccordionIcon ml={1} />
         </AccordionButton>
         <AccordionPanel
           borderBottomRadius={8}

@@ -36,6 +36,14 @@ The **Concept** modules aren't listed in any specific order. They will be linked
 - Beginner; I just want to know the bare minimum (link)
 - Intermediate; I already know the basics, I want to learn how to do it specifically for fingerstyle. (link)
 
+### Insight blocks
+
+Sometimes, there will be a insight block in between the written instructional text. This is extra information, usually in the form of an opinion or tip. Reading it is optional, but it may provide additional insight to the subject.
+
+> Opinion: Background synths | I dont think you should use background synths with guitar audio, purely because the reason for using it is usually to make up for the lack of color in your playing. It makes the presentation of the guitar recording dishonest. If you do this, please let your audience know that you are using background synths.
+
+Next text
+
 ### Addition of new modules
 
 A module is a page for a single topic. For example, this page "Getting Started" itself is a module. Each module will be isolated as much as possible from others to allow for easier referencing in random order. Modules that have pre-requisites are written in a way that assumes you've understood the pre-required modules.
