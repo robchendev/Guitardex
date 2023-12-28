@@ -412,14 +412,14 @@ const Contact = () => {
             />
 
             {/* Done: Privacy checkbox */}
-            <FormItem
+            {/* <FormItem
               errors={errors.privacy}
               control={control}
               register={register}
               controlName="privacy"
               rules={{ required: true }}
               errorDef={[{ type: "required", msg: "This is required" }]}
-            />
+            /> */}
             <Button
               className={`px-4 py-2.5 rounded-md bg-carmine-soft bg-purple ${
                 !isSending && "hover:bg-carmine-hard transition ease-in duration-300"
