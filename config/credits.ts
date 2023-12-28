@@ -155,12 +155,12 @@ export const mainCredits: Credit[] = [
 ];
 
 export const externalCredit: CreditExternal[] = [
-  {
-    name: "Sample",
-    contribution: "Stub information",
-  },
-  {
-    name: "Sample",
-    contribution: "Stub information",
-  },
+  // {
+  //   name: "Sample",
+  //   contribution: "Stub information",
+  // },
+  // {
+  //   name: "Sample",
+  //   contribution: "Stub information",
+  // },
 ];

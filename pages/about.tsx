@@ -33,6 +33,15 @@ const About = () => {
       <P text="Fingerstyle is a young style of guitar rising in popularity. Due to its infancy in history, it is not an officially recognized style of guitar by most music conservatories and is not documented heavily on. As a consequence, many avid learners of the style teach themselves without guidance." />
       <P text="My name is Robert Chen, and I created Guitardex to provide easy and free access to fingerstyle tutorials and information. As someone who had experienced the lack of freely accessible resources while growing my own skills as a fingerstyle guitarist, I want this site to give guitarists a convenient access to fingerstyle information." />
       <P text="Brought to you by members of the University of Victoria's Guitar Club and Fingerstyle Central, Guitardex aims to provide concise tutorials to elevate any learner's fingerstyle skills to the next level." />
+      <H3 text="Open Source Code" />
+      <div className="pb-2">
+        <P text="Feel free to contribute to " spanned />
+        <A text="Guitardex's Repository" href="https://github.com/robchendev/Guitardex" spanned />
+        <P
+          text=" on GitHub, or fork the code for your own personal use. Documentation will be made soon to demonstrate how to make modules for any of the libraries without coding knowledge."
+          spanned
+        />
+      </div>
       <H3 text="Fingerstyle Community" />
       <div className="pb-2">
         <P text="Join our " spanned />
@@ -55,7 +64,7 @@ const About = () => {
       </div>
       <P text="At the top of each module links the required modules, if any, that the user must know before learning it and at the bottom is a list of the modules that requires the current module, if any." />
       <H3 text="Future Development" />
-      <P text="Guitardex aims to have more than just fingerstyle techniques in the future. It is programmed to save items from any 'library' within the web app. Currently, Techniques is the only library. Future libraries can include information such as audio mixing and equipment." />
+      <P text="Guitardex aims to have more than just fingerstyle techniques in the future. It is programmed to save items from any 'library' within the web app. Currently, Techniques is the only library that has actual content. Future libraries can include information such as audio mixing and equipment. Currently, the Audio Production library is being made, and will be released in parts." />
       <P text="When I am able, I will be making improvements to this web app's functionality, UI, and content. You can view the changelog on the Development page." />
       <H3 text="Guitardex Team" />
       <P text="I have outsourced help from friends who excel in fields necessary to make this project as serviceable as possible. These are the people who have worked on this project:" />
@@ -65,7 +74,7 @@ const About = () => {
         ))}
       </VStack>
 
-      <ExternalCredit />
+      {/* <ExternalCredit /> */}
     </Wrapper>
   );
 };
