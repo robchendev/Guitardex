@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "https://gdex.cc/*"
+  to = "https://guitardex.com/:splat"
+  status = 301
+  force = true
