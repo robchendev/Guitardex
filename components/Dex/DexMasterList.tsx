@@ -285,7 +285,7 @@ const DexMasterList = ({ moduleLists }: { moduleLists: ModuleLists }) => {
                                   {...provided.draggableProps}
                                   {...provided.dragHandleProps}
                                   ref={provided.innerRef}
-                                  className="pb-1.5"
+                                  className="pb-1.5 select-none touch-none"
                                 >
                                   <DexItem
                                     library={library}
