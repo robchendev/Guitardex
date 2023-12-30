@@ -52,7 +52,7 @@ const Button = ({
         // Prevent sidebar clicks from passing through on mobile
         e.stopPropagation();
       }}
-      className={`pb-1 hover:cursor-pointer w-full px-3 py-2 rounded-md border${
+      className={`pb-1 hover:cursor-pointer w-full px-3 py-2 rounded-md border ${
         isActive
           ? " border-purple  hover:border-purple bg-purple text-white"
           : " border-bg  hover:border-grey hover:text-text transition-none"

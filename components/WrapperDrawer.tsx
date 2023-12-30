@@ -16,6 +16,10 @@ interface WrapperDrawerProps {
   onClose: () => void;
 }
 
+const handleDrawerClick = (e) => {
+  e.stopPropagation();
+};
+
 const WrapperDrawer: React.FC<WrapperDrawerProps> = ({ isOpen, btnRef, onClose }) => (
   <Drawer
     isOpen={isOpen}
@@ -26,7 +30,7 @@ const WrapperDrawer: React.FC<WrapperDrawerProps> = ({ isOpen, btnRef, onClose }
     // bg="linear-gradient(70deg, #444 0%, #212121 45%, #171717 100%)"
   >
     <DrawerOverlay />
-    <DrawerContent>
+    <DrawerContent onClick={handleDrawerClick}>
       <DrawerCloseButton color="grey" boxSize={10} size="4xl" mt={0.5} zIndex={2} />
       <DrawerBody className="bg-bg">
         <Sidebar />
