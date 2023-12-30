@@ -22,10 +22,7 @@ const Button = ({
   if (onClick) {
     return (
       <div
-        onClick={(e) => {
-          e.stopPropagation();
-          onClick();
-        }}
+        onClick={onClick}
         className="pb-1 hover:cursor-pointer w-full px-3 py-2 rounded-md border border-bg  hover:border-grey hover:text-text transition-none"
       >
         <Icon as={icon} className="text-2xl mb-[4px] mr-2" />
@@ -51,6 +48,10 @@ const Button = ({
   return (
     <Link
       href={url}
+      onClick={(e) => {
+        // Prevent sidebar clicks from passing through on mobile
+        e.stopPropagation();
+      }}
       className={`pb-1 hover:cursor-pointer w-full px-3 py-2 rounded-md border${
         isActive
           ? " border-purple  hover:border-purple bg-purple text-white"
