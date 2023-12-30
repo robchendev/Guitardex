@@ -225,28 +225,30 @@ const DexMasterList = ({ moduleLists }: { moduleLists: ModuleLists }) => {
     <div>
       {/* For different className based on if the user is entering 
       a new name, use focused: */}
-      <div
-        className={`border-b-2 rounded-t-md rounded-b-none ${!isEditingName && "border-bg2 "}${
-          isEditingName || !save.name.length ? "bg-bg" : ""
-        } + " " + ${isEditingName && "border-greyChecked bg-bg"}`}
-      >
-        <Input
-          onKeyUp={(e) => handleEnterKey(e)}
-          autoComplete="off"
-          id="saveName"
-          type="text"
-          fontWeight={500}
-          fontSize="1.6rem"
-          textAlign="center"
-          placeholder="Click to add a name..."
-          variant="unstyled"
-          maxLength={24}
-          onFocus={() => setIsEditingName(true)}
-          onBlur={() => setIsEditingName(false)}
-          onInput={(e) => setSave({ ...save, name: (e.target as HTMLInputElement).value })}
-          value={save.name}
-        />
-      </div>
+      {libraries.reduce((acc, library) => acc + (save[library]?.length || 0), 0) !== 0 && (
+        <div
+          className={`border-b-2 rounded-t-md rounded-b-none ${!isEditingName && "border-bg2 "}${
+            isEditingName || !save.name.length ? "bg-bg" : ""
+          } + " " + ${isEditingName && "border-greyChecked bg-bg"}`}
+        >
+          <Input
+            onKeyUp={(e) => handleEnterKey(e)}
+            autoComplete="off"
+            id="saveName"
+            type="text"
+            fontWeight={500}
+            fontSize="1.6rem"
+            textAlign="center"
+            placeholder="Click to add a name..."
+            variant="unstyled"
+            maxLength={24}
+            onFocus={() => setIsEditingName(true)}
+            onBlur={() => setIsEditingName(false)}
+            onInput={(e) => setSave({ ...save, name: (e.target as HTMLInputElement).value })}
+            value={save.name}
+          />
+        </div>
+      )}
       <HStack
         justify="flex-end"
         spacing={0}
