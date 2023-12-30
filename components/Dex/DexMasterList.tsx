@@ -264,7 +264,7 @@ const DexMasterList = ({ moduleLists }: { moduleLists: ModuleLists }) => {
             </h2>
           )}
           {save[library].length !== 0 && (
-            <div>
+            <div className="touch-none">
               <DragDropContext onDragEnd={(e) => handleDexOrderChange(e, save, setSave, library)}>
                 <Droppable droppableId={`techniques-${indexJ}`} key={`droppable-${indexJ}`}>
                   {(provided) => (
@@ -285,7 +285,7 @@ const DexMasterList = ({ moduleLists }: { moduleLists: ModuleLists }) => {
                                   {...provided.draggableProps}
                                   {...provided.dragHandleProps}
                                   ref={provided.innerRef}
-                                  className="pb-1.5 select-none touch-none"
+                                  className="pb-1.5"
                                 >
                                   <DexItem
                                     library={library}
