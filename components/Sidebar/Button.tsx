@@ -22,7 +22,10 @@ const Button = ({
   if (onClick) {
     return (
       <div
-        onClick={onClick}
+        onClick={(e) => {
+          e.stopPropagation();
+          onClick();
+        }}
         className="pb-1 hover:cursor-pointer w-full px-3 py-2 rounded-md border border-bg  hover:border-grey hover:text-text transition-none"
       >
         <Icon as={icon} className="text-2xl mb-[4px] mr-2" />
