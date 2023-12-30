@@ -12,7 +12,7 @@ const NI = ({ children }: { children: React.ReactNode }) => (
 
 const About = () => {
   return (
-    <Wrapper title="About">
+    <Wrapper title="Help">
       <H3 text="Reading Modules" />
       <ul className="mt-2">
         <LI>
