@@ -137,19 +137,17 @@ const clearItem = (id, save: Guitardex, setSave: (dex: Guitardex) => void, libra
   setSave(newSave);
 };
 
-const handleDexOrderChange = (
-  result,
-  save: Guitardex,
-  setSave: (dex: Guitardex) => void,
-  library: Library
-) => {
+const handleDexOrderChange = (result, save: Guitardex, setSave: (dex: Guitardex) => void) => {
   if (!result.destination) {
     return;
   }
-  const items = Array.from(save[library]);
+
+  const sourceLibrary = result.draggableId.split("-")[0];
+  const items = Array.from(save[sourceLibrary]);
   const [reorderedItem] = items.splice(result.source.index, 1);
   items.splice(result.destination.index, 0, reorderedItem);
-  const newSave = { ...save, [library]: items };
+
+  const newSave = { ...save, [sourceLibrary]: items };
   setSave(newSave);
 };
 
@@ -256,23 +254,28 @@ const DexMasterList = ({ moduleLists }: { moduleLists: ModuleLists }) => {
       >
         <span>{save.name.length}/24</span>
       </HStack>
-      {libraries.map((library: Library, indexJ: number) => (
-        <div key={indexJ}>
-          {save[library].length !== 0 && (
-            <h2 className={`text-xl font-medium mb-2 ${indexJ > 0 && "mt-2"}`}>
-              {libraryReadable(library)}
-            </h2>
-          )}
-          {save[library].length !== 0 && (
-            <div className="touch-none">
-              <DragDropContext onDragEnd={(e) => handleDexOrderChange(e, save, setSave, library)}>
+      <DragDropContext onDragEnd={(e) => handleDexOrderChange(e, save, setSave)}>
+        {libraries.map((library: Library, indexJ: number) => (
+          <div key={indexJ}>
+            {save[library].length !== 0 && (
+              <h2 className={`text-xl font-medium mb-2 ${indexJ > 0 && "mt-2"}`}>
+                {libraryReadable(library)}
+              </h2>
+            )}
+            {save[library].length !== 0 && (
+              <div className="">
                 <Droppable droppableId={`techniques-${indexJ}`} key={`droppable-${indexJ}`}>
                   {(provided) => (
                     <ul {...provided.droppableProps} ref={provided.innerRef} key={`ul-${indexJ}`}>
                       {save[library].map((id: number, index: number) => (
                         // react-beautiful-dnd has an issue where a unique key prop error shows on the console
                         // https://github.com/atlassian/react-beautiful-dnd/issues/2084
-                        <Draggable key={id} draggableId={id.toString()} index={index}>
+                        <Draggable
+                          key={`${library}-${id}`}
+                          draggableId={`${library}-${id}`}
+                          index={index}
+                          className="touch-manipulation"
+                        >
                           {(provided) => {
                             const found = moduleLists[library].find(
                               // non strict inequality to compare string to number id
@@ -306,11 +309,12 @@ const DexMasterList = ({ moduleLists }: { moduleLists: ModuleLists }) => {
                     </ul>
                   )}
                 </Droppable>
-              </DragDropContext>
-            </div>
-          )}
-        </div>
-      ))}
+              </div>
+            )}
+          </div>
+        ))}
+      </DragDropContext>
+
       {libraries.reduce((acc, library) => acc + (save[library]?.length || 0), 0) === 0 ? (
         <EmptySave />
       ) : (
