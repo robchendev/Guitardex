@@ -321,7 +321,7 @@ const DexMasterList = ({ moduleLists }: { moduleLists: ModuleLists }) => {
           <HStack align="stretch" spacing={0}>
             <input
               value={exportURL}
-              className="w-full bg-bg pl-3 py-1.5 rounded-l-md tracking-wide text-greyChecked disabled:bg-bg disabled:text-greyChecked"
+              className="w-full bg-bg pl-3 py-1.5 rounded-l-md tracking-wide text-greyChecked disabled:opacity-100"
               disabled
             />
             <button
