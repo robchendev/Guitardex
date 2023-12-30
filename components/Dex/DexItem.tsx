@@ -45,7 +45,7 @@ const DexItem = ({
     return (
       <div className="relative w-full opacity-50 hover:cursor-grab">
         <div className="diagonal-stripes z-10" />
-        <ModuleItemInner />
+        {ModuleItemInner()}
       </div>
     );
   }
@@ -54,7 +54,8 @@ const DexItem = ({
       className="w-full hover:text-text group relative hover:cursor-grab"
       href={`/${library}/` + module.id}
     >
-      <ModuleItemInner />
+      {/* Using {ModuleItemInner()} instead of <ModuleItemInner /> because the latter causes event propogation issues */}
+      {ModuleItemInner()}
     </Link>
   );
 };

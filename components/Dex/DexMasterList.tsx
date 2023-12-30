@@ -256,62 +256,59 @@ const DexMasterList = ({ moduleLists }: { moduleLists: ModuleLists }) => {
       </HStack>
       <DragDropContext onDragEnd={(e) => handleDexOrderChange(e, save, setSave)}>
         {libraries.map((library: Library, indexJ: number) => (
-          <div key={indexJ}>
+          <React.Fragment key={indexJ}>
             {save[library].length !== 0 && (
               <h2 className={`text-xl font-medium mb-2 ${indexJ > 0 && "mt-2"}`}>
                 {libraryReadable(library)}
               </h2>
             )}
             {save[library].length !== 0 && (
-              <div className="">
-                <Droppable droppableId={`techniques-${indexJ}`} key={`droppable-${indexJ}`}>
-                  {(provided) => (
-                    <ul {...provided.droppableProps} ref={provided.innerRef} key={`ul-${indexJ}`}>
-                      {save[library].map((id: number, index: number) => (
-                        // react-beautiful-dnd has an issue where a unique key prop error shows on the console
-                        // https://github.com/atlassian/react-beautiful-dnd/issues/2084
-                        <Draggable
-                          key={`${library}-${id}`}
-                          draggableId={`${library}-${id}`}
-                          index={index}
-                          className="touch-manipulation"
-                        >
-                          {(provided) => {
-                            const found = moduleLists[library].find(
-                              // non strict inequality to compare string to number id
-                              (moduleListItem: ModuleFrontMatter) => moduleListItem.id == id
+              <Droppable droppableId={library} key={`droppable-${library}`}>
+                {(provided) => (
+                  <ul {...provided.droppableProps} ref={provided.innerRef}>
+                    {save[library].map((id: number, index: number) => (
+                      // react-beautiful-dnd has an issue where a unique key prop error shows on the console
+                      // https://github.com/atlassian/react-beautiful-dnd/issues/2084
+                      <Draggable
+                        key={`${library}-${id}`}
+                        draggableId={`${library}-${id}`}
+                        index={index}
+                      >
+                        {(provided) => {
+                          const found = moduleLists[library].find(
+                            // non strict inequality to compare string to number id
+                            (moduleListItem: ModuleFrontMatter) => moduleListItem.id == id
+                          );
+                          if (found) {
+                            return (
+                              <li
+                                id={id.toString()}
+                                {...provided.draggableProps}
+                                {...provided.dragHandleProps}
+                                ref={provided.innerRef}
+                                className="pb-1.5"
+                              >
+                                <DexItem
+                                  library={library}
+                                  module={found}
+                                  onDelete={(e) => {
+                                    clearItem(id, save, setSave, library);
+                                    e.preventDefault();
+                                  }}
+                                />
+                              </li>
                             );
-                            if (found) {
-                              return (
-                                <li
-                                  id={id.toString()}
-                                  {...provided.draggableProps}
-                                  {...provided.dragHandleProps}
-                                  ref={provided.innerRef}
-                                  className="pb-1.5"
-                                >
-                                  <DexItem
-                                    library={library}
-                                    module={found}
-                                    onDelete={(e) => {
-                                      clearItem(id, save, setSave, library);
-                                      e.preventDefault();
-                                    }}
-                                  />
-                                </li>
-                              );
-                            }
-                          }}
-                        </Draggable>
-                      ))}
+                          }
+                        }}
+                      </Draggable>
+                    ))}
 
-                      {provided.placeholder}
-                    </ul>
-                  )}
-                </Droppable>
-              </div>
+                    {provided.placeholder}
+                  </ul>
+                )}
+              </Droppable>
             )}
-          </div>
+          </React.Fragment>
         ))}
       </DragDropContext>
 
