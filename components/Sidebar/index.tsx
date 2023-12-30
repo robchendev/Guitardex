@@ -15,6 +15,63 @@ import {
 } from "react-icons/hi";
 import { FiMoon, FiSun } from "react-icons/fi";
 import { changeLog } from "../../config/updates";
+import { IconType } from "react-icons";
+
+type NavLink = { text: string; url: string; icon: IconType; isExternal: boolean };
+
+const navLinksPrimary: NavLink[] = [
+  {
+    text: "My Guitardex",
+    url: "/",
+    icon: HiOutlineHome,
+    isExternal: false,
+  },
+  {
+    text: "Techniques",
+    url: "t",
+    icon: HiOutlineViewGrid,
+    isExternal: false,
+  },
+  {
+    text: "Audio Production",
+    url: "/a",
+    icon: HiOutlineAdjustments,
+    isExternal: false,
+  },
+  {
+    text: "Help",
+    url: "/help",
+    icon: HiOutlineQuestionMarkCircle,
+    isExternal: false,
+  },
+];
+
+const navLinksSecondary: NavLink[] = [
+  {
+    text: "About",
+    url: "/about",
+    icon: HiOutlineUserGroup,
+    isExternal: false,
+  },
+  {
+    text: `Updates v${changeLog[0].version}`,
+    url: "/dev",
+    icon: HiOutlineDatabase,
+    isExternal: false,
+  },
+  // {
+  //   text: "Donate",
+  //   url: "/nope",
+  //   icon: HiOutlineCurrencyDollar,
+  //   isExternal: true,
+  // },
+  {
+    text: "Contact",
+    url: "/contact",
+    icon: HiOutlineMail,
+    isExternal: false,
+  },
+];
 
 const Sidebar = () => {
   const path = useRouter().pathname;
@@ -32,34 +89,17 @@ const Sidebar = () => {
   return (
     <div className="rounded-lg bg-bg py-8 lg:py-4 px-5 w-full sticky top-16 font-fredoka">
       <VStack alignItems="flex-start" spacing={2}>
-        <Button url="/" path={path} icon={HiOutlineHome}>
-          My Guitardex
-        </Button>
-        <Button url="/t" path={path} icon={HiOutlineViewGrid}>
-          Techniques
-        </Button>
-        <Button url="/a" path={path} icon={HiOutlineAdjustments}>
-          Audio Production
-        </Button>
-        {/* <Button url="/maintenance" path={path} icon={HiOutlineAdjustments}>
-          Audio Production
-        </Button> */}
-        <Button url="/help" path={path} icon={HiOutlineQuestionMarkCircle}>
-          Help
-        </Button>
+        {navLinksPrimary.map(({ text, url, icon, isExternal }: NavLink, index: number) => (
+          <Button url={url} path={path} icon={icon} isExternal={isExternal} key={index}>
+            {text}
+          </Button>
+        ))}
         <Divider />
-        <Button url="/about" path={path} icon={HiOutlineUserGroup}>
-          About
-        </Button>
-        <Button url="/dev" path={path} icon={HiOutlineDatabase}>
-          Updates (v{changeLog[0].version})
-        </Button>
-        {/* <Button url="/nope" path={path} icon={HiOutlineCurrencyDollar} isExternal>
-          Donate
-        </Button> */}
-        <Button url="/contact" path={path} icon={HiOutlineMail}>
-          Contact
-        </Button>
+        {navLinksSecondary.map(({ text, url, icon, isExternal }: NavLink, index: number) => (
+          <Button url={url} path={path} icon={icon} isExternal={isExternal} key={index}>
+            {text}
+          </Button>
+        ))}
         <Divider />
         <Button
           url=""

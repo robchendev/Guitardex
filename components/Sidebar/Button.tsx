@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { IconType } from "react-icons";
-import { Button as ChakraButton, Icon } from "@chakra-ui/react";
+import { Icon } from "@chakra-ui/react";
 
 const Button = ({
   url,
