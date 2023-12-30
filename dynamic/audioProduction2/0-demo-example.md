@@ -44,7 +44,7 @@ Used for visualizing audio waveforms that aren't being compared.
 
 #### Issue: iOS Devices
 
-On iOS devices, the audio will not play at all due to Apple's implementation of Web Audio API in iOS Silent Mode. Somehow, HTML5 Audio works fine, but Web Audio API doesn't. No one knows why this was implemented this way, but due to this limitation iOS users will get a prompt that reminds them to turn off Silent Mode or to wear headphones before listening to the visualizers.
+On iOS devices, the audio will not play at all due to Apple's implementation of Web Audio API in iOS Silent Mode. Somehow, HTML5 Audio works fine, but Web Audio API doesn't. No one knows why this was implemented this way, but due to this limitation iOS users will get a "Not working?" clickable text that reminds them to turn off Silent Mode or to wear headphones before listening to the visualizers.
 
 #### Issue: Bluetooth Audio Devices
 
