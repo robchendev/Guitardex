@@ -9,7 +9,15 @@ const WrapperDrawer = dynamic(() => import("./WrapperDrawer"), {
   loading: () => <p>Loading...</p>,
 });
 
-const Wrapper = ({ children, title }: { children: React.ReactNode; title?: string }) => {
+const Wrapper = ({
+  children,
+  title,
+  hideTitle = false,
+}: {
+  children: React.ReactNode;
+  title?: string;
+  hideTitle: boolean;
+}) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef(null);
   return (
@@ -37,9 +45,11 @@ const Wrapper = ({ children, title }: { children: React.ReactNode; title?: strin
           </div>
           <div className="w-full lg:w-3/4">
             <div className="h-full lg:ml-8 mt-16 lg:mt-0">
-              <div className="hidden lg:block ">
-                {title && <PageTitle title={title ?? "Guitardex"} />}
-              </div>
+              {!hideTitle && (
+                <div className="hidden lg:block ">
+                  {title && <PageTitle title={title ?? "Guitardex"} />}
+                </div>
+              )}
               {children}
             </div>
           </div>
