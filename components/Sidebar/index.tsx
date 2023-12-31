@@ -28,7 +28,7 @@ const navLinksPrimary: NavLink[] = [
   },
   {
     text: "Techniques",
-    url: "t",
+    url: "/t",
     icon: HiOutlineViewGrid,
     isExternal: false,
   },
