@@ -16,7 +16,7 @@ const Wrapper = ({
 }: {
   children: React.ReactNode;
   title?: string;
-  hideTitle: boolean;
+  hideTitle?: boolean;
 }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef(null);

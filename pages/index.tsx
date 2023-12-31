@@ -8,7 +8,7 @@ import { createInitialModuleList } from "../utils/guitardex";
 
 const Index: NextPage = ({ moduleLists }: { moduleLists: ModuleLists }) => {
   return (
-    <Wrapper title="My Guitardex">
+    <Wrapper title="My Guitardex" hideTitle>
       <DexMasterList moduleLists={moduleLists} />
     </Wrapper>
   );
