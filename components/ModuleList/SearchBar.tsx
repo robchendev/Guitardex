@@ -39,7 +39,6 @@ const SearchBar = ({
     const filter = runFilter(list, search.toLowerCase());
     setFilter(filter);
   }, [search]);
-  console.log(list);
 
   return (
     <div className="mb-4 rounded-md border-2 border-greyChecked bg-bg">
