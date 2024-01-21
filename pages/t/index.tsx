@@ -14,6 +14,7 @@ export async function getStaticProps() {
   const harmonics = filterAndSort(moduleList, "harmonics");
   const percussion = filterAndSort(moduleList, "percussion");
   const utility = filterAndSort(moduleList, "utility");
+  console.log(percussion);
   return {
     props: {
       moduleList: [...basics, ...articulation, ...harmonics, ...utility, ...percussion],

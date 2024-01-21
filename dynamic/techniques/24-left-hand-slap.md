@@ -1,7 +1,7 @@
 ---
 id: 24
 name: Left Hand Slap
-category: Percussion
+category: percussion
 difficulty: easy
 requirements: []
 demo: XfWcgr6kIPE

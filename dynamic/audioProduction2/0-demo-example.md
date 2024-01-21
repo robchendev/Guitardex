@@ -50,7 +50,7 @@ On iOS devices, the audio will not play at all due to Apple's implementation of 
 
 Some bluetooth audio devices (especially the airpod) delaying the playback to make the latency seem invisible when matching up with the screen. This causes a minor delay before resuming audio that was paused. This also somehow causes the left ear to pause playback shortly after the right ear instead of pausing them both simultaneously. This is not a priority fix since bluetooth headphones will always have some sort of latency due to their wireless nature.
 
-### Insight blocks
+### Insight Blocks
 
 Sometimes, there will be a insight block in between the written instructional text. This is extra information, usually in the form of an opinion or tip. Here is an example:
 
