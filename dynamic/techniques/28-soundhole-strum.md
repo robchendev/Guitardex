@@ -15,4 +15,4 @@ Since the soundhole strum is very rarely used, there is no notation for this tha
 
 The soundhole strum is a percussive technique used to add emphasis at the end of a strum.
 
-To do a soundhole strum, do a strum and at the end of the strum, hit the back of your fingernail on the edge of the guitar's soundhole.
+To do a soundhole strum, do a strum and at the end of the strum, hit the back of your fingernail on the guitar body below the soundhole.

@@ -28,7 +28,8 @@ const Technique = ({
       <div>
         <ModuleHeader frontmatter={moduleData} library="t" />
         <Glossary glossary={glossaryItems} />
-        <YoutubePlayer videoId={moduleData.demo ?? ""} />
+        {/* Key here makes the video re-render along with the rest of the page */}
+        <YoutubePlayer key={moduleData.id} videoId={moduleData.demo ?? ""} />
         <RenderMarkdown contentMarkdown={moduleData.contentMarkdown} />
         <ContinueLearning
           continuations={continuations}
