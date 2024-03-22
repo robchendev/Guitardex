@@ -6,8 +6,8 @@ async function sendEmail(req, res) {
   try {
     const messageParsed = req.body.message.replaceAll("\n", "<br>");
     await sendgrid.send({
-      to: "management@eddievdmeer.com", // Your email where you'll receive emails
-      from: "management@eddievdmeer.com", // your website email address here
+      to: "management@eddievandermeer.com", // Your email where you'll receive emails
+      from: "management@eddievandermeer.com", // your website email address here
       subject: `[Guitardex: ${req.body.topic}] ${req.body.subject ?? ""}`,
       html: `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
       <html lang="en">
