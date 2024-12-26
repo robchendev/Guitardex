@@ -6,6 +6,9 @@ const nextConfig = {
   images: {
     domains: ["placekitten.com"],
   },
+  experimental: {
+    scrollRestoration: true,
+  },
 };
 
 module.exports = nextConfig;
