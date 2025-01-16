@@ -42,12 +42,6 @@ const About = () => {
           spanned
         />
       </div>
-      <H3 text="Fingerstyle Community" />
-      <div className="pb-2">
-        <P text="Join our " spanned />
-        <A text="Discord" href="https://discord.gg/Khh9gN59fk" spanned />
-        <P text=" Server!" spanned />
-      </div>
       <H3 text="How It Works" />
       <P text="Guitardex does not have a curriculum but any user can make one through the usage of it's saving and sharing functionality. For example, a Guitardex shared by a musician gives their fans direct access to the specific tutorials necessary for them to learn in order to play their songs." />
       <div className="mb-2">
