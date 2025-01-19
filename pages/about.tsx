@@ -32,7 +32,6 @@ const About = () => {
       <H3 text="Why Guitardex Was Made" />
       <P text="Fingerstyle is a young style of guitar rising in popularity. Due to its infancy in history, it is not an officially recognized style of guitar by most music conservatories and is not documented heavily on. As a consequence, many avid learners of the style teach themselves without guidance." />
       <P text="My name is Robert Chen, and I created Guitardex to provide easy and free access to fingerstyle tutorials and information. As someone who had experienced the lack of freely accessible resources while growing my own skills as a fingerstyle guitarist, I want this site to give guitarists a convenient access to fingerstyle information." />
-      <P text="Brought to you by members of the University of Victoria's Guitar Club and Fingerstyle Central, Guitardex aims to provide concise tutorials to elevate any learner's fingerstyle skills to the next level." />
       <H3 text="Open Source Code" />
       <div className="pb-2">
         <P text="Feel free to contribute to " spanned />
