@@ -18,3 +18,4 @@ yarn-error.log
 # public/audio/t/*
 
 .idea
+prod-ca-2021.crt

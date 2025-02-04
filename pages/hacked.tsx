@@ -14,7 +14,7 @@ const Hacked = () => {
         spanned
         text="If you'd like a space to discuss Guitardex and/or Fingerstyle, feel free to join this new "
       />
-      <A spanned text="community discord server" href="https://discord.gg/pNq3CQem" />
+      <A spanned text="community discord server" href="https://discord.gg/4kfqU4ZfS5" />
       <P
         spanned
         text=". It's very barebones right now but we will expand it more soon and tie it closely to Guitardex."
