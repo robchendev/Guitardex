@@ -24,12 +24,8 @@ const AudioWaveform: React.FC<Props> = ({ src = "", defaultVolume = 0.5, isStere
         const parentWidth = canvas.parentElement?.offsetWidth!;
         canvas.width = parentWidth;
         canvas.height = parentWidth / 2;
-        // You may also want to redraw the canvas after resizing
         if (canvas === canvasRef.current) {
           drawCanvas(canvasRef, audioBuffer);
-        }
-        if (canvas === lineCanvasRef.current) {
-          // Redraw the line, if applicable
         }
       }
     });
@@ -59,7 +55,6 @@ const AudioWaveform: React.FC<Props> = ({ src = "", defaultVolume = 0.5, isStere
 
   useEffect(() => {
     const fetchData = async () => {
-      // Fetch the audio file
       const response = await fetch(src);
       const arrayBuffer = await response.arrayBuffer();
 
@@ -137,11 +132,7 @@ const AudioWaveform: React.FC<Props> = ({ src = "", defaultVolume = 0.5, isStere
 
   // UseEffect to draw the waveform ONCE when the audioBuffer changes
   useEffect(() => {
-    // When the canvas size changes, re-draw your canvas here.
-    // You'll need to re-draw whenever `resizeCanvas` changes the dimensions.
-    // This is where you'll call your drawCanvas function.
     drawCanvas(canvasRef, audioBuffer);
-    //... existing drawing code
   }, [audioBuffer]);
 
   // UseEffect to update the red line when the currentTime changes
