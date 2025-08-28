@@ -8,11 +8,11 @@ Each file in the directories `dynamic/techniques/` or `dynamic/audioProduction/`
 
 These frontmatter is shared amongst all libraries.
 
-id: Identification number of the module. Cannot be the same
-name:
-category:
-difficulty:
-requirements: Name and ID of each
+- id: Unique identification number of the module.
+- name:
+- category:
+- difficulty:
+- requirements: Name and ID of each
 
 ### Technique Example
 
@@ -29,11 +29,11 @@ demo: zZDqVblqDjc
 <contents>
 ```
 
-id: the identification number of the module. You'll see this is the first
-name:
-category:
-difficulty:
-requirements: Name and ID of each
+- id: the identification number of the module. You'll see this is the first
+- name:
+- category:
+- difficulty:
+- requirements: Name and ID of each
 
 ### Audio Production Example
 
@@ -48,11 +48,11 @@ requirements: []
 <contents>
 ```
 
-id: the identification number of the module. You'll see this is the first
-name:
-category:
-difficulty:
-requirements:
+- id: the identification number of the module. You'll see this is the first
+- name:
+- category:
+- difficulty:
+- requirements:
 
 # Contents
 
@@ -60,29 +60,19 @@ requirements:
 
 The syntax for these markdown (.md) files use a modified version of the [basic markdown syntax](https://www.markdownguide.org/basic-syntax/), so some of the syntax used might not produce results you expect. Here is the customized syntax. Anything not mentioned below uses the basic markdown syntax.
 
-Visit `guitardex.com/dev/contribute/md-syntax` to view examples of the components that were generated using this custom sytax.
-
 ### Term and Definition
 
-**Format**
-
-```
-`<term> | <definition>`
-```
-
-**Example**
-
-```
-`fret wire | the metal strips on your fretboard`
-```
-
 This term and definition will also appear at the top of the module page.
+
+Format: `<term> | <definition>`
+
+Example: `fret wire | the metal strips on your fretboard`
 
 ### Tab
 
 Image of a tab, screenshotted from Guitar Pro, that is also handled by dark mode.
 
-The color of the image is crucial to not be from within Guitar Pro since the music sheet's background is `#FAFAFA`, compared to a PDF export's background color which is `#FFFFFF`. The background of Guitardex's light mode is `#FAFAFA`, which will blend seamlessly with the image. The dark mode uses CSS filters to change the color of the tab image so that it is also seamless with the dark mode's background.
+The color of the image is crucial: The screenshot taken needs to be from within Guitar Pro since the music sheet's background is `#FAFAFA`, compared to a PDF export's background color which is `#FFFFFF`. The background of Guitardex's light mode is `#FAFAFA`, which will blend seamlessly with the image. The dark mode uses CSS filters to change the color of the tab image so that it is also seamless with the dark mode's background.
 
 Format: `![tab](<path to image file>)`
 
@@ -92,15 +82,17 @@ Example: `![tab](/img/t/thumb-slap-strum.jpg)`
 
 Normally `**Text**` would simply be bolded. For clarity purposes, it is both bolded and underlined.
 
-Format: `<text>`
+Format: `**<text>**`
 
-Example: `**This text is underlined`
+Example: `**This text is underlined**`
 
 ### Audio File Upload and Linking
 
 The files being used is to be uploaded to `/public/audio/a` for the Audio Production library, and to `/public/audio/t` for the Techniques library. When linking to these files anywhere, do not include `/public`.
 
 Example: A file uploaded as `/public/audio/a/audioFile.mp3` will be present in the live site as `guitardex.com/audio/a/audioFile.mp3`.
+
+Note: Please only do this with small audio files, ideally a LFS or external links would be used but that isn't implemented at this time.
 
 ### Audio Comparison Visualizer
 
