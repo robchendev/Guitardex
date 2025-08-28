@@ -56,9 +56,17 @@ The syntax for these markdown (.md) files use a modified version of the [basic m
 
 This term and definition will also appear at the top of the module page.
 
-Format: `<term> | <definition>`
+Format:
 
-Example: `fret wire | the metal strips on your fretboard`
+```
+`<term> | <definition>`
+```
+
+Example:
+
+```
+`fret wire | the metal strips on your fretboard`
+```
 
 ### Tab
 
