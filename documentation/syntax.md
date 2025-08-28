@@ -6,13 +6,17 @@ Each file in the directories `dynamic/techniques/` or `dynamic/audioProduction/`
 
 ### Common FrontMatter
 
+Libraries = Techniques, Audio Production, etc if any more are added
+
+Module = A page within a library, unique by ID within the library.
+
 These frontmatter is shared amongst all libraries.
 
-- id: Unique identification number of the module.
+- id: Unique identification number of the module within the same library.
 - name:
 - category:
 - difficulty:
-- requirements: Name and ID of each
+- requirements: Array of objects containing Name and ID each requirement within the same library.
 
 ### Technique Example
 
@@ -29,12 +33,6 @@ demo: zZDqVblqDjc
 <contents>
 ```
 
-- id: the identification number of the module. You'll see this is the first
-- name:
-- category:
-- difficulty:
-- requirements: Name and ID of each
-
 ### Audio Production Example
 
 ```
@@ -47,12 +45,6 @@ requirements: []
 
 <contents>
 ```
-
-- id: the identification number of the module. You'll see this is the first
-- name:
-- category:
-- difficulty:
-- requirements:
 
 # Contents
 
